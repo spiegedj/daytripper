@@ -81,6 +81,7 @@ export function MapView({ day, places, currentStopIndex, cameraPadding, onSelect
 	const mapRef = useRef<MapRef>(null);
 	const previousPositionRef = useRef<{ dayNumber: number; stopIndex: number } | null>(null);
 	const cameraMoveIdRef = useRef(0);
+	const previousPaddingRef = useRef(cameraPadding);
 	const mapStyle = useMemo(() => createMapStyle(pastelPalette), []);
 	const dayPlaces = useMemo(() => day.stops.map((stop) => places[stop.placeId]), [day, places]);
 	const dayBounds = useMemo(() => getBounds(dayPlaces.map((place) => place.coordinates)), [dayPlaces]);
@@ -144,6 +145,26 @@ export function MapView({ day, places, currentStopIndex, cameraPadding, onSelect
 			}
 		});
 	}, [day.dayNumber, currentStopIndex, dayPlaces, dayBounds, cameraPadding]);
+
+	useEffect(() =>
+	{
+		const previousPadding = previousPaddingRef.current;
+		previousPaddingRef.current = cameraPadding;
+		const hasSideSpaceChanged = previousPadding.left !== cameraPadding.left || previousPadding.right !== cameraPadding.right;
+		const map = mapRef.current;
+		if (!map || !hasSideSpaceChanged)
+		{
+			return;
+		}
+		// A panel opened or closed beside the map: slide the current stop back into the visible area.
+		const currentPlace = dayPlaces[currentStopIndex];
+		map.easeTo(
+		{
+			center: [currentPlace.coordinates.longitude, currentPlace.coordinates.latitude],
+			padding: cameraPadding,
+			duration: 600,
+		});
+	}, [cameraPadding, dayPlaces, currentStopIndex]);
 
 	const handleLoad = (event: MapLibreEvent) =>
 	{

@@ -14,6 +14,20 @@ export const categoryColors: Record<PlaceCategory, string> =
 	airport: "#1971C2",
 };
 
+/** Human-readable name for each place category. */
+export const categoryLabels: Record<PlaceCategory, string> =
+{
+	temple: "Temple & shrine",
+	landmark: "Landmark",
+	museum: "Museum",
+	food: "Food",
+	shopping: "Shopping",
+	nature: "Nature",
+	hotel: "Hotel",
+	station: "Station",
+	airport: "Airport",
+};
+
 const strokeProps =
 {
 	fill: "none",

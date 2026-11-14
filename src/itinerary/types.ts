@@ -40,6 +40,28 @@ export interface IPlace
 	landmarkIconUrl?: string;
 	/** Enlarges slender landmark illustrations so they carry the same visual weight as wide ones. Defaults to 1. */
 	landmarkIconScale?: number;
+	/** Short, practical travel tips written for this trip. */
+	tips?: string[];
+}
+
+/** A freely licensed photo with the credit its license requires. */
+export interface IPhoto
+{
+	url: string;
+	width: number;
+	height: number;
+	author: string;
+	license: string;
+	sourceUrl: string;
+}
+
+/** Background reading and photos for a place, generated from Wikipedia by scripts/fetchPlaceDetails.mjs. */
+export interface IPlaceDetails
+{
+	summary: string;
+	wikipediaTitle: string;
+	wikipediaUrl: string;
+	photos: IPhoto[];
 }
 
 /** How the traveler gets to a stop from the previous one. */
@@ -78,5 +100,6 @@ export interface ITrip
 	id: string;
 	name: string;
 	places: Record<string, IPlace>;
+	placeDetails: Record<string, IPlaceDetails>;
 	days: IDay[];
 }

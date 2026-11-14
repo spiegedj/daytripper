@@ -12,10 +12,11 @@ export interface IItineraryPanelProps
 	stopIndex: number;
 	onSelectDay: (dayIndex: number) => void;
 	onSelectStop: (stopIndex: number) => void;
+	onOpenDetails: () => void;
 }
 
 /** The side panel (a bottom sheet on phones): trip title, a vertical day rail, and the selected day's timeline. */
-export function ItineraryPanel({ trip, dayIndex, stopIndex, onSelectDay, onSelectStop }: IItineraryPanelProps)
+export function ItineraryPanel({ trip, dayIndex, stopIndex, onSelectDay, onSelectStop, onOpenDetails }: IItineraryPanelProps)
 {
 	const day = trip.days[dayIndex];
 
@@ -42,7 +43,7 @@ export function ItineraryPanel({ trip, dayIndex, stopIndex, onSelectDay, onSelec
 								<h1 className={styles.dayTitle}>{day.title}</h1>
 								<span className={styles.daySummary}>{day.stops.length} stops</span>
 							</div>
-							<DayTimeline day={day} places={trip.places} currentStopIndex={stopIndex} onSelectStop={onSelectStop} />
+							<DayTimeline day={day} places={trip.places} currentStopIndex={stopIndex} onSelectStop={onSelectStop} onOpenDetails={onOpenDetails} />
 						</motion.div>
 					</AnimatePresence>
 				</div>

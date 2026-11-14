@@ -113,6 +113,22 @@
 	background: var(--day-color);
 }
 
+.compact .status
+{
+	width: 190px;
+}
+
+.compact .nextLabel
+{
+	display: none;
+}
+
+.compact .next
+{
+	width: 44px;
+	padding: 0;
+}
+
 @media (max-width: 760px)
 {
 	.status

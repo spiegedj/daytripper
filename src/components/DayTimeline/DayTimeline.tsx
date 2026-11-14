@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useEffect, useRef, type CSSProperties } from "react";
-import type { IDay, IPlace, PlaceCategory } from "../../itinerary/types";
-import { CategoryIcon, categoryColors } from "../Markers/CategoryIcon";
+import type { IDay, IPlace } from "../../itinerary/types";
+import { CategoryIcon, categoryColors, categoryLabels } from "../Markers/CategoryIcon";
 import { TravelModeIcon, formatMinutes } from "../TravelModeIcon/TravelModeIcon";
 import styles from "./DayTimeline.module.css";
 
@@ -11,23 +11,11 @@ export interface IDayTimelineProps
 	places: Record<string, IPlace>;
 	currentStopIndex: number;
 	onSelectStop: (stopIndex: number) => void;
+	onOpenDetails: () => void;
 }
 
-const categoryLabels: Record<PlaceCategory, string> =
-{
-	temple: "Temple & shrine",
-	landmark: "Landmark",
-	museum: "Museum",
-	food: "Food",
-	shopping: "Shopping",
-	nature: "Nature",
-	hotel: "Hotel",
-	station: "Station",
-	airport: "Airport",
-};
-
 /** The ordered stops of one day, with how you get between them. The current stop expands into a highlighted card. */
-export function DayTimeline({ day, places, currentStopIndex, onSelectStop }: IDayTimelineProps)
+export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpenDetails }: IDayTimelineProps)
 {
 	const currentRowRef = useRef<HTMLLIElement>(null);
 
@@ -86,6 +74,12 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop }: IDa
 							</span>
 							<span className={styles.number}>{stopIndex + 1}</span>
 						</button>
+						{isCurrent && (
+							<button type="button" className={styles.detailsButton} onClick={onOpenDetails}>
+								Photos &amp; details
+								<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+							</button>
+						)}
 					</li>
 				);
 			})}

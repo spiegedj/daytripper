@@ -197,3 +197,25 @@
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
+
+.detailsButton
+{
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin: 6px 0 4px 50px;
+	padding: 7px 10px 7px 12px;
+	border: 0;
+	border-radius: 999px;
+	background: var(--day-color);
+	color: #ffffff;
+	font: 600 12px/1.2 "Inter", system-ui, sans-serif;
+	cursor: pointer;
+}
+
+.detailsButton:focus-visible
+{
+	outline: 3px solid var(--day-color);
+	outline-offset: 2px;
+}

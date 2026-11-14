@@ -21,7 +21,9 @@ function listFiles(folder)
 }
 
 const problems = [];
-for (const file of listFiles(tripsFolder).filter((path) => /\.(ts|tsx|json|md)$/.test(path)))
+// Generated Wikipedia content is skipped: it is public text, and articles legitimately mention prices and years.
+const isHandWritten = (path) => /\.(ts|tsx|json|md)$/.test(path) && !path.endsWith(".generated.json");
+for (const file of listFiles(tripsFolder).filter(isHandWritten))
 {
 	readFileSync(file, "utf8").split("\n").forEach((line, index) =>
 	{

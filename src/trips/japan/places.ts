@@ -1,5 +1,6 @@
 import type { IPlace, PlaceCategory } from "../../itinerary/types";
 import { landmarkIcons } from "./landmarks";
+import { japanPlaceTips } from "./placeTips";
 
 interface IPlaceEntry
 {
@@ -117,6 +118,7 @@ export const japanPlaces: Record<string, IPlace> = Object.fromEntries(
 			coordinates: { latitude: entry.latitude, longitude: entry.longitude },
 			landmarkIconUrl: landmarkIcons[id],
 			landmarkIconScale: entry.landmarkIconScale,
+			tips: japanPlaceTips[id],
 		};
 		return [id, place];
 	}),
