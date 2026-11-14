@@ -119,26 +119,25 @@
 	display: none;
 }
 
-/* Notch pointing at the timeline next to the rail. Always present but hidden, so it fades in with the background. */
+/* Notch pointing at the timeline next to the rail: a triangle with a softened tip that starts exactly at the
+   button's edge. It never overlaps the button, so while both fade in no doubled-up patch appears. */
 .day::after
 {
 	content: "";
 	position: absolute;
 	top: 50%;
-	right: -5px;
-	width: 10px;
-	height: 10px;
-	margin-top: -5px;
-	background: var(--day-color);
-	transform: rotate(45deg);
-	border-radius: 2px;
-	opacity: 0;
-	transition: opacity 200ms ease;
+	right: -7px;
+	width: 7px;
+	height: 14px;
+	margin-top: -7px;
+	background: transparent;
+	clip-path: path("M0 0 L5.6 5.6 Q7 7 5.6 8.4 L0 14 Z");
+	transition: background 200ms ease;
 }
 
 .day.selected::after
 {
-	opacity: 1;
+	background: var(--day-color);
 }
 
 .dayWord
