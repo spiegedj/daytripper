@@ -14,7 +14,7 @@ import { findDayExploredAreas } from "../../itinerary/tripOverview";
 import { dayOverviewStopIndex } from "../../itinerary/useItineraryNavigation";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import { getLegSegments } from "../../itinerary/routeGeometry";
-import { followLegWithCamera } from "./followLegWithCamera";
+import { createLegRideChannel, followLegWithCamera } from "./followLegWithCamera";
 import { findCompactStops, landmarkGroundOffset, miniLandmarkGroundOffset } from "./markerFootprint";
 
 /** Screen space, in pixels, the camera keeps clear for floating panels. */
@@ -101,6 +101,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 	const cameraMoveIdRef = useRef(0);
 	const cancelFollowRef = useRef<(() => void) | null>(null);
 	const isFollowingLegRef = useRef(false);
+	const rideChannel = useMemo(() => createLegRideChannel(), []);
 	const previousPaddingRef = useRef(cameraPadding);
 	const mapStyle = useMemo(() => createMapStyle(pastelPalette), []);
 	const dayPlaces = useMemo(() => day.stops.map((stop) => places[stop.placeId]), [day, places]);
@@ -192,6 +193,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				arrivalZoom: stopZoom,
 				padding: cameraPadding,
 				shouldContinue: () => cameraMoveId === cameraMoveIdRef.current,
+				rideChannel,
 				onEnd: () =>
 				{
 					isFollowingLegRef.current = false;
@@ -224,7 +226,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				showTarget(dayFlightMilliseconds);
 			}
 		});
-	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths, updateCompactStops]);
+	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths, updateCompactStops, rideChannel]);
 
 	useEffect(() =>
 	{
@@ -300,7 +302,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			<NavigationControl position="top-right" showCompass={false} />
 			{isOverview && children}
 			{!isOverview && <ExploredAreaLayer id="day" areas={dayAreas} isVisible={currentStopIndex === dayOverviewStopIndex} />}
-			{!isOverview && <RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} legPaths={legPaths} />}
+			{!isOverview && <RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} legPaths={legPaths} rideChannel={rideChannel} />}
 			{!isOverview && <LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} />}
 			{!isOverview && dayPlaces.map((place, stopIndex) =>
 			{

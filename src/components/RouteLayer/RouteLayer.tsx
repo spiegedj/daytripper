@@ -3,6 +3,7 @@ import { useEffect, useMemo } from "react";
 import { Layer, Source, useMap } from "react-map-gl/maplibre";
 import { easeLegTravel, getLegPathKey, getLegSegments, getLegTravelMilliseconds } from "../../itinerary/routeGeometry";
 import type { IDay, ILegSegment, IPlace } from "../../itinerary/types";
+import type { ILegRideChannel } from "../MapView/followLegWithCamera";
 
 export interface IRouteLayerProps
 {
@@ -10,6 +11,8 @@ export interface IRouteLayerProps
 	places: Record<string, IPlace>;
 	currentStopIndex: number;
 	legPaths: Record<string, ILegSegment[]>;
+	/** When the camera rides along the leg, the line draws in step with it instead of on its own timer. */
+	rideChannel?: ILegRideChannel;
 }
 
 type LegProgress = "traveled" | "upcoming";
@@ -17,7 +20,7 @@ type LegProgress = "traveled" | "upcoming";
 const currentLegLayerId = "route-current-leg";
 
 /** Draws a day's route: traveled legs solid, upcoming legs dotted, and the leg just traveled drawing itself in. */
-export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLayerProps)
+export function RouteLayer({ day, places, currentStopIndex, legPaths, rideChannel }: IRouteLayerProps)
 {
 	const { current: map } = useMap();
 
@@ -72,29 +75,50 @@ export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLa
 			return;
 		}
 
-		let animationFrame = 0;
-		const startTime = performance.now();
-		const drawFrame = (now: number) =>
+		const showProgress = (progress: number) =>
 		{
 			if (!mapInstance.getLayer(currentLegLayerId))
 			{
-				animationFrame = requestAnimationFrame(drawFrame);
+				return false;
+			}
+			// line-gradient needs a step strictly above 0, otherwise the whole line shows on the first frame.
+			const visibleUntil = Math.max(progress, 0.0001);
+			mapInstance.setPaintProperty(currentLegLayerId, "line-gradient",
+				["step", ["line-progress"], day.color, visibleUntil, "rgba(0, 0, 0, 0)"]);
+			return true;
+		};
+
+		let animationFrame = 0;
+		let isFollowingCamera = false;
+		const stopListening = rideChannel?.subscribe((progress) =>
+		{
+			isFollowingCamera = true;
+			cancelAnimationFrame(animationFrame);
+			showProgress(progress);
+		});
+
+		// Without a camera ride (jumping between stops, changing days) the line draws in on its own.
+		const startTime = performance.now();
+		const drawFrame = (now: number) =>
+		{
+			if (isFollowingCamera)
+			{
 				return;
 			}
 			const linearProgress = Math.min((now - startTime) / currentLegMilliseconds, 1);
-			const easedProgress = easeLegTravel(linearProgress);
-			// line-gradient needs a step strictly above 0, otherwise the whole line shows on the first frame.
-			const visibleUntil = Math.max(easedProgress, 0.0001);
-			mapInstance.setPaintProperty(currentLegLayerId, "line-gradient",
-				["step", ["line-progress"], day.color, visibleUntil, "rgba(0, 0, 0, 0)"]);
-			if (linearProgress < 1)
+			const hasLayer = showProgress(easeLegTravel(linearProgress));
+			if (!hasLayer || linearProgress < 1)
 			{
 				animationFrame = requestAnimationFrame(drawFrame);
 			}
 		};
 		animationFrame = requestAnimationFrame(drawFrame);
-		return () => cancelAnimationFrame(animationFrame);
-	}, [map, currentStopIndex, day.color, currentLegMilliseconds]);
+		return () =>
+		{
+			cancelAnimationFrame(animationFrame);
+			stopListening?.();
+		};
+	}, [map, currentStopIndex, day.color, currentLegMilliseconds, rideChannel]);
 
 	return (
 		<>

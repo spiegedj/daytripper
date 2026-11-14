@@ -1,5 +1,4 @@
 import type { Map as MapLibreMap, PaddingOptions } from "maplibre-gl";
-import { easeLegTravel, getLegTravelMilliseconds } from "../../itinerary/routeGeometry";
 
 export interface IFollowLegOptions
 {
@@ -10,13 +9,45 @@ export interface IFollowLegOptions
 	shouldContinue: () => boolean;
 	/** Called once when the camera stops, whether it arrived or was interrupted. */
 	onEnd?: () => void;
+	/** Receives the ride's progress every frame, so the route drawing keeps pace with the camera. */
+	rideChannel?: ILegRideChannel;
 }
 
 // The leg spans this many screen widths while traveling, so the camera follows it rather than seeing it all at once.
 const legScreenWidthsWhileTraveling = 1.4;
 const lowestTravelZoom = 7;
 // Share of the trip spent easing out to the travel zoom at the start, and back in at the end.
-const zoomTransitionShare = 0.3;
+const zoomTransitionShare = 0.35;
+// Share of the trip spent speeding up at the start and slowing down at the end.
+const speedRampShare = 0.2;
+// Comfort limits: how fast the map may slide across the screen, and how many zoom levels it may change per second.
+const maximumScreenPixelsPerSecond = 450;
+const maximumZoomLevelsPerSecond = 3.2;
+const shortestRideMilliseconds = 1100;
+const longestRideMilliseconds = 12000;
+const motionPlanSteps = 400;
+
+/** Passes a ride's progress (0 to 1 along the leg) from the camera to whatever draws the leg, such as the route line. */
+export interface ILegRideChannel
+{
+	publish: (progress: number) => void;
+	/** Listens for progress; returns a function that stops listening. */
+	subscribe: (listener: (progress: number) => void) => () => void;
+}
+
+/** Creates a channel for one map's rides. */
+export function createLegRideChannel(): ILegRideChannel
+{
+	const listeners = new Set<(progress: number) => void>();
+	return {
+		publish: (progress) => listeners.forEach((listener) => listener(progress)),
+		subscribe: (listener) =>
+		{
+			listeners.add(listener);
+			return () => listeners.delete(listener);
+		},
+	};
+}
 const cancellingEvents = ["dragstart", "wheel", "touchstart", "dblclick"] as const;
 
 function smoothStep(progress: number): number
@@ -128,69 +159,121 @@ function createCameraTrack(map: MapLibreMap, coordinates: [number, number][])
 		];
 	};
 	// Zooming is sized by the real path, so a winding walk still gets room to show its wiggles.
-	return { sample, totalLength };
+	return { sample, totalLength, trackLength };
+}
+
+interface IRidePlan
+{
+	durationMilliseconds: number;
+	/** Share of the track covered at a given share of the ride's time. */
+	progressAt: (timeShare: number) => number;
+	zoomAt: (timeShare: number) => number;
+}
+
+/**
+ * Plans how the camera moves over time so it never slides across the screen faster than the comfort limit.
+ * Ground speed scales with how far out the camera is zoomed, so most of the distance is covered while zoomed out,
+ * and long legs simply take longer.
+ */
+function planRide(trackPixelsAtStartZoom: number, startZoom: number, travelZoom: number, arrivalZoom: number): IRidePlan
+{
+	const zoomAt = (timeShare: number) => timeShare < 1 - zoomTransitionShare
+		? interpolate(startZoom, travelZoom, smoothStep(timeShare / zoomTransitionShare))
+		: interpolate(travelZoom, arrivalZoom, smoothStep((timeShare - (1 - zoomTransitionShare)) / zoomTransitionShare));
+	const speedRamp = (timeShare: number) => smoothStep(timeShare / speedRampShare) * smoothStep((1 - timeShare) / speedRampShare);
+
+	// Ground covered per step, measured in pixels at the starting zoom: screen speed times how far out the camera is.
+	const cumulativeGround = [0];
+	for (let step = 1; step <= motionPlanSteps; step++)
+	{
+		const timeShare = (step - 0.5) / motionPlanSteps;
+		cumulativeGround.push(cumulativeGround[step - 1] + speedRamp(timeShare) * 2 ** (startZoom - zoomAt(timeShare)) / motionPlanSteps);
+	}
+	const groundPerUnitSpeed = cumulativeGround[motionPlanSteps];
+
+	// The peak screen speed is trackPixels / (groundPerUnitSpeed * duration); solve for the duration that keeps it under the limit.
+	const durationForSpeed = 1000 * trackPixelsAtStartZoom / (groundPerUnitSpeed * maximumScreenPixelsPerSecond);
+	const largestZoomChange = Math.max(Math.abs(startZoom - travelZoom), Math.abs(arrivalZoom - travelZoom));
+	// Smoothstep changes zoom at up to 1.5 times its average rate.
+	const durationForZoom = 1000 * 1.5 * largestZoomChange / (zoomTransitionShare * maximumZoomLevelsPerSecond);
+	const durationMilliseconds = Math.min(longestRideMilliseconds, Math.max(shortestRideMilliseconds, durationForSpeed, durationForZoom));
+
+	const progressAt = (timeShare: number) =>
+	{
+		const position = Math.min(Math.max(timeShare, 0), 1) * motionPlanSteps;
+		const step = Math.min(Math.floor(position), motionPlanSteps - 1);
+		const ground = interpolate(cumulativeGround[step], cumulativeGround[step + 1], position - step);
+		return groundPerUnitSpeed === 0 ? timeShare : ground / groundPerUnitSpeed;
+	};
+	return { durationMilliseconds, progressAt, zoomAt };
 }
 
 /**
  * Moves the camera along a travel leg instead of flying straight to the next stop: it eases out to a zoom that suits
- * the leg's length, follows a smoothed version of the path, and settles on the arrival stop. Dragging or zooming the map stops it.
- * Returns a function that cancels the move.
+ * the leg's length, follows a smoothed version of the path at a comfortable speed, and settles on the arrival stop.
+ * Each frame publishes the progress on the ride channel so the route drawing can keep pace. Dragging or zooming the map
+ * stops the ride. Returns a function that cancels it.
  */
 export function followLegWithCamera(map: MapLibreMap, coordinates: [number, number][], options: IFollowLegOptions): () => void
 {
 	const startZoom = map.getZoom();
 	const startCenter = map.getCenter();
-	const { sample, totalLength } = createCameraTrack(map, coordinates);
+	const { sample, totalLength, trackLength } = createCameraTrack(map, coordinates);
 	const visibleWidth = map.getContainer().clientWidth - (options.padding.left ?? 0) - (options.padding.right ?? 0);
 	const zoomForTravel = startZoom + Math.log2((legScreenWidthsWhileTraveling * Math.max(visibleWidth, 200)) / Math.max(totalLength, 1));
 	const travelZoom = Math.max(lowestTravelZoom, Math.min(zoomForTravel, startZoom, options.arrivalZoom));
+	const plan = planRide(trackLength, startZoom, travelZoom, options.arrivalZoom);
 	// The camera may have been panned away from the leg's start; that offset fades out over the first part of the trip.
 	const [pathStartLongitude, pathStartLatitude] = coordinates[0];
 	const startOffset = [startCenter.lng - pathStartLongitude, startCenter.lat - pathStartLatitude];
-	const duration = getLegTravelMilliseconds(coordinates);
 
 	let animationFrame = 0;
-	let isCancelled = false;
-	const cancel = () =>
+	let hasEnded = false;
+	const end = (shouldFinishLine: boolean) =>
 	{
-		if (isCancelled)
+		if (hasEnded)
 		{
 			return;
 		}
-		isCancelled = true;
+		hasEnded = true;
 		cancelAnimationFrame(animationFrame);
-		cancellingEvents.forEach((eventName) => map.off(eventName, cancel));
+		cancellingEvents.forEach((eventName) => map.off(eventName, interrupt));
+		// An interrupted ride still completes the line; a ride replaced by a newer one leaves the new leg's line alone.
+		if (shouldFinishLine)
+		{
+			options.rideChannel?.publish(1);
+		}
 		options.onEnd?.();
 	};
-	cancellingEvents.forEach((eventName) => map.on(eventName, cancel));
+	const interrupt = () => end(true);
+	cancellingEvents.forEach((eventName) => map.on(eventName, interrupt));
 
 	const startTime = performance.now();
 	const drawFrame = (now: number) =>
 	{
 		if (!options.shouldContinue())
 		{
-			cancel();
+			end(false);
 			return;
 		}
-		const timeShare = Math.min((now - startTime) / duration, 1);
-		const [longitude, latitude] = sample(easeLegTravel(timeShare));
+		const timeShare = Math.min((now - startTime) / plan.durationMilliseconds, 1);
+		const progress = plan.progressAt(timeShare);
+		const [longitude, latitude] = sample(progress);
 		const offsetRemaining = 1 - smoothStep(timeShare / zoomTransitionShare);
-		const zoom = timeShare < 1 - zoomTransitionShare
-			? interpolate(startZoom, travelZoom, smoothStep(timeShare / zoomTransitionShare))
-			: interpolate(travelZoom, options.arrivalZoom, smoothStep((timeShare - (1 - zoomTransitionShare)) / zoomTransitionShare));
 		map.jumpTo(
 		{
 			center: [longitude + startOffset[0] * offsetRemaining, latitude + startOffset[1] * offsetRemaining],
-			zoom,
+			zoom: plan.zoomAt(timeShare),
 			padding: options.padding,
 		});
+		options.rideChannel?.publish(progress);
 		if (timeShare < 1)
 		{
 			animationFrame = requestAnimationFrame(drawFrame);
 			return;
 		}
-		cancel();
+		end(true);
 	};
 	animationFrame = requestAnimationFrame(drawFrame);
-	return cancel;
+	return () => end(false);
 }
