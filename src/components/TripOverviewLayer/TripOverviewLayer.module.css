@@ -179,6 +179,24 @@
 	}
 }
 
+/* Holds a day badge so it can be nudged away from overlapping badges without fighting the badge's own hover lift. */
+.badgeSlot
+{
+	display: block;
+	transition: transform 180ms ease-out;
+}
+
+/* Lines from nudged badges back to the area they belong to; drawn over the map, never catching clicks. */
+.leaderLines
+{
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	pointer-events: none;
+}
+
 .areaBadge,
 .areaNumberBadge
 {

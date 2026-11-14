@@ -1,24 +1,29 @@
 import type { Feature, FeatureCollection, LineString, Point } from "geojson";
 import type { Map as MapLibreMap } from "maplibre-gl";
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Layer, Marker, Source, useMap } from "react-map-gl/maplibre";
 import { getLegSegments } from "../../itinerary/routeGeometry";
 import { findDayTrips, findExploredAreas, formatDayRanges } from "../../itinerary/tripOverview";
 import type { ICity, ILegSegment, IPlace, ITrip } from "../../itinerary/types";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import type { ICameraPadding } from "../MapView/MapView";
+import { spreadLabels } from "./spreadLabels";
 import styles from "./TripOverviewLayer.module.css";
 
-// Zoomed in past this, a single city fills the map, so the city badges give way to each day's explored areas.
-const cityDetailZoom = 10.6;
-const areaFadeStartZoom = cityDetailZoom - 0.5;
-const areaFadeEndZoom = cityDetailZoom + 0.5;
+// Experimental: from about a region's width (zoom 7) the city badges give way to each day's areas and badge,
+// nudged apart so they don't overlap. Landmarks and the badges for a day's extra areas wait for a single city.
+const dayAreasZoom = 7;
+const cityCloseUpZoom = 10.6;
+const areaFadeStartZoom = dayAreasZoom - 0.5;
+const areaFadeEndZoom = dayAreasZoom + 0.5;
+// A badge pushed further than this from its area gets a thin line pointing back to it.
+const leaderLineMinimumPixels = 8;
 const areaLandmarkSize = 46;
 const areaLandmarkSpacing = 4;
 // Room around a zoomed-into city for the area badges, which hang below each area.
 const cityZoomExtraPadding = { top: 30, right: 30, bottom: 60, left: 30 };
 const cityMaximumZoom = 13.5;
-const minimumCityZoom = areaFadeEndZoom;
+const minimumCityZoom = cityCloseUpZoom + 0.5;
 const cityZoomMilliseconds = 1600;
 
 export interface ITripOverviewLayerProps
@@ -70,7 +75,10 @@ function findUncoveredLandmarkIds(map: MapLibreMap, landmarks: IAreaLandmark[]):
 export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDayNumber, onSelectDay, onHighlightDay }: ITripOverviewLayerProps)
 {
 	const { current: mapRef } = useMap();
+	const [isDayDetail, setIsDayDetail] = useState(false);
 	const [isCityDetail, setIsCityDetail] = useState(false);
+	const badgeSlotsRef = useRef(new Map<number, HTMLSpanElement>());
+	const leaderLinesRef = useRef<SVGSVGElement | null>(null);
 	const [uncoveredLandmarkIds, setUncoveredLandmarkIds] = useState<Set<string>>(new Set());
 
 	const routes = useMemo<FeatureCollection<LineString>>(() =>
@@ -148,7 +156,11 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 		{
 			return;
 		}
-		const updateDetailLevel = () => setIsCityDetail(map.getZoom() >= cityDetailZoom);
+		const updateDetailLevel = () =>
+		{
+			setIsDayDetail(map.getZoom() >= dayAreasZoom);
+			setIsCityDetail(map.getZoom() >= cityCloseUpZoom);
+		};
 		const updateLandmarks = () => setUncoveredLandmarkIds(findUncoveredLandmarkIds(map, areaLandmarks));
 		updateDetailLevel();
 		updateLandmarks();
@@ -160,6 +172,75 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 			map.off("moveend", updateLandmarks);
 		};
 	}, [mapRef, areaLandmarks]);
+
+	// Until a single city fills the map, only each day's main area carries a badge.
+	const badgedAreaIndexes = useMemo(
+		() => exploredAreas.flatMap((area, areaIndex) => (isDayDetail && (isCityDetail || area.isMainArea) ? [areaIndex] : [])),
+		[exploredAreas, isDayDetail, isCityDetail],
+	);
+
+	useEffect(() =>
+	{
+		const map = mapRef?.getMap();
+		const leaderLines = leaderLinesRef.current;
+		if (!map || !leaderLines)
+		{
+			return;
+		}
+		let animationFrame = 0;
+		const layOutBadges = () =>
+		{
+			animationFrame = 0;
+			// Read every size and position first, then move the badges, so the browser lays out the page only once.
+			const badges = badgedAreaIndexes.flatMap((areaIndex) =>
+			{
+				const slot = badgeSlotsRef.current.get(areaIndex);
+				if (!slot)
+				{
+					return [];
+				}
+				const { longitude, latitude } = exploredAreas[areaIndex].badgeCoordinates;
+				const anchor = map.project([longitude, latitude]);
+				return [{ areaIndex, slot, anchorX: anchor.x, anchorY: anchor.y + 3, width: slot.offsetWidth, height: slot.offsetHeight }];
+			});
+			const offsets = spreadLabels(badges);
+			const lines: string[] = [];
+			badges.forEach((badge, index) =>
+			{
+				const offset = offsets[index];
+				badge.slot.style.transform = `translate(${offset.x}px, ${offset.y}px)`;
+				if (Math.hypot(offset.x, offset.y) < leaderLineMinimumPixels)
+				{
+					return;
+				}
+				const left = badge.anchorX - badge.width / 2 + offset.x;
+				const top = badge.anchorY + offset.y;
+				const pointX = badge.anchorX;
+				const pointY = badge.anchorY - 3;
+				const endX = Math.min(Math.max(pointX, left), left + badge.width);
+				const endY = Math.min(Math.max(pointY, top), top + badge.height);
+				const color = exploredAreas[badge.areaIndex].color;
+				lines.push(`<line x1="${pointX}" y1="${pointY}" x2="${endX}" y2="${endY}" stroke="${color}" stroke-width="1.5" stroke-linecap="round"/>`
+					+ `<circle cx="${pointX}" cy="${pointY}" r="2.5" fill="${color}" stroke="#ffffff" stroke-width="1.2"/>`);
+			});
+			leaderLines.innerHTML = lines.join("");
+		};
+		const scheduleLayout = () =>
+		{
+			if (!animationFrame)
+			{
+				animationFrame = requestAnimationFrame(layOutBadges);
+			}
+		};
+		scheduleLayout();
+		map.on("move", scheduleLayout);
+		return () =>
+		{
+			map.off("move", scheduleLayout);
+			cancelAnimationFrame(animationFrame);
+			leaderLines.innerHTML = "";
+		};
+	}, [mapRef, exploredAreas, badgedAreaIndexes]);
 
 	const zoomIntoCity = (city: ICity) =>
 	{
@@ -247,15 +328,15 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 					offset={[0, city.badgePlacement === "below" ? 8 : -8]}
 				>
 					<div
-						className={`${styles.cityBadge} ${city.badgePlacement === "below" ? styles.below : ""} ${isCityDetail ? styles.isHidden : ""}`}
-						aria-hidden={isCityDetail}
+						className={`${styles.cityBadge} ${city.badgePlacement === "below" ? styles.below : ""} ${isDayDetail ? styles.isHidden : ""}`}
+						aria-hidden={isDayDetail}
 					>
 						<button
 							type="button"
 							className={styles.cityHeader}
 							onClick={() => zoomIntoCity(city)}
 							title={`Zoom into ${city.name}`}
-							tabIndex={isCityDetail ? -1 : undefined}
+							tabIndex={isDayDetail ? -1 : undefined}
 						>
 							<span className={styles.cityName}>{city.name}</span>
 							{city.localName && <span className={styles.cityLocalName}>{city.localName}</span>}
@@ -279,7 +360,7 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 										onMouseEnter={() => onHighlightDay(day.dayNumber)}
 										onMouseLeave={() => onHighlightDay(undefined)}
 										title={`Day ${day.dayNumber}: ${day.title}`}
-										tabIndex={isCityDetail ? -1 : undefined}
+										tabIndex={isDayDetail ? -1 : undefined}
 									>
 										{day.dayNumber}
 									</button>
@@ -303,13 +384,13 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 					>
 						<button
 							type="button"
-							className={`${styles.dayTripBadge} ${extendsToward === "west" ? styles.towardWest : ""} ${isCityDetail ? styles.isHidden : ""}`}
+							className={`${styles.dayTripBadge} ${extendsToward === "west" ? styles.towardWest : ""} ${isDayDetail ? styles.isHidden : ""}`}
 							style={{ "--day-color": day.color } as CSSProperties}
 							onClick={() => onSelectDay(dayIndex)}
 							onMouseEnter={() => onHighlightDay(day.dayNumber)}
 							onMouseLeave={() => onHighlightDay(undefined)}
-							tabIndex={isCityDetail ? -1 : undefined}
-							aria-hidden={isCityDetail}
+							tabIndex={isDayDetail ? -1 : undefined}
+							aria-hidden={isDayDetail}
 						>
 							<span className={styles.dayTripNumber}>{day.dayNumber}</span>
 							{day.title}
@@ -339,8 +420,11 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 				);
 			})}
 
-			{isCityDetail && exploredAreas.map((area, areaIndex) =>
+			<svg ref={leaderLinesRef} className={styles.leaderLines} aria-hidden="true" />
+
+			{badgedAreaIndexes.map((areaIndex) =>
 			{
+				const area = exploredAreas[areaIndex];
 				const day = trip.days[area.dayIndex];
 				return (
 					<Marker
@@ -351,18 +435,33 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 						offset={[0, 3]}
 						style={{ zIndex: area.isMainArea ? 2 : 1 }}
 					>
-						<button
-							type="button"
-							className={area.isMainArea ? styles.areaBadge : styles.areaNumberBadge}
-							style={{ "--day-color": day.color } as CSSProperties}
-							onClick={() => onSelectDay(area.dayIndex)}
-							onMouseEnter={() => onHighlightDay(day.dayNumber)}
-							onMouseLeave={() => onHighlightDay(undefined)}
-							title={`Day ${day.dayNumber}: ${day.title}`}
+						<span
+							className={styles.badgeSlot}
+							ref={(slot) =>
+							{
+								if (slot)
+								{
+									badgeSlotsRef.current.set(areaIndex, slot);
+								}
+								else
+								{
+									badgeSlotsRef.current.delete(areaIndex);
+								}
+							}}
 						>
-							<span className={styles.dayTripNumber}>{day.dayNumber}</span>
-							{area.isMainArea && day.title}
-						</button>
+							<button
+								type="button"
+								className={area.isMainArea ? styles.areaBadge : styles.areaNumberBadge}
+								style={{ "--day-color": day.color } as CSSProperties}
+								onClick={() => onSelectDay(area.dayIndex)}
+								onMouseEnter={() => onHighlightDay(day.dayNumber)}
+								onMouseLeave={() => onHighlightDay(undefined)}
+								title={`Day ${day.dayNumber}: ${day.title}`}
+							>
+								<span className={styles.dayTripNumber}>{day.dayNumber}</span>
+								{area.isMainArea && day.title}
+							</button>
+						</span>
 					</Marker>
 				);
 			})}
