@@ -1,6 +1,7 @@
 .cityBadge
 {
 	position: relative;
+	transition: opacity 250ms ease, transform 250ms ease;
 	display: grid;
 	gap: 4px;
 	padding: 8px 10px 9px;
@@ -35,7 +36,40 @@
 	display: flex;
 	align-items: baseline;
 	gap: 6px;
+	padding: 0;
+	border: 0;
+	background: none;
+	text-align: left;
 	white-space: nowrap;
+	cursor: pointer;
+}
+
+.cityHeader:hover .cityName
+{
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+}
+
+.cityHeader:focus-visible
+{
+	outline: 3px solid #4c6ef5;
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+.zoomGlyph
+{
+	align-self: center;
+	color: #8a93a6;
+}
+
+/* Zoomed into a city, its badge and the day-trip badges step aside for the explored areas. */
+.isHidden
+{
+	opacity: 0;
+	transform: scale(0.92);
+	pointer-events: none;
 }
 
 .cityName
@@ -101,6 +135,7 @@
 
 .dayTripBadge
 {
+	transition: opacity 250ms ease, transform 150ms ease;
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
@@ -113,7 +148,6 @@
 	white-space: nowrap;
 	box-shadow: 0 4px 12px rgba(29, 36, 51, 0.16);
 	cursor: pointer;
-	transition: transform 150ms ease;
 }
 
 .dayTripBadge:hover
@@ -134,6 +168,74 @@
 	height: 20px;
 	border-radius: 999px;
 	font-size: 11px;
+}
+
+@keyframes fadeIn
+{
+	from
+	{
+		opacity: 0;
+		transform: translateY(4px);
+	}
+}
+
+.areaBadge,
+.areaNumberBadge
+{
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 3px 10px 3px 3px;
+	border: 2px solid var(--day-color);
+	border-radius: 999px;
+	background: #ffffff;
+	color: #1d2433;
+	font: 700 12px/1.2 "Inter", system-ui, sans-serif;
+	white-space: nowrap;
+	box-shadow: 0 3px 10px rgba(29, 36, 51, 0.16);
+	cursor: pointer;
+	animation: fadeIn 250ms ease;
+	transition: transform 150ms ease;
+}
+
+.areaNumberBadge
+{
+	padding: 2px;
+}
+
+.areaBadge:hover,
+.areaNumberBadge:hover,
+.areaLandmark:hover
+{
+	transform: translateY(-2px);
+}
+
+.areaBadge:focus-visible,
+.areaNumberBadge:focus-visible,
+.areaLandmark:focus-visible
+{
+	outline: 3px solid var(--day-color);
+	outline-offset: 2px;
+}
+
+.areaLandmark
+{
+	display: block;
+	width: calc(46px * var(--landmark-scale));
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	filter: drop-shadow(0 3px 4px rgba(29, 36, 51, 0.25));
+	animation: fadeIn 250ms ease;
+	transition: transform 150ms ease;
+}
+
+.areaLandmark img
+{
+	display: block;
+	width: 100%;
+	height: auto;
 }
 
 /* Phones: the map is small, so badges shrink to the city name and day range. */

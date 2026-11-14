@@ -1,4 +1,4 @@
-import type { ICoordinates, IDay, ITrip, PlaceCategory } from "./types";
+import type { ICoordinates, IDay, IPlace, ITrip, PlaceCategory } from "./types";
 
 /** Consecutive days spent based in the same city. */
 export interface ICityStay
@@ -111,4 +111,108 @@ export function formatDayRanges(dayNumbers: number[]): string
 		}
 	}
 	return ranges.join(", ");
+}
+
+/** One neighborhood explored on a day, such as Odaiba on the Imperial Palace & Odaiba day. */
+export interface IExploredArea
+{
+	dayIndex: number;
+	places: IPlace[];
+	/** Closed ring of [longitude, latitude] pairs: a rounded outline around the area's sights. */
+	outline: [number, number][];
+	/** Bottom of the outline, where the area's badge hangs. Landmark illustrations rise upward from their sights, so below stays clear. */
+	badgeCoordinates: ICoordinates;
+	/** True for the day's area with the most sights, which carries the full title; other areas get only the day number. */
+	isMainArea: boolean;
+}
+
+// Sights closer than this to each other count as the same neighborhood.
+const neighborhoodLinkKilometers = 2.2;
+const areaPaddingMeters = 380;
+const areaOutlinePointsPerSight = 20;
+
+function groupIntoNeighborhoods(places: IPlace[]): IPlace[][]
+{
+	const neighborhoods: IPlace[][] = [];
+	places.forEach((place) =>
+	{
+		const touching = neighborhoods.filter((neighborhood) =>
+			neighborhood.some((member) => getDistanceKilometers(member.coordinates, place.coordinates) <= neighborhoodLinkKilometers));
+		const merged = [place, ...touching.flat()];
+		touching.forEach((neighborhood) => neighborhoods.splice(neighborhoods.indexOf(neighborhood), 1));
+		neighborhoods.push(merged);
+	});
+	return neighborhoods;
+}
+
+function getConvexHull(points: [number, number][]): [number, number][]
+{
+	const sorted = [...points].sort((first, second) => first[0] - second[0] || first[1] - second[1]);
+	const cross = (origin: [number, number], first: [number, number], second: [number, number]) =>
+		(first[0] - origin[0]) * (second[1] - origin[1]) - (first[1] - origin[1]) * (second[0] - origin[0]);
+	const buildChain = (ordered: [number, number][]) =>
+	{
+		const chain: [number, number][] = [];
+		ordered.forEach((point) =>
+		{
+			while (chain.length >= 2 && cross(chain[chain.length - 2], chain[chain.length - 1], point) <= 0)
+			{
+				chain.pop();
+			}
+			chain.push(point);
+		});
+		chain.pop();
+		return chain;
+	};
+	return [...buildChain(sorted), ...buildChain([...sorted].reverse())];
+}
+
+function buildAreaOutline(places: IPlace[]): [number, number][]
+{
+	// A ring of points around every sight, then the hull around all of them, gives an outline with rounded ends.
+	const metersPerDegreeLatitude = 111320;
+	const ringPoints = places.flatMap((place) =>
+	{
+		const { latitude, longitude } = place.coordinates;
+		const metersPerDegreeLongitude = metersPerDegreeLatitude * Math.cos(latitude * Math.PI / 180);
+		return Array.from({ length: areaOutlinePointsPerSight }, (_, index): [number, number] =>
+		{
+			const angle = (index / areaOutlinePointsPerSight) * Math.PI * 2;
+			return [
+				longitude + Math.cos(angle) * areaPaddingMeters / metersPerDegreeLongitude,
+				latitude + Math.sin(angle) * areaPaddingMeters / metersPerDegreeLatitude,
+			];
+		});
+	});
+	const hull = getConvexHull(ringPoints);
+	return [...hull, hull[0]];
+}
+
+/**
+ * Splits each day's sights into the neighborhoods explored, each with a rounded outline for the map.
+ * Hotels, stations and airports are left out because passing through them isn't exploring.
+ */
+export function findExploredAreas(trip: ITrip): IExploredArea[]
+{
+	return trip.days.flatMap((day, dayIndex) =>
+	{
+		const sights = day.stops
+			.map((stop) => trip.places[stop.placeId])
+			.filter((place, index, places) => !placesThatAreNotDestinations.includes(place.category) && places.indexOf(place) === index);
+		const neighborhoods = groupIntoNeighborhoods(sights);
+		const largestSize = Math.max(...neighborhoods.map((neighborhood) => neighborhood.length));
+		const mainNeighborhood = neighborhoods.find((neighborhood) => neighborhood.length === largestSize);
+		return neighborhoods.map((places): IExploredArea =>
+		{
+			const outline = buildAreaOutline(places);
+			const bottom = outline.reduce((lowest, point) => (point[1] < lowest[1] ? point : lowest));
+			return {
+				dayIndex,
+				places,
+				outline,
+				badgeCoordinates: { longitude: getCentroid(places.map((place) => place.coordinates)).longitude, latitude: bottom[1] },
+				isMainArea: places === mainNeighborhood,
+			};
+		});
+	});
 }

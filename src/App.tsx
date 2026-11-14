@@ -83,6 +83,7 @@ export function App()
 				<TripOverviewLayer
 					trip={trip}
 					legPaths={visibleLegPaths}
+					cameraPadding={cameraPadding}
 					highlightedDayNumber={highlightedDayNumber}
 					onSelectDay={navigation.goToDay}
 					onHighlightDay={setHighlightedDayNumber}
