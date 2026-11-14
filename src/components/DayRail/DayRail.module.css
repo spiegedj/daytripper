@@ -47,32 +47,50 @@
 	transition: background 200ms ease, color 200ms ease;
 }
 
-/* A tall bar in the day's color on the left, so every day stays recognizable when not selected. The bars nearly
-   fill each button's height, so down the rail they read as one segmented line. */
+/* Square on the left so the hover tint meets the color bar flush; the selected day keeps all four corners round. */
+.day:not(.selected)
+{
+	border-radius: 0 12px 12px 0;
+}
+
+/* A bar in the day's color on the left, so every day stays recognizable when not selected. Each bar reaches
+   halfway into the gap on both sides, so a city's days join into one striped line with rounded ends. */
 .day::before
 {
 	content: "";
 	position: absolute;
 	left: 3px;
-	top: 3px;
-	bottom: 3px;
+	top: -2px;
+	bottom: -2px;
 	width: 3px;
-	border-radius: 2px;
 	background: var(--day-color);
-	transform: scaleY(1);
-	transition: transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1), width 200ms ease;
+	transition: width 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.city + .day::before
+{
+	top: 3px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.day:last-child::before
+{
+	bottom: 3px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+/* The tint starts at the color bar rather than the button's edge, so nothing shows to the bar's left. */
 .day:hover
 {
-	background: color-mix(in srgb, var(--day-color) 10%, #f6f8f7);
+	background: linear-gradient(color-mix(in srgb, var(--day-color) 10%, #f6f8f7), color-mix(in srgb, var(--day-color) 10%, #f6f8f7)) no-repeat 3px 0 / calc(100% - 3px) 100%;
 }
 
-/* On hover the bar stretches a little past its neighbors with a springy overshoot, and thickens. */
+/* On hover the bar thickens with a springy overshoot; it can't grow taller without covering its neighbors. */
 .day:hover::before
 {
-	width: 5px;
-	transform: scaleY(1.14);
+	width: 6px;
 }
 
 @media (prefers-reduced-motion: reduce)
@@ -101,8 +119,8 @@
 	display: none;
 }
 
-/* Notch pointing at the timeline next to the rail. */
-.day.selected::after
+/* Notch pointing at the timeline next to the rail. Always present but hidden, so it fades in with the background. */
+.day::after
 {
 	content: "";
 	position: absolute;
@@ -114,6 +132,13 @@
 	background: var(--day-color);
 	transform: rotate(45deg);
 	border-radius: 2px;
+	opacity: 0;
+	transition: opacity 200ms ease;
+}
+
+.day.selected::after
+{
+	opacity: 1;
 }
 
 .dayWord
