@@ -14,7 +14,7 @@ import { findDayExploredAreas } from "../../itinerary/tripOverview";
 import { dayOverviewStopIndex } from "../../itinerary/useItineraryNavigation";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import { getLegSegments } from "../../itinerary/routeGeometry";
-import { createLegRideChannel, followLegWithCamera } from "./followLegWithCamera";
+import { createLegRideChannel, followLegWithCamera, ridePaces, type TravelSpeed } from "./followLegWithCamera";
 import { findCompactStops, landmarkGroundOffset, miniLandmarkGroundOffset } from "./markerFootprint";
 
 /** Screen space, in pixels, the camera keeps clear for floating panels. */
@@ -38,6 +38,8 @@ export interface IMapViewProps
 	/** Every location in the trip, used to frame the overview. */
 	tripCoordinates: ICoordinates[];
 	onSelectStop: (stopIndex: number) => void;
+	/** How quickly the camera rides along a leg when stepping to the next stop. */
+	travelSpeed: TravelSpeed;
 	/** Map content for the trip overview. */
 	children?: ReactNode;
 }
@@ -94,7 +96,7 @@ function getBoundsCenter(bounds: Bounds): ICoordinates
 }
 
 /** The stylized, pannable map showing one day's stops and route. The camera follows the current stop and glides between days. */
-export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding, isOverview, tripCoordinates, onSelectStop, children }: IMapViewProps)
+export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding, isOverview, tripCoordinates, onSelectStop, travelSpeed, children }: IMapViewProps)
 {
 	const mapRef = useRef<MapRef | null>(null);
 	const previousPositionRef = useRef<{ dayNumber: number; stopIndex: number } | null>(null);
@@ -192,6 +194,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			{
 				arrivalZoom: stopZoom,
 				padding: cameraPadding,
+				pace: ridePaces[travelSpeed],
 				shouldContinue: () => cameraMoveId === cameraMoveIdRef.current,
 				rideChannel,
 				onEnd: () =>
@@ -226,7 +229,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				showTarget(dayFlightMilliseconds);
 			}
 		});
-	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths, updateCompactStops, rideChannel]);
+	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths, updateCompactStops, rideChannel, travelSpeed]);
 
 	useEffect(() =>
 	{

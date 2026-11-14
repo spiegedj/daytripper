@@ -7,6 +7,16 @@
 	box-shadow: 0 2px 8px rgba(29, 36, 51, 0.16);
 }
 
+.caption
+{
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 0 6px 0 9px;
+	color: #8a93a6;
+	font: 600 11px/1.2 "Inter", system-ui, sans-serif;
+}
+
 .option
 {
 	display: inline-flex;

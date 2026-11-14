@@ -1,10 +1,30 @@
 import type { Map as MapLibreMap, PaddingOptions } from "maplibre-gl";
 
+/** How quickly the camera rides between stops, chosen by the viewer. */
+export type TravelSpeed = "slow" | "medium" | "fast";
+
+/** Comfort limits for a ride: how fast the map may slide and zoom, and the longest any ride may take. */
+export interface IRidePace
+{
+	maximumScreenPixelsPerSecond: number;
+	maximumZoomLevelsPerSecond: number;
+	longestRideMilliseconds: number;
+}
+
+/** The pace behind each travel speed. Medium is the default; a 5 km train ride takes about 1.7 s at that pace. */
+export const ridePaces: Record<TravelSpeed, IRidePace> =
+{
+	slow: { maximumScreenPixelsPerSecond: 450, maximumZoomLevelsPerSecond: 3.2, longestRideMilliseconds: 10000 },
+	medium: { maximumScreenPixelsPerSecond: 800, maximumZoomLevelsPerSecond: 5, longestRideMilliseconds: 6000 },
+	fast: { maximumScreenPixelsPerSecond: 1300, maximumZoomLevelsPerSecond: 8, longestRideMilliseconds: 3500 },
+};
+
 export interface IFollowLegOptions
 {
 	/** The zoom to arrive at, the same as any other stop. */
 	arrivalZoom: number;
 	padding: PaddingOptions;
+	pace: IRidePace;
 	/** Called every frame; returning false stops the camera, for example when a newer move has started. */
 	shouldContinue: () => boolean;
 	/** Called once when the camera stops, whether it arrived or was interrupted. */
@@ -20,11 +40,7 @@ const lowestTravelZoom = 7;
 const zoomTransitionShare = 0.35;
 // Share of the trip spent speeding up at the start and slowing down at the end.
 const speedRampShare = 0.2;
-// Comfort limits: how fast the map may slide across the screen, and how many zoom levels it may change per second.
-const maximumScreenPixelsPerSecond = 800;
-const maximumZoomLevelsPerSecond = 5;
 const shortestRideMilliseconds = 1100;
-const longestRideMilliseconds = 6000;
 const motionPlanSteps = 400;
 
 /** Passes a ride's progress (0 to 1 along the leg) from the camera to whatever draws the leg, such as the route line. */
@@ -175,7 +191,7 @@ interface IRidePlan
  * Ground speed scales with how far out the camera is zoomed, so most of the distance is covered while zoomed out,
  * and long legs simply take longer.
  */
-function planRide(trackPixelsAtStartZoom: number, startZoom: number, travelZoom: number, arrivalZoom: number): IRidePlan
+function planRide(trackPixelsAtStartZoom: number, startZoom: number, travelZoom: number, arrivalZoom: number, pace: IRidePace): IRidePlan
 {
 	const zoomAt = (timeShare: number) => timeShare < 1 - zoomTransitionShare
 		? interpolate(startZoom, travelZoom, smoothStep(timeShare / zoomTransitionShare))
@@ -192,11 +208,11 @@ function planRide(trackPixelsAtStartZoom: number, startZoom: number, travelZoom:
 	const groundPerUnitSpeed = cumulativeGround[motionPlanSteps];
 
 	// The peak screen speed is trackPixels / (groundPerUnitSpeed * duration); solve for the duration that keeps it under the limit.
-	const durationForSpeed = 1000 * trackPixelsAtStartZoom / (groundPerUnitSpeed * maximumScreenPixelsPerSecond);
+	const durationForSpeed = 1000 * trackPixelsAtStartZoom / (groundPerUnitSpeed * pace.maximumScreenPixelsPerSecond);
 	const largestZoomChange = Math.max(Math.abs(startZoom - travelZoom), Math.abs(arrivalZoom - travelZoom));
 	// Smoothstep changes zoom at up to 1.5 times its average rate.
-	const durationForZoom = 1000 * 1.5 * largestZoomChange / (zoomTransitionShare * maximumZoomLevelsPerSecond);
-	const durationMilliseconds = Math.min(longestRideMilliseconds, Math.max(shortestRideMilliseconds, durationForSpeed, durationForZoom));
+	const durationForZoom = 1000 * 1.5 * largestZoomChange / (zoomTransitionShare * pace.maximumZoomLevelsPerSecond);
+	const durationMilliseconds = Math.min(pace.longestRideMilliseconds, Math.max(shortestRideMilliseconds, durationForSpeed, durationForZoom));
 
 	const progressAt = (timeShare: number) =>
 	{
@@ -222,7 +238,7 @@ export function followLegWithCamera(map: MapLibreMap, coordinates: [number, numb
 	const visibleWidth = map.getContainer().clientWidth - (options.padding.left ?? 0) - (options.padding.right ?? 0);
 	const zoomForTravel = startZoom + Math.log2((legScreenWidthsWhileTraveling * Math.max(visibleWidth, 200)) / Math.max(totalLength, 1));
 	const travelZoom = Math.max(lowestTravelZoom, Math.min(zoomForTravel, startZoom, options.arrivalZoom));
-	const plan = planRide(trackLength, startZoom, travelZoom, options.arrivalZoom);
+	const plan = planRide(trackLength, startZoom, travelZoom, options.arrivalZoom, options.pace);
 	// The camera may have been panned away from the leg's start; that offset fades out over the first part of the trip.
 	const [pathStartLongitude, pathStartLatitude] = coordinates[0];
 	const startOffset = [startCenter.lng - pathStartLongitude, startCenter.lat - pathStartLatitude];

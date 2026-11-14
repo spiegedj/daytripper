@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import styles from "./RouteStyleSwitch.module.css";
+import { SegmentedSwitch, type ISegmentedSwitchOption } from "../SegmentedSwitch/SegmentedSwitch";
 
 export type RouteStyle = "real" | "arcs";
 
@@ -37,6 +37,22 @@ export function useRouteStyle(): [RouteStyle, (routeStyle: RouteStyle) => void]
 	return [routeStyle, setRouteStyle];
 }
 
+const routeStyleOptions: ISegmentedSwitchOption<RouteStyle>[] =
+[
+	{
+		value: "real",
+		label: "Real",
+		title: "Follow real streets, tracks and rivers",
+		icon: <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c3 0 3-5 6-5s2 4 5 4 3-9 7-9" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+	},
+	{
+		value: "arcs",
+		label: "Arcs",
+		title: "Draw each leg as a simple arc",
+		icon: <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18Q12 2 21 18" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" /></svg>,
+	},
+];
+
 export interface IRouteStyleSwitchProps
 {
 	routeStyle: RouteStyle;
@@ -46,28 +62,5 @@ export interface IRouteStyleSwitchProps
 /** Small floating switch between real-world routes and simple arcs. */
 export function RouteStyleSwitch({ routeStyle, onChange }: IRouteStyleSwitchProps)
 {
-	return (
-		<div className={styles.switch} role="group" aria-label="Route style">
-			<button
-				type="button"
-				className={`${styles.option} ${routeStyle === "real" ? styles.active : ""}`}
-				onClick={() => onChange("real")}
-				aria-pressed={routeStyle === "real"}
-				title="Follow real streets, tracks and rivers"
-			>
-				<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c3 0 3-5 6-5s2 4 5 4 3-9 7-9" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
-				Real
-			</button>
-			<button
-				type="button"
-				className={`${styles.option} ${routeStyle === "arcs" ? styles.active : ""}`}
-				onClick={() => onChange("arcs")}
-				aria-pressed={routeStyle === "arcs"}
-				title="Draw each leg as a simple arc"
-			>
-				<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18Q12 2 21 18" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" /></svg>
-				Arcs
-			</button>
-		</div>
-	);
+	return <SegmentedSwitch label="Route style" options={routeStyleOptions} value={routeStyle} onChange={onChange} />;
 }

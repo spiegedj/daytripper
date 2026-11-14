@@ -12,6 +12,10 @@
 	z-index: 2;
 	top: calc(86px + env(safe-area-inset-top, 0px));
 	right: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 8px;
 }
 
 .playerDock

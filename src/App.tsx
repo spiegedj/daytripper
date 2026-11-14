@@ -4,6 +4,7 @@ import { MapView, type ICameraPadding } from "./components/MapView/MapView";
 import { PlaceDetailPanel } from "./components/PlaceDetailPanel/PlaceDetailPanel";
 import { RouteStyleSwitch, useRouteStyle } from "./components/RouteStyleSwitch/RouteStyleSwitch";
 import { StepPlayer } from "./components/StepPlayer/StepPlayer";
+import { TravelSpeedSwitch, useTravelSpeed } from "./components/TravelSpeedSwitch/TravelSpeedSwitch";
 import type { ILegSegment } from "./itinerary/types";
 import { TripOverviewLayer } from "./components/TripOverviewLayer/TripOverviewLayer";
 import { dayOverviewStopIndex, useItineraryNavigation } from "./itinerary/useItineraryNavigation";
@@ -48,6 +49,7 @@ export function App()
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
 	const [highlightedDayNumber, setHighlightedDayNumber] = useState<number | undefined>();
 	const [routeStyle, setRouteStyle] = useRouteStyle();
+	const [travelSpeed, setTravelSpeed] = useTravelSpeed();
 	// With arcs selected, no real paths are handed to the map, so every leg falls back to its curve.
 	const visibleLegPaths = useMemo<Record<string, ILegSegment[]>>(() => (routeStyle === "real" ? trip.legPaths : {}), [routeStyle, trip]);
 	const { isOverview } = navigation;
@@ -91,6 +93,7 @@ export function App()
 				isOverview={isOverview}
 				tripCoordinates={tripCoordinates}
 				onSelectStop={selectStopOnMap}
+				travelSpeed={travelSpeed}
 			>
 				<TripOverviewLayer
 					trip={trip}
@@ -103,6 +106,7 @@ export function App()
 			</MapView>
 			<div className={styles.routeStyleDock}>
 				<RouteStyleSwitch routeStyle={routeStyle} onChange={setRouteStyle} />
+				{!isOverview && <TravelSpeedSwitch travelSpeed={travelSpeed} onChange={setTravelSpeed} />}
 			</div>
 			<ItineraryPanel
 				trip={trip}
