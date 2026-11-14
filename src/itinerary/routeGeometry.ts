@@ -1,4 +1,4 @@
-import type { ICoordinates } from "./types";
+import type { ICoordinates, ILegSegment, TravelMode } from "./types";
 
 const curveSampleCount = 32;
 const curveBendRatio = 0.18;
@@ -26,4 +26,23 @@ export function createCurvedLegCoordinates(start: ICoordinates, end: ICoordinate
 		]);
 	}
 	return coordinates;
+}
+
+/** Key used to look up a leg's real path: the day number and the index of the stop the leg arrives at. */
+export function getLegPathKey(dayNumber: number, arrivalStopIndex: number): string
+{
+	return `${dayNumber}:${arrivalStopIndex}`;
+}
+
+/** A leg's path as segments: the real path when one was generated, otherwise a single curved segment. */
+export function getLegSegments(
+	legPaths: Record<string, ILegSegment[]>,
+	dayNumber: number,
+	arrivalStopIndex: number,
+	start: ICoordinates,
+	end: ICoordinates,
+	mode: TravelMode,
+): ILegSegment[]
+{
+	return legPaths[getLegPathKey(dayNumber, arrivalStopIndex)] ?? [{ mode, coordinates: createCurvedLegCoordinates(start, end) }];
 }

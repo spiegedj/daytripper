@@ -1,7 +1,7 @@
 import type { Feature, FeatureCollection, LineString } from "geojson";
 import { useMemo, type CSSProperties } from "react";
 import { Layer, Marker, Source } from "react-map-gl/maplibre";
-import { createCurvedLegCoordinates } from "../../itinerary/routeGeometry";
+import { getLegSegments } from "../../itinerary/routeGeometry";
 import { findDayTrips, formatDayRanges } from "../../itinerary/tripOverview";
 import type { ITrip } from "../../itinerary/types";
 import styles from "./TripOverviewLayer.module.css";
@@ -26,10 +26,11 @@ export function TripOverviewLayer({ trip, highlightedDayNumber, onSelectDay, onH
 			{
 				const start = trip.places[day.stops[legIndex].placeId].coordinates;
 				const end = trip.places[stop.placeId].coordinates;
+				const segments = getLegSegments(trip.legPaths, day.dayNumber, legIndex + 1, start, end, stop.arrival?.mode ?? "walk");
 				features.push(
 				{
 					type: "Feature",
-					geometry: { type: "LineString", coordinates: createCurvedLegCoordinates(start, end) },
+					geometry: { type: "LineString", coordinates: segments.flatMap((segment) => segment.coordinates) },
 					properties: { dayNumber: day.dayNumber, color: day.color },
 				});
 			});

@@ -101,7 +101,7 @@ export const japanDays: IDay[] =
 		stops:
 		[
 			{ placeId: "tokyoDomeHotel" },
-			{ placeId: "kyotoFourSisters", arrival: guessed("shinkansen", 180, "Tōkaidō Shinkansen") },
+			{ placeId: "kyotoFourSisters", arrival: guessed("shinkansen", 180, "Marunouchi Line + Tōkaidō Shinkansen + Karasuma Line") },
 			{ placeId: "nijoCastle", arrival: guessed("walk", 20) },
 			{ placeId: "kyotoBotanicalGardens", arrival: guessed("subway", 25, "Karasuma Line") },
 		],

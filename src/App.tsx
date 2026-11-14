@@ -68,6 +68,7 @@ export function App()
 			<MapView
 				day={day}
 				places={trip.places}
+				legPaths={trip.legPaths}
 				currentStopIndex={stopIndex}
 				cameraPadding={cameraPadding}
 				isOverview={isOverview}

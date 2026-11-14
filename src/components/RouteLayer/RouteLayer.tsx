@@ -1,14 +1,15 @@
 import type { Feature, FeatureCollection, LineString } from "geojson";
 import { useEffect, useMemo } from "react";
 import { Layer, Source, useMap } from "react-map-gl/maplibre";
-import { createCurvedLegCoordinates } from "../../itinerary/routeGeometry";
-import type { IDay, IPlace } from "../../itinerary/types";
+import { getLegSegments } from "../../itinerary/routeGeometry";
+import type { IDay, ILegSegment, IPlace } from "../../itinerary/types";
 
 export interface IRouteLayerProps
 {
 	day: IDay;
 	places: Record<string, IPlace>;
 	currentStopIndex: number;
+	legPaths: Record<string, ILegSegment[]>;
 }
 
 type LegProgress = "traveled" | "upcoming";
@@ -17,30 +18,47 @@ const currentLegLayerId = "route-current-leg";
 const legDrawDurationMilliseconds = 1100;
 
 /** Draws a day's route: traveled legs solid, upcoming legs dotted, and the leg just traveled drawing itself in. */
-export function RouteLayer({ day, places, currentStopIndex }: IRouteLayerProps)
+export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLayerProps)
 {
 	const { current: map } = useMap();
 
-	const legs = useMemo(() =>
+	const { otherLegs, currentLeg } = useMemo(() =>
 	{
-		return day.stops.slice(1).map((stop, legIndex) =>
+		const otherLegFeatures: Feature<LineString, { progress: LegProgress; isWalk: boolean }>[] = [];
+		const currentLegFeatures: Feature<LineString>[] = [];
+		day.stops.slice(1).forEach((stop, legIndex) =>
 		{
 			const start = places[day.stops[legIndex].placeId].coordinates;
 			const end = places[stop.placeId].coordinates;
 			const arrivingStopIndex = legIndex + 1;
-			const progress: LegProgress = arrivingStopIndex < currentStopIndex ? "traveled" : "upcoming";
-			const feature: Feature<LineString, { progress: LegProgress; isCurrentLeg: boolean }> =
+			const segments = getLegSegments(legPaths, day.dayNumber, arrivingStopIndex, start, end, stop.arrival?.mode ?? "walk");
+			if (arrivingStopIndex === currentStopIndex)
 			{
-				type: "Feature",
-				geometry: { type: "LineString", coordinates: createCurvedLegCoordinates(start, end) },
-				properties: { progress, isCurrentLeg: arrivingStopIndex === currentStopIndex },
-			};
-			return feature;
+				// The leg being drawn in is one continuous line so the reveal animation runs smoothly from start to end.
+				currentLegFeatures.push(
+				{
+					type: "Feature",
+					geometry: { type: "LineString", coordinates: segments.flatMap((segment) => segment.coordinates) },
+					properties: {},
+				});
+				return;
+			}
+			const progress: LegProgress = arrivingStopIndex < currentStopIndex ? "traveled" : "upcoming";
+			for (const segment of segments)
+			{
+				otherLegFeatures.push(
+				{
+					type: "Feature",
+					geometry: { type: "LineString", coordinates: segment.coordinates },
+					properties: { progress, isWalk: segment.mode === "walk" && segments.length > 1 },
+				});
+			}
 		});
-	}, [day, places, currentStopIndex]);
-
-	const otherLegs: FeatureCollection = { type: "FeatureCollection", features: legs.filter((leg) => !leg.properties.isCurrentLeg) };
-	const currentLeg: FeatureCollection = { type: "FeatureCollection", features: legs.filter((leg) => leg.properties.isCurrentLeg) };
+		return {
+			otherLegs: { type: "FeatureCollection", features: otherLegFeatures } as FeatureCollection,
+			currentLeg: { type: "FeatureCollection", features: currentLegFeatures } as FeatureCollection,
+		};
+	}, [day, places, currentStopIndex, legPaths]);
 
 	useEffect(() =>
 	{
@@ -80,16 +98,23 @@ export function RouteLayer({ day, places, currentStopIndex }: IRouteLayerProps)
 				<Layer
 					id="route-traveled-casing"
 					type="line"
-					filter={["==", ["get", "progress"], "traveled"]}
+					filter={["all", ["==", ["get", "progress"], "traveled"], ["!", ["get", "isWalk"]]]}
 					layout={{ "line-cap": "round", "line-join": "round" }}
 					paint={{ "line-color": "#ffffff", "line-width": 10 }}
 				/>
 				<Layer
 					id="route-traveled"
 					type="line"
-					filter={["==", ["get", "progress"], "traveled"]}
+					filter={["all", ["==", ["get", "progress"], "traveled"], ["!", ["get", "isWalk"]]]}
 					layout={{ "line-cap": "round", "line-join": "round" }}
 					paint={{ "line-color": day.color, "line-width": 5.5 }}
+				/>
+				<Layer
+					id="route-traveled-walk"
+					type="line"
+					filter={["all", ["==", ["get", "progress"], "traveled"], ["get", "isWalk"]]}
+					layout={{ "line-cap": "round", "line-join": "round" }}
+					paint={{ "line-color": day.color, "line-width": 3.5, "line-dasharray": [1.2, 1.4] }}
 				/>
 				<Layer
 					id="route-upcoming"

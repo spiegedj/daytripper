@@ -1,0 +1,28 @@
+{
+	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Rail segments follow OpenStreetMap tracks whose name matches lineMatch; walk segments follow streets. Run: node scripts/fetchTransitRoutes.mjs japan",
+	"legs":
+	[
+		{
+			"dayNumber": 6,
+			"arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Kōrakuen Station", "latitude": 35.7077, "longitude": 139.7517 } },
+				{ "mode": "subway", "lineMatch": "丸ノ内線", "to": { "name": "Tokyo Station", "latitude": 35.6812, "longitude": 139.7647 } },
+				{ "mode": "shinkansen", "lineMatch": "東海道新幹線", "from": { "name": "Tokyo Station", "latitude": 35.6812, "longitude": 139.7671 }, "to": { "name": "Kyoto Station", "latitude": 34.9858, "longitude": 135.7588 } },
+				{ "mode": "subway", "lineMatch": "烏丸線", "from": { "name": "Kyoto Station", "latitude": 34.9858, "longitude": 135.7588 }, "to": { "name": "Marutamachi Station", "latitude": 35.0175, "longitude": 135.7594 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 4,
+			"arrivalStopIndex": 4,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Asakusa Station", "latitude": 35.7108, "longitude": 139.7976 } },
+				{ "mode": "subway", "lineMatch": "銀座線", "to": { "name": "Ueno Station", "latitude": 35.7112, "longitude": 139.7770 } },
+				{ "mode": "walk" }
+			]
+		}
+	]
+}

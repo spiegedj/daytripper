@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import { Map, Marker, NavigationControl, type MapRef } from "react-map-gl/maplibre";
 import type { LngLatBoundsLike } from "maplibre-gl";
 import { getDistanceKilometers } from "../../itinerary/tripOverview";
-import type { ICoordinates, IDay, IPlace } from "../../itinerary/types";
+import type { ICoordinates, IDay, ILegSegment, IPlace } from "../../itinerary/types";
 import { createMapStyle } from "../../mapStyle/createMapStyle";
 import { pastelPalette } from "../../mapStyle/palette";
 import { createWavePatternImage, wavePatternImageId } from "../../mapStyle/wavePattern";
@@ -25,6 +25,7 @@ export interface IMapViewProps
 {
 	day: IDay;
 	places: Record<string, IPlace>;
+	legPaths: Record<string, ILegSegment[]>;
 	currentStopIndex: number;
 	cameraPadding: ICameraPadding;
 	/** When true the map shows the whole trip (the children) instead of the current day. */
@@ -88,7 +89,7 @@ function getBoundsCenter(bounds: Bounds): ICoordinates
 }
 
 /** The stylized, pannable map showing one day's stops and route. The camera follows the current stop and glides between days. */
-export function MapView({ day, places, currentStopIndex, cameraPadding, isOverview, tripCoordinates, onSelectStop, children }: IMapViewProps)
+export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding, isOverview, tripCoordinates, onSelectStop, children }: IMapViewProps)
 {
 	const mapRef = useRef<MapRef | null>(null);
 	const previousPositionRef = useRef<{ dayNumber: number; stopIndex: number } | null>(null);
@@ -263,7 +264,7 @@ export function MapView({ day, places, currentStopIndex, cameraPadding, isOvervi
 		>
 			<NavigationControl position="top-right" showCompass={false} />
 			{isOverview && children}
-			{!isOverview && <RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} />}
+			{!isOverview && <RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} legPaths={legPaths} />}
 			{!isOverview && <LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} />}
 			{!isOverview && dayPlaces.map((place, stopIndex) =>
 			{
