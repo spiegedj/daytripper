@@ -40,17 +40,11 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 			<li ref={isDayOverview ? currentRowRef : undefined} className={styles.item}>
 				<button
 					type="button"
-					className={`${styles.stop} ${isDayOverview ? styles.current : ""}`}
+					className={`${styles.stop} ${styles.squareStop} ${isDayOverview ? styles.current : ""}`}
 					onClick={() => onSelectStop(dayOverviewStopIndex)}
 					aria-current={isDayOverview ? "step" : undefined}
 				>
-					{isDayOverview && (
-						<motion.span
-							layoutId="currentStopHighlight"
-							className={styles.highlight}
-							transition={{ type: "spring", stiffness: 420, damping: 36 }}
-						/>
-					)}
+					{isDayOverview && <CurrentStepTag />}
 					<span className={`${styles.marker} ${styles.overviewMarker}`} style={{ "--category-color": day.color } as CSSProperties}>
 						<svg width={isDayOverview ? 22 : 16} height={isDayOverview ? 22 : 16} viewBox="0 0 24 24" aria-hidden="true">
 							<path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20zM9 4v13.5M15 6.5V20" fill="none" stroke={isDayOverview ? "#ffffff" : day.color} strokeWidth="2.2" strokeLinejoin="round" />
@@ -83,17 +77,11 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 						)}
 						<button
 							type="button"
-							className={`${styles.stop} ${isCurrent ? styles.current : ""} ${isVisited ? styles.visited : ""}`}
+							className={`${styles.stop} ${place.category === "hotel" ? styles.squareStop : ""} ${isCurrent ? styles.current : ""} ${isVisited ? styles.visited : ""}`}
 							onClick={() => onSelectStop(stopIndex)}
 							aria-current={isCurrent ? "step" : undefined}
 						>
-							{isCurrent && (
-								<motion.span
-									layoutId="currentStopHighlight"
-									className={styles.highlight}
-									transition={{ type: "spring", stiffness: 420, damping: 36 }}
-								/>
-							)}
+							{isCurrent && <CurrentStepTag />}
 							<span
 								className={`${styles.marker} ${place.category === "hotel" ? styles.hotelMarker : ""}`}
 								style={{ "--category-color": categoryColor } as CSSProperties}
@@ -126,6 +114,20 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 				</li>
 			))}
 		</ol>
+	);
+}
+
+const tagSpring = { type: "spring", stiffness: 420, damping: 36 } as const;
+
+// The tag's fill and its outline slide between rows together; the outline is a separate layer so it can sit above
+// the icon and cover the seam where the icon meets it.
+function CurrentStepTag()
+{
+	return (
+		<>
+			<motion.span layoutId="currentStopHighlight" className={styles.highlight} transition={tagSpring} />
+			<motion.span layoutId="currentStopOutline" className={styles.outline} transition={tagSpring} />
+		</>
 	);
 }
 
