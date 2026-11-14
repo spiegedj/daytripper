@@ -16,10 +16,11 @@
 			<stop offset="0" stop-color="#F6D66A"/>
 			<stop offset="1" stop-color="#C89A26"/>
 		</linearGradient>
-		<radialGradient id="cedar" cx=".4" cy=".3" r=".75">
-			<stop offset="0" stop-color="#5E9A62"/>
-			<stop offset="1" stop-color="#244D32"/>
-		</radialGradient>
+		<g id="cedar">
+			<rect x="-1.9" y="-19" width="3.8" height="19" fill="#5B3E2A"/>
+			<path d="M0-82Q2-76 6-71H3Q7-64 11-58H7Q11-50 16-43H11Q15-35 20-28H13Q16-22 19-16H-19Q-16-22-13-28H-20Q-15-35-11-43H-16Q-11-50-7-58H-11Q-7-64-3-71H-6Q-2-76 0-82Z" fill="#2E5B39" stroke="#2E5B39" stroke-width="1.2" stroke-linejoin="round"/>
+			<path d="M0-82Q-2-76-6-71H-3Q-7-64-11-58H-7Q-11-50-16-43H-11Q-15-35-20-28H-13Q-16-22-19-16H0Z" fill="#5A9763" opacity=".55"/>
+		</g>
 		<pattern id="brackets" width="8" height="8" patternUnits="userSpaceOnUse">
 			<rect width="8" height="8" fill="#2D8A72"/>
 			<rect x="1" y="1" width="3" height="3" fill="#E5B93B"/>
@@ -30,8 +31,10 @@
 	</defs>
 
 	<ellipse cx="64" cy="120" rx="62" ry="6" fill="url(#groundShadow)"/>
-	<path d="M6 116 18 40 30 116ZM98 116 110 40 122 116Z" fill="url(#cedar)"/>
-	<path d="M18 116V100M110 116V100" stroke="#5A3E28" stroke-width="2"/>
+	<use href="#cedar" transform="translate(24 116) scale(.62 .86)" opacity=".8"/>
+	<use href="#cedar" transform="translate(104 116) scale(.6 .8)" opacity=".8"/>
+	<use href="#cedar" transform="translate(10 119) scale(.68 1.12)"/>
+	<use href="#cedar" transform="translate(118 119) scale(.66 1.02)"/>
 
 	<path d="M20 118H108L104 110H24Z" fill="#CFC6B4" stroke="#8F8572" stroke-width=".8"/>
 	<path d="M26 110H102L99 104H29Z" fill="#DDD5C5" stroke="#8F8572" stroke-width=".8"/>

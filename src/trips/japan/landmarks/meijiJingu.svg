@@ -13,10 +13,20 @@
 			<stop offset="0" stop-color="#A88A6C"/>
 			<stop offset="1" stop-color="#7A5E44"/>
 		</linearGradient>
-		<radialGradient id="forest" cx=".4" cy=".35" r=".7">
-			<stop offset="0" stop-color="#6FB46E"/>
-			<stop offset="1" stop-color="#2F6E3D"/>
+		<radialGradient id="leaf" cx=".35" cy=".3" r=".75">
+			<stop offset="0" stop-color="#86C47A"/>
+			<stop offset="1" stop-color="#346F40"/>
 		</radialGradient>
+		<g id="broadleaf">
+			<path d="M-2.4 0-1.4-27H1.4L2.4 0Z" fill="#6B4F3A"/>
+			<path d="M0-19-7-31M.5-23 7-33" stroke="#6B4F3A" stroke-width="1.6" stroke-linecap="round"/>
+			<circle cx="-10" cy="-37" r="10" fill="url(#leaf)"/>
+			<circle cx="9.5" cy="-39" r="11" fill="url(#leaf)"/>
+			<circle cx="-1" cy="-49" r="12" fill="url(#leaf)"/>
+			<circle cx=".5" cy="-34" r="9" fill="url(#leaf)"/>
+			<path d="M-19.5-35Q0-21 20.5-37 16-27 .5-25.5-15-26-19.5-35Z" fill="#1F4F2C" opacity=".3"/>
+			<circle cx="-6" cy="-54" r="4.5" fill="#B2DE9F" opacity=".4"/>
+		</g>
 		<linearGradient id="gravel" x1="0" x2="0" y1="0" y2="1">
 			<stop offset="0" stop-color="#D8CFBD"/>
 			<stop offset="1" stop-color="#EEE7D8"/>
@@ -25,12 +35,12 @@
 
 	<ellipse cx="64" cy="119" rx="62" ry="6" fill="url(#groundShadow)"/>
 
-	<ellipse cx="14" cy="64" rx="14" ry="30" fill="url(#forest)"/>
-	<ellipse cx="26" cy="46" rx="14" ry="24" fill="url(#forest)"/>
-	<ellipse cx="114" cy="64" rx="14" ry="30" fill="url(#forest)"/>
-	<ellipse cx="102" cy="46" rx="14" ry="24" fill="url(#forest)"/>
-	<ellipse cx="18" cy="96" rx="16" ry="18" fill="url(#forest)"/>
-	<ellipse cx="110" cy="96" rx="16" ry="18" fill="url(#forest)"/>
+	<g opacity=".78">
+		<use href="#broadleaf" transform="translate(30 116) scale(.82)"/>
+		<use href="#broadleaf" transform="translate(98 116) scale(.78)"/>
+	</g>
+	<use href="#broadleaf" transform="translate(14 118) scale(1.02)"/>
+	<use href="#broadleaf" transform="translate(114 118) scale(.92)"/>
 
 	<path d="M40 118H88L72 70H56Z" fill="url(#gravel)"/>
 	<path d="M44 116 57 72M84 116 71 72" stroke="#B9AE98" stroke-width=".8"/>

@@ -4,10 +4,11 @@
 			<stop offset="0" stop-color="#1D2433" stop-opacity=".32"/>
 			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
 		</radialGradient>
-		<linearGradient id="cedar" x1="0" x2="1" y1="0" y2="0">
-			<stop offset="0" stop-color="#4E8A58"/>
-			<stop offset="1" stop-color="#1F4A2C"/>
-		</linearGradient>
+		<g id="cedar">
+			<rect x="-1.9" y="-19" width="3.8" height="19" fill="#5B3E2A"/>
+			<path d="M0-82Q2-76 6-71H3Q7-64 11-58H7Q11-50 16-43H11Q15-35 20-28H13Q16-22 19-16H-19Q-16-22-13-28H-20Q-15-35-11-43H-16Q-11-50-7-58H-11Q-7-64-3-71H-6Q-2-76 0-82Z" fill="#2E5B39" stroke="#2E5B39" stroke-width="1.2" stroke-linejoin="round"/>
+			<path d="M0-82Q-2-76-6-71H-3Q-7-64-11-58H-7Q-11-50-16-43H-11Q-15-35-20-28H-13Q-16-22-19-16H0Z" fill="#5A9763" opacity=".55"/>
+		</g>
 		<linearGradient id="vermilion" x1="0" x2="1" y1="0" y2="0">
 			<stop offset="0" stop-color="#F0533A"/>
 			<stop offset="1" stop-color="#B9301E"/>
@@ -24,8 +25,10 @@
 
 	<ellipse cx="64" cy="120" rx="62" ry="6" fill="url(#groundShadow)"/>
 
-	<path d="M2 112 16 18 30 112ZM20 112 34 30 48 112ZM80 112 94 30 108 112ZM98 112 112 18 126 112Z" fill="url(#cedar)"/>
-	<path d="M16 112V96M112 112V96" stroke="#5A3E28" stroke-width="2.2"/>
+	<use href="#cedar" transform="translate(32 112) scale(.58 .82)" opacity=".8"/>
+	<use href="#cedar" transform="translate(96 112) scale(.56 .76)" opacity=".8"/>
+	<use href="#cedar" transform="translate(13 116) scale(.68 1.18)"/>
+	<use href="#cedar" transform="translate(115 116) scale(.66 1.06)"/>
 
 	<path d="M30 120H98L84 92H44Z" fill="url(#stone)"/>
 	<path d="M33 116H95M36 111H92M39 106H89M42 101H86M44 96H84" stroke="#9C9384" stroke-width="1"/>

@@ -1,71 +1,81 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<!-- The scramble seen from the station side: zebra crossings on all four sides plus the two diagonals, people
+	     mid-crossing, and the buildings that frame it: QFRONT's giant screen, a screen-covered corner building and
+	     Shibuya Scramble Square rising behind. -->
 	<defs>
 		<radialGradient id="groundShadow">
 			<stop offset="0" stop-color="#1D2433" stop-opacity=".3"/>
 			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
 		</radialGradient>
-		<linearGradient id="towerFront" x1="0" x2="0" y1="0" y2="1">
-			<stop offset="0" stop-color="#B8C6D6"/>
-			<stop offset="1" stop-color="#7F90A6"/>
+		<linearGradient id="road" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#5D6573"/>
+			<stop offset="1" stop-color="#454C58"/>
 		</linearGradient>
-		<linearGradient id="towerSide" x1="0" x2="0" y1="0" y2="1">
-			<stop offset="0" stop-color="#8A9AB0"/>
-			<stop offset="1" stop-color="#5D6D84"/>
+		<linearGradient id="towerGlass" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#B9D3E8"/>
+			<stop offset=".55" stop-color="#7FA6C6"/>
+			<stop offset="1" stop-color="#55799A"/>
 		</linearGradient>
-		<linearGradient id="screenPink" x1="0" x2="1" y1="0" y2="1">
-			<stop offset="0" stop-color="#FF8FC1"/>
-			<stop offset="1" stop-color="#9B5CFF"/>
+		<linearGradient id="qfrontGlass" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#4E6478"/>
+			<stop offset="1" stop-color="#2F3F50"/>
 		</linearGradient>
-		<linearGradient id="screenCyan" x1="0" x2="1" y1="0" y2="1">
-			<stop offset="0" stop-color="#7DF3FF"/>
-			<stop offset="1" stop-color="#3B82F6"/>
+		<linearGradient id="screen" x1="0" x2="1" y1="0" y2="1">
+			<stop offset="0" stop-color="#FF6FA8"/>
+			<stop offset=".5" stop-color="#FFB25B"/>
+			<stop offset="1" stop-color="#59C9F0"/>
 		</linearGradient>
-		<linearGradient id="screenWarm" x1="0" x2="1" y1="0" y2="1">
-			<stop offset="0" stop-color="#FFE27A"/>
-			<stop offset="1" stop-color="#FF7A45"/>
+		<linearGradient id="beigeBlock" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#ECE3D2"/>
+			<stop offset="1" stop-color="#C9BCA4"/>
 		</linearGradient>
+		<clipPath id="roadArea"><path d="M4 119H124L108 85H20Z"/></clipPath>
 	</defs>
 
-	<ellipse cx="64" cy="118" rx="60" ry="7" fill="url(#groundShadow)"/>
+	<ellipse cx="64" cy="120" rx="62" ry="5" fill="url(#groundShadow)"/>
 
-	<path d="M50 62V8H78V62Z" fill="url(#towerFront)"/>
-	<path d="M78 62V8L84 12V60Z" fill="url(#towerSide)"/>
-	<path d="M50 16H78M50 24H78M50 32H78M50 40H78M50 48H78" stroke="#E6EDF5" stroke-width=".6" stroke-opacity=".7"/>
-	<path d="M56 8V62M64 8V62M72 8V62" stroke="#E6EDF5" stroke-width=".5" stroke-opacity=".5"/>
-	<rect x="50" y="4" width="28" height="4" fill="#5D6D84"/>
+	<path d="M94 84V12L101 6H114V84Z" fill="url(#towerGlass)" stroke="#3E5C78" stroke-width=".9" stroke-linejoin="round"/>
+	<path d="M98 18H114M98 30H114M98 42H114M98 54H114M98 66H114M104 8V84" stroke="#E6F1FA" stroke-opacity=".6" stroke-width=".7"/>
+	<rect x="98" y="6" width="12" height="3" fill="#E6F1FA" opacity=".8"/>
 
-	<path d="M10 82V30H44V82Z" fill="#D9D3C7"/>
-	<path d="M44 82V30L50 34V78Z" fill="#AFA89A"/>
-	<rect x="14" y="36" width="26" height="22" rx="1.5" fill="url(#screenPink)"/>
-	<path d="M18 44H32M18 49H36" stroke="#FFFFFF" stroke-width="2" stroke-opacity=".75" stroke-linecap="round"/>
-	<g fill="#8D8678"><rect x="14" y="62" width="5" height="4"/><rect x="22" y="62" width="5" height="4"/><rect x="30" y="62" width="5" height="4"/><rect x="14" y="70" width="5" height="4"/><rect x="22" y="70" width="5" height="4"/><rect x="30" y="70" width="5" height="4"/></g>
+	<path d="M72 84V36H104V84Z" fill="url(#beigeBlock)" stroke="#8E8270" stroke-width=".8"/>
+	<rect x="76" y="40" width="24" height="12" rx="1" fill="#2B2F38"/>
+	<rect x="77.2" y="41.2" width="21.6" height="9.6" rx=".6" fill="#7AD3C2"/>
+	<path d="M80 46H95M80 48.5H90" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+	<rect x="76" y="56" width="11" height="14" rx="1" fill="#2B2F38"/>
+	<rect x="77" y="57" width="9" height="12" fill="#F7D046"/>
+	<g fill="#8E8270"><rect x="90" y="57" width="10" height="2"/><rect x="90" y="62" width="10" height="2"/><rect x="90" y="67" width="10" height="2"/><rect x="76" y="74" width="24" height="2"/></g>
 
-	<path d="M84 80V24H118V80Z" fill="#C9D2DC"/>
-	<path d="M84 80V24L78 28V76Z" fill="#9AA6B4"/>
-	<rect x="88" y="30" width="26" height="18" rx="1.5" fill="url(#screenCyan)"/>
-	<rect x="88" y="52" width="26" height="14" rx="1.5" fill="url(#screenWarm)"/>
-	<path d="M92 36H106M92 41H110" stroke="#FFFFFF" stroke-width="2" stroke-opacity=".75" stroke-linecap="round"/>
+	<path d="M8 84V48H30V84Z" fill="url(#beigeBlock)" stroke="#8E8270" stroke-width=".8"/>
+	<rect x="11" y="52" width="16" height="10" rx="1" fill="#2B2F38"/>
+	<rect x="12" y="53" width="14" height="8" fill="#9B7BEA"/>
+	<g fill="#8E8270"><rect x="11" y="66" width="16" height="2"/><rect x="11" y="71" width="16" height="2"/><rect x="11" y="76" width="16" height="2"/></g>
 
-	<path d="M64 66 122 96 64 126 6 96Z" fill="#4A4F58"/>
-	<g transform="matrix(.906 .47 -.906 .47 64 66)">
-		<path d="M0 0H10V10H0ZM54 0H64V10H54ZM0 54H10V64H0ZM54 54H64V64H54Z" fill="#B9BDC4"/>
-		<g fill="#FFFFFF">
-			<rect x="13" y="2" width="3" height="7"/><rect x="19" y="2" width="3" height="7"/><rect x="25" y="2" width="3" height="7"/><rect x="31" y="2" width="3" height="7"/><rect x="37" y="2" width="3" height="7"/><rect x="43" y="2" width="3" height="7"/><rect x="49" y="2" width="3" height="7"/>
-			<rect x="13" y="55" width="3" height="7"/><rect x="19" y="55" width="3" height="7"/><rect x="25" y="55" width="3" height="7"/><rect x="31" y="55" width="3" height="7"/><rect x="37" y="55" width="3" height="7"/><rect x="43" y="55" width="3" height="7"/><rect x="49" y="55" width="3" height="7"/>
-			<rect x="2" y="13" width="7" height="3"/><rect x="2" y="19" width="7" height="3"/><rect x="2" y="25" width="7" height="3"/><rect x="2" y="31" width="7" height="3"/><rect x="2" y="37" width="7" height="3"/><rect x="2" y="43" width="7" height="3"/><rect x="2" y="49" width="7" height="3"/>
-			<rect x="55" y="13" width="7" height="3"/><rect x="55" y="19" width="7" height="3"/><rect x="55" y="25" width="7" height="3"/><rect x="55" y="31" width="7" height="3"/><rect x="55" y="37" width="7" height="3"/><rect x="55" y="43" width="7" height="3"/><rect x="55" y="49" width="7" height="3"/>
-		</g>
-		<g fill="#FFFFFF" transform="rotate(45 32 32)">
-			<rect x="28" y="6" width="8" height="2.6"/><rect x="28" y="11" width="8" height="2.6"/><rect x="28" y="16" width="8" height="2.6"/><rect x="28" y="21" width="8" height="2.6"/>
-			<rect x="28" y="40" width="8" height="2.6"/><rect x="28" y="45" width="8" height="2.6"/><rect x="28" y="50" width="8" height="2.6"/><rect x="28" y="55" width="8" height="2.6"/>
-			<rect x="6" y="28" width="2.6" height="8"/><rect x="11" y="28" width="2.6" height="8"/><rect x="16" y="28" width="2.6" height="8"/><rect x="21" y="28" width="2.6" height="8"/>
-			<rect x="40" y="28" width="2.6" height="8"/><rect x="45" y="28" width="2.6" height="8"/><rect x="50" y="28" width="2.6" height="8"/><rect x="55" y="28" width="2.6" height="8"/>
-		</g>
+	<path d="M28 84V26Q28 18 36 18H70V84Z" fill="url(#qfrontGlass)" stroke="#1F2A36" stroke-width=".9" stroke-linejoin="round"/>
+	<path d="M31 24Q31.5 21 35 21H67V58H31Z" fill="#14181E"/>
+	<path d="M32.6 24.6Q33 22.6 35.6 22.6H65.4V56.4H32.6Z" fill="url(#screen)"/>
+	<path d="M37 30Q49 46 62 33" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>
+	<circle cx="58" cy="47" r="4.5" fill="#FFFFFF" opacity=".55"/>
+	<path d="M30 62H70M30 68H70M30 74H70M40 58V84M50 58V84M60 58V84" stroke="#8FA6BC" stroke-opacity=".55" stroke-width=".7"/>
+	<rect x="28" y="78" width="42" height="6" fill="#E8E2D6"/>
+	<rect x="43" y="79" width="12" height="4" rx="1" fill="#3D8A5A"/>
+
+	<path d="M4 119H124L108 85H20Z" fill="url(#road)"/>
+	<path d="M20 85H108" stroke="#D3D7DE" stroke-width="2"/>
+	<g clip-path="url(#roadArea)" stroke="#F4F6F8" fill="none">
+		<path d="M28 89.5H100" stroke-width="5" stroke-dasharray="2.2 2"/>
+		<path d="M10 113H118" stroke-width="7.5" stroke-dasharray="3.4 3"/>
+		<path d="M17 108 25.5 91" stroke-width="6" stroke-dasharray="2.4 2.2"/>
+		<path d="M111 108 102.5 91" stroke-width="6" stroke-dasharray="2.4 2.2"/>
+		<path d="M33 94.5 95 107.5" stroke-width="3.6" stroke-dasharray="1.8 2.6" opacity=".8"/>
+		<path d="M95 94.5 33 107.5" stroke-width="3.6" stroke-dasharray="1.8 2.6" opacity=".8"/>
 	</g>
+
 	<g>
-		<circle cx="40" cy="88" r="1.8" fill="#FF6B6B"/><circle cx="46" cy="92" r="1.8" fill="#4C6EF5"/><circle cx="58" cy="84" r="1.8" fill="#FAB005"/>
-		<circle cx="72" cy="90" r="1.8" fill="#12B886"/><circle cx="80" cy="98" r="1.8" fill="#E64980"/><circle cx="66" cy="104" r="1.8" fill="#FFFFFF"/>
-		<circle cx="52" cy="102" r="1.8" fill="#7950F2"/><circle cx="88" cy="88" r="1.8" fill="#FD7E14"/><circle cx="62" cy="96" r="1.8" fill="#1C7ED6"/>
-		<circle cx="34" cy="98" r="1.8" fill="#FFFFFF"/><circle cx="94" cy="100" r="1.8" fill="#FF6B6B"/><circle cx="74" cy="112" r="1.8" fill="#FAB005"/>
+		<circle cx="42" cy="96.6" r="1.7" fill="#E64980"/><circle cx="50" cy="98.4" r="1.7" fill="#1C7ED6"/>
+		<circle cx="86" cy="96.6" r="1.7" fill="#7950F2"/><circle cx="76" cy="103.4" r="1.7" fill="#12B886"/>
+		<circle cx="24" cy="112" r="1.9" fill="#F59F00"/><circle cx="40" cy="114" r="1.9" fill="#2B2F38"/>
+		<circle cx="88" cy="113" r="1.9" fill="#1C7ED6"/><circle cx="104" cy="111" r="1.9" fill="#E64980"/>
+		<circle cx="48" cy="89" r="1.4" fill="#2B2F38"/><circle cx="82" cy="89.5" r="1.4" fill="#12B886"/>
 	</g>
 </svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<!-- Miraikan: a long glass-and-steel hall on Odaiba with the white sphere of its dome theater rising from the
+	     roof, and the glowing Geo-Cosmos globe visible through the curtain wall. -->
+	<defs>
+		<radialGradient id="groundShadow">
+			<stop offset="0" stop-color="#1D2433" stop-opacity=".32"/>
+			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="sphere" cx=".35" cy=".3" r=".75">
+			<stop offset="0" stop-color="#FFFFFF"/>
+			<stop offset=".6" stop-color="#E4EAF1"/>
+			<stop offset="1" stop-color="#A9B6C5"/>
+		</radialGradient>
+		<linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+			<stop offset="0" stop-color="#CFE6F5"/>
+			<stop offset=".5" stop-color="#8DBBDD"/>
+			<stop offset="1" stop-color="#5E8FB8"/>
+		</linearGradient>
+		<radialGradient id="globe" cx=".4" cy=".35" r=".7">
+			<stop offset="0" stop-color="#7FD3FF"/>
+			<stop offset=".7" stop-color="#2E7FC4"/>
+			<stop offset="1" stop-color="#1C4F86"/>
+		</radialGradient>
+		<linearGradient id="concrete" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#F1F2F0"/>
+			<stop offset="1" stop-color="#C9CDD0"/>
+		</linearGradient>
+		<clipPath id="facade"><path d="M10 96V54L118 44V96Z"/></clipPath>
+	</defs>
+
+	<ellipse cx="64" cy="119" rx="62" ry="6" fill="url(#groundShadow)"/>
+
+	<circle cx="36" cy="46" r="18" fill="url(#sphere)" stroke="#8C9AAB" stroke-width=".9"/>
+	<path d="M19 44Q36 52 53 44M22 36Q36 42 50 36M36 28V56" fill="none" stroke="#B6C2CF" stroke-width=".7"/>
+
+	<path d="M10 96V54L118 44V96Z" fill="url(#glass)"/>
+	<g clip-path="url(#facade)">
+		<circle cx="84" cy="74" r="13" fill="url(#globe)"/>
+		<path d="M77 66Q81 63 84 67T90 70Q88 75 83 74T78 78Q74 74 77 66ZM88 80Q92 78 94 82 91 86 88 84Z" fill="#7BC77B" opacity=".9"/>
+		<path d="M10 96V54L118 44V96Z" fill="#DDEEF8" opacity=".25"/>
+		<path d="M10 66H118M10 78H118M10 88H118M22 40V96M34 40V96M46 40V96M58 40V96M70 40V96M82 40V96M94 40V96M106 40V96" stroke="#FFFFFF" stroke-opacity=".75" stroke-width=".9"/>
+	</g>
+	<path d="M8 55 120 44.6" stroke="#F4F6F8" stroke-width="3.2" stroke-linecap="round"/>
+	<path d="M10 96V54L118 44V96Z" fill="none" stroke="#5A7189" stroke-width=".9" stroke-linejoin="round"/>
+	<path d="M14 58 50 54.6" stroke="#FFFFFF" stroke-opacity=".8" stroke-width="1.2" stroke-linecap="round"/>
+
+	<rect x="6" y="96" width="116" height="18" fill="url(#concrete)" stroke="#9AA2A9" stroke-width=".8"/>
+	<path d="M6 101H122" stroke="#B5BBC0" stroke-width=".8"/>
+	<rect x="50" y="102" width="28" height="12" fill="#3E5266"/>
+	<path d="M57 102V114M64 102V114M71 102V114" stroke="#9FB6CA" stroke-width=".7"/>
+	<path d="M44 102H84" stroke="#F4F6F8" stroke-width="1.6"/>
+	<path d="M4 116H124" stroke="#AAB1B6" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
