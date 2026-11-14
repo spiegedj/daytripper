@@ -84,8 +84,14 @@ export function createMapStyle(palette: IMapPalette): StyleSpecification
 				paint: { "line-color": palette.land, "line-width": zoomWidth([[13, 0.6], [16, 1.4]]), "line-dasharray": [2, 3] },
 			},
 			{
+				id: "footpath", type: "line", source: tileSourceId, "source-layer": "transportation", minzoom: 14,
+				filter: roadClassFilter(["track", "path"]),
+				layout: { "line-cap": "round", "line-join": "round" },
+				paint: { "line-color": palette.minorRoad, "line-opacity": 0.85, "line-width": zoomWidth([[14, 0.6], [17, 2]]), "line-dasharray": [2, 1.5] },
+			},
+			{
 				id: "road-minor", type: "line", source: tileSourceId, "source-layer": "transportation", minzoom: 12,
-				filter: roadClassFilter(["tertiary", "minor", "service", "track", "path"]),
+				filter: roadClassFilter(["tertiary", "minor", "service"]),
 				layout: { "line-cap": "round", "line-join": "round" },
 				paint: { "line-color": palette.minorRoad, "line-width": zoomWidth([[12, 0.5], [16, 6], [18, 14]]) },
 			},

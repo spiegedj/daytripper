@@ -1,0 +1,131 @@
+.rail
+{
+	flex: none;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 84px;
+	padding: 12px 0 16px;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	background: #f6f8f7;
+	border-right: 1px solid #edf0ef;
+	scrollbar-width: none;
+}
+
+.group
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+}
+
+.city
+{
+	margin: 0 0 2px;
+	padding: 0 6px;
+	max-width: 100%;
+	color: #5b6577;
+	font: 700 11.5px/1.2 "M PLUS Rounded 1c", "Inter", system-ui, sans-serif;
+	text-align: center;
+	overflow-wrap: anywhere;
+}
+
+.day
+{
+	position: relative;
+	display: grid;
+	justify-items: center;
+	width: 60px;
+	padding: 5px 0 4px;
+	border: 0;
+	border-radius: 12px;
+	background: transparent;
+	color: #1d2433;
+	cursor: pointer;
+	transition: background 200ms ease, color 200ms ease;
+}
+
+/* A thin bar in the day's color on the left, so every day stays recognizable when not selected. */
+.day::before
+{
+	content: "";
+	position: absolute;
+	left: 3px;
+	top: 9px;
+	bottom: 9px;
+	width: 3px;
+	border-radius: 2px;
+	background: var(--day-color);
+}
+
+.day:hover
+{
+	background: #e9eeeb;
+}
+
+.day:focus-visible
+{
+	outline: 3px solid var(--day-color);
+	outline-offset: 1px;
+}
+
+.day.selected
+{
+	background: var(--day-color);
+	color: #ffffff;
+	box-shadow: 0 4px 12px color-mix(in srgb, var(--day-color) 40%, transparent);
+}
+
+.day.selected::before
+{
+	display: none;
+}
+
+/* Notch pointing at the timeline next to the rail. */
+.day.selected::after
+{
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: -5px;
+	width: 10px;
+	height: 10px;
+	margin-top: -5px;
+	background: var(--day-color);
+	transform: rotate(45deg);
+	border-radius: 2px;
+}
+
+.dayWord
+{
+	font: 700 9px/1.2 "Inter", system-ui, sans-serif;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	opacity: 0.7;
+}
+
+.dayNumber
+{
+	font: 800 18px/1.15 "M PLUS Rounded 1c", "Inter", system-ui, sans-serif;
+	font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px)
+{
+	.rail
+	{
+		width: 68px;
+	}
+
+	.day
+	{
+		width: 52px;
+	}
+
+	.city
+	{
+		font-size: 10.5px;
+	}
+}

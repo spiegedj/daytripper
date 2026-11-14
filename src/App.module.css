@@ -9,10 +9,10 @@
 {
 	position: absolute;
 	z-index: 3;
-	left: calc(50% + 198px);
+	left: calc(50% + 218px);
 	bottom: calc(24px + env(safe-area-inset-bottom, 0px));
 	transform: translateX(-50%);
-	max-width: calc(100vw - 440px);
+	max-width: calc(100vw - 480px);
 }
 
 @media (max-width: 760px)

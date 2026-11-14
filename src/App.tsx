@@ -7,7 +7,7 @@ import { trips } from "./trips";
 import styles from "./App.module.css";
 
 const narrowScreenQuery = "(max-width: 760px)";
-const wideScreenPadding: ICameraPadding = { top: 90, bottom: 130, left: 440, right: 80 };
+const wideScreenPadding: ICameraPadding = { top: 90, bottom: 140, left: 480, right: 80 };
 const narrowScreenPadding: ICameraPadding = { top: 110, bottom: 0, left: 50, right: 50 };
 
 function useIsNarrowScreen(): boolean
