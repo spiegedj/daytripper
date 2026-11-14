@@ -1,13 +1,15 @@
 import "maplibre-gl/dist/maplibre-gl.css";
-import { useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Map, Marker, NavigationControl, type MapRef } from "react-map-gl/maplibre";
-import type { LngLatBoundsLike, MapLibreEvent } from "maplibre-gl";
+import type { LngLatBoundsLike } from "maplibre-gl";
 import type { ICoordinates, IDay, IPlace } from "../../itinerary/types";
 import { createMapStyle } from "../../mapStyle/createMapStyle";
 import { pastelPalette } from "../../mapStyle/palette";
 import { createWavePatternImage, wavePatternImageId } from "../../mapStyle/wavePattern";
 import { StopMarker, type StopProgress } from "../Markers/StopMarker";
 import { RouteLayer } from "../RouteLayer/RouteLayer";
+import { LabelBlockerLayer, createBlockerImage } from "./LabelBlockerLayer";
+import { findCompactStops, landmarkGroundOffset } from "./markerFootprint";
 
 /** Screen space, in pixels, the camera keeps clear for floating panels. */
 export interface ICameraPadding
@@ -78,13 +80,35 @@ function getDistanceKilometers(start: ICoordinates, end: ICoordinates): number
 /** The stylized, pannable map showing one day's stops and route. The camera follows the current stop and glides between days. */
 export function MapView({ day, places, currentStopIndex, cameraPadding, onSelectStop }: IMapViewProps)
 {
-	const mapRef = useRef<MapRef>(null);
+	const mapRef = useRef<MapRef | null>(null);
 	const previousPositionRef = useRef<{ dayNumber: number; stopIndex: number } | null>(null);
 	const cameraMoveIdRef = useRef(0);
 	const previousPaddingRef = useRef(cameraPadding);
 	const mapStyle = useMemo(() => createMapStyle(pastelPalette), []);
 	const dayPlaces = useMemo(() => day.stops.map((stop) => places[stop.placeId]), [day, places]);
 	const dayBounds = useMemo(() => getBounds(dayPlaces.map((place) => place.coordinates)), [dayPlaces]);
+	const [compactStopIndexes, setCompactStopIndexes] = useState<Set<number>>(() => new Set());
+
+	// Recomputed whenever the camera settles, because overlap depends on zoom and on which stop is current.
+	const updateCompactStops = useCallback(() =>
+	{
+		const map = mapRef.current;
+		if (!map)
+		{
+			return;
+		}
+		const nextCompactStops = findCompactStops(dayPlaces, currentStopIndex, (place) => map.project([place.coordinates.longitude, place.coordinates.latitude]));
+		setCompactStopIndexes((previous) =>
+		{
+			const isUnchanged = previous.size === nextCompactStops.size && [...nextCompactStops].every((stopIndex) => previous.has(stopIndex));
+			return isUnchanged ? previous : nextCompactStops;
+		});
+	}, [dayPlaces, currentStopIndex]);
+
+	useEffect(() =>
+	{
+		updateCompactStops();
+	}, [updateCompactStops]);
 
 	useEffect(() =>
 	{
@@ -166,13 +190,33 @@ export function MapView({ day, places, currentStopIndex, cameraPadding, onSelect
 		});
 	}, [cameraPadding, dayPlaces, currentStopIndex]);
 
-	const handleLoad = (event: MapLibreEvent) =>
+	// Images the style needs but doesn't ship (the water pattern, label blockers) are generated when first requested.
+	const attachMap = useCallback((mapInstance: MapRef | null) =>
 	{
-		const map = event.target;
-		if (!map.hasImage(wavePatternImageId))
+		mapRef.current = mapInstance;
+		const map = mapInstance?.getMap();
+		map?.setMissingStyleImageResolver((imageId) =>
 		{
-			map.addImage(wavePatternImageId, createWavePatternImage(), { pixelRatio: 2 });
-		}
+			if (map.hasImage(imageId))
+			{
+				return;
+			}
+			if (imageId === wavePatternImageId)
+			{
+				map.addImage(imageId, createWavePatternImage(), { pixelRatio: 2 });
+				return;
+			}
+			const blockerImage = createBlockerImage(imageId);
+			if (blockerImage)
+			{
+				map.addImage(imageId, blockerImage);
+			}
+		});
+	}, []);
+
+	const handleLoad = () =>
+	{
+		updateCompactStops();
 	};
 
 	const initialPlace = dayPlaces[currentStopIndex];
@@ -182,33 +226,38 @@ export function MapView({ day, places, currentStopIndex, cameraPadding, onSelect
 
 	return (
 		<Map
-			ref={mapRef}
+			ref={attachMap}
 			mapStyle={mapStyle}
 			initialViewState={initialViewState}
 			onLoad={handleLoad}
+			onMoveEnd={updateCompactStops}
 			style={{ position: "absolute", inset: 0 }}
 			attributionControl={{ compact: true }}
 		>
 			<NavigationControl position="top-right" showCompass={false} />
 			<RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} />
+			<LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} />
 			{dayPlaces.map((place, stopIndex) =>
 			{
 				const progress = getStopProgress(stopIndex, currentStopIndex);
 				const landmarkScale = place.landmarkIconScale ?? 1;
+				const isCompact = compactStopIndexes.has(stopIndex);
+				const isDrawnAsLandmark = place.landmarkIconUrl !== undefined && !isCompact;
 				return (
 					<Marker
 						key={`${day.dayNumber}-${place.id}-${stopIndex}`}
 						longitude={place.coordinates.longitude}
 						latitude={place.coordinates.latitude}
-						anchor={place.landmarkIconUrl ? "top" : "center"}
-						offset={place.landmarkIconUrl ? [0, -82 * landmarkScale] : [0, 0]}
-						style={{ zIndex: progress === "current" ? 3 : place.landmarkIconUrl ? 2 : 1 }}
+						anchor={isDrawnAsLandmark ? "top" : "center"}
+						offset={isDrawnAsLandmark ? [0, -landmarkGroundOffset * landmarkScale] : [0, 0]}
+						style={{ zIndex: progress === "current" ? 3 : isDrawnAsLandmark ? 2 : 1 }}
 					>
 						<StopMarker
 							place={place}
 							stopNumber={stopIndex + 1}
 							progress={progress}
 							dayColor={day.color}
+							isCompact={isCompact}
 							onSelect={() => onSelectStop(stopIndex)}
 						/>
 					</Marker>

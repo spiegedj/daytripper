@@ -11,13 +11,15 @@ export interface IStopMarkerProps
 	stopNumber: number;
 	progress: StopProgress;
 	dayColor: string;
+	/** Draws a landmark as a plain pin, used when its full illustration would cover another stop. */
+	isCompact?: boolean;
 	onSelect: () => void;
 }
 
 /** A stop on the map. Famous places render as a freestanding landmark illustration, everything else as a category pin. */
 export function StopMarker(props: IStopMarkerProps)
 {
-	return props.place.landmarkIconUrl ? <LandmarkMarker {...props} /> : <PinMarker {...props} />;
+	return props.place.landmarkIconUrl && !props.isCompact ? <LandmarkMarker {...props} /> : <PinMarker {...props} />;
 }
 
 function buildMarkerStyle(place: IPlace, dayColor: string): CSSProperties
@@ -61,7 +63,7 @@ function PinMarker({ place, stopNumber, progress, dayColor, onSelect }: IStopMar
 	const glyphColor = isCurrent ? "#ffffff" : categoryColors[place.category];
 
 	return (
-		<button type="button" className={classNames.join(" ")} style={buildMarkerStyle(place, dayColor)} onClick={onSelect} aria-label={place.name}>
+		<button type="button" className={classNames.join(" ")} style={buildMarkerStyle(place, dayColor)} onClick={onSelect} aria-label={place.name} title={place.name}>
 			<CategoryIcon category={place.category} size={18} color={glyphColor} />
 			<span className={styles.badge}>{stopNumber}</span>
 		</button>
