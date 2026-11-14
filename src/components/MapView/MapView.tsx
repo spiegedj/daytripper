@@ -13,6 +13,8 @@ import { LabelBlockerLayer, createBlockerImage } from "./LabelBlockerLayer";
 import { findDayExploredAreas } from "../../itinerary/tripOverview";
 import { dayOverviewStopIndex } from "../../itinerary/useItineraryNavigation";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
+import { getLegSegments } from "../../itinerary/routeGeometry";
+import { followLegWithCamera } from "./followLegWithCamera";
 import { findCompactStops, landmarkGroundOffset, miniLandmarkGroundOffset } from "./markerFootprint";
 
 /** Screen space, in pixels, the camera keeps clear for floating panels. */
@@ -97,6 +99,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 	const mapRef = useRef<MapRef | null>(null);
 	const previousPositionRef = useRef<{ dayNumber: number; stopIndex: number } | null>(null);
 	const cameraMoveIdRef = useRef(0);
+	const cancelFollowRef = useRef<(() => void) | null>(null);
 	const previousPaddingRef = useRef(cameraPadding);
 	const mapStyle = useMemo(() => createMapStyle(pastelPalette), []);
 	const dayPlaces = useMemo(() => day.stops.map((stop) => places[stop.placeId]), [day, places]);
@@ -142,6 +145,8 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		}
 
 		const cameraMoveId = ++cameraMoveIdRef.current;
+		cancelFollowRef.current?.();
+		cancelFollowRef.current = null;
 		if (isOverview)
 		{
 			map.fitBounds(tripBounds, { padding: getOverviewPadding(cameraPadding), duration: dayFlightMilliseconds });
@@ -172,6 +177,21 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		}
 
 		const isNewDay = previousPosition.dayNumber !== day.dayNumber;
+		const isStepToNextStop = !isNewDay && !wasOverview && previousPosition.stopIndex >= 0 && currentStopIndex === previousPosition.stopIndex + 1;
+		if (isStepToNextStop)
+		{
+			// Ride along the leg just like the traveler would, instead of flying straight over the city.
+			const previousPlace = dayPlaces[previousPosition.stopIndex];
+			const currentPlace = dayPlaces[currentStopIndex];
+			const segments = getLegSegments(legPaths, day.dayNumber, currentStopIndex, previousPlace.coordinates, currentPlace.coordinates, day.stops[currentStopIndex].arrival?.mode ?? "walk");
+			cancelFollowRef.current = followLegWithCamera(map.getMap(), segments.flatMap((segment) => segment.coordinates),
+			{
+				arrivalZoom: stopZoom,
+				padding: cameraPadding,
+				shouldContinue: () => cameraMoveId === cameraMoveIdRef.current,
+			});
+			return;
+		}
 		if (!isNewDay)
 		{
 			showTarget(stopFlightMilliseconds);
@@ -196,7 +216,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				showTarget(dayFlightMilliseconds);
 			}
 		});
-	}, [day.dayNumber, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview]);
+	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths]);
 
 	useEffect(() =>
 	{
@@ -266,7 +286,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			initialViewState={initialViewState}
 			onLoad={handleLoad}
 			onMoveEnd={updateCompactStops}
-			style={{ position: "absolute", inset: 0 }}
+			style={{ position: "absolute", inset: 0, isolation: "isolate" }}
 			attributionControl={{ compact: true }}
 		>
 			<NavigationControl position="top-right" showCompass={false} />

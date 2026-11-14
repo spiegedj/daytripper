@@ -1,7 +1,7 @@
 import type { Feature, FeatureCollection, LineString } from "geojson";
 import { useEffect, useMemo } from "react";
 import { Layer, Source, useMap } from "react-map-gl/maplibre";
-import { getLegPathKey, getLegSegments } from "../../itinerary/routeGeometry";
+import { easeLegTravel, getLegPathKey, getLegSegments, getLegTravelMilliseconds } from "../../itinerary/routeGeometry";
 import type { IDay, ILegSegment, IPlace } from "../../itinerary/types";
 
 export interface IRouteLayerProps
@@ -15,17 +15,17 @@ export interface IRouteLayerProps
 type LegProgress = "traveled" | "upcoming";
 
 const currentLegLayerId = "route-current-leg";
-const legDrawDurationMilliseconds = 1100;
 
 /** Draws a day's route: traveled legs solid, upcoming legs dotted, and the leg just traveled drawing itself in. */
 export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLayerProps)
 {
 	const { current: map } = useMap();
 
-	const { otherLegs, currentLeg } = useMemo(() =>
+	const { otherLegs, currentLeg, currentLegMilliseconds } = useMemo(() =>
 	{
 		const otherLegFeatures: Feature<LineString, { progress: LegProgress; isWalk: boolean }>[] = [];
 		const currentLegFeatures: Feature<LineString>[] = [];
+		let currentLegCoordinates: [number, number][] = [];
 		day.stops.slice(1).forEach((stop, legIndex) =>
 		{
 			const start = places[day.stops[legIndex].placeId].coordinates;
@@ -36,10 +36,11 @@ export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLa
 			if (arrivingStopIndex === currentStopIndex)
 			{
 				// The leg being drawn in is one continuous line so the reveal animation runs smoothly from start to end.
+				currentLegCoordinates = segments.flatMap((segment) => segment.coordinates);
 				currentLegFeatures.push(
 				{
 					type: "Feature",
-					geometry: { type: "LineString", coordinates: segments.flatMap((segment) => segment.coordinates) },
+					geometry: { type: "LineString", coordinates: currentLegCoordinates },
 					properties: {},
 				});
 				return;
@@ -58,6 +59,8 @@ export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLa
 		return {
 			otherLegs: { type: "FeatureCollection", features: otherLegFeatures } as FeatureCollection,
 			currentLeg: { type: "FeatureCollection", features: currentLegFeatures } as FeatureCollection,
+			// Drawn at the same pace as the camera riding along it, so the line's tip stays under the camera.
+			currentLegMilliseconds: getLegTravelMilliseconds(currentLegCoordinates),
 		};
 	}, [day, places, currentStopIndex, legPaths]);
 
@@ -78,8 +81,8 @@ export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLa
 				animationFrame = requestAnimationFrame(drawFrame);
 				return;
 			}
-			const linearProgress = Math.min((now - startTime) / legDrawDurationMilliseconds, 1);
-			const easedProgress = 1 - Math.pow(1 - linearProgress, 3);
+			const linearProgress = Math.min((now - startTime) / currentLegMilliseconds, 1);
+			const easedProgress = easeLegTravel(linearProgress);
 			// line-gradient needs a step strictly above 0, otherwise the whole line shows on the first frame.
 			const visibleUntil = Math.max(easedProgress, 0.0001);
 			mapInstance.setPaintProperty(currentLegLayerId, "line-gradient",
@@ -91,7 +94,7 @@ export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLa
 		};
 		animationFrame = requestAnimationFrame(drawFrame);
 		return () => cancelAnimationFrame(animationFrame);
-	}, [map, currentStopIndex, day.color]);
+	}, [map, currentStopIndex, day.color, currentLegMilliseconds]);
 
 	return (
 		<>

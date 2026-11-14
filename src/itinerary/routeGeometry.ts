@@ -1,3 +1,4 @@
+import { getDistanceKilometers } from "./tripOverview";
 import type { ICoordinates, ILegSegment, TravelMode } from "./types";
 
 const curveSampleCount = 32;
@@ -45,4 +46,37 @@ export function getLegSegments(
 ): ILegSegment[]
 {
 	return legPaths[getLegPathKey(dayNumber, arrivalStopIndex)] ?? [{ mode, coordinates: createCurvedLegCoordinates(start, end) }];
+}
+
+/** Length of a path of [longitude, latitude] pairs, following every bend. */
+export function getPathLengthKilometers(coordinates: [number, number][]): number
+{
+	let total = 0;
+	for (let index = 1; index < coordinates.length; index++)
+	{
+		total += getDistanceKilometers(
+			{ longitude: coordinates[index - 1][0], latitude: coordinates[index - 1][1] },
+			{ longitude: coordinates[index][0], latitude: coordinates[index][1] },
+		);
+	}
+	return total;
+}
+
+const shortestLegTravelMilliseconds = 1100;
+const longestLegTravelMilliseconds = 4000;
+
+/**
+ * How long the map takes to travel a leg. It grows with distance but flattens out, so a walk takes about
+ * a second and a half and a Shinkansen ride a few seconds. The route drawing and the camera share this timing.
+ */
+export function getLegTravelMilliseconds(coordinates: [number, number][]): number
+{
+	const duration = shortestLegTravelMilliseconds + 700 * Math.log2(1 + getPathLengthKilometers(coordinates));
+	return Math.min(duration, longestLegTravelMilliseconds);
+}
+
+/** The easing shared by the route drawing and the camera following it: slow start, steady middle, gentle arrival. */
+export function easeLegTravel(progress: number): number
+{
+	return progress < 0.5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
 }
