@@ -15,11 +15,11 @@
 	max-width: calc(100vw - 480px);
 }
 
-/* With the details panel open on the right, center the player between the two panels. */
+/* With the details pane open next to the itinerary, center the player in the map area that remains. */
 .playerDock.besideDetails
 {
-	left: 50%;
-	max-width: calc(100vw - 900px);
+	left: calc(50% + 430px);
+	max-width: calc(100vw - 880px);
 }
 
 @media (max-width: 760px)

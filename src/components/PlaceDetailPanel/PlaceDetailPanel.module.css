@@ -3,7 +3,7 @@
 	position: absolute;
 	z-index: 4;
 	top: 16px;
-	right: 16px;
+	left: 448px;
 	bottom: 16px;
 	width: 400px;
 	border-radius: 22px;
@@ -351,6 +351,16 @@
 {
 	outline: 3px solid var(--day-color);
 	outline-offset: 2px;
+}
+
+/* Not enough room for both panels side by side: the details pane covers the itinerary instead. */
+@media (min-width: 761px) and (max-width: 1180px)
+{
+	.panel
+	{
+		left: 16px;
+		width: 420px;
+	}
 }
 
 @media (max-width: 760px)

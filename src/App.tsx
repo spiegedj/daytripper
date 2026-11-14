@@ -8,23 +8,25 @@ import { trips } from "./trips";
 import styles from "./App.module.css";
 
 const narrowScreenQuery = "(max-width: 760px)";
+const sideBySidePanelsQuery = "(min-width: 1181px)";
 const wideScreenPadding: ICameraPadding = { top: 90, bottom: 140, left: 480, right: 80 };
-const detailPanelWidth = 420;
+// The details pane sits right next to the itinerary panel, so the map's visible area starts after both.
+const leftWithDetailsOpen = 16 + 420 + 12 + 400 + 40;
 const narrowScreenPadding: ICameraPadding = { top: 110, bottom: 0, left: 50, right: 50 };
 
-function useIsNarrowScreen(): boolean
+function useMediaQuery(query: string): boolean
 {
-	const [isNarrowScreen, setIsNarrowScreen] = useState(() => window.matchMedia(narrowScreenQuery).matches);
+	const [isMatch, setIsMatch] = useState(() => window.matchMedia(query).matches);
 
 	useEffect(() =>
 	{
-		const mediaQuery = window.matchMedia(narrowScreenQuery);
-		const handleChange = () => setIsNarrowScreen(mediaQuery.matches);
+		const mediaQuery = window.matchMedia(query);
+		const handleChange = () => setIsMatch(mediaQuery.matches);
 		mediaQuery.addEventListener("change", handleChange);
 		return () => mediaQuery.removeEventListener("change", handleChange);
-	}, []);
+	}, [query]);
 
-	return isNarrowScreen;
+	return isMatch;
 }
 
 /** The whole app: map, itinerary panel and step player for the selected trip. */
@@ -32,7 +34,8 @@ export function App()
 {
 	const trip = trips[0];
 	const navigation = useItineraryNavigation(trip);
-	const isNarrowScreen = useIsNarrowScreen();
+	const isNarrowScreen = useMediaQuery(narrowScreenQuery);
+	const canShowPanelsSideBySide = useMediaQuery(sideBySidePanelsQuery);
 	const { dayIndex, stopIndex } = navigation.position;
 	const day = trip.days[dayIndex];
 	const currentPlace = trip.places[day.stops[stopIndex].placeId];
@@ -49,7 +52,7 @@ export function App()
 	// On phones the bottom sheet covers the lower part of the map, so the camera keeps stops above it.
 	const cameraPadding = isNarrowScreen
 		? { ...narrowScreenPadding, bottom: Math.round(window.innerHeight * 0.46) + 90 }
-		: { ...wideScreenPadding, right: isDetailOpen ? detailPanelWidth + 40 : wideScreenPadding.right };
+		: { ...wideScreenPadding, left: isDetailOpen && canShowPanelsSideBySide ? leftWithDetailsOpen : wideScreenPadding.left };
 
 	return (
 		<div className={styles.app}>
@@ -68,7 +71,7 @@ export function App()
 				onSelectStop={navigation.goToStop}
 				onOpenDetails={openDetails}
 			/>
-			<div className={`${styles.playerDock} ${isDetailOpen && !isNarrowScreen ? styles.besideDetails : ""}`}>
+			<div className={`${styles.playerDock} ${isDetailOpen && canShowPanelsSideBySide ? styles.besideDetails : ""}`}>
 				<StepPlayer
 					day={day}
 					nextDay={trip.days[dayIndex + 1]}

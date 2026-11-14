@@ -48,9 +48,9 @@ export function PlaceDetailPanel({ isOpen, place, details, day, stopIndex, onClo
 				<motion.aside
 					className={styles.panel}
 					style={{ "--day-color": day.color, "--category-color": categoryColor } as CSSProperties}
-					initial={{ opacity: 0, x: 40 }}
+					initial={{ opacity: 0, x: -24 }}
 					animate={{ opacity: 1, x: 0 }}
-					exit={{ opacity: 0, x: 40 }}
+					exit={{ opacity: 0, x: -24 }}
 					transition={{ type: "spring", stiffness: 380, damping: 34 }}
 					aria-label={`${place.name} details`}
 				>
