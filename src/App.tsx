@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ItineraryPanel } from "./components/ItineraryPanel/ItineraryPanel";
 import { MapView, type ICameraPadding } from "./components/MapView/MapView";
 import { PlaceDetailPanel } from "./components/PlaceDetailPanel/PlaceDetailPanel";
 import { StepPlayer } from "./components/StepPlayer/StepPlayer";
+import { TripOverviewLayer } from "./components/TripOverviewLayer/TripOverviewLayer";
 import { useItineraryNavigation } from "./itinerary/useItineraryNavigation";
 import { trips } from "./trips";
 import styles from "./App.module.css";
@@ -40,6 +41,14 @@ export function App()
 	const day = trip.days[dayIndex];
 	const currentPlace = trip.places[day.stops[stopIndex].placeId];
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
+	const [highlightedDayNumber, setHighlightedDayNumber] = useState<number | undefined>();
+	const { isOverview } = navigation;
+	const tripCoordinates = useMemo(() => trip.days.flatMap((tripDay) => tripDay.stops.map((stop) => trip.places[stop.placeId].coordinates)), [trip]);
+	const showOverview = useCallback(() =>
+	{
+		setIsDetailOpen(false);
+		navigation.showOverview();
+	}, [navigation]);
 	const openDetails = useCallback(() => setIsDetailOpen(true), []);
 	const closeDetails = useCallback(() => setIsDetailOpen(false), []);
 	const { goToStop } = navigation;
@@ -51,7 +60,7 @@ export function App()
 
 	// On phones the bottom sheet covers the lower part of the map, so the camera keeps stops above it.
 	const cameraPadding = isNarrowScreen
-		? { ...narrowScreenPadding, bottom: Math.round(window.innerHeight * 0.46) + 90 }
+		? { ...narrowScreenPadding, top: isOverview ? 40 : narrowScreenPadding.top, bottom: Math.round(window.innerHeight * 0.46) + (isOverview ? 16 : 90) }
 		: { ...wideScreenPadding, left: isDetailOpen && canShowPanelsSideBySide ? leftWithDetailsOpen : wideScreenPadding.left };
 
 	return (
@@ -61,31 +70,46 @@ export function App()
 				places={trip.places}
 				currentStopIndex={stopIndex}
 				cameraPadding={cameraPadding}
+				isOverview={isOverview}
+				tripCoordinates={tripCoordinates}
 				onSelectStop={selectStopOnMap}
-			/>
+			>
+				<TripOverviewLayer
+					trip={trip}
+					highlightedDayNumber={highlightedDayNumber}
+					onSelectDay={navigation.goToDay}
+					onHighlightDay={setHighlightedDayNumber}
+				/>
+			</MapView>
 			<ItineraryPanel
 				trip={trip}
 				dayIndex={dayIndex}
 				stopIndex={stopIndex}
 				onSelectDay={navigation.goToDay}
+				isOverview={isOverview}
+				highlightedDayNumber={highlightedDayNumber}
 				onSelectStop={navigation.goToStop}
 				onOpenDetails={openDetails}
+				onShowOverview={showOverview}
+				onHighlightDay={setHighlightedDayNumber}
 			/>
-			<div className={`${styles.playerDock} ${isDetailOpen && canShowPanelsSideBySide ? styles.besideDetails : ""}`}>
-				<StepPlayer
-					day={day}
-					nextDay={trip.days[dayIndex + 1]}
-					currentStopIndex={stopIndex}
-					currentStopName={currentPlace.name}
-					isAtTripStart={navigation.isAtTripStart}
-					isAtTripEnd={navigation.isAtTripEnd}
-					isCompact={isDetailOpen && !isNarrowScreen}
-					onPrevious={navigation.goToPreviousStop}
-					onNext={navigation.goToNextStop}
-				/>
-			</div>
+			{!isOverview && (
+				<div className={`${styles.playerDock} ${isDetailOpen && canShowPanelsSideBySide ? styles.besideDetails : ""}`}>
+					<StepPlayer
+						day={day}
+						nextDay={trip.days[dayIndex + 1]}
+						currentStopIndex={stopIndex}
+						currentStopName={currentPlace.name}
+						isAtTripStart={navigation.isAtTripStart}
+						isAtTripEnd={navigation.isAtTripEnd}
+						isCompact={isDetailOpen && !isNarrowScreen}
+						onPrevious={navigation.goToPreviousStop}
+						onNext={navigation.goToNextStop}
+					/>
+				</div>
+			)}
 			<PlaceDetailPanel
-				isOpen={isDetailOpen}
+				isOpen={isDetailOpen && !isOverview}
 				place={currentPlace}
 				details={trip.placeDetails[currentPlace.id]}
 				day={day}

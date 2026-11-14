@@ -12,12 +12,15 @@ export interface IItineraryPosition
 export interface IItineraryNavigation
 {
 	position: IItineraryPosition;
+	/** True while the whole-trip overview is showing instead of a single day. */
+	isOverview: boolean;
 	isAtTripStart: boolean;
 	isAtTripEnd: boolean;
 	goToNextStop: () => void;
 	goToPreviousStop: () => void;
 	goToDay: (dayIndex: number) => void;
 	goToStop: (stopIndex: number) => void;
+	showOverview: () => void;
 }
 
 function clamp(value: number, minimum: number, maximum: number): number
@@ -40,10 +43,12 @@ function readPositionFromHash(trip: ITrip): IItineraryPosition
 export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 {
 	const [position, setPosition] = useState<IItineraryPosition>(() => readPositionFromHash(trip));
+	const [isOverview, setIsOverview] = useState(() => window.location.hash.includes("/overview"));
 	const lastDayIndex = trip.days.length - 1;
 
 	const goToNextStop = useCallback(() =>
 	{
+		setIsOverview(false);
 		setPosition(({ dayIndex, stopIndex }) =>
 		{
 			if (stopIndex < trip.days[dayIndex].stops.length - 1)
@@ -56,6 +61,7 @@ export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 
 	const goToPreviousStop = useCallback(() =>
 	{
+		setIsOverview(false);
 		setPosition(({ dayIndex, stopIndex }) =>
 		{
 			if (stopIndex > 0)
@@ -68,19 +74,24 @@ export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 
 	const goToDay = useCallback((dayIndex: number) =>
 	{
+		setIsOverview(false);
 		setPosition({ dayIndex: clamp(dayIndex, 0, lastDayIndex), stopIndex: 0 });
 	}, [lastDayIndex]);
 
 	const goToStop = useCallback((stopIndex: number) =>
 	{
+		setIsOverview(false);
 		setPosition(({ dayIndex }) => ({ dayIndex, stopIndex: clamp(stopIndex, 0, trip.days[dayIndex].stops.length - 1) }));
 	}, [trip]);
+
+	const showOverview = useCallback(() => setIsOverview(true), []);
 
 	useEffect(() =>
 	{
 		const dayNumber = trip.days[position.dayIndex].dayNumber;
-		window.history.replaceState(null, "", `#/${trip.id}/day-${dayNumber}/stop-${position.stopIndex + 1}`);
-	}, [trip, position]);
+		const viewPath = isOverview ? "overview" : `day-${dayNumber}/stop-${position.stopIndex + 1}`;
+		window.history.replaceState(null, "", `#/${trip.id}/${viewPath}`);
+	}, [trip, position, isOverview]);
 
 	useEffect(() =>
 	{
@@ -108,11 +119,13 @@ export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 
 	return {
 		position,
+		isOverview,
 		isAtTripStart: position.dayIndex === 0 && position.stopIndex === 0,
 		isAtTripEnd: position.dayIndex === lastDayIndex && position.stopIndex === trip.days[lastDayIndex].stops.length - 1,
 		goToNextStop,
 		goToPreviousStop,
 		goToDay,
 		goToStop,
+		showOverview,
 	};
 }

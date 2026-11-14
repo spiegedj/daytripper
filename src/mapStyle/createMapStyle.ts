@@ -58,7 +58,7 @@ export function createMapStyle(palette: IMapPalette): StyleSpecification
 			{ id: "water", type: "fill", source: tileSourceId, "source-layer": "water", paint: { "fill-color": palette.water } },
 			{
 				id: "water-waves", type: "fill", source: tileSourceId, "source-layer": "water",
-				paint: { "fill-pattern": wavePatternImageId, "fill-opacity": ["interpolate", ["linear"], ["zoom"], 8, 0.9, 16, 0.5] },
+				paint: { "fill-pattern": wavePatternImageId, "fill-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.25, 10, 0.7, 16, 0.5] },
 			},
 			{
 				id: "waterway", type: "line", source: tileSourceId, "source-layer": "waterway",

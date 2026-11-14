@@ -17,7 +17,7 @@
 .header
 {
 	display: grid;
-	grid-template-columns: auto 1fr;
+	grid-template-columns: auto 1fr auto;
 	grid-template-rows: auto auto;
 	column-gap: 10px;
 	align-items: center;
@@ -41,6 +41,41 @@
 {
 	font: 800 18px/1.1 "M PLUS Rounded 1c", "Inter", system-ui, sans-serif;
 	color: #1d2433;
+}
+
+.viewSwitch
+{
+	grid-column: 3;
+	grid-row: 1 / span 2;
+	display: flex;
+	padding: 3px;
+	border-radius: 999px;
+	background: #f1f3f5;
+}
+
+.viewOption
+{
+	padding: 6px 14px;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	color: #5b6577;
+	font: 600 12.5px/1.2 "Inter", system-ui, sans-serif;
+	cursor: pointer;
+	transition: background 150ms ease, color 150ms ease;
+}
+
+.viewOptionActive
+{
+	background: #ffffff;
+	color: #1d2433;
+	box-shadow: 0 1px 4px rgba(29, 36, 51, 0.16);
+}
+
+.viewOption:focus-visible
+{
+	outline: 3px solid var(--day-color);
+	outline-offset: 1px;
 }
 
 .tripName
@@ -110,7 +145,20 @@
 
 	.header
 	{
+		padding: 4px 12px 8px;
+	}
+
+	.logo,
+	.brand,
+	.tripName
+	{
 		display: none;
+	}
+
+	.viewSwitch
+	{
+		grid-column: 1 / -1;
+		justify-self: center;
 	}
 
 

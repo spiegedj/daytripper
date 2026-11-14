@@ -1,0 +1,170 @@
+.cityBadge
+{
+	position: relative;
+	display: grid;
+	gap: 4px;
+	padding: 8px 10px 9px;
+	border-radius: 14px;
+	background: #ffffff;
+	box-shadow: 0 6px 18px rgba(29, 36, 51, 0.18);
+}
+
+/* Small pointer under the card so it reads as attached to the city's location. */
+.cityBadge::after
+{
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: -5px;
+	width: 10px;
+	height: 10px;
+	margin-left: -5px;
+	background: #ffffff;
+	transform: rotate(45deg);
+	border-radius: 2px;
+}
+
+.below::after
+{
+	top: -5px;
+	bottom: auto;
+}
+
+.cityHeader
+{
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	white-space: nowrap;
+}
+
+.cityName
+{
+	color: #1d2433;
+	font: 800 16px/1.2 "M PLUS Rounded 1c", "Inter", system-ui, sans-serif;
+}
+
+.cityLocalName
+{
+	color: #5b6577;
+	font: 700 12px/1.2 "M PLUS Rounded 1c", system-ui, sans-serif;
+}
+
+.cityDays
+{
+	color: #5b6577;
+	font: 600 11px/1.2 "Inter", system-ui, sans-serif;
+	letter-spacing: 0.04em;
+}
+
+.dayChips
+{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	max-width: 168px;
+}
+
+.dayChip,
+.dayTripNumber
+{
+	display: grid;
+	place-items: center;
+	min-width: 24px;
+	height: 24px;
+	padding: 0 4px;
+	border: 0;
+	border-radius: 8px;
+	background: var(--day-color);
+	color: #ffffff;
+	font: 800 12px/1 "M PLUS Rounded 1c", "Inter", system-ui, sans-serif;
+	box-sizing: border-box;
+}
+
+.dayChip
+{
+	cursor: pointer;
+	transition: transform 150ms ease;
+}
+
+.dayChip:hover
+{
+	transform: translateY(-2px) scale(1.08);
+}
+
+.dayChip:focus-visible,
+.dayTripBadge:focus-visible
+{
+	outline: 3px solid var(--day-color);
+	outline-offset: 2px;
+}
+
+.dayTripBadge
+{
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 10px 4px 4px;
+	border: 2px solid var(--day-color);
+	border-radius: 999px;
+	background: #ffffff;
+	color: #1d2433;
+	font: 700 12px/1.2 "Inter", system-ui, sans-serif;
+	white-space: nowrap;
+	box-shadow: 0 4px 12px rgba(29, 36, 51, 0.16);
+	cursor: pointer;
+	transition: transform 150ms ease;
+}
+
+.dayTripBadge:hover
+{
+	transform: translateY(-2px);
+}
+
+/* Badges extending west put the day number on the right, next to the location they point at. */
+.towardWest
+{
+	flex-direction: row-reverse;
+	padding: 4px 4px 4px 10px;
+}
+
+.dayTripNumber
+{
+	min-width: 20px;
+	height: 20px;
+	border-radius: 999px;
+	font-size: 11px;
+}
+
+/* Phones: the map is small, so badges shrink to the city name and day range. */
+@media (max-width: 760px)
+{
+	.cityBadge
+	{
+		gap: 0;
+		padding: 5px 8px 6px;
+		border-radius: 10px;
+	}
+
+	.cityName
+	{
+		font-size: 13px;
+	}
+
+	.cityLocalName,
+	.dayChips
+	{
+		display: none;
+	}
+
+	.cityDays
+	{
+		font-size: 10px;
+	}
+
+	/* Day trips sit too close to their base city at this size; the summary list below covers them. */
+	.dayTripBadge
+	{
+		display: none;
+	}
+}

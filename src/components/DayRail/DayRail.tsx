@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, type CSSProperties } from "react";
+import { groupDaysByCity } from "../../itinerary/tripOverview";
 import type { IDay } from "../../itinerary/types";
 import styles from "./DayRail.module.css";
 
@@ -9,35 +10,11 @@ export interface IDayRailProps
 	onSelectDay: (dayIndex: number) => void;
 }
 
-interface ICityGroup
-{
-	city: string;
-	dayIndexes: number[];
-}
-
-function groupConsecutiveDaysByCity(days: IDay[]): ICityGroup[]
-{
-	const groups: ICityGroup[] = [];
-	days.forEach((day, dayIndex) =>
-	{
-		const lastGroup = groups[groups.length - 1];
-		if (lastGroup && lastGroup.city === day.baseCity)
-		{
-			lastGroup.dayIndexes.push(dayIndex);
-		}
-		else
-		{
-			groups.push({ city: day.baseCity, dayIndexes: [dayIndex] });
-		}
-	});
-	return groups;
-}
-
 /** Vertical list of days grouped by the city you sleep in. Each day keeps its color; the selected day is filled. */
 export function DayRail({ days, selectedDayIndex, onSelectDay }: IDayRailProps)
 {
 	const selectedDayRef = useRef<HTMLButtonElement>(null);
-	const cityGroups = useMemo(() => groupConsecutiveDaysByCity(days), [days]);
+	const cityGroups = useMemo(() => groupDaysByCity(days), [days]);
 
 	useEffect(() =>
 	{

@@ -94,11 +94,22 @@ export interface IDay
 	openQuestions?: string[];
 }
 
+/** A city you stay in, used to label the trip overview. Days refer to it through their baseCity name. */
+export interface ICity
+{
+	name: string;
+	localName?: string;
+	coordinates: ICoordinates;
+	/** Where the overview badge sits relative to the city, so nearby cities don't cover each other. Defaults to above. */
+	badgePlacement?: "above" | "below";
+}
+
 /** A complete trip: its places and its ordered days. */
 export interface ITrip
 {
 	id: string;
 	name: string;
+	cities: ICity[];
 	places: Record<string, IPlace>;
 	placeDetails: Record<string, IPlaceDetails>;
 	days: IDay[];
