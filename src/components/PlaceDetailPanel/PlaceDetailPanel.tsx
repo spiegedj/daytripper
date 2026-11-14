@@ -67,23 +67,14 @@ export function PlaceDetailPanel({ isOpen, place, details, day, stopIndex, onClo
 							transition={{ duration: 0.18 }}
 						>
 							{hasPhotos
-								? (
-									<PhotoCarousel photos={details!.photos} placeName={place.name}>
-										<header className={styles.heroTitleBlock}>
-											<h2 className={styles.heroTitle}>{place.name}</h2>
-											{place.localName && <span className={styles.heroLocalName}>{place.localName}</span>}
-										</header>
-									</PhotoCarousel>
-								)
+								? <PhotoCarousel photos={details!.photos} placeName={place.name} />
 								: <IllustrationHero place={place} />}
 
 							<div className={styles.content}>
-								{!hasPhotos && (
-									<header className={styles.titleBlock}>
-										<h2 className={styles.title}>{place.name}</h2>
-										{place.localName && <span className={styles.localName}>{place.localName}</span>}
-									</header>
-								)}
+								<header className={styles.titleBlock}>
+									<h2 className={styles.title}>{place.name}</h2>
+									{place.localName && <span className={styles.localName}>{place.localName}</span>}
+								</header>
 
 								<div className={styles.chips}>
 									<span className={styles.categoryChip}>
