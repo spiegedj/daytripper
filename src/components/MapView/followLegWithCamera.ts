@@ -21,10 +21,10 @@ const zoomTransitionShare = 0.35;
 // Share of the trip spent speeding up at the start and slowing down at the end.
 const speedRampShare = 0.2;
 // Comfort limits: how fast the map may slide across the screen, and how many zoom levels it may change per second.
-const maximumScreenPixelsPerSecond = 450;
-const maximumZoomLevelsPerSecond = 3.2;
+const maximumScreenPixelsPerSecond = 800;
+const maximumZoomLevelsPerSecond = 5;
 const shortestRideMilliseconds = 1100;
-const longestRideMilliseconds = 12000;
+const longestRideMilliseconds = 6000;
 const motionPlanSteps = 400;
 
 /** Passes a ride's progress (0 to 1 along the leg) from the camera to whatever draws the leg, such as the route line. */
