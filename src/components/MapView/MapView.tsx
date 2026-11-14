@@ -315,12 +315,15 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				const isLandmark = place.landmarkIconUrl !== undefined;
 				const isDrawnAsLandmark = isLandmark && !isCompact;
 				const isDrawnAsMiniLandmark = isLandmark && isCompact;
+				const anchor = isDrawnAsLandmark ? "top" : isDrawnAsMiniLandmark ? "bottom" : "center";
 				return (
 					<Marker
-						key={`${day.dayNumber}-${place.id}-${stopIndex}`}
+						// The map library applies a marker's anchor only when it is created, so switching between the full and
+						// small illustration rebuilds the marker; otherwise it keeps the old anchor with the new offset and drifts.
+						key={`${day.dayNumber}-${place.id}-${stopIndex}-${anchor}`}
 						longitude={place.coordinates.longitude}
 						latitude={place.coordinates.latitude}
-						anchor={isDrawnAsLandmark ? "top" : isDrawnAsMiniLandmark ? "bottom" : "center"}
+						anchor={anchor}
 						offset={isDrawnAsLandmark ? [0, -landmarkGroundOffset * landmarkScale] : isDrawnAsMiniLandmark ? [0, miniLandmarkGroundOffset * landmarkScale] : [0, 0]}
 						style={{ zIndex: progress === "current" ? 3 : isLandmark ? 2 : 1 }}
 					>
