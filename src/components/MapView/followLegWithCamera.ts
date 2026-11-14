@@ -3,20 +3,21 @@ import type { Map as MapLibreMap, PaddingOptions } from "maplibre-gl";
 /** How quickly the camera rides between stops, chosen by the viewer. */
 export type TravelSpeed = "slow" | "medium" | "fast";
 
-/** Comfort limits for a ride: how fast the map may slide and zoom, and the longest any ride may take. */
+/** Comfort limits for a ride: how fast the map may slide and zoom, and the shortest and longest any ride may take. */
 export interface IRidePace
 {
 	maximumScreenPixelsPerSecond: number;
 	maximumZoomLevelsPerSecond: number;
+	shortestRideMilliseconds: number;
 	longestRideMilliseconds: number;
 }
 
 /** The pace behind each travel speed. Medium is the default; a 5 km train ride takes about 1.7 s at that pace. */
 export const ridePaces: Record<TravelSpeed, IRidePace> =
 {
-	slow: { maximumScreenPixelsPerSecond: 450, maximumZoomLevelsPerSecond: 3.2, longestRideMilliseconds: 10000 },
-	medium: { maximumScreenPixelsPerSecond: 800, maximumZoomLevelsPerSecond: 5, longestRideMilliseconds: 6000 },
-	fast: { maximumScreenPixelsPerSecond: 1300, maximumZoomLevelsPerSecond: 8, longestRideMilliseconds: 3500 },
+	slow: { maximumScreenPixelsPerSecond: 320, maximumZoomLevelsPerSecond: 2.4, shortestRideMilliseconds: 1500, longestRideMilliseconds: 13000 },
+	medium: { maximumScreenPixelsPerSecond: 800, maximumZoomLevelsPerSecond: 5, shortestRideMilliseconds: 1100, longestRideMilliseconds: 6000 },
+	fast: { maximumScreenPixelsPerSecond: 1800, maximumZoomLevelsPerSecond: 11, shortestRideMilliseconds: 700, longestRideMilliseconds: 2500 },
 };
 
 export interface IFollowLegOptions
@@ -40,7 +41,6 @@ const lowestTravelZoom = 7;
 const zoomTransitionShare = 0.35;
 // Share of the trip spent speeding up at the start and slowing down at the end.
 const speedRampShare = 0.2;
-const shortestRideMilliseconds = 1100;
 const motionPlanSteps = 400;
 
 /** Passes a ride's progress (0 to 1 along the leg) from the camera to whatever draws the leg, such as the route line. */
@@ -212,7 +212,7 @@ function planRide(trackPixelsAtStartZoom: number, startZoom: number, travelZoom:
 	const largestZoomChange = Math.max(Math.abs(startZoom - travelZoom), Math.abs(arrivalZoom - travelZoom));
 	// Smoothstep changes zoom at up to 1.5 times its average rate.
 	const durationForZoom = 1000 * 1.5 * largestZoomChange / (zoomTransitionShare * pace.maximumZoomLevelsPerSecond);
-	const durationMilliseconds = Math.min(pace.longestRideMilliseconds, Math.max(shortestRideMilliseconds, durationForSpeed, durationForZoom));
+	const durationMilliseconds = Math.min(pace.longestRideMilliseconds, Math.max(pace.shortestRideMilliseconds, durationForSpeed, durationForZoom));
 
 	const progressAt = (timeShare: number) =>
 	{
