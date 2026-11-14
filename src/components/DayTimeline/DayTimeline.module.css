@@ -117,7 +117,8 @@
 	transition: background 250ms ease, transform 250ms ease;
 }
 
-.hotelMarker
+.hotelMarker,
+.overviewMarker
 {
 	border-radius: 9px;
 }

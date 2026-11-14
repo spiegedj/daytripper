@@ -6,7 +6,7 @@ import { RouteStyleSwitch, useRouteStyle } from "./components/RouteStyleSwitch/R
 import { StepPlayer } from "./components/StepPlayer/StepPlayer";
 import type { ILegSegment } from "./itinerary/types";
 import { TripOverviewLayer } from "./components/TripOverviewLayer/TripOverviewLayer";
-import { useItineraryNavigation } from "./itinerary/useItineraryNavigation";
+import { dayOverviewStopIndex, useItineraryNavigation } from "./itinerary/useItineraryNavigation";
 import { trips } from "./trips";
 import styles from "./App.module.css";
 
@@ -41,7 +41,10 @@ export function App()
 	const canShowPanelsSideBySide = useMediaQuery(sideBySidePanelsQuery);
 	const { dayIndex, stopIndex } = navigation.position;
 	const day = trip.days[dayIndex];
-	const currentPlace = trip.places[day.stops[stopIndex].placeId];
+	const isDayOverview = stopIndex === dayOverviewStopIndex;
+	// The day overview has no place of its own; the details pane stays closed there, so the first stop stands in.
+	const detailStopIndex = Math.max(stopIndex, 0);
+	const currentPlace = trip.places[day.stops[detailStopIndex].placeId];
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
 	const [highlightedDayNumber, setHighlightedDayNumber] = useState<number | undefined>();
 	const [routeStyle, setRouteStyle] = useRouteStyle();
@@ -55,6 +58,15 @@ export function App()
 		navigation.showOverview();
 	}, [navigation]);
 	const openDetails = useCallback(() => setIsDetailOpen(true), []);
+
+	useEffect(() =>
+	{
+		// The overview is about the whole day, so details for a single place make way for it.
+		if (isDayOverview)
+		{
+			setIsDetailOpen(false);
+		}
+	}, [isDayOverview]);
 	const closeDetails = useCallback(() => setIsDetailOpen(false), []);
 	const { goToStop } = navigation;
 	const selectStopOnMap = useCallback((selectedStopIndex: number) =>
@@ -66,7 +78,7 @@ export function App()
 	// On phones the bottom sheet covers the lower part of the map, so the camera keeps stops above it.
 	const cameraPadding = isNarrowScreen
 		? { ...narrowScreenPadding, top: isOverview ? 40 : narrowScreenPadding.top, bottom: Math.round(window.innerHeight * 0.46) + (isOverview ? 16 : 90) }
-		: { ...wideScreenPadding, left: isDetailOpen && canShowPanelsSideBySide ? leftWithDetailsOpen : wideScreenPadding.left };
+		: { ...wideScreenPadding, left: isDetailOpen && !isDayOverview && canShowPanelsSideBySide ? leftWithDetailsOpen : wideScreenPadding.left };
 
 	return (
 		<div className={styles.app}>
@@ -105,26 +117,26 @@ export function App()
 				onHighlightDay={setHighlightedDayNumber}
 			/>
 			{!isOverview && (
-				<div className={`${styles.playerDock} ${isDetailOpen && canShowPanelsSideBySide ? styles.besideDetails : ""}`}>
+				<div className={`${styles.playerDock} ${isDetailOpen && !isDayOverview && canShowPanelsSideBySide ? styles.besideDetails : ""}`}>
 					<StepPlayer
 						day={day}
 						nextDay={trip.days[dayIndex + 1]}
 						currentStopIndex={stopIndex}
-						currentStopName={currentPlace.name}
+						currentStopName={isDayOverview ? day.title : currentPlace.name}
 						isAtTripStart={navigation.isAtTripStart}
 						isAtTripEnd={navigation.isAtTripEnd}
-						isCompact={isDetailOpen && !isNarrowScreen}
+						isCompact={isDetailOpen && !isDayOverview && !isNarrowScreen}
 						onPrevious={navigation.goToPreviousStop}
 						onNext={navigation.goToNextStop}
 					/>
 				</div>
 			)}
 			<PlaceDetailPanel
-				isOpen={isDetailOpen && !isOverview}
+				isOpen={isDetailOpen && !isOverview && !isDayOverview}
 				place={currentPlace}
 				details={trip.placeDetails[currentPlace.id]}
 				day={day}
-				stopIndex={stopIndex}
+				stopIndex={detailStopIndex}
 				onClose={closeDetails}
 			/>
 		</div>

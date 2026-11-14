@@ -11,6 +11,7 @@ import { StopMarker, type StopProgress } from "../Markers/StopMarker";
 import { RouteLayer } from "../RouteLayer/RouteLayer";
 import { LabelBlockerLayer, createBlockerImage } from "./LabelBlockerLayer";
 import { findDayExploredAreas } from "../../itinerary/tripOverview";
+import { dayOverviewStopIndex } from "../../itinerary/useItineraryNavigation";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import { findCompactStops, landmarkGroundOffset, miniLandmarkGroundOffset } from "./markerFootprint";
 
@@ -146,25 +147,22 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			map.fitBounds(tripBounds, { padding: getOverviewPadding(cameraPadding), duration: dayFlightMilliseconds });
 			return;
 		}
-		const currentPlace = dayPlaces[currentStopIndex];
-		const flyToCurrentStop = (duration: number) => map.flyTo(
-		{
-			center: [currentPlace.coordinates.longitude, currentPlace.coordinates.latitude],
-			zoom: stopZoom,
-			duration,
-			padding: cameraPadding,
-		});
 		const showTarget = (duration: number) =>
 		{
-			// Arriving at the start of a day shows the whole day; stepping back into a day lands on its last stop.
-			if (currentStopIndex === 0)
+			// A day's overview frames the whole day; stepping back into a day lands on its last stop.
+			if (currentStopIndex === dayOverviewStopIndex)
 			{
 				map.fitBounds(dayBounds, { padding: cameraPadding, maxZoom: maximumDayZoom, duration });
+				return;
 			}
-			else
+			const currentPlace = dayPlaces[currentStopIndex];
+			map.flyTo(
 			{
-				flyToCurrentStop(duration);
-			}
+				center: [currentPlace.coordinates.longitude, currentPlace.coordinates.latitude],
+				zoom: stopZoom,
+				duration,
+				padding: cameraPadding,
+			});
 		};
 
 		if (wasOverview)
@@ -176,7 +174,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		const isNewDay = previousPosition.dayNumber !== day.dayNumber;
 		if (!isNewDay)
 		{
-			flyToCurrentStop(stopFlightMilliseconds);
+			showTarget(stopFlightMilliseconds);
 			return;
 		}
 
@@ -210,7 +208,12 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		{
 			return;
 		}
-		// A panel opened or closed beside the map: slide the current stop back into the visible area.
+		// A panel opened or closed beside the map: slide the current stop (or whole day) back into the visible area.
+		if (currentStopIndex === dayOverviewStopIndex)
+		{
+			map.fitBounds(dayBounds, { padding: cameraPadding, maxZoom: maximumDayZoom, duration: 600 });
+			return;
+		}
 		const currentPlace = dayPlaces[currentStopIndex];
 		map.easeTo(
 		{
@@ -218,7 +221,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			padding: cameraPadding,
 			duration: 600,
 		});
-	}, [cameraPadding, dayPlaces, currentStopIndex, isOverview]);
+	}, [cameraPadding, dayPlaces, dayBounds, currentStopIndex, isOverview]);
 
 	// Images the style needs but doesn't ship (the water pattern, label blockers) are generated when first requested.
 	const attachMap = useCallback((mapInstance: MapRef | null) =>
@@ -249,10 +252,10 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		updateCompactStops();
 	};
 
-	const initialPlace = dayPlaces[currentStopIndex];
+	const initialPlace = dayPlaces[Math.max(currentStopIndex, 0)];
 	const initialViewState = isOverview
 		? { bounds: tripBounds, fitBoundsOptions: { padding: getOverviewPadding(cameraPadding) } }
-		: currentStopIndex === 0
+		: currentStopIndex === dayOverviewStopIndex
 		? { bounds: dayBounds, fitBoundsOptions: { padding: cameraPadding, maxZoom: maximumDayZoom } }
 		: { longitude: initialPlace.coordinates.longitude, latitude: initialPlace.coordinates.latitude, zoom: stopZoom, padding: cameraPadding };
 
@@ -268,7 +271,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		>
 			<NavigationControl position="top-right" showCompass={false} />
 			{isOverview && children}
-			{!isOverview && <ExploredAreaLayer id="day" areas={dayAreas} isVisible={currentStopIndex === 0} />}
+			{!isOverview && <ExploredAreaLayer id="day" areas={dayAreas} isVisible={currentStopIndex === dayOverviewStopIndex} />}
 			{!isOverview && <RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} legPaths={legPaths} />}
 			{!isOverview && <LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} />}
 			{!isOverview && dayPlaces.map((place, stopIndex) =>

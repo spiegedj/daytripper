@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
-import { useEffect, useRef, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, type CSSProperties } from "react";
+import { findDayExploredAreas } from "../../itinerary/tripOverview";
 import type { IDay, IPlace } from "../../itinerary/types";
+import { dayOverviewStopIndex } from "../../itinerary/useItineraryNavigation";
 import { CategoryIcon, categoryColors, categoryLabels } from "../Markers/CategoryIcon";
 import { TravelModeIcon, formatMinutes } from "../TravelModeIcon/TravelModeIcon";
 import styles from "./DayTimeline.module.css";
@@ -14,10 +16,19 @@ export interface IDayTimelineProps
 	onOpenDetails: () => void;
 }
 
-/** The ordered stops of one day, with how you get between them. The current stop expands into a highlighted card. */
+/**
+ * The ordered stops of one day, with how you get between them, led by an overview of the whole day.
+ * The current step expands into a highlighted card.
+ */
 export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpenDetails }: IDayTimelineProps)
 {
 	const currentRowRef = useRef<HTMLLIElement>(null);
+	const neighborhoodCount = useMemo(() => findDayExploredAreas(day, 0, places).length, [day, places]);
+	const isDayOverview = currentStopIndex === dayOverviewStopIndex;
+	const overviewSummary = [
+		neighborhoodCount > 0 ? `${neighborhoodCount} ${neighborhoodCount === 1 ? "area" : "areas"}` : undefined,
+		`${day.stops.length} stops`,
+	].filter(Boolean).join(" · ");
 
 	useEffect(() =>
 	{
@@ -26,6 +37,31 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 
 	return (
 		<ol className={styles.timeline} style={{ "--day-color": day.color } as CSSProperties}>
+			<li ref={isDayOverview ? currentRowRef : undefined} className={styles.item}>
+				<button
+					type="button"
+					className={`${styles.stop} ${isDayOverview ? styles.current : ""}`}
+					onClick={() => onSelectStop(dayOverviewStopIndex)}
+					aria-current={isDayOverview ? "step" : undefined}
+				>
+					{isDayOverview && (
+						<motion.span
+							layoutId="currentStopHighlight"
+							className={styles.highlight}
+							transition={{ type: "spring", stiffness: 420, damping: 36 }}
+						/>
+					)}
+					<span className={`${styles.marker} ${styles.overviewMarker}`} style={{ "--category-color": day.color } as CSSProperties}>
+						<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20zM9 4v13.5M15 6.5V20" fill="none" stroke={isDayOverview ? "#ffffff" : day.color} strokeWidth="2.2" strokeLinejoin="round" />
+						</svg>
+					</span>
+					<span className={styles.text}>
+						<span className={styles.name}>Day overview</span>
+						<span className={styles.meta}>{overviewSummary}</span>
+					</span>
+				</button>
+			</li>
 			{day.stops.map((stop, stopIndex) =>
 			{
 				const place = places[stop.placeId];

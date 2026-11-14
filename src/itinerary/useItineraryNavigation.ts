@@ -1,10 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import type { ITrip } from "./types";
 
+/** The step before a day's first stop, where the map shows the whole day and the neighborhoods it explores. */
+export const dayOverviewStopIndex = -1;
+
 /** Where the traveler is in the trip: which day and which stop within it. */
 export interface IItineraryPosition
 {
 	dayIndex: number;
+	/** Index into the day's stops, or dayOverviewStopIndex while the day overview is showing. */
 	stopIndex: number;
 }
 
@@ -35,11 +39,14 @@ function readPositionFromHash(trip: ITrip): IItineraryPosition
 	const dayIndex = dayMatch ? trip.days.findIndex((day) => day.dayNumber === Number(dayMatch[1])) : 0;
 	const safeDayIndex = Math.max(0, dayIndex);
 	const stopCount = trip.days[safeDayIndex].stops.length;
-	const stopIndex = stopMatch ? clamp(Number(stopMatch[1]) - 1, 0, stopCount - 1) : 0;
+	const stopIndex = stopMatch ? clamp(Number(stopMatch[1]) - 1, 0, stopCount - 1) : dayOverviewStopIndex;
 	return { dayIndex: safeDayIndex, stopIndex };
 }
 
-/** Tracks the current day and stop, keeps them in the URL hash (#/japan/day-4/stop-3), and wires up arrow keys. */
+/**
+ * Tracks the current day and stop, keeps them in the URL hash (#/japan/day-4 for the day overview, #/japan/day-4/stop-3
+ * for a stop), and wires up arrow keys. Each day starts with its overview, so stepping back from the first stop returns to it.
+ */
 export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 {
 	const [position, setPosition] = useState<IItineraryPosition>(() => readPositionFromHash(trip));
@@ -55,7 +62,7 @@ export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 			{
 				return { dayIndex, stopIndex: stopIndex + 1 };
 			}
-			return dayIndex < lastDayIndex ? { dayIndex: dayIndex + 1, stopIndex: 0 } : { dayIndex, stopIndex };
+			return dayIndex < lastDayIndex ? { dayIndex: dayIndex + 1, stopIndex: dayOverviewStopIndex } : { dayIndex, stopIndex };
 		});
 	}, [trip, lastDayIndex]);
 
@@ -64,7 +71,7 @@ export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 		setIsOverview(false);
 		setPosition(({ dayIndex, stopIndex }) =>
 		{
-			if (stopIndex > 0)
+			if (stopIndex > dayOverviewStopIndex)
 			{
 				return { dayIndex, stopIndex: stopIndex - 1 };
 			}
@@ -75,13 +82,13 @@ export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 	const goToDay = useCallback((dayIndex: number) =>
 	{
 		setIsOverview(false);
-		setPosition({ dayIndex: clamp(dayIndex, 0, lastDayIndex), stopIndex: 0 });
+		setPosition({ dayIndex: clamp(dayIndex, 0, lastDayIndex), stopIndex: dayOverviewStopIndex });
 	}, [lastDayIndex]);
 
 	const goToStop = useCallback((stopIndex: number) =>
 	{
 		setIsOverview(false);
-		setPosition(({ dayIndex }) => ({ dayIndex, stopIndex: clamp(stopIndex, 0, trip.days[dayIndex].stops.length - 1) }));
+		setPosition(({ dayIndex }) => ({ dayIndex, stopIndex: clamp(stopIndex, dayOverviewStopIndex, trip.days[dayIndex].stops.length - 1) }));
 	}, [trip]);
 
 	const showOverview = useCallback(() => setIsOverview(true), []);
@@ -89,7 +96,8 @@ export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 	useEffect(() =>
 	{
 		const dayNumber = trip.days[position.dayIndex].dayNumber;
-		const viewPath = isOverview ? "overview" : `day-${dayNumber}/stop-${position.stopIndex + 1}`;
+		const dayPath = position.stopIndex === dayOverviewStopIndex ? `day-${dayNumber}` : `day-${dayNumber}/stop-${position.stopIndex + 1}`;
+		const viewPath = isOverview ? "overview" : dayPath;
 		window.history.replaceState(null, "", `#/${trip.id}/${viewPath}`);
 	}, [trip, position, isOverview]);
 
@@ -120,7 +128,7 @@ export function useItineraryNavigation(trip: ITrip): IItineraryNavigation
 	return {
 		position,
 		isOverview,
-		isAtTripStart: position.dayIndex === 0 && position.stopIndex === 0,
+		isAtTripStart: position.dayIndex === 0 && position.stopIndex === dayOverviewStopIndex,
 		isAtTripEnd: position.dayIndex === lastDayIndex && position.stopIndex === trip.days[lastDayIndex].stops.length - 1,
 		goToNextStop,
 		goToPreviousStop,
