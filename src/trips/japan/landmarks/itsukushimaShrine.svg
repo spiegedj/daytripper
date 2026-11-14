@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<linearGradient id="water" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#A9DFEC"/>
+			<stop offset="1" stop-color="#5FB0CA"/>
+		</linearGradient>
+		<linearGradient id="pillar" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#F45D3E"/>
+			<stop offset=".65" stop-color="#E2442A"/>
+			<stop offset="1" stop-color="#B5321D"/>
+		</linearGradient>
+		<linearGradient id="reflection" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#E2442A" stop-opacity=".55"/>
+			<stop offset="1" stop-color="#E2442A" stop-opacity="0"/>
+		</linearGradient>
+	</defs>
+
+	<ellipse cx="64" cy="110" rx="62" ry="14" fill="url(#water)"/>
+	<path d="M12 108Q20 105 28 108T44 108M84 112Q92 109 100 112T116 112M40 118Q48 115 56 118T72 118" fill="none" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="1.2" stroke-linecap="round"/>
+
+	<g fill="url(#reflection)">
+		<rect x="37" y="104" width="8" height="14"/><rect x="83" y="104" width="8" height="14"/>
+		<rect x="22" y="104" width="4" height="10"/><rect x="56" y="104" width="4" height="10"/><rect x="68" y="104" width="4" height="10"/><rect x="102" y="104" width="4" height="10"/>
+	</g>
+
+	<g>
+		<rect x="22" y="70" width="4.4" height="34" fill="url(#pillar)"/>
+		<rect x="55.6" y="70" width="4.4" height="34" fill="url(#pillar)"/>
+		<rect x="68" y="70" width="4.4" height="34" fill="url(#pillar)"/>
+		<rect x="101.6" y="70" width="4.4" height="34" fill="url(#pillar)"/>
+		<path d="M20.5 70 24.2 66.6 27.9 70ZM54.1 70 57.8 66.6 61.5 70ZM66.5 70 70.2 66.6 73.9 70ZM100.1 70 103.8 66.6 107.5 70Z" fill="#2B2B2B"/>
+		<rect x="21" y="76" width="40" height="3" fill="#E2442A"/>
+		<rect x="67" y="76" width="40" height="3" fill="#E2442A"/>
+		<rect x="21" y="90" width="40" height="2.6" fill="#C93A22"/>
+		<rect x="67" y="90" width="40" height="2.6" fill="#C93A22"/>
+	</g>
+
+	<rect x="36" y="30" width="9.5" height="76" fill="url(#pillar)"/>
+	<rect x="82.5" y="30" width="9.5" height="76" fill="url(#pillar)"/>
+	<path d="M36 102H45.5V106H36ZM82.5 102H92V106H82.5Z" fill="#2B2B2B" fill-opacity=".55"/>
+
+	<rect x="18" y="50" width="92" height="6.4" fill="#E2442A"/>
+	<rect x="18" y="55" width="92" height="1.6" fill="#9E2C18"/>
+	<rect x="14" y="50" width="5" height="6.4" fill="#C93A22"/>
+	<rect x="109" y="50" width="5" height="6.4" fill="#C93A22"/>
+
+	<rect x="22" y="36" width="84" height="4.2" fill="#E2442A"/>
+	<rect x="22" y="39.2" width="84" height="1.2" fill="#9E2C18"/>
+	<rect x="58" y="40" width="12" height="10" rx="1" fill="#2B2B2B" stroke="#C9A227" stroke-width="1"/>
+	<text x="64" y="47.4" font-size="5.2" fill="#E9C860" text-anchor="middle" font-family="'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif" font-weight="700">嚴島</text>
+
+	<path d="M10 31Q64 22 118 31L116 36.5Q64 28.6 12 36.5Z" fill="#E2442A"/>
+	<path d="M12 36.5Q64 28.6 116 36.5" fill="none" stroke="#9E2C18" stroke-width="1.2"/>
+	<path d="M6 28Q64 17 122 28L120.6 32Q64 22.4 7.4 32Z" fill="#2B2B2B"/>
+	<path d="M7 28.5Q64 18 121 28.5" fill="none" stroke="#6A6A6A" stroke-width="1"/>
+</svg>

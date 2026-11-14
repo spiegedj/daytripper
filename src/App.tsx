@@ -1,56 +1,72 @@
 import { useEffect, useState } from "react";
-import { MapView } from "./components/MapView/MapView";
+import { ItineraryPanel } from "./components/ItineraryPanel/ItineraryPanel";
+import { MapView, type ICameraPadding } from "./components/MapView/MapView";
+import { StepPlayer } from "./components/StepPlayer/StepPlayer";
+import { useItineraryNavigation } from "./itinerary/useItineraryNavigation";
 import { trips } from "./trips";
 import styles from "./App.module.css";
 
-/** Reads a deep link such as #/japan/day-4/stop-3 and returns the zero-based stop index. */
-function readStopIndexFromHash(stopCount: number): number
-{
-	const stopMatch = window.location.hash.match(/stop-(\d+)/);
-	const stopNumber = stopMatch ? Number(stopMatch[1]) : 1;
-	return Math.max(0, Math.min(stopCount - 1, stopNumber - 1));
-}
+const narrowScreenQuery = "(max-width: 760px)";
+const wideScreenPadding: ICameraPadding = { top: 90, bottom: 130, left: 440, right: 80 };
+const narrowScreenPadding: ICameraPadding = { top: 110, bottom: 0, left: 50, right: 50 };
 
-/** Map test screen: one day of the first trip, stepped through with the buttons or arrow keys. */
-export function App()
+function useIsNarrowScreen(): boolean
 {
-	const trip = trips[0];
-	const day = trip.days[0];
-	const [currentStopIndex, setCurrentStopIndex] = useState(() => readStopIndexFromHash(day.stops.length));
-	const lastStopIndex = day.stops.length - 1;
-	const currentPlace = trip.places[day.stops[currentStopIndex].placeId];
-
-	const goToStop = (stopIndex: number) => setCurrentStopIndex(Math.max(0, Math.min(lastStopIndex, stopIndex)));
+	const [isNarrowScreen, setIsNarrowScreen] = useState(() => window.matchMedia(narrowScreenQuery).matches);
 
 	useEffect(() =>
 	{
-		const handleKeyDown = (event: KeyboardEvent) =>
-		{
-			if (event.key === "ArrowRight")
-			{
-				setCurrentStopIndex((index) => Math.min(lastStopIndex, index + 1));
-			}
-			else if (event.key === "ArrowLeft")
-			{
-				setCurrentStopIndex((index) => Math.max(0, index - 1));
-			}
-		};
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [lastStopIndex]);
+		const mediaQuery = window.matchMedia(narrowScreenQuery);
+		const handleChange = () => setIsNarrowScreen(mediaQuery.matches);
+		mediaQuery.addEventListener("change", handleChange);
+		return () => mediaQuery.removeEventListener("change", handleChange);
+	}, []);
+
+	return isNarrowScreen;
+}
+
+/** The whole app: map, itinerary panel and step player for the selected trip. */
+export function App()
+{
+	const trip = trips[0];
+	const navigation = useItineraryNavigation(trip);
+	const isNarrowScreen = useIsNarrowScreen();
+	const { dayIndex, stopIndex } = navigation.position;
+	const day = trip.days[dayIndex];
+	const currentPlace = trip.places[day.stops[stopIndex].placeId];
+
+	// On phones the bottom sheet covers the lower part of the map, so the camera keeps stops above it.
+	const cameraPadding = isNarrowScreen
+		? { ...narrowScreenPadding, bottom: Math.round(window.innerHeight * 0.46) + 90 }
+		: wideScreenPadding;
 
 	return (
 		<div className={styles.app}>
-			<MapView day={day} places={trip.places} currentStopIndex={currentStopIndex} onSelectStop={goToStop} />
-			<div className={styles.player}>
-				<button type="button" className={styles.stepButton} onClick={() => goToStop(currentStopIndex - 1)} disabled={currentStopIndex === 0} aria-label="Previous stop">‹</button>
-				<div className={styles.playerText}>
-					<span className={styles.playerEyebrow} style={{ color: day.color }}>
-						Day {day.dayNumber} · Stop {currentStopIndex + 1} of {day.stops.length}
-					</span>
-					<span className={styles.playerTitle}>{currentPlace.name}</span>
-				</div>
-				<button type="button" className={`${styles.stepButton} ${styles.primary}`} style={{ background: day.color }} onClick={() => goToStop(currentStopIndex + 1)} disabled={currentStopIndex === lastStopIndex} aria-label="Next stop">›</button>
+			<MapView
+				day={day}
+				places={trip.places}
+				currentStopIndex={stopIndex}
+				cameraPadding={cameraPadding}
+				onSelectStop={navigation.goToStop}
+			/>
+			<ItineraryPanel
+				trip={trip}
+				dayIndex={dayIndex}
+				stopIndex={stopIndex}
+				onSelectDay={navigation.goToDay}
+				onSelectStop={navigation.goToStop}
+			/>
+			<div className={styles.playerDock}>
+				<StepPlayer
+					day={day}
+					nextDay={trip.days[dayIndex + 1]}
+					currentStopIndex={stopIndex}
+					currentStopName={currentPlace.name}
+					isAtTripStart={navigation.isAtTripStart}
+					isAtTripEnd={navigation.isAtTripEnd}
+					onPrevious={navigation.goToPreviousStop}
+					onNext={navigation.goToNextStop}
+				/>
 			</div>
 		</div>
 	);

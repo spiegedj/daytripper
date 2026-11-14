@@ -15,6 +15,7 @@ export type TravelMode =
 	| "train"
 	| "shinkansen"
 	| "bus"
+	| "tram"
 	| "ferry"
 	| "boat"
 	| "flight"
@@ -67,6 +68,8 @@ export interface IDay
 	baseCity: string;
 	color: string;
 	stops: IStop[];
+	/** Things not decided yet, shown in the timeline as "To be planned" cards. */
+	openQuestions?: string[];
 }
 
 /** A complete trip: its places and its ordered days. */

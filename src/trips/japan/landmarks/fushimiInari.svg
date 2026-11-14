@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow">
+			<stop offset="0" stop-color="#1D2433" stop-opacity=".32"/>
+			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="forest" cx=".5" cy=".55" r=".6">
+			<stop offset="0" stop-color="#2A3F2C"/>
+			<stop offset="1" stop-color="#4E8A5A"/>
+		</radialGradient>
+		<linearGradient id="path" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#B7A786"/>
+			<stop offset="1" stop-color="#E2D4B4"/>
+		</linearGradient>
+		<g id="torii">
+			<rect x="-33" y="-74" width="8" height="74" fill="currentColor"/>
+			<rect x="25" y="-74" width="8" height="74" fill="currentColor"/>
+			<rect x="-27.5" y="-74" width="2.5" height="74" fill="#000" fill-opacity=".18"/>
+			<rect x="30.5" y="-74" width="2.5" height="74" fill="#000" fill-opacity=".18"/>
+			<rect x="-34.5" y="-7" width="11" height="7" rx="1" fill="#2B2B2B"/>
+			<rect x="23.5" y="-7" width="11" height="7" rx="1" fill="#2B2B2B"/>
+			<rect x="-41" y="-59" width="82" height="6" fill="currentColor"/>
+			<rect x="-41" y="-54.5" width="82" height="1.5" fill="#000" fill-opacity=".2"/>
+			<path d="M-48 -71Q0 -77 48 -71L46.5 -65.5Q0 -70 -46.5 -65.5Z" fill="currentColor"/>
+			<path d="M-51 -73.5Q0 -81 51 -73.5L50 -70Q0 -77 -50 -70Z" fill="#2B2B2B"/>
+		</g>
+	</defs>
+
+	<ellipse cx="64" cy="120" rx="58" ry="6" fill="url(#groundShadow)"/>
+	<path d="M34 112V58C34 40 50 34 66 34 82 34 98 40 98 58V112Z" fill="url(#forest)"/>
+	<path d="M22 120H106L78 82H58Z" fill="url(#path)"/>
+	<path d="M30 117 60 84M98 117 76 84" stroke="#9C8C6B" stroke-width="1"/>
+
+	<use href="#torii" transform="translate(68 84) scale(.4)" color="#94291A"/>
+	<use href="#torii" transform="translate(67.5 88) scale(.5)" color="#A62E1D"/>
+	<use href="#torii" transform="translate(67 93) scale(.61)" color="#B93520"/>
+	<use href="#torii" transform="translate(66 99) scale(.74)" color="#CC3C25"/>
+	<use href="#torii" transform="translate(65 106) scale(.9)" color="#DE442A"/>
+	<use href="#torii" transform="translate(64 116) scale(1.1)" color="#EE4B30"/>
+
+	<g transform="translate(64 116) scale(1.1)">
+		<rect x="-30.5" y="-56" width="2.4" height="38" fill="#2B2B2B" fill-opacity=".85"/>
+		<text x="-29.3" y="-50" font-size="3.4" fill="#F5E6C8" text-anchor="middle" font-family="'Yu Gothic', 'Hiragino Sans', 'Noto Sans JP', sans-serif" writing-mode="tb">奉納</text>
+	</g>
+	<path d="M10 114c3-6 9-6 12 0M106 114c3-6 9-6 12 0" fill="#4E8A5A"/>
+</svg>
