@@ -18,6 +18,7 @@ export type TravelMode =
 	| "tram"
 	| "ferry"
 	| "boat"
+	| "ropeway"
 	| "flight"
 	| "taxi";
 

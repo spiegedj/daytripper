@@ -1,10 +1,13 @@
-// Builds real-world paths for travel legs: rail segments follow OpenStreetMap track geometry, walking segments follow streets.
-// Run by hand when legs change: node scripts/fetchTransitRoutes.mjs japan
+// Builds real-world paths for every travel leg of a trip.
+// Walks follow streets and trails, buses follow roads, rail follows OpenStreetMap track geometry, boats follow the river,
+// and ferries, ropeways and flights are drawn as arcs. Legs whose arrival mode is "walk" need no configuration.
+// Run by hand when legs change: node scripts/fetchTransitRoutes.mjs japan [--only=6:1]
 // The output is committed, so the public site never calls these services at runtime.
 import { readFileSync, writeFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
 const tripId = process.argv[2] ?? "japan";
+const onlyLegKey = process.argv.find((argument) => argument.startsWith("--only="))?.slice("--only=".length);
 const tripFolder = `src/trips/${tripId}`;
 const config = JSON.parse(readFileSync(`${tripFolder}/transitRoutes.json`, "utf8"));
 const outputPath = `${tripFolder}/transitRoutes.generated.json`;
@@ -12,8 +15,11 @@ const requestHeaders = { "User-Agent": "daytripper-build-script/0.1" };
 
 const overpassUrl = "https://overpass-api.de/api/interpreter";
 const footRouterUrl = "https://routing.openstreetmap.de/routed-foot/route/v1/driving";
+const carRouterUrl = "https://routing.openstreetmap.de/routed-car/route/v1/driving";
 const searchMarginDegrees = 0.05;
-const railSimplifyToleranceDegrees = 0.00008;
+const simplifyToleranceDegrees = 0.00006;
+const maximumGapKilometers = 0.25;
+const arcModes = new Set(["ferry", "ropeway", "flight"]);
 
 // Place coordinates live in places.ts; read them from its object literals so this script needs no TypeScript build.
 function readPlaceCoordinates()
@@ -27,14 +33,20 @@ function readPlaceCoordinates()
 	return coordinates;
 }
 
-function readLegEndpoints(dayNumber, arrivalStopIndex)
+// Reads each day's stops (place id and arrival mode) from days.ts.
+function readDays()
 {
 	const source = readFileSync(`${tripFolder}/days.ts`, "utf8");
-	const dayStart = source.indexOf(`dayNumber: ${dayNumber},`);
-	const nextDayStart = source.indexOf("dayNumber:", dayStart + 1);
-	const daySource = source.slice(dayStart, nextDayStart === -1 ? undefined : nextDayStart);
-	const placeIds = [...daySource.matchAll(/placeId:\s*"(\w+)"/g)].map((match) => match[1]);
-	return { fromPlaceId: placeIds[arrivalStopIndex - 1], toPlaceId: placeIds[arrivalStopIndex] };
+	const days = [];
+	const dayStarts = [...source.matchAll(/dayNumber:\s*(\d+),/g)];
+	dayStarts.forEach((match, index) =>
+	{
+		const daySource = source.slice(match.index, dayStarts[index + 1]?.index);
+		const stops = [...daySource.matchAll(/\{\s*placeId:\s*"(\w+)"(?:,\s*arrival:\s*guessed\("(\w+)")?/g)]
+			.map((stopMatch) => ({ placeId: stopMatch[1], arrivalMode: stopMatch[2] }));
+		days.push({ dayNumber: Number(match[1]), stops });
+	});
+	return days;
 }
 
 function wait(milliseconds)
@@ -53,15 +65,15 @@ async function fetchWithRetry(url, options)
 			{
 				return response.json();
 			}
-			console.warn(`  ${response.status} from ${new URL(url).host}, retrying`);
+			console.warn(`    ${response.status} from ${new URL(url).host}, retrying`);
 		}
 		catch (networkError)
 		{
-			console.warn(`  network error (${networkError.message}), retrying`);
+			console.warn(`    network error (${networkError.message}), retrying`);
 		}
 		await wait(attempt * 8000);
 	}
-	throw new Error(`Gave up on ${url}`);
+	throw new Error(`Gave up on ${new URL(url).host}`);
 }
 
 function distanceKilometers(first, second)
@@ -71,6 +83,25 @@ function distanceKilometers(first, second)
 	const longitudeDelta = toRadians(second[0] - first[0]);
 	const haversine = Math.sin(latitudeDelta / 2) ** 2 + Math.cos(toRadians(first[1])) * Math.cos(toRadians(second[1])) * Math.sin(longitudeDelta / 2) ** 2;
 	return 2 * 6371 * Math.asin(Math.sqrt(haversine));
+}
+
+// Same gentle curve the app draws when no real path exists, so arcs look identical either way.
+function createArc(from, to)
+{
+	const deltaLongitude = to.longitude - from.longitude;
+	const deltaLatitude = to.latitude - from.latitude;
+	const control = [from.longitude + deltaLongitude / 2 - deltaLatitude * 0.18, from.latitude + deltaLatitude / 2 + deltaLongitude * 0.18];
+	const points = [];
+	for (let sample = 0; sample <= 32; sample++)
+	{
+		const progress = sample / 32;
+		const remaining = 1 - progress;
+		points.push([
+			remaining * remaining * from.longitude + 2 * remaining * progress * control[0] + progress * progress * to.longitude,
+			remaining * remaining * from.latitude + 2 * remaining * progress * control[1] + progress * progress * to.latitude,
+		]);
+	}
+	return points;
 }
 
 // Douglas–Peucker: drops points that barely change the line's shape, keeping files small.
@@ -103,18 +134,16 @@ function simplify(points, tolerance)
 	return [...simplify(points.slice(0, farthestIndex + 1), tolerance).slice(0, -1), ...simplify(points.slice(farthestIndex), tolerance)];
 }
 
-const maximumGapKilometers = 0.25;
-
 // Joins track pieces whose ends nearly touch, which papers over small mapping gaps such as junctions split across pieces.
 function bridgeSmallGaps(ways, connect, nodePositions)
 {
 	const endpoints = [...new Set(ways.flatMap((way) => [way.nodes[0], way.nodes[way.nodes.length - 1]]))];
 	const cellSize = 0.005;
 	const grid = new Map();
-	const cellKey = (position) => `${Math.floor(position[0] / cellSize)}:${Math.floor(position[1] / cellSize)}`;
 	for (const id of endpoints)
 	{
-		const key = cellKey(nodePositions.get(id));
+		const [longitude, latitude] = nodePositions.get(id);
+		const key = `${Math.floor(longitude / cellSize)}:${Math.floor(latitude / cellSize)}`;
 		grid.set(key, [...(grid.get(key) ?? []), id]);
 	}
 	for (const id of endpoints)
@@ -137,31 +166,37 @@ function bridgeSmallGaps(ways, connect, nodePositions)
 	}
 }
 
-async function fetchRailPath(lineMatch, from, to)
+function buildOverpassQuery(segment, bbox)
+{
+	if (segment.mode === "boat")
+	{
+		return `[out:json][timeout:180];way["waterway"~"^(river|canal)$"]["name"~"${segment.waterwayMatch}"](${bbox});out body;>;out skel qt;`;
+	}
+	const railway = segment.railway ?? "rail|subway|light_rail|monorail|tram|narrow_gauge";
+	if (!segment.lineMatch)
+	{
+		return `[out:json][timeout:180];way["railway"~"^(${railway})$"](${bbox});out body;>;out skel qt;`;
+	}
+	// Tunnels and bridges are often named after themselves, so the line's route relation is needed to get every piece of track.
+	return `[out:json][timeout:180];(way["railway"~"^(${railway})$"]["name"~"${segment.lineMatch}"](${bbox});`
+		+ `relation["route"~"^(train|subway|light_rail|monorail|tram|railway)$"]["name"~"${segment.lineMatch}"](${bbox});way(r)(${bbox}););out body;>;out skel qt;`;
+}
+
+// Shortest path along matching OpenStreetMap ways (rail tracks or a river) between the points nearest two stations.
+async function fetchTrackPath(segment, from, to)
 {
 	const south = Math.min(from.latitude, to.latitude) - searchMarginDegrees;
 	const north = Math.max(from.latitude, to.latitude) + searchMarginDegrees;
 	const west = Math.min(from.longitude, to.longitude) - searchMarginDegrees;
 	const east = Math.max(from.longitude, to.longitude) + searchMarginDegrees;
-	const bbox = `${south},${west},${north},${east}`;
-	// Tunnels and bridges are often named after themselves, so the line's route relation is needed to get every piece of track.
-	const query = `[out:json][timeout:180];(way["railway"~"^(rail|subway|light_rail)$"]["name"~"${lineMatch}"](${bbox});relation["route"~"^(train|subway|light_rail|railway)$"]["name"~"${lineMatch}"](${bbox});way(r)(${bbox}););out body;>;out skel qt;`;
-	const result = await fetchWithRetry(overpassUrl, { method: "POST", body: new URLSearchParams({ data: query }) });
+	const result = await fetchWithRetry(overpassUrl, { method: "POST", body: new URLSearchParams({ data: buildOverpassQuery(segment, `${south},${west},${north},${east}`) }) });
 
-	const nodePositions = new Map();
-	for (const element of result.elements.filter((element) => element.type === "node"))
-	{
-		nodePositions.set(element.id, [element.lon, element.lat]);
-	}
+	const nodePositions = new Map(result.elements.filter((element) => element.type === "node").map((node) => [node.id, [node.lon, node.lat]]));
 	const neighbors = new Map();
 	const connect = (first, second) =>
 	{
 		const weight = distanceKilometers(nodePositions.get(first), nodePositions.get(second));
-		if (!neighbors.has(first))
-		{
-			neighbors.set(first, []);
-		}
-		neighbors.get(first).push([second, weight]);
+		neighbors.set(first, [...(neighbors.get(first) ?? []), [second, weight]]);
 	};
 	const ways = result.elements.filter((element) => element.type === "way");
 	for (const way of ways)
@@ -172,20 +207,19 @@ async function fetchRailPath(lineMatch, from, to)
 			connect(way.nodes[index], way.nodes[index - 1]);
 		}
 	}
+	if (ways.length === 0)
+	{
+		throw new Error("no matching track or river found");
+	}
 	bridgeSmallGaps(ways, connect, nodePositions);
-	console.log(`  ${lineMatch}: ${ways.length} track pieces, ${nodePositions.size} points`);
 
 	const nearestNode = (target) =>
 	{
 		let bestId;
 		let bestDistance = Infinity;
-		for (const [id, position] of nodePositions)
+		for (const id of neighbors.keys())
 		{
-			if (!neighbors.has(id))
-			{
-				continue;
-			}
-			const distance = distanceKilometers(position, [target.longitude, target.latitude]);
+			const distance = distanceKilometers(nodePositions.get(id), [target.longitude, target.latitude]);
 			if (distance < bestDistance)
 			{
 				bestDistance = distance;
@@ -197,14 +231,60 @@ async function fetchRailPath(lineMatch, from, to)
 	const startId = nearestNode(from);
 	const goalId = nearestNode(to);
 
-	// Dijkstra over the track graph; a sorted frontier array is plenty for a few tens of thousands of points.
+	// Dijkstra with a binary heap; track graphs here reach tens of thousands of points.
 	const distances = new Map([[startId, 0]]);
 	const previous = new Map();
-	const frontier = [[0, startId]];
-	const visited = new Set();
-	while (frontier.length > 0)
+	const heap = [[0, startId]];
+	const push = (entry) =>
 	{
-		const [distance, id] = frontier.shift();
+		heap.push(entry);
+		let index = heap.length - 1;
+		while (index > 0)
+		{
+			const parent = (index - 1) >> 1;
+			if (heap[parent][0] <= heap[index][0])
+			{
+				break;
+			}
+			[heap[parent], heap[index]] = [heap[index], heap[parent]];
+			index = parent;
+		}
+	};
+	const pop = () =>
+	{
+		const top = heap[0];
+		const last = heap.pop();
+		if (heap.length > 0)
+		{
+			heap[0] = last;
+			let index = 0;
+			for (;;)
+			{
+				const left = index * 2 + 1;
+				const right = left + 1;
+				let smallest = index;
+				if (left < heap.length && heap[left][0] < heap[smallest][0])
+				{
+					smallest = left;
+				}
+				if (right < heap.length && heap[right][0] < heap[smallest][0])
+				{
+					smallest = right;
+				}
+				if (smallest === index)
+				{
+					break;
+				}
+				[heap[smallest], heap[index]] = [heap[index], heap[smallest]];
+				index = smallest;
+			}
+		}
+		return top;
+	};
+	const visited = new Set();
+	while (heap.length > 0)
+	{
+		const [distance, id] = pop();
 		if (visited.has(id))
 		{
 			continue;
@@ -221,18 +301,13 @@ async function fetchRailPath(lineMatch, from, to)
 			{
 				distances.set(neighborId, candidate);
 				previous.set(neighborId, id);
-				let insertAt = frontier.findIndex(([queuedDistance]) => queuedDistance > candidate);
-				if (insertAt === -1)
-				{
-					insertAt = frontier.length;
-				}
-				frontier.splice(insertAt, 0, [candidate, neighborId]);
+				push([candidate, neighborId]);
 			}
 		}
 	}
 	if (!visited.has(goalId))
 	{
-		throw new Error(`No connected track for ${lineMatch} between ${from.name} and ${to.name}`);
+		throw new Error("track pieces found but not connected between the two stations");
 	}
 	const path = [];
 	for (let id = goalId; id !== undefined; id = previous.get(id))
@@ -240,20 +315,38 @@ async function fetchRailPath(lineMatch, from, to)
 		path.unshift(nodePositions.get(id));
 	}
 	const straightLine = distanceKilometers([from.longitude, from.latitude], [to.longitude, to.latitude]);
-	console.log(`  ${lineMatch}: ${from.name} → ${to.name}, ${distances.get(goalId).toFixed(1)} km along the track (${straightLine.toFixed(1)} km straight line)`);
-	return simplify(path, railSimplifyToleranceDegrees);
+	const ratio = distances.get(goalId) / Math.max(straightLine, 0.1);
+	console.log(`    ${distances.get(goalId).toFixed(1)} km along the way (${straightLine.toFixed(1)} km straight${ratio > 1.8 ? ", CHECK: long detour" : ""})`);
+	return path;
 }
 
-async function fetchWalkingPath(from, to)
+async function fetchRoadPath(routerUrl, from, to)
 {
-	const url = `${footRouterUrl}/${from.longitude},${from.latitude};${to.longitude},${to.latitude}?overview=full&geometries=geojson`;
+	const url = `${routerUrl}/${from.longitude},${from.latitude};${to.longitude},${to.latitude}?overview=full&geometries=geojson`;
 	const result = await fetchWithRetry(url);
 	const coordinates = result.routes?.[0]?.geometry?.coordinates;
 	if (!coordinates)
 	{
-		throw new Error(`No walking route from ${from.name} to ${to.name}`);
+		throw new Error("router returned no route");
 	}
 	return coordinates;
+}
+
+async function buildSegmentPath(segment, from, to)
+{
+	if (arcModes.has(segment.mode))
+	{
+		return createArc(from, to);
+	}
+	if (segment.mode === "walk")
+	{
+		return fetchRoadPath(footRouterUrl, from, to);
+	}
+	if (segment.mode === "bus")
+	{
+		return fetchRoadPath(carRouterUrl, from, to);
+	}
+	return fetchTrackPath(segment, from, to);
 }
 
 function roundCoordinates(points)
@@ -264,29 +357,71 @@ function roundCoordinates(points)
 async function main()
 {
 	const placeCoordinates = readPlaceCoordinates();
-	const routes = {};
-	for (const leg of config.legs)
+	const configuredLegs = new Map(config.legs.map((leg) => [`${leg.dayNumber}:${leg.arrivalStopIndex}`, leg.segments]));
+	let routes = {};
+	try
 	{
-		const { fromPlaceId, toPlaceId } = readLegEndpoints(leg.dayNumber, leg.arrivalStopIndex);
-		console.log(`Day ${leg.dayNumber}, ${fromPlaceId} → ${toPlaceId}`);
-		let position = { name: fromPlaceId, ...placeCoordinates[fromPlaceId] };
-		const segments = [];
-		for (const segment of leg.segments)
-		{
-			const target = segment.to ?? { name: toPlaceId, ...placeCoordinates[toPlaceId] };
-			// A rail segment may board at a slightly different spot than where the previous segment ended (another platform).
-			const start = segment.from ?? position;
-			const coordinates = segment.mode === "walk"
-				? await fetchWalkingPath(start, target)
-				: await fetchRailPath(segment.lineMatch, start, target);
-			segments.push({ mode: segment.mode, coordinates: roundCoordinates(coordinates) });
-			position = target;
-			await wait(1500);
-		}
-		routes[`${leg.dayNumber}:${leg.arrivalStopIndex}`] = segments;
+		routes = onlyLegKey ? JSON.parse(readFileSync(outputPath, "utf8")) : {};
 	}
+	catch
+	{
+		routes = {};
+	}
+
+	const problems = [];
+	for (const day of readDays())
+	{
+		for (let arrivalStopIndex = 1; arrivalStopIndex < day.stops.length; arrivalStopIndex++)
+		{
+			const legKey = `${day.dayNumber}:${arrivalStopIndex}`;
+			if (onlyLegKey && legKey !== onlyLegKey)
+			{
+				continue;
+			}
+			const fromPlaceId = day.stops[arrivalStopIndex - 1].placeId;
+			const toPlaceId = day.stops[arrivalStopIndex].placeId;
+			const segmentPlan = configuredLegs.get(legKey) ?? (day.stops[arrivalStopIndex].arrivalMode === "walk" ? [{ mode: "walk" }] : undefined);
+			if (!segmentPlan)
+			{
+				problems.push(`${legKey} (${fromPlaceId} → ${toPlaceId}): no route configured, drawn as an arc`);
+				continue;
+			}
+			console.log(`Day ${legKey} ${fromPlaceId} → ${toPlaceId}`);
+
+			const destination = { name: toPlaceId, ...placeCoordinates[toPlaceId] };
+			let position = { name: fromPlaceId, ...placeCoordinates[fromPlaceId] };
+			const segments = [];
+			for (const segment of segmentPlan)
+			{
+				const target = segment.to ?? destination;
+				// A rail segment may board at a slightly different spot than where the previous segment ended (another platform).
+				const start = segment.from ?? position;
+				const label = segment.lineMatch ?? segment.waterwayMatch ?? segment.railway ?? segment.mode;
+				console.log(`  ${segment.mode} ${label}: ${start.name} → ${target.name}`);
+				let coordinates;
+				try
+				{
+					coordinates = await buildSegmentPath(segment, start, target);
+				}
+				catch (error)
+				{
+					problems.push(`${legKey} ${segment.mode} ${label} (${start.name} → ${target.name}): ${error.message}, drawn as an arc`);
+					coordinates = createArc(start, target);
+				}
+				segments.push({ mode: segment.mode, coordinates: roundCoordinates(simplify(coordinates, simplifyToleranceDegrees)) });
+				position = target;
+				await wait(arcModes.has(segment.mode) ? 0 : 1200);
+			}
+			routes[legKey] = segments;
+		}
+	}
+
 	writeFileSync(outputPath, JSON.stringify(routes) + "\n");
-	console.log(`Wrote ${Object.keys(routes).length} legs to ${outputPath}`);
+	console.log(`\nWrote ${Object.keys(routes).length} legs to ${outputPath}`);
+	if (problems.length > 0)
+	{
+		console.log(`\nNeeds attention:\n${problems.join("\n")}`);
+	}
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href)

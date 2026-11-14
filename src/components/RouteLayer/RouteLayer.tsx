@@ -1,7 +1,7 @@
 import type { Feature, FeatureCollection, LineString } from "geojson";
 import { useEffect, useMemo } from "react";
 import { Layer, Source, useMap } from "react-map-gl/maplibre";
-import { getLegSegments } from "../../itinerary/routeGeometry";
+import { getLegPathKey, getLegSegments } from "../../itinerary/routeGeometry";
 import type { IDay, ILegSegment, IPlace } from "../../itinerary/types";
 
 export interface IRouteLayerProps
@@ -32,6 +32,7 @@ export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLa
 			const end = places[stop.placeId].coordinates;
 			const arrivingStopIndex = legIndex + 1;
 			const segments = getLegSegments(legPaths, day.dayNumber, arrivingStopIndex, start, end, stop.arrival?.mode ?? "walk");
+			const hasRealPath = legPaths[getLegPathKey(day.dayNumber, arrivingStopIndex)] !== undefined;
 			if (arrivingStopIndex === currentStopIndex)
 			{
 				// The leg being drawn in is one continuous line so the reveal animation runs smoothly from start to end.
@@ -50,7 +51,7 @@ export function RouteLayer({ day, places, currentStopIndex, legPaths }: IRouteLa
 				{
 					type: "Feature",
 					geometry: { type: "LineString", coordinates: segment.coordinates },
-					properties: { progress, isWalk: segment.mode === "walk" && segments.length > 1 },
+					properties: { progress, isWalk: hasRealPath && segment.mode === "walk" },
 				});
 			}
 		});

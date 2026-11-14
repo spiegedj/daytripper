@@ -5,6 +5,15 @@
 	overflow: hidden;
 }
 
+/* Sits under the map's zoom buttons in the top-right corner. */
+.routeStyleDock
+{
+	position: absolute;
+	z-index: 2;
+	top: calc(86px + env(safe-area-inset-top, 0px));
+	right: 10px;
+}
+
 .playerDock
 {
 	position: absolute;

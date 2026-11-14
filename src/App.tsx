@@ -2,7 +2,9 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { ItineraryPanel } from "./components/ItineraryPanel/ItineraryPanel";
 import { MapView, type ICameraPadding } from "./components/MapView/MapView";
 import { PlaceDetailPanel } from "./components/PlaceDetailPanel/PlaceDetailPanel";
+import { RouteStyleSwitch, useRouteStyle } from "./components/RouteStyleSwitch/RouteStyleSwitch";
 import { StepPlayer } from "./components/StepPlayer/StepPlayer";
+import type { ILegSegment } from "./itinerary/types";
 import { TripOverviewLayer } from "./components/TripOverviewLayer/TripOverviewLayer";
 import { useItineraryNavigation } from "./itinerary/useItineraryNavigation";
 import { trips } from "./trips";
@@ -42,6 +44,9 @@ export function App()
 	const currentPlace = trip.places[day.stops[stopIndex].placeId];
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
 	const [highlightedDayNumber, setHighlightedDayNumber] = useState<number | undefined>();
+	const [routeStyle, setRouteStyle] = useRouteStyle();
+	// With arcs selected, no real paths are handed to the map, so every leg falls back to its curve.
+	const visibleLegPaths = useMemo<Record<string, ILegSegment[]>>(() => (routeStyle === "real" ? trip.legPaths : {}), [routeStyle, trip]);
 	const { isOverview } = navigation;
 	const tripCoordinates = useMemo(() => trip.days.flatMap((tripDay) => tripDay.stops.map((stop) => trip.places[stop.placeId].coordinates)), [trip]);
 	const showOverview = useCallback(() =>
@@ -68,7 +73,7 @@ export function App()
 			<MapView
 				day={day}
 				places={trip.places}
-				legPaths={trip.legPaths}
+				legPaths={visibleLegPaths}
 				currentStopIndex={stopIndex}
 				cameraPadding={cameraPadding}
 				isOverview={isOverview}
@@ -77,11 +82,15 @@ export function App()
 			>
 				<TripOverviewLayer
 					trip={trip}
+					legPaths={visibleLegPaths}
 					highlightedDayNumber={highlightedDayNumber}
 					onSelectDay={navigation.goToDay}
 					onHighlightDay={setHighlightedDayNumber}
 				/>
 			</MapView>
+			<div className={styles.routeStyleDock}>
+				<RouteStyleSwitch routeStyle={routeStyle} onChange={setRouteStyle} />
+			</div>
 			<ItineraryPanel
 				trip={trip}
 				dayIndex={dayIndex}

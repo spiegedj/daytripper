@@ -18,7 +18,7 @@ export const japanDays: IDay[] =
 		stops:
 		[
 			{ placeId: "hanedaAirport" },
-			{ placeId: "tokyoDomeHotel", arrival: guessed("train", 50, "Keikyu + Toei Mita Line") },
+			{ placeId: "tokyoDomeHotel", arrival: guessed("train", 50, "Tokyo Monorail + Toei Mita Line") },
 		],
 	},
 	{
@@ -71,7 +71,7 @@ export const japanDays: IDay[] =
 			{ placeId: "nakamiseStreet", arrival: guessed("walk", 3) },
 			{ placeId: "sensoJi", arrival: guessed("walk", 5) },
 			{ placeId: "tokyoNationalMuseum", arrival: guessed("subway", 20, "Ginza Line") },
-			{ placeId: "tokyoSkytree", arrival: guessed("train", 30, "Keisei + Tobu Line") },
+			{ placeId: "tokyoSkytree", arrival: guessed("train", 30, "Ginza Line + Tobu Skytree Line") },
 		],
 	},
 	{
@@ -224,7 +224,7 @@ export const japanDays: IDay[] =
 			{ placeId: "miyajimaGrandHotel" },
 			{ placeId: "hiroshimaStation", arrival: guessed("ferry", 50, "JR Ferry + JR Sanyō Line") },
 			{ placeId: "osakaCastle", arrival: guessed("shinkansen", 100, "Sanyō Shinkansen") },
-			{ placeId: "itamiAirport", arrival: guessed("train", 50, "Osaka Monorail") },
+			{ placeId: "itamiAirport", arrival: guessed("bus", 50, "Airport Limousine Bus") },
 		],
 		openQuestions: ["No hotel booked for tonight yet."],
 	},

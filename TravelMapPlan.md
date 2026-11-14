@@ -9,6 +9,7 @@ The first trip I'd like to do is Japan. But code should be written to make it fl
 - Displaying clearly the travel plans for each day is key. Being able to see the locations planned as well as route and being able to cleanly step through each step on the day, and also transition to the next day. Use clean animations when you can for this.
 - Use a stylized and colorful display for the actual map of Japan. Allow zooming panning and scrolling like google maps.
 - Display landmarks, planned hotel locations, train stations etc as travel plan items. Use a stylized SVG for the display, however when clicked display images of the actual location as well as historical and travel information.
+- Build for desktop display, but also make the UI responsive for mobile display.
 
 # Coding Styles
 

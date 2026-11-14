@@ -1,0 +1,45 @@
+.switch
+{
+	display: flex;
+	padding: 3px;
+	border-radius: 999px;
+	background: #ffffff;
+	box-shadow: 0 2px 8px rgba(29, 36, 51, 0.16);
+}
+
+.option
+{
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 6px 11px;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	color: #5b6577;
+	font: 600 12px/1.2 "Inter", system-ui, sans-serif;
+	cursor: pointer;
+	transition: background 150ms ease, color 150ms ease;
+}
+
+.option:hover
+{
+	color: #1d2433;
+}
+
+.active
+{
+	background: #1d2433;
+	color: #ffffff;
+}
+
+.active:hover
+{
+	color: #ffffff;
+}
+
+.option:focus-visible
+{
+	outline: 3px solid #4c6ef5;
+	outline-offset: 1px;
+}

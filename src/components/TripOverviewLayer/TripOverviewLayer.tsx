@@ -3,19 +3,20 @@ import { useMemo, type CSSProperties } from "react";
 import { Layer, Marker, Source } from "react-map-gl/maplibre";
 import { getLegSegments } from "../../itinerary/routeGeometry";
 import { findDayTrips, formatDayRanges } from "../../itinerary/tripOverview";
-import type { ITrip } from "../../itinerary/types";
+import type { ILegSegment, ITrip } from "../../itinerary/types";
 import styles from "./TripOverviewLayer.module.css";
 
 export interface ITripOverviewLayerProps
 {
 	trip: ITrip;
+	legPaths: Record<string, ILegSegment[]>;
 	highlightedDayNumber?: number;
 	onSelectDay: (dayIndex: number) => void;
 	onHighlightDay: (dayNumber: number | undefined) => void;
 }
 
 /** The whole trip at a glance: every day's route in its color, a badge per city, and a badge per day trip. */
-export function TripOverviewLayer({ trip, highlightedDayNumber, onSelectDay, onHighlightDay }: ITripOverviewLayerProps)
+export function TripOverviewLayer({ trip, legPaths, highlightedDayNumber, onSelectDay, onHighlightDay }: ITripOverviewLayerProps)
 {
 	const routes = useMemo<FeatureCollection<LineString>>(() =>
 	{
@@ -26,7 +27,7 @@ export function TripOverviewLayer({ trip, highlightedDayNumber, onSelectDay, onH
 			{
 				const start = trip.places[day.stops[legIndex].placeId].coordinates;
 				const end = trip.places[stop.placeId].coordinates;
-				const segments = getLegSegments(trip.legPaths, day.dayNumber, legIndex + 1, start, end, stop.arrival?.mode ?? "walk");
+				const segments = getLegSegments(legPaths, day.dayNumber, legIndex + 1, start, end, stop.arrival?.mode ?? "walk");
 				features.push(
 				{
 					type: "Feature",
@@ -36,7 +37,7 @@ export function TripOverviewLayer({ trip, highlightedDayNumber, onSelectDay, onH
 			});
 		});
 		return { type: "FeatureCollection", features };
-	}, [trip]);
+	}, [trip, legPaths]);
 
 	const cityBadges = useMemo(() => trip.cities.map((city) =>
 	{

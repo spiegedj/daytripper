@@ -37,6 +37,13 @@ const travelModeGlyphs: Record<TravelMode, ReactElement> =
 	),
 	ferry: <path {...strokeProps} d="M3 17l2-5h14l2 5M7 12V8h10v4M12 8V4M2 20c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 6 0" />,
 	boat: <path {...strokeProps} d="M3 15h18l-3 5H6zM12 3v12M12 4l6 8h-6M2 21c2 1 4 1 6 0" />,
+	ropeway: (
+		<>
+			<path {...strokeProps} d="M3 4 21 8M12 6v4" />
+			<rect {...strokeProps} x="6" y="10" width="12" height="10" rx="2" />
+			<path {...strokeProps} d="M6 15h12" />
+		</>
+	),
 	flight: <path {...strokeProps} d="M12 3v7l8 4v2l-8-2v4l3 2v1l-3-1-3 1v-1l3-2v-4l-8 2v-2l8-4V3" />,
 	taxi: (
 		<>

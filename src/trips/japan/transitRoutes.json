@@ -1,10 +1,119 @@
 {
-	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Rail segments follow OpenStreetMap tracks whose name matches lineMatch; walk segments follow streets. Run: node scripts/fetchTransitRoutes.mjs japan",
+	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Legs whose arrival mode is walk are routed on foot automatically and need no entry. Segment modes: walk (streets), bus (roads), rail modes such as subway/train/shinkansen/tram (OpenStreetMap tracks matching lineMatch), boat (river matching waterwayMatch), and ferry/ropeway/flight (drawn as arcs). Run: node scripts/fetchTransitRoutes.mjs japan",
 	"legs":
 	[
 		{
-			"dayNumber": 6,
-			"arrivalStopIndex": 1,
+			"dayNumber": 1, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "train", "lineMatch": "モノレール", "railway": "monorail", "to": { "name": "Hamamatsuchō Station", "latitude": 35.6555, "longitude": 139.7570 } },
+				{ "mode": "walk", "to": { "name": "Shibakōen Station", "latitude": 35.6543, "longitude": 139.7491 } },
+				{ "mode": "subway", "lineMatch": "三田線", "to": { "name": "Suidōbashi Station", "latitude": 35.7036, "longitude": 139.7537 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 2, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Suidōbashi Station", "latitude": 35.7021, "longitude": 139.7531 } },
+				{ "mode": "train", "lineMatch": "総武", "to": { "name": "Yoyogi Station", "latitude": 35.6837, "longitude": 139.7020 } },
+				{ "mode": "train", "lineMatch": "山手線" }
+			]
+		},
+		{
+			"dayNumber": 2, "arrivalStopIndex": 7,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Shibuya Station", "latitude": 35.6580, "longitude": 139.7016 } },
+				{ "mode": "train", "lineMatch": "山手線", "to": { "name": "Shinjuku Station", "latitude": 35.6896, "longitude": 139.7006 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 3, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Kōrakuen Station", "latitude": 35.7077, "longitude": 139.7517 } },
+				{ "mode": "subway", "lineMatch": "丸ノ内線" }
+			]
+		},
+		{
+			"dayNumber": 3, "arrivalStopIndex": 5,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Shimbashi Station", "latitude": 35.6660, "longitude": 139.7590 } },
+				{ "mode": "train", "lineMatch": "ゆりかもめ", "to": { "name": "Odaiba-kaihinkōen Station", "latitude": 35.6297, "longitude": 139.7787 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 3, "arrivalStopIndex": 6,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Odaiba Seaside Park pier", "latitude": 35.6295, "longitude": 139.7745 } },
+				{ "mode": "ferry", "to": { "name": "Hamarikyu pier", "latitude": 35.6585, "longitude": 139.7647 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 3, "arrivalStopIndex": 7,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Shiodome Station", "latitude": 35.6627, "longitude": 139.7618 } },
+				{ "mode": "train", "lineMatch": "ゆりかもめ", "to": { "name": "Daiba Station", "latitude": 35.6252, "longitude": 139.7718 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 4, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Kasuga Station", "latitude": 35.7092, "longitude": 139.7530 } },
+				{ "mode": "subway", "lineMatch": "大江戸線", "to": { "name": "Kuramae Station", "latitude": 35.7065, "longitude": 139.7907 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 4, "arrivalStopIndex": 4,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Asakusa Station", "latitude": 35.7108, "longitude": 139.7976 } },
+				{ "mode": "subway", "lineMatch": "銀座線", "to": { "name": "Ueno Station", "latitude": 35.7112, "longitude": 139.7770 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 4, "arrivalStopIndex": 5,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Ueno Station", "latitude": 35.7112, "longitude": 139.7770 } },
+				{ "mode": "subway", "lineMatch": "銀座線", "to": { "name": "Asakusa Station", "latitude": 35.7108, "longitude": 139.7976 } },
+				{ "mode": "walk", "to": { "name": "Tōbu Asakusa Station", "latitude": 35.7114, "longitude": 139.7978 } },
+				{ "mode": "train", "lineMatch": "伊勢崎線|スカイツリーライン", "to": { "name": "Tokyo Skytree Station", "latitude": 35.7104, "longitude": 139.8092 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 5, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Kasuga Station", "latitude": 35.7092, "longitude": 139.7530 } },
+				{ "mode": "subway", "lineMatch": "大江戸線", "to": { "name": "Kuramae Station", "latitude": 35.7065, "longitude": 139.7907 } },
+				{ "mode": "walk", "to": { "name": "Tōbu Asakusa Station", "latitude": 35.7114, "longitude": 139.7978 } },
+				{ "mode": "train", "lineMatch": "伊勢崎線|スカイツリーライン", "to": { "name": "Tōbu-Dōbutsu-Kōen Station", "latitude": 36.0300, "longitude": 139.7268 } },
+				{ "mode": "train", "lineMatch": "日光線" }
+			]
+		},
+		{
+			"dayNumber": 5, "arrivalStopIndex": 9,
+			"segments":
+			[
+				{ "mode": "bus" }
+			]
+		},
+		{
+			"dayNumber": 6, "arrivalStopIndex": 1,
 			"segments":
 			[
 				{ "mode": "walk", "to": { "name": "Kōrakuen Station", "latitude": 35.7077, "longitude": 139.7517 } },
@@ -15,13 +124,158 @@
 			]
 		},
 		{
-			"dayNumber": 4,
-			"arrivalStopIndex": 4,
+			"dayNumber": 6, "arrivalStopIndex": 3,
 			"segments":
 			[
-				{ "mode": "walk", "to": { "name": "Asakusa Station", "latitude": 35.7108, "longitude": 139.7976 } },
-				{ "mode": "subway", "lineMatch": "銀座線", "to": { "name": "Ueno Station", "latitude": 35.7112, "longitude": 139.7770 } },
+				{ "mode": "walk", "to": { "name": "Karasuma Oike Station", "latitude": 35.0108, "longitude": 135.7596 } },
+				{ "mode": "subway", "lineMatch": "烏丸線", "to": { "name": "Kitayama Station", "latitude": 35.0518, "longitude": 135.7593 } },
 				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 7, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "bus" }
+			]
+		},
+		{
+			"dayNumber": 7, "arrivalStopIndex": 5,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Kiyomizu-Gojō Station", "latitude": 34.9967, "longitude": 135.7720 } },
+				{ "mode": "train", "lineMatch": "京阪本線", "to": { "name": "Fushimi-Inari Station", "latitude": 34.9673, "longitude": 135.7701 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 8, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Marutamachi Station", "latitude": 35.0175, "longitude": 135.7594 } },
+				{ "mode": "subway", "lineMatch": "烏丸線", "to": { "name": "Kyoto Station", "latitude": 34.9858, "longitude": 135.7588 } },
+				{ "mode": "train", "lineMatch": "近鉄京都線|京都線", "from": { "name": "Kintetsu Kyoto Station", "latitude": 34.9851, "longitude": 135.7570 }, "to": { "name": "Yamato-Saidaiji Station", "latitude": 34.6936, "longitude": 135.7831 } },
+				{ "mode": "train", "lineMatch": "近鉄奈良線|奈良線" }
+			]
+		},
+		{
+			"dayNumber": 9, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Marutamachi Station", "latitude": 35.0175, "longitude": 135.7594 } },
+				{ "mode": "subway", "lineMatch": "烏丸線", "to": { "name": "Kyoto Station", "latitude": 34.9858, "longitude": 135.7588 } },
+				{ "mode": "train", "lineMatch": "山陰本線|嵯峨野線", "to": { "name": "Saga-Arashiyama Station", "latitude": 35.0182, "longitude": 135.6812 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 9, "arrivalStopIndex": 5,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Saga-Arashiyama Station", "latitude": 35.0182, "longitude": 135.6812 } },
+				{ "mode": "train", "lineMatch": "山陰本線|嵯峨野線", "to": { "name": "Kameoka Station", "latitude": 35.0173, "longitude": 135.5867 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 9, "arrivalStopIndex": 6,
+			"segments":
+			[
+				{ "mode": "boat", "waterwayMatch": "保津川|桂川" }
+			]
+		},
+		{
+			"dayNumber": 10, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Jingū-Marutamachi Station", "latitude": 35.0170, "longitude": 135.7718 } },
+				{ "mode": "train", "lineMatch": "鴨東線|京阪", "to": { "name": "Demachiyanagi Station", "latitude": 35.0300, "longitude": 135.7728 } },
+				{ "mode": "train", "lineMatch": "叡山本線|鞍馬線", "to": { "name": "Kurama Station", "latitude": 35.1155, "longitude": 135.7713 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 11, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Marutamachi Station", "latitude": 35.0175, "longitude": 135.7594 } },
+				{ "mode": "subway", "lineMatch": "烏丸線", "to": { "name": "Kyoto Station", "latitude": 34.9858, "longitude": 135.7588 } },
+				{ "mode": "shinkansen", "lineMatch": "東海道新幹線|山陽新幹線", "to": { "name": "Himeji Station", "latitude": 34.8267, "longitude": 134.6905 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 11, "arrivalStopIndex": 4,
+			"segments":
+			[
+				{ "mode": "bus", "to": { "name": "Shosha Ropeway base", "latitude": 34.8817, "longitude": 134.6702 } },
+				{ "mode": "ropeway", "to": { "name": "Shosha Ropeway summit", "latitude": 34.8853, "longitude": 134.6640 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 11, "arrivalStopIndex": 5,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Shosha Ropeway summit", "latitude": 34.8853, "longitude": 134.6640 } },
+				{ "mode": "ropeway", "to": { "name": "Shosha Ropeway base", "latitude": 34.8817, "longitude": 134.6702 } },
+				{ "mode": "bus", "to": { "name": "Himeji Station", "latitude": 34.8267, "longitude": 134.6905 } },
+				{ "mode": "shinkansen", "lineMatch": "山陽新幹線", "to": { "name": "Hiroshima Station", "latitude": 34.3978, "longitude": 132.4753 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Hiroshima Station tram stop", "latitude": 34.3967, "longitude": 132.4752 } },
+				{ "mode": "tram", "railway": "tram", "to": { "name": "Genbaku Dome-mae tram stop", "latitude": 34.3958, "longitude": 132.4535 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 13, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Hiroshima Station", "latitude": 34.3978, "longitude": 132.4753 } },
+				{ "mode": "train", "lineMatch": "山陽本線", "to": { "name": "Miyajimaguchi Station", "latitude": 34.3121, "longitude": 132.3036 } },
+				{ "mode": "walk", "to": { "name": "Miyajimaguchi ferry pier", "latitude": 34.3110, "longitude": 132.3040 } },
+				{ "mode": "ferry", "to": { "name": "Miyajima pier", "latitude": 34.3020, "longitude": 132.3205 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 14, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Miyajima pier", "latitude": 34.3020, "longitude": 132.3205 } },
+				{ "mode": "ferry", "to": { "name": "Miyajimaguchi ferry pier", "latitude": 34.3110, "longitude": 132.3040 } },
+				{ "mode": "walk", "to": { "name": "Miyajimaguchi Station", "latitude": 34.3121, "longitude": 132.3036 } },
+				{ "mode": "train", "lineMatch": "山陽本線" }
+			]
+		},
+		{
+			"dayNumber": 14, "arrivalStopIndex": 2,
+			"segments":
+			[
+				{ "mode": "shinkansen", "lineMatch": "山陽新幹線", "to": { "name": "Shin-Osaka Station", "latitude": 34.7334, "longitude": 135.5002 } },
+				{ "mode": "train", "lineMatch": "東海道本線|京都線", "to": { "name": "Osaka Station", "latitude": 34.7025, "longitude": 135.4959 } },
+				{ "mode": "train", "lineMatch": "大阪環状線", "to": { "name": "Osakajōkōen Station", "latitude": 34.6877, "longitude": 135.5343 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 14, "arrivalStopIndex": 3,
+			"segments":
+			[
+				{ "mode": "bus" }
+			]
+		},
+		{
+			"dayNumber": 15, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "flight" }
 			]
 		}
 	]
