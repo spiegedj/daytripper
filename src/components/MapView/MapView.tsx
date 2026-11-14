@@ -10,7 +10,9 @@ import { createWavePatternImage, wavePatternImageId } from "../../mapStyle/waveP
 import { StopMarker, type StopProgress } from "../Markers/StopMarker";
 import { RouteLayer } from "../RouteLayer/RouteLayer";
 import { LabelBlockerLayer, createBlockerImage } from "./LabelBlockerLayer";
-import { findCompactStops, landmarkGroundOffset } from "./markerFootprint";
+import { findDayExploredAreas } from "../../itinerary/tripOverview";
+import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
+import { findCompactStops, landmarkGroundOffset, miniLandmarkGroundOffset } from "./markerFootprint";
 
 /** Screen space, in pixels, the camera keeps clear for floating panels. */
 export interface ICameraPadding
@@ -97,6 +99,8 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 	const previousPaddingRef = useRef(cameraPadding);
 	const mapStyle = useMemo(() => createMapStyle(pastelPalette), []);
 	const dayPlaces = useMemo(() => day.stops.map((stop) => places[stop.placeId]), [day, places]);
+	// The day's position in the trip doesn't matter here; the areas are only drawn, never used to navigate.
+	const dayAreas = useMemo(() => findDayExploredAreas(day, 0, places), [day, places]);
 	const dayBounds = useMemo(() => getBounds(dayPlaces.map((place) => place.coordinates)), [dayPlaces]);
 	const tripBounds = useMemo(() => getBounds(tripCoordinates), [tripCoordinates]);
 	const previousIsOverviewRef = useRef(isOverview);
@@ -264,6 +268,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		>
 			<NavigationControl position="top-right" showCompass={false} />
 			{isOverview && children}
+			{!isOverview && <ExploredAreaLayer id="day" areas={dayAreas} isVisible={currentStopIndex === 0} />}
 			{!isOverview && <RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} legPaths={legPaths} />}
 			{!isOverview && <LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} />}
 			{!isOverview && dayPlaces.map((place, stopIndex) =>
@@ -271,15 +276,17 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				const progress = getStopProgress(stopIndex, currentStopIndex);
 				const landmarkScale = place.landmarkIconScale ?? 1;
 				const isCompact = compactStopIndexes.has(stopIndex);
-				const isDrawnAsLandmark = place.landmarkIconUrl !== undefined && !isCompact;
+				const isLandmark = place.landmarkIconUrl !== undefined;
+				const isDrawnAsLandmark = isLandmark && !isCompact;
+				const isDrawnAsMiniLandmark = isLandmark && isCompact;
 				return (
 					<Marker
 						key={`${day.dayNumber}-${place.id}-${stopIndex}`}
 						longitude={place.coordinates.longitude}
 						latitude={place.coordinates.latitude}
-						anchor={isDrawnAsLandmark ? "top" : "center"}
-						offset={isDrawnAsLandmark ? [0, -landmarkGroundOffset * landmarkScale] : [0, 0]}
-						style={{ zIndex: progress === "current" ? 3 : isDrawnAsLandmark ? 2 : 1 }}
+						anchor={isDrawnAsLandmark ? "top" : isDrawnAsMiniLandmark ? "bottom" : "center"}
+						offset={isDrawnAsLandmark ? [0, -landmarkGroundOffset * landmarkScale] : isDrawnAsMiniLandmark ? [0, miniLandmarkGroundOffset * landmarkScale] : [0, 0]}
+						style={{ zIndex: progress === "current" ? 3 : isLandmark ? 2 : 1 }}
 					>
 						<StopMarker
 							place={place}

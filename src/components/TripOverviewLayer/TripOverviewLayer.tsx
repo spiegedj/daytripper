@@ -1,10 +1,11 @@
-import type { Feature, FeatureCollection, LineString, Point, Polygon } from "geojson";
+import type { Feature, FeatureCollection, LineString, Point } from "geojson";
 import type { Map as MapLibreMap } from "maplibre-gl";
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { Layer, Marker, Source, useMap } from "react-map-gl/maplibre";
 import { getLegSegments } from "../../itinerary/routeGeometry";
 import { findDayTrips, findExploredAreas, formatDayRanges } from "../../itinerary/tripOverview";
 import type { ICity, ILegSegment, IPlace, ITrip } from "../../itinerary/types";
+import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import type { ICameraPadding } from "../MapView/MapView";
 import styles from "./TripOverviewLayer.module.css";
 
@@ -102,17 +103,6 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 	const dayTrips = useMemo(() => findDayTrips(trip), [trip]);
 	const exploredAreas = useMemo(() => findExploredAreas(trip), [trip]);
 
-	const areaShapes = useMemo<FeatureCollection<Polygon>>(() => (
-	{
-		type: "FeatureCollection",
-		features: exploredAreas.map((area): Feature<Polygon> => (
-		{
-			type: "Feature",
-			geometry: { type: "Polygon", coordinates: [area.outline] },
-			properties: { dayNumber: trip.days[area.dayIndex].dayNumber, color: trip.days[area.dayIndex].color },
-		})),
-	}), [exploredAreas, trip]);
-
 	const sightDots = useMemo<FeatureCollection<Point>>(() => (
 	{
 		type: "FeatureCollection",
@@ -120,7 +110,7 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 		{
 			type: "Feature",
 			geometry: { type: "Point", coordinates: [place.coordinates.longitude, place.coordinates.latitude] },
-			properties: { dayNumber: trip.days[area.dayIndex].dayNumber, color: trip.days[area.dayIndex].color },
+			properties: { dayNumber: area.dayNumber, color: area.color },
 		}))),
 	}), [exploredAreas, trip]);
 
@@ -207,27 +197,12 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 
 	return (
 		<>
-			<Source id="trip-areas" type="geojson" data={areaShapes}>
-				<Layer
-					id="trip-areas-fill"
-					type="fill"
-					paint={{
-						"fill-color": ["get", "color"],
-						"fill-opacity": fadeInWithZoom(["case", highlightExpression, 0.3, isAnyDayHighlighted ? 0.06 : 0.16]),
-					}}
-				/>
-				<Layer
-					id="trip-areas-outline"
-					type="line"
-					layout={{ "line-join": "round" }}
-					paint={{
-						"line-color": ["get", "color"],
-						"line-width": ["case", highlightExpression, 2.5, 1.5] as never,
-						"line-dasharray": [2, 1.5],
-						"line-opacity": fadeInWithZoom(["case", highlightExpression, 1, isAnyDayHighlighted ? 0.3 : 0.75]),
-					}}
-				/>
-			</Source>
+			<ExploredAreaLayer
+				id="trip"
+				areas={exploredAreas}
+				highlightedDayNumber={highlightedDayNumber}
+				fadeInZoomRange={[areaFadeStartZoom, areaFadeEndZoom]}
+			/>
 
 			<Source id="trip-routes" type="geojson" data={routes}>
 				<Layer

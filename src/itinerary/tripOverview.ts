@@ -117,6 +117,9 @@ export function formatDayRanges(dayNumbers: number[]): string
 export interface IExploredArea
 {
 	dayIndex: number;
+	dayNumber: number;
+	/** The day's route color, which the area is drawn in. */
+	color: string;
 	places: IPlace[];
 	/** Closed ring of [longitude, latitude] pairs: a rounded outline around the area's sights. */
 	outline: [number, number][];
@@ -189,30 +192,35 @@ function buildAreaOutline(places: IPlace[]): [number, number][]
 }
 
 /**
- * Splits each day's sights into the neighborhoods explored, each with a rounded outline for the map.
+ * Splits one day's sights into the neighborhoods explored, each with a rounded outline for the map.
  * Hotels, stations and airports are left out because passing through them isn't exploring.
  */
+export function findDayExploredAreas(day: IDay, dayIndex: number, places: Record<string, IPlace>): IExploredArea[]
+{
+	const sights = day.stops
+		.map((stop) => places[stop.placeId])
+		.filter((place, index, dayPlaces) => !placesThatAreNotDestinations.includes(place.category) && dayPlaces.indexOf(place) === index);
+	const neighborhoods = groupIntoNeighborhoods(sights);
+	const largestSize = Math.max(...neighborhoods.map((neighborhood) => neighborhood.length));
+	const mainNeighborhood = neighborhoods.find((neighborhood) => neighborhood.length === largestSize);
+	return neighborhoods.map((neighborhoodPlaces): IExploredArea =>
+	{
+		const outline = buildAreaOutline(neighborhoodPlaces);
+		const bottom = outline.reduce((lowest, point) => (point[1] < lowest[1] ? point : lowest));
+		return {
+			dayIndex,
+			dayNumber: day.dayNumber,
+			color: day.color,
+			places: neighborhoodPlaces,
+			outline,
+			badgeCoordinates: { longitude: getCentroid(neighborhoodPlaces.map((place) => place.coordinates)).longitude, latitude: bottom[1] },
+			isMainArea: neighborhoodPlaces === mainNeighborhood,
+		};
+	});
+}
+
+/** The explored neighborhoods of every day in the trip, in day order. */
 export function findExploredAreas(trip: ITrip): IExploredArea[]
 {
-	return trip.days.flatMap((day, dayIndex) =>
-	{
-		const sights = day.stops
-			.map((stop) => trip.places[stop.placeId])
-			.filter((place, index, places) => !placesThatAreNotDestinations.includes(place.category) && places.indexOf(place) === index);
-		const neighborhoods = groupIntoNeighborhoods(sights);
-		const largestSize = Math.max(...neighborhoods.map((neighborhood) => neighborhood.length));
-		const mainNeighborhood = neighborhoods.find((neighborhood) => neighborhood.length === largestSize);
-		return neighborhoods.map((places): IExploredArea =>
-		{
-			const outline = buildAreaOutline(places);
-			const bottom = outline.reduce((lowest, point) => (point[1] < lowest[1] ? point : lowest));
-			return {
-				dayIndex,
-				places,
-				outline,
-				badgeCoordinates: { longitude: getCentroid(places.map((place) => place.coordinates)).longitude, latitude: bottom[1] },
-				isMainArea: places === mainNeighborhood,
-			};
-		});
-	});
+	return trip.days.flatMap((day, dayIndex) => findDayExploredAreas(day, dayIndex, trip.places));
 }

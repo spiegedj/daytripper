@@ -92,6 +92,36 @@
 	left: calc(50% + 24px);
 }
 
+.miniLandmark
+{
+	position: relative;
+	display: block;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 300ms ease;
+}
+
+.miniLandmark:hover
+{
+	transform: translateY(-3px);
+}
+
+.miniLandmarkArt
+{
+	display: block;
+	width: calc(46px * var(--landmark-scale, 1));
+	height: calc(46px * var(--landmark-scale, 1));
+	filter: drop-shadow(0 3px 3px rgba(29, 36, 51, 0.22));
+}
+
+.miniLandmark .badge
+{
+	top: -4px;
+	right: -6px;
+}
+
 .groundRing
 {
 	position: absolute;

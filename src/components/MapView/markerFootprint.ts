@@ -12,6 +12,10 @@ export interface IMarkerFootprint
 export const landmarkArtSize = 88;
 // The illustration's ground line sits this far above the bottom of its 88px box.
 export const landmarkGroundOffset = 82;
+// Landmarks that don't fit at full size shrink to this smaller illustration, so they stay recognizable.
+export const miniLandmarkSize = 46;
+// Space below the mini illustration's ground line, from the same 82-of-88 proportion as the full art.
+export const miniLandmarkGroundOffset = Math.round(miniLandmarkSize * (landmarkArtSize - landmarkGroundOffset) / landmarkArtSize);
 const pinSize = 34;
 const labelHeight = 36;
 // Room for the hover/current "lift" (translate and 1.12x scale) plus a little breathing space.
@@ -30,12 +34,17 @@ export function isLandmark(place: IPlace): boolean
 	return place.landmarkIconUrl !== undefined;
 }
 
-/** The box a stop's marker covers: the illustration plus its two-line label, or just the pin when compact. */
+/** The box a stop's marker covers: the illustration plus its two-line label, the small illustration when compact, or a pin. */
 export function getMarkerFootprint(place: IPlace, isCompact: boolean): IMarkerFootprint
 {
-	if (!isLandmark(place) || isCompact)
+	if (!isLandmark(place))
 	{
 		return { left: -pinSize / 2, top: -pinSize / 2, width: pinSize, height: pinSize };
+	}
+	if (isCompact)
+	{
+		const size = miniLandmarkSize * (place.landmarkIconScale ?? 1);
+		return { left: -size / 2, top: -size + miniLandmarkGroundOffset, width: size, height: size };
 	}
 	const scale = place.landmarkIconScale ?? 1;
 	const artWidth = landmarkArtSize * scale;

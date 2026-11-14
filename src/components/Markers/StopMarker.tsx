@@ -11,7 +11,7 @@ export interface IStopMarkerProps
 	stopNumber: number;
 	progress: StopProgress;
 	dayColor: string;
-	/** Draws a landmark as a plain pin, used when its full illustration would cover another stop. */
+	/** Draws a landmark as a small illustration without a label, used when the full one would cover another stop. */
 	isCompact?: boolean;
 	onSelect: () => void;
 }
@@ -19,7 +19,11 @@ export interface IStopMarkerProps
 /** A stop on the map. Famous places render as a freestanding landmark illustration, everything else as a category pin. */
 export function StopMarker(props: IStopMarkerProps)
 {
-	return props.place.landmarkIconUrl && !props.isCompact ? <LandmarkMarker {...props} /> : <PinMarker {...props} />;
+	if (!props.place.landmarkIconUrl)
+	{
+		return <PinMarker {...props} />;
+	}
+	return props.isCompact ? <MiniLandmarkMarker {...props} /> : <LandmarkMarker {...props} />;
 }
 
 function buildMarkerStyle(place: IPlace, dayColor: string): CSSProperties
@@ -45,6 +49,18 @@ function LandmarkMarker({ place, stopNumber, progress, dayColor, onSelect }: ISt
 				<span className={styles.labelName}>{place.name}</span>
 				{place.localName && <span className={styles.labelLocalName}>{place.localName}</span>}
 			</span>
+		</button>
+	);
+}
+
+function MiniLandmarkMarker({ place, stopNumber, progress, dayColor, onSelect }: IStopMarkerProps)
+{
+	const classNames = [styles.miniLandmark, progress === "visited" ? styles.visited : ""];
+
+	return (
+		<button type="button" className={classNames.join(" ")} style={buildMarkerStyle(place, dayColor)} onClick={onSelect} aria-label={place.name} title={place.name}>
+			<img className={styles.miniLandmarkArt} src={place.landmarkIconUrl} alt="" draggable={false} />
+			<span className={styles.badge}>{stopNumber}</span>
 		</button>
 	);
 }
