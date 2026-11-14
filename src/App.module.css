@@ -18,8 +18,8 @@
 /* With the details pane open next to the itinerary, center the player in the map area that remains. */
 .playerDock.besideDetails
 {
-	left: calc(50% + 430px);
-	max-width: calc(100vw - 880px);
+	left: calc(50% + (460px + var(--detail-panel-width)) / 2);
+	max-width: calc(100vw - 492px - var(--detail-panel-width));
 }
 
 @media (max-width: 760px)

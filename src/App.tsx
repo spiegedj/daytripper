@@ -10,8 +10,25 @@ import styles from "./App.module.css";
 const narrowScreenQuery = "(max-width: 760px)";
 const sideBySidePanelsQuery = "(min-width: 1181px)";
 const wideScreenPadding: ICameraPadding = { top: 90, bottom: 140, left: 480, right: 80 };
-// The details pane sits right next to the itinerary panel, so the map's visible area starts after both.
-const leftWithDetailsOpen = 16 + 420 + 12 + 400 + 40;
+// Mirrors --detail-panel-width in index.css: clamp(400px, 38vw, 620px).
+function getDetailPanelWidth(windowWidth: number): number
+{
+	return Math.min(620, Math.max(400, windowWidth * 0.38));
+}
+
+function useWindowWidth(): number
+{
+	const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
+
+	useEffect(() =>
+	{
+		const handleResize = () => setWindowWidth(window.innerWidth);
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	return windowWidth;
+}
 const narrowScreenPadding: ICameraPadding = { top: 110, bottom: 0, left: 50, right: 50 };
 
 function useMediaQuery(query: string): boolean
@@ -36,6 +53,9 @@ export function App()
 	const navigation = useItineraryNavigation(trip);
 	const isNarrowScreen = useMediaQuery(narrowScreenQuery);
 	const canShowPanelsSideBySide = useMediaQuery(sideBySidePanelsQuery);
+	const windowWidth = useWindowWidth();
+	// The details pane sits right next to the itinerary panel, so the map's visible area starts after both.
+	const leftWithDetailsOpen = Math.round(16 + 420 + 12 + getDetailPanelWidth(windowWidth) + 40);
 	const { dayIndex, stopIndex } = navigation.position;
 	const day = trip.days[dayIndex];
 	const currentPlace = trip.places[day.stops[stopIndex].placeId];
