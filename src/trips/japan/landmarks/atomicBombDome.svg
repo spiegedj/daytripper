@@ -57,9 +57,9 @@
 		<path d="M40 114 44 110 49 112 52 114Z"/><path d="M78 114 82 111 86 113 88 114Z"/><path d="M8 114 12 111 16 114Z"/>
 	</g>
 
-	<circle cx="6" cy="104" r="8" fill="url(#tree)"/>
+	<circle cx="10" cy="104" r="8" fill="url(#tree)"/>
 	<circle cx="14" cy="110" r="6.5" fill="url(#tree)"/>
-	<circle cx="122" cy="104" r="8" fill="url(#tree)"/>
+	<circle cx="118" cy="104" r="8" fill="url(#tree)"/>
 	<circle cx="114" cy="110" r="6.5" fill="url(#tree)"/>
 	<path d="M4 116H124" stroke="#6B7A5C" stroke-width="1.4"/>
 	<path d="M10 116V112M22 116V112M34 116V112M46 116V112M82 116V112M94 116V112M106 116V112M118 116V112" stroke="#6B7A5C" stroke-width="1.2"/>

@@ -39,8 +39,8 @@
 		<use href="#broadleaf" transform="translate(30 116) scale(.82)"/>
 		<use href="#broadleaf" transform="translate(98 116) scale(.78)"/>
 	</g>
-	<use href="#broadleaf" transform="translate(14 118) scale(1.02)"/>
-	<use href="#broadleaf" transform="translate(114 118) scale(.92)"/>
+	<use href="#broadleaf" transform="translate(21 118) scale(.88)"/>
+	<use href="#broadleaf" transform="translate(107 118) scale(.84)"/>
 
 	<path d="M40 118H88L72 70H56Z" fill="url(#gravel)"/>
 	<path d="M44 116 57 72M84 116 71 72" stroke="#B9AE98" stroke-width=".8"/>

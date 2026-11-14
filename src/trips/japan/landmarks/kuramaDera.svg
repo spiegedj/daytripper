@@ -27,8 +27,8 @@
 
 	<use href="#cedar" transform="translate(32 112) scale(.58 .82)" opacity=".8"/>
 	<use href="#cedar" transform="translate(96 112) scale(.56 .76)" opacity=".8"/>
-	<use href="#cedar" transform="translate(13 116) scale(.68 1.18)"/>
-	<use href="#cedar" transform="translate(115 116) scale(.66 1.06)"/>
+	<use href="#cedar" transform="translate(15 116) scale(.6 1.16)"/>
+	<use href="#cedar" transform="translate(113 116) scale(.58 1.04)"/>
 
 	<path d="M30 120H98L84 92H44Z" fill="url(#stone)"/>
 	<path d="M33 116H95M36 111H92M39 106H89M42 101H86M44 96H84" stroke="#9C9384" stroke-width="1"/>
