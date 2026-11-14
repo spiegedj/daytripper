@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow">
+			<stop offset="0" stop-color="#1D2433" stop-opacity=".32"/>
+			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="foliage" cx=".4" cy=".35" r=".75">
+			<stop offset="0" stop-color="#8CCB7E"/>
+			<stop offset="1" stop-color="#2F6E3D"/>
+		</radialGradient>
+		<linearGradient id="steps" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#A8A090"/>
+			<stop offset="1" stop-color="#D8D0C0"/>
+		</linearGradient>
+		<g id="lantern">
+			<rect x="-2" y="-30" width="4" height="30" fill="#D9342A"/>
+			<rect x="-6" y="-42" width="12" height="13" rx="1" fill="#D9342A"/>
+			<rect x="-4.4" y="-40.4" width="8.8" height="9.8" fill="#FFF3D1"/>
+			<path d="M0-40.4V-30.6M-4.4-35.5H4.4" stroke="#D9342A" stroke-width=".8"/>
+			<path d="M-7.5-42H7.5L5-46H-5Z" fill="#2B2B2B"/>
+			<rect x="-1.2" y="-48" width="2.4" height="2.4" fill="#2B2B2B"/>
+		</g>
+	</defs>
+
+	<ellipse cx="64" cy="120" rx="60" ry="6" fill="url(#groundShadow)"/>
+	<circle cx="20" cy="40" r="20" fill="url(#foliage)"/>
+	<circle cx="108" cy="40" r="20" fill="url(#foliage)"/>
+	<circle cx="40" cy="22" r="16" fill="url(#foliage)"/>
+	<circle cx="88" cy="22" r="16" fill="url(#foliage)"/>
+	<circle cx="64" cy="16" r="14" fill="url(#foliage)"/>
+
+	<path d="M34 120H94L70 34H58Z" fill="url(#steps)"/>
+	<path d="M36 114H92M39 104H89M42 95H86M45 87H83M48 79H80M50.5 72H77.5M52.5 65H75.5M54.5 58H73.5M56 52H72M57.4 46H70.6M58.4 41H69.6" stroke="#8C8476" stroke-width="1"/>
+
+	<g transform="translate(60 36) scale(.5)">
+		<rect x="-14" y="-20" width="4" height="22" fill="#D9342A"/>
+		<rect x="10" y="-20" width="4" height="22" fill="#D9342A"/>
+		<rect x="-18" y="-16" width="36" height="3" fill="#D9342A"/>
+		<path d="M-21-22Q0-25 21-22L20-19Q0-22-20-19Z" fill="#2B2B2B"/>
+	</g>
+
+	<use href="#lantern" transform="translate(56 50) scale(.32)"/>
+	<use href="#lantern" transform="translate(72 50) scale(.32)"/>
+	<use href="#lantern" transform="translate(54 62) scale(.42)"/>
+	<use href="#lantern" transform="translate(74 62) scale(.42)"/>
+	<use href="#lantern" transform="translate(50 78) scale(.56)"/>
+	<use href="#lantern" transform="translate(78 78) scale(.56)"/>
+	<use href="#lantern" transform="translate(44 98) scale(.76)"/>
+	<use href="#lantern" transform="translate(84 98) scale(.76)"/>
+	<use href="#lantern" transform="translate(34 122) scale(1)"/>
+	<use href="#lantern" transform="translate(94 122) scale(1)"/>
+</svg>

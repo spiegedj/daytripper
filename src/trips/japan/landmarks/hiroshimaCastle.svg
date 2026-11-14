@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow">
+			<stop offset="0" stop-color="#1D2433" stop-opacity=".32"/>
+			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="stone" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#D3CAB8"/>
+			<stop offset=".6" stop-color="#B2A792"/>
+			<stop offset="1" stop-color="#8F8571"/>
+		</linearGradient>
+		<linearGradient id="plaster" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#FFFFFF"/>
+			<stop offset="1" stop-color="#D8DCE2"/>
+		</linearGradient>
+		<linearGradient id="boards" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#4A4540"/>
+			<stop offset="1" stop-color="#26231F"/>
+		</linearGradient>
+		<linearGradient id="roof" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#6E7886"/>
+			<stop offset="1" stop-color="#3F4855"/>
+		</linearGradient>
+		<linearGradient id="water" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#A8DDEA"/>
+			<stop offset="1" stop-color="#6FBCD2"/>
+		</linearGradient>
+		<radialGradient id="pine" cx=".35" cy=".3" r=".8">
+			<stop offset="0" stop-color="#6DB070"/>
+			<stop offset="1" stop-color="#2F6B3E"/>
+		</radialGradient>
+		<clipPath id="baseShape"><path d="M24 110C28 100 30 94 32 88H96C98 94 100 100 104 110Z"/></clipPath>
+	</defs>
+
+	<ellipse cx="64" cy="114" rx="62" ry="10" fill="url(#water)"/>
+	<path d="M12 114H30M84 117H108" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="1.2" stroke-linecap="round"/>
+
+	<path d="M24 110C28 100 30 94 32 88H96C98 94 100 100 104 110Z" fill="url(#stone)"/>
+	<g clip-path="url(#baseShape)" stroke="#7F7562" stroke-width=".7" stroke-opacity=".75">
+		<path d="M0 94H128M0 100H128M0 106H128"/>
+		<path d="M40 88V94M56 88V94M72 88V94M88 88V94M32 94V100M48 94V100M64 94V100M80 94V100M96 94V100M40 100V106M56 100V106M72 100V106M88 100V106"/>
+	</g>
+	<path d="M24 110C28 100 30 94 32 88H96C98 94 100 100 104 110Z" fill="none" stroke="#756B58" stroke-width="1" stroke-linejoin="round"/>
+
+	<rect x="34" y="76" width="60" height="12" fill="url(#plaster)" stroke="#5A6474" stroke-width=".7"/>
+	<rect x="34" y="81" width="60" height="7" fill="url(#boards)"/>
+	<path d="M24 78.5 32 71H96L104 78.5Q64 75 24 78.5Z" fill="url(#roof)" stroke="#2F3640" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M54 76Q64 67 74 76Z" fill="#FFFFFF" stroke="#3F4855" stroke-width="1"/>
+
+	<rect x="38" y="62" width="52" height="9.5" fill="url(#plaster)" stroke="#5A6474" stroke-width=".7"/>
+	<rect x="38" y="66.5" width="52" height="5" fill="url(#boards)"/>
+	<path d="M28 64.5 36 57H92L100 64.5Q64 61 28 64.5Z" fill="url(#roof)" stroke="#2F3640" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M40 63 46 57.6 52 63ZM76 63 82 57.6 88 63Z" fill="#FFFFFF" stroke="#3F4855" stroke-width=".8" stroke-linejoin="round"/>
+
+	<rect x="42" y="49" width="44" height="8.5" fill="url(#plaster)" stroke="#5A6474" stroke-width=".7"/>
+	<rect x="42" y="53" width="44" height="4.5" fill="url(#boards)"/>
+	<path d="M32 51.5 40 44H88L96 51.5Q64 48 32 51.5Z" fill="url(#roof)" stroke="#2F3640" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M57 50 64 43.6 71 50Z" fill="#FFFFFF" stroke="#3F4855" stroke-width=".8" stroke-linejoin="round"/>
+
+	<rect x="46" y="36" width="36" height="8.5" fill="url(#plaster)" stroke="#5A6474" stroke-width=".7"/>
+	<rect x="46" y="40" width="36" height="4.5" fill="url(#boards)"/>
+	<path d="M36 38.5 44 31H84L92 38.5Q64 35 36 38.5Z" fill="url(#roof)" stroke="#2F3640" stroke-width=".8" stroke-linejoin="round"/>
+
+	<rect x="50" y="24" width="28" height="7.5" fill="url(#plaster)" stroke="#5A6474" stroke-width=".7"/>
+	<path d="M40 26 48 16.5H80L88 26Q64 22.5 40 26Z" fill="url(#roof)" stroke="#2F3640" stroke-width=".8" stroke-linejoin="round"/>
+	<rect x="47" y="14.5" width="34" height="2.6" rx="1" fill="#3F4855"/>
+	<path d="M47.5 15.5C46 12 47.4 10 50 11 49 12.6 49.4 14 50.5 14.6ZM80.5 15.5C82 12 80.6 10 78 11 79 12.6 78.6 14 77.5 14.6Z" fill="#C9A227"/>
+	<g fill="#2F3640"><rect x="55" y="26" width="2.4" height="2.4"/><rect x="62.8" y="26" width="2.4" height="2.4"/><rect x="70.6" y="26" width="2.4" height="2.4"/></g>
+
+	<path d="M14 96V80" stroke="#6B4A2E" stroke-width="2.2" stroke-linecap="round"/>
+	<ellipse cx="10" cy="82" rx="10" ry="5" fill="url(#pine)"/>
+	<ellipse cx="18" cy="76" rx="8" ry="4.2" fill="url(#pine)"/>
+	<path d="M114 98V82" stroke="#6B4A2E" stroke-width="2.2" stroke-linecap="round"/>
+	<ellipse cx="118" cy="84" rx="10" ry="5" fill="url(#pine)"/>
+	<ellipse cx="110" cy="78" rx="8" ry="4.2" fill="url(#pine)"/>
+</svg>

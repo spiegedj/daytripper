@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow">
+			<stop offset="0" stop-color="#1D2433" stop-opacity=".32"/>
+			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="roof" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#6A7078"/>
+			<stop offset="1" stop-color="#363A40"/>
+		</linearGradient>
+		<linearGradient id="wood" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#8E6544"/>
+			<stop offset="1" stop-color="#5C3E27"/>
+		</linearGradient>
+		<linearGradient id="bronze" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#C9A45A"/>
+			<stop offset="1" stop-color="#7E6430"/>
+		</linearGradient>
+	</defs>
+
+	<ellipse cx="64" cy="120" rx="40" ry="5" fill="url(#groundShadow)"/>
+	<path d="M34 120H94L90 113H38Z" fill="#CFC6B4" stroke="#8F8572" stroke-width=".8"/>
+
+	<rect x="48" y="100" width="32" height="13" fill="url(#wood)"/>
+	<path d="M56 113V102H72V113Z" fill="#3A281A"/>
+	<path d="M60 102V113M64 102V113M68 102V113" stroke="#8E6544" stroke-width=".7"/>
+	<path d="M28 102 38 94H90L100 102Q64 99 28 102Z" fill="url(#roof)" stroke="#25282D" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M29.5 101.6 38.6 94.8" stroke="#A3A9B3" stroke-width=".9" stroke-linecap="round"/>
+
+	<rect x="49.5" y="84" width="29" height="10" fill="url(#wood)"/>
+	<path d="M57 94V86H71V94" fill="#3A281A"/>
+	<path d="M30 86 39.5 78.5H88.5L98 86Q64 83 30 86Z" fill="url(#roof)" stroke="#25282D" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M31.5 85.6 40 79.2" stroke="#A3A9B3" stroke-width=".9" stroke-linecap="round"/>
+
+	<rect x="51" y="69" width="26" height="9.5" fill="url(#wood)"/>
+	<path d="M58 78.5V71H70V78.5" fill="#3A281A"/>
+	<path d="M32 71 41 63.5H87L96 71Q64 68 32 71Z" fill="url(#roof)" stroke="#25282D" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M33.5 70.6 41.5 64.2" stroke="#A3A9B3" stroke-width=".9" stroke-linecap="round"/>
+
+	<rect x="52.5" y="54.5" width="23" height="9" fill="url(#wood)"/>
+	<path d="M59 63.5V56.5H69V63.5" fill="#3A281A"/>
+	<path d="M34 56.5 42.5 49H85.5L94 56.5Q64 53.5 34 56.5Z" fill="url(#roof)" stroke="#25282D" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M35.5 56.1 43 49.7" stroke="#A3A9B3" stroke-width=".9" stroke-linecap="round"/>
+
+	<rect x="54" y="40.5" width="20" height="8.5" fill="url(#wood)"/>
+	<path d="M60 49V42.5H68V49" fill="#3A281A"/>
+	<path d="M36 42.5 44 35H84L92 42.5Q64 39.5 36 42.5Z" fill="url(#roof)" stroke="#25282D" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M37.5 42.1 44.6 35.7" stroke="#A3A9B3" stroke-width=".9" stroke-linecap="round"/>
+	<path d="M56 35 64 31 72 35Z" fill="#363A40"/>
+
+	<rect x="62.6" y="10" width="2.8" height="22" fill="url(#bronze)"/>
+	<g fill="none" stroke="url(#bronze)" stroke-width="1.4">
+		<ellipse cx="64" cy="29" rx="3.4" ry=".9"/><ellipse cx="64" cy="26.6" rx="3.3" ry=".9"/><ellipse cx="64" cy="24.2" rx="3.2" ry=".9"/>
+		<ellipse cx="64" cy="21.8" rx="3.1" ry=".9"/><ellipse cx="64" cy="19.4" rx="3" ry=".9"/><ellipse cx="64" cy="17" rx="2.9" ry=".9"/>
+		<ellipse cx="64" cy="14.6" rx="2.8" ry=".9"/><ellipse cx="64" cy="12.2" rx="2.7" ry=".9"/>
+	</g>
+	<path d="M64 3C61 6 61.5 8.5 64 10 66.5 8.5 67 6 64 3Z" fill="url(#bronze)"/>
+</svg>

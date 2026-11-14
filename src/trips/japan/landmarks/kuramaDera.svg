@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow">
+			<stop offset="0" stop-color="#1D2433" stop-opacity=".32"/>
+			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="cedar" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#4E8A58"/>
+			<stop offset="1" stop-color="#1F4A2C"/>
+		</linearGradient>
+		<linearGradient id="vermilion" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#F0533A"/>
+			<stop offset="1" stop-color="#B9301E"/>
+		</linearGradient>
+		<linearGradient id="roof" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#5E6470"/>
+			<stop offset="1" stop-color="#33373E"/>
+		</linearGradient>
+		<linearGradient id="stone" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#BDB5A6"/>
+			<stop offset="1" stop-color="#E3DCCD"/>
+		</linearGradient>
+	</defs>
+
+	<ellipse cx="64" cy="120" rx="62" ry="6" fill="url(#groundShadow)"/>
+
+	<path d="M2 112 16 18 30 112ZM20 112 34 30 48 112ZM80 112 94 30 108 112ZM98 112 112 18 126 112Z" fill="url(#cedar)"/>
+	<path d="M16 112V96M112 112V96" stroke="#5A3E28" stroke-width="2.2"/>
+
+	<path d="M30 120H98L84 92H44Z" fill="url(#stone)"/>
+	<path d="M33 116H95M36 111H92M39 106H89M42 101H86M44 96H84" stroke="#9C9384" stroke-width="1"/>
+
+	<rect x="34" y="52" width="60" height="40" fill="#F4F0E6"/>
+	<rect x="34" y="52" width="60" height="40" fill="none" stroke="#B9301E" stroke-width="1"/>
+	<rect x="34" y="52" width="6" height="40" fill="url(#vermilion)"/>
+	<rect x="88" y="52" width="6" height="40" fill="url(#vermilion)"/>
+	<rect x="52" y="52" width="5" height="40" fill="url(#vermilion)"/>
+	<rect x="71" y="52" width="5" height="40" fill="url(#vermilion)"/>
+	<rect x="34" y="52" width="60" height="5" fill="url(#vermilion)"/>
+	<rect x="34" y="70" width="60" height="3" fill="url(#vermilion)"/>
+	<path d="M57 92V60H71V92Z" fill="#5C3A22"/>
+	<g fill="#3A2A20" fill-opacity=".85">
+		<rect x="42" y="59" width="8" height="10"/><rect x="78" y="59" width="8" height="10"/>
+	</g>
+	<path d="M44 59V69M46 59V69M48 59V69M80 59V69M82 59V69M84 59V69" stroke="#F4F0E6" stroke-width=".6"/>
+
+	<path d="M20 54 30 42H98L108 54Q64 50.5 20 54Z" fill="url(#roof)" stroke="#25282D" stroke-width=".9" stroke-linejoin="round"/>
+	<path d="M21.5 53.5 30.6 42.8" stroke="#9AA0AB" stroke-width="1" stroke-linecap="round"/>
+	<rect x="28" y="38.5" width="72" height="4" rx="1.4" fill="#2A2D33"/>
+	<path d="M27.5 42.5 26 36 31 38.6ZM100.5 42.5 102 36 97 38.6Z" fill="#2A2D33"/>
+	<rect x="58" y="44" width="12" height="6" fill="#1E1E1E" stroke="#C9A227" stroke-width=".8"/>
+
+	<g>
+		<rect x="22" y="96" width="6" height="16" fill="#A79F90"/>
+		<path d="M19 96H31L28 91H22Z" fill="#8E8678"/>
+		<rect x="23" y="98" width="4" height="4" fill="#FFE8A3"/>
+		<rect x="100" y="96" width="6" height="16" fill="#A79F90"/>
+		<path d="M97 96H109L106 91H100Z" fill="#8E8678"/>
+		<rect x="101" y="98" width="4" height="4" fill="#FFE8A3"/>
+	</g>
+</svg>

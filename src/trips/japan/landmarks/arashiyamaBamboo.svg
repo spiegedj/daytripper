@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow">
+			<stop offset="0" stop-color="#1D2433" stop-opacity=".32"/>
+			<stop offset="1" stop-color="#1D2433" stop-opacity="0"/>
+		</radialGradient>
+		<linearGradient id="stalkLight" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#A6D98A"/>
+			<stop offset="1" stop-color="#5DAA4E"/>
+		</linearGradient>
+		<linearGradient id="stalkMid" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#7CC064"/>
+			<stop offset="1" stop-color="#3F8B3B"/>
+		</linearGradient>
+		<linearGradient id="stalkDark" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#5E9E4E"/>
+			<stop offset="1" stop-color="#2E6A30"/>
+		</linearGradient>
+		<radialGradient id="canopy" cx=".5" cy=".4" r=".7">
+			<stop offset="0" stop-color="#B9E39A"/>
+			<stop offset="1" stop-color="#5DAA4E"/>
+		</radialGradient>
+		<linearGradient id="path" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#CFC2A2"/>
+			<stop offset="1" stop-color="#EDE3CB"/>
+		</linearGradient>
+		<pattern id="nodes" width="10" height="13" patternUnits="userSpaceOnUse">
+			<path d="M0 12.5H10" stroke="#2E5E2A" stroke-width="1" stroke-opacity=".55"/>
+		</pattern>
+		<rect id="stalk" x="-2.6" y="0" width="5.2" height="100" rx="2.4"/>
+	</defs>
+
+	<ellipse cx="64" cy="120" rx="60" ry="6" fill="url(#groundShadow)"/>
+	<ellipse cx="34" cy="18" rx="30" ry="14" fill="url(#canopy)"/>
+	<ellipse cx="94" cy="18" rx="30" ry="14" fill="url(#canopy)"/>
+	<ellipse cx="64" cy="10" rx="18" ry="8" fill="url(#canopy)" opacity=".8"/>
+
+	<path d="M40 118H88L70 40H58Z" fill="url(#path)"/>
+
+	<g fill="url(#stalkDark)">
+		<use href="#stalk" x="50" y="16"/><use href="#stalk" x="78" y="16"/><use href="#stalk" x="44" y="14"/><use href="#stalk" x="84" y="14"/>
+	</g>
+	<g fill="url(#stalkMid)">
+		<use href="#stalk" x="36" y="12"/><use href="#stalk" x="92" y="12"/><use href="#stalk" x="28" y="14"/><use href="#stalk" x="100" y="14"/>
+	</g>
+	<g fill="url(#stalkLight)">
+		<use href="#stalk" x="20" y="14"/><use href="#stalk" x="108" y="14"/><use href="#stalk" x="12" y="16"/><use href="#stalk" x="116" y="16"/>
+	</g>
+	<clipPath id="stalkShapes">
+		<use href="#stalk" x="50" y="16"/><use href="#stalk" x="78" y="16"/><use href="#stalk" x="44" y="14"/><use href="#stalk" x="84" y="14"/>
+		<use href="#stalk" x="36" y="12"/><use href="#stalk" x="92" y="12"/><use href="#stalk" x="28" y="14"/><use href="#stalk" x="100" y="14"/>
+		<use href="#stalk" x="20" y="14"/><use href="#stalk" x="108" y="14"/><use href="#stalk" x="12" y="16"/><use href="#stalk" x="116" y="16"/>
+	</clipPath>
+	<rect x="8" y="12" width="112" height="104" fill="url(#nodes)" clip-path="url(#stalkShapes)"/>
+
+	<path d="M6 116V100H40L46 116Z" fill="#9A7448"/>
+	<path d="M122 116V100H88L82 116Z" fill="#9A7448"/>
+	<g stroke="#7A5A34" stroke-width=".8">
+		<path d="M8 100V116M12 100V116M16 100V116M20 100V116M24 100V116M28 100V116M32 100V116M36 100V116M40 100V116"/>
+		<path d="M88 100V116M92 100V116M96 100V116M100 100V116M104 100V116M108 100V116M112 100V116M116 100V116M120 100V116"/>
+	</g>
+	<path d="M6 104H42M86 104H122" stroke="#5E4527" stroke-width="1.4"/>
+</svg>

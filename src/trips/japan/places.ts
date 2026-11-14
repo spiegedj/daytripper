@@ -73,7 +73,7 @@ const placeEntries: Record<string, IPlaceEntry> =
 
 	// Nara
 	kintetsuNaraStation: { name: "Kintetsu-Nara Station", localName: "近鉄奈良駅", category: "station", latitude: 34.6850, longitude: 135.8261 },
-	kofukujiChukondo: { name: "Kōfuku-ji", localName: "興福寺 中金堂", category: "temple", latitude: 34.6830, longitude: 135.8319 },
+	kofukujiChukondo: { name: "Kōfuku-ji", localName: "興福寺 中金堂", category: "temple", latitude: 34.6830, longitude: 135.8319, landmarkIconScale: 1.25 },
 	kofukujiMuseum: { name: "Kōfuku-ji National Treasure Museum", localName: "興福寺国宝館", category: "museum", latitude: 34.6835, longitude: 135.8325 },
 	naraNationalMuseum: { name: "Nara National Museum", localName: "奈良国立博物館", category: "museum", latitude: 34.6831, longitude: 135.8383 },
 	nandaimon: { name: "Nandaimon Gate", localName: "南大門", category: "temple", latitude: 34.6858, longitude: 135.8399 },

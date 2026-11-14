@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<linearGradient id="water" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#A2D9E8"/>
+			<stop offset="1" stop-color="#5CAFC8"/>
+		</linearGradient>
+		<linearGradient id="lacquer" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#F0533A"/>
+			<stop offset="1" stop-color="#B9301E"/>
+		</linearGradient>
+		<linearGradient id="stone" x1="0" x2="1" y1="0" y2="0">
+			<stop offset="0" stop-color="#C9C2B4"/>
+			<stop offset="1" stop-color="#8F887A"/>
+		</linearGradient>
+		<radialGradient id="tree" cx=".38" cy=".32" r=".72">
+			<stop offset="0" stop-color="#7FC07A"/>
+			<stop offset="1" stop-color="#367A44"/>
+		</radialGradient>
+		<radialGradient id="maple" cx=".38" cy=".32" r=".72">
+			<stop offset="0" stop-color="#FF9A6B"/>
+			<stop offset="1" stop-color="#D2452B"/>
+		</radialGradient>
+	</defs>
+
+	<ellipse cx="64" cy="108" rx="62" ry="16" fill="url(#water)"/>
+	<path d="M14 104Q22 101 30 104M40 112Q48 109 56 112M76 106Q84 103 92 106M96 116Q104 113 112 116" fill="none" stroke="#FFFFFF" stroke-opacity=".8" stroke-width="1.4" stroke-linecap="round"/>
+
+	<path d="M2 104C6 84 14 70 30 66L36 100Q18 108 2 104Z" fill="#7E8F6E"/>
+	<path d="M126 104C122 84 114 70 98 66L92 100Q110 108 126 104Z" fill="#7E8F6E"/>
+	<circle cx="10" cy="62" r="13" fill="url(#tree)"/>
+	<circle cx="24" cy="52" r="11" fill="url(#maple)"/>
+	<circle cx="116" cy="60" r="13" fill="url(#tree)"/>
+	<circle cx="104" cy="50" r="10" fill="url(#tree)"/>
+
+	<rect x="28" y="74" width="10" height="34" fill="url(#stone)"/>
+	<rect x="90" y="74" width="10" height="34" fill="url(#stone)"/>
+	<path d="M28 82H38M28 92H38M90 82H100M90 92H100" stroke="#7C7568" stroke-width=".8"/>
+	<path d="M33 74V108M95 74V108" stroke="#2B2B2B" stroke-width="1.2" stroke-opacity=".5"/>
+
+	<path d="M38 80Q64 62 90 80" fill="none" stroke="#9E2A18" stroke-width="3"/>
+	<path d="M6 76Q64 44 122 76L122 84Q64 54 6 84Z" fill="url(#lacquer)" stroke="#8E2414" stroke-width=".9" stroke-linejoin="round"/>
+	<path d="M6 80Q64 48 122 80" fill="none" stroke="#C9A227" stroke-width="1"/>
+
+	<path d="M8 66Q64 34 120 66" fill="none" stroke="url(#lacquer)" stroke-width="3"/>
+	<g stroke="#D23A24" stroke-width="2.6">
+		<path d="M10 76V66M22 70V60M34 64.5V54.5M46 60.6V50.6M58 58.6V48.6M70 58.6V48.6M82 60.6V50.6M94 64.5V54.5M106 70V60M118 76V66"/>
+	</g>
+	<g fill="#2B2B2B">
+		<path d="M10 64A2.2 2.2 0 0 1 10 59.6 2.2 2.2 0 0 1 10 64ZM118 64A2.2 2.2 0 0 1 118 59.6 2.2 2.2 0 0 1 118 64Z"/>
+	</g>
+	<g fill="#C9A227">
+		<circle cx="10" cy="62" r="2.6"/><circle cx="118" cy="62" r="2.6"/><circle cx="64" cy="48" r="2"/>
+	</g>
+	<path d="M8 72Q64 40 120 72" fill="none" stroke="#B9301E" stroke-width="1.6"/>
+</svg>
