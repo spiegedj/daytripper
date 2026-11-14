@@ -65,6 +65,9 @@
 
 .stop
 {
+	--tag-inset: 5px;
+	/* One-line rows are exactly this tall, so the icon is their rounded end; taller rows keep it centered. */
+	--tag-icon-size: 46px;
 	position: relative;
 	display: grid;
 	grid-template-columns: 40px 1fr auto;
@@ -93,11 +96,12 @@
 	outline-offset: 1px;
 }
 
+/* The selected row is a tag: a pill whose rounded left end is the stop's own icon. */
 .highlight
 {
 	position: absolute;
-	inset: 0;
-	border-radius: 14px;
+	inset: var(--tag-inset) 0;
+	border-radius: calc(var(--tag-icon-size) / 2);
 	background: color-mix(in srgb, var(--day-color) 12%, #ffffff);
 	border: 1.5px solid var(--day-color);
 }
@@ -125,14 +129,23 @@
 
 .current .marker
 {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: auto;
+	height: min(calc(100% - 2 * var(--tag-inset)), var(--tag-icon-size));
+	aspect-ratio: 1;
+	transform: translateY(-50%);
+	box-sizing: border-box;
+	border: 0;
+	border-radius: 50%;
 	background: var(--category-color);
-	border-color: #ffffff;
-	box-shadow: 0 0 0 2px var(--category-color);
-	transform: scale(1.12);
 }
 
+/* Pinned to their columns, because the selected row's icon leaves the grid to become the tag's end. */
 .text
 {
+	grid-column: 2;
 	position: relative;
 	z-index: 1;
 	display: grid;
@@ -162,6 +175,7 @@
 
 .number
 {
+	grid-column: 3;
 	position: relative;
 	z-index: 1;
 	font: 700 12px/1 "Inter", system-ui, sans-serif;

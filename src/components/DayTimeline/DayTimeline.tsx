@@ -52,7 +52,7 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 						/>
 					)}
 					<span className={`${styles.marker} ${styles.overviewMarker}`} style={{ "--category-color": day.color } as CSSProperties}>
-						<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+						<svg width={isDayOverview ? 22 : 16} height={isDayOverview ? 22 : 16} viewBox="0 0 24 24" aria-hidden="true">
 							<path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20zM9 4v13.5M15 6.5V20" fill="none" stroke={isDayOverview ? "#ffffff" : day.color} strokeWidth="2.2" strokeLinejoin="round" />
 						</svg>
 					</span>
@@ -98,7 +98,7 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 								className={`${styles.marker} ${place.category === "hotel" ? styles.hotelMarker : ""}`}
 								style={{ "--category-color": categoryColor } as CSSProperties}
 							>
-								<CategoryIcon category={place.category} size={16} color={isCurrent ? "#ffffff" : categoryColor} />
+								<CategoryIcon category={place.category} size={isCurrent ? 22 : 16} color={isCurrent ? "#ffffff" : categoryColor} />
 							</span>
 							<span className={styles.text}>
 								<span className={styles.name}>{place.name}</span>
