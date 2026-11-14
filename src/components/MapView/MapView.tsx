@@ -100,6 +100,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 	const previousPositionRef = useRef<{ dayNumber: number; stopIndex: number } | null>(null);
 	const cameraMoveIdRef = useRef(0);
 	const cancelFollowRef = useRef<(() => void) | null>(null);
+	const isFollowingLegRef = useRef(false);
 	const previousPaddingRef = useRef(cameraPadding);
 	const mapStyle = useMemo(() => createMapStyle(pastelPalette), []);
 	const dayPlaces = useMemo(() => day.stops.map((stop) => places[stop.placeId]), [day, places]);
@@ -114,7 +115,8 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 	const updateCompactStops = useCallback(() =>
 	{
 		const map = mapRef.current;
-		if (!map)
+		// While riding along a leg every frame ends a move; markers switching size mid-ride would stutter, so wait until it ends.
+		if (!map || isFollowingLegRef.current)
 		{
 			return;
 		}
@@ -184,11 +186,17 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			const previousPlace = dayPlaces[previousPosition.stopIndex];
 			const currentPlace = dayPlaces[currentStopIndex];
 			const segments = getLegSegments(legPaths, day.dayNumber, currentStopIndex, previousPlace.coordinates, currentPlace.coordinates, day.stops[currentStopIndex].arrival?.mode ?? "walk");
+			isFollowingLegRef.current = true;
 			cancelFollowRef.current = followLegWithCamera(map.getMap(), segments.flatMap((segment) => segment.coordinates),
 			{
 				arrivalZoom: stopZoom,
 				padding: cameraPadding,
 				shouldContinue: () => cameraMoveId === cameraMoveIdRef.current,
+				onEnd: () =>
+				{
+					isFollowingLegRef.current = false;
+					updateCompactStops();
+				},
 			});
 			return;
 		}
@@ -216,7 +224,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				showTarget(dayFlightMilliseconds);
 			}
 		});
-	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths]);
+	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths, updateCompactStops]);
 
 	useEffect(() =>
 	{
