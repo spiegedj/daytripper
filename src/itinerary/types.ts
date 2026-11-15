@@ -79,11 +79,23 @@ export interface ITravelLeg
 export interface IStop
 {
 	placeId: string;
-	time?: string;
+	/** When the traveler was actually there, in local 24-hour clock time, for trips that already happened. */
+	visit?: IVisitTime;
 	arrival?: ITravelLeg;
 }
 
-/** One day of the trip. Days are numbered rather than dated so the public site shows no calendar dates. */
+/** A local clock-time window, such as 10:24 to 11:17, taken from photo timestamps. */
+export interface IVisitTime
+{
+	start: string;
+	/** Omitted for a quick stop with a single moment, like one photo. */
+	end?: string;
+}
+
+/**
+ * One day of the trip. Upcoming trips leave out dates so the public site shows no calendar; trips that already
+ * happened carry the real date and are labeled by it.
+ */
 export interface IDay
 {
 	dayNumber: number;
@@ -91,6 +103,8 @@ export interface IDay
 	baseCity: string;
 	color: string;
 	stops: IStop[];
+	/** The calendar date as YYYY-MM-DD, only for trips that already happened. */
+	date?: string;
 	/** Things not decided yet, shown in the timeline as "To be planned" cards. */
 	openQuestions?: string[];
 }
@@ -118,6 +132,8 @@ export interface ITrip
 {
 	id: string;
 	name: string;
+	/** A short line under the name in the trip picker, such as "Upcoming" or "October 2024". */
+	tagline: string;
 	cities: ICity[];
 	places: Record<string, IPlace>;
 	placeDetails: Record<string, IPlaceDetails>;

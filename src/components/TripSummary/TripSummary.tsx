@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { getDayLabel, getDayRangeLabel } from "../../itinerary/dayLabels";
 import { formatDayRanges, groupDaysByCity } from "../../itinerary/tripOverview";
 import type { ITrip } from "../../itinerary/types";
 import styles from "./TripSummary.module.css";
@@ -35,7 +36,7 @@ export function TripSummary({ trip, highlightedDayNumber, onSelectDay, onHighlig
 							<div className={styles.stayHeader}>
 								<span className={styles.stayCity}>{stay.city}</span>
 								{city?.localName && <span className={styles.stayLocalName}>{city.localName}</span>}
-								<span className={styles.stayDays}>Day {formatDayRanges(dayNumbers)}</span>
+								<span className={styles.stayDays}>{getDayRangeLabel(stay.dayIndexes.map((dayIndex) => trip.days[dayIndex]), formatDayRanges)}</span>
 							</div>
 							<ul className={styles.days}>
 								{stay.dayIndexes.map((dayIndex) =>
@@ -58,7 +59,7 @@ export function TripSummary({ trip, highlightedDayNumber, onSelectDay, onHighlig
 												<span className={styles.dayText}>
 													<span className={styles.dayTitle}>{day.title}</span>
 													<span className={styles.dayMeta}>
-														{day.stops.length} stops
+														{day.date ? `${getDayLabel(day)} · ` : ""}{day.stops.length} stops
 														{day.openQuestions && day.openQuestions.length > 0 && <span className={styles.openFlag}> · to be planned</span>}
 													</span>
 												</span>

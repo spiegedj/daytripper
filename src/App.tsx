@@ -5,7 +5,7 @@ import { PlaceDetailPanel } from "./components/PlaceDetailPanel/PlaceDetailPanel
 import { RouteStyleSwitch, useRouteStyle } from "./components/RouteStyleSwitch/RouteStyleSwitch";
 import { StepPlayer } from "./components/StepPlayer/StepPlayer";
 import { TravelSpeedSwitch, useTravelSpeed } from "./components/TravelSpeedSwitch/TravelSpeedSwitch";
-import type { ILegSegment } from "./itinerary/types";
+import type { ILegSegment, ITrip } from "./itinerary/types";
 import { TripOverviewLayer } from "./components/TripOverviewLayer/TripOverviewLayer";
 import { dayOverviewStopIndex, useItineraryNavigation } from "./itinerary/useItineraryNavigation";
 import { trips } from "./trips";
@@ -33,10 +33,35 @@ function useMediaQuery(query: string): boolean
 	return isMatch;
 }
 
-/** The whole app: map, itinerary panel and step player for the selected trip. */
+function readTripIdFromHash(): string
+{
+	return window.location.hash.match(/^#\/([^/]+)/)?.[1] ?? trips[0].id;
+}
+
+/** The whole app. Opens the trip named in the address (#/uk/...), or the first trip, and lets the viewer switch. */
 export function App()
 {
-	const trip = trips[0];
+	const [tripId, setTripId] = useState(readTripIdFromHash);
+	const trip = trips.find((candidate) => candidate.id === tripId) ?? trips[0];
+	const selectTrip = useCallback((nextTripId: string) =>
+	{
+		// A newly picked trip opens on its overview, so the whole trip is the first thing you see.
+		window.history.replaceState(null, "", `#/${nextTripId}/overview`);
+		setTripId(nextTripId);
+	}, []);
+	// Keyed by trip, so switching starts the map, navigation and panels fresh for the new trip.
+	return <TripView key={trip.id} trip={trip} onSelectTrip={selectTrip} />;
+}
+
+interface ITripViewProps
+{
+	trip: ITrip;
+	onSelectTrip: (tripId: string) => void;
+}
+
+/** One trip's map, itinerary panel and step player. */
+function TripView({ trip, onSelectTrip }: ITripViewProps)
+{
 	const navigation = useItineraryNavigation(trip);
 	const isNarrowScreen = useMediaQuery(narrowScreenQuery);
 	const canShowPanelsSideBySide = useMediaQuery(sideBySidePanelsQuery);
@@ -110,6 +135,8 @@ export function App()
 			</div>
 			<ItineraryPanel
 				trip={trip}
+				trips={trips}
+				onSelectTrip={onSelectTrip}
 				dayIndex={dayIndex}
 				stopIndex={stopIndex}
 				onSelectDay={navigation.goToDay}

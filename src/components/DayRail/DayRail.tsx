@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, type CSSProperties } from "react";
+import { getDayDateParts, getDayLabel } from "../../itinerary/dayLabels";
 import { groupDaysByCity } from "../../itinerary/tripOverview";
 import type { IDay } from "../../itinerary/types";
 import styles from "./DayRail.module.css";
@@ -10,7 +11,10 @@ export interface IDayRailProps
 	onSelectDay: (dayIndex: number) => void;
 }
 
-/** Vertical list of days grouped by the city you sleep in. Each day keeps its color; the selected day is filled. */
+/**
+ * Vertical list of days grouped by the city you sleep in. Each day keeps its color; the selected day is filled.
+ * Dated trips show the weekday and day of the month, with the month named on the first day and wherever it changes.
+ */
 export function DayRail({ days, selectedDayIndex, onSelectDay }: IDayRailProps)
 {
 	const selectedDayRef = useRef<HTMLButtonElement>(null);
@@ -30,6 +34,9 @@ export function DayRail({ days, selectedDayIndex, onSelectDay }: IDayRailProps)
 					{
 						const day = days[dayIndex];
 						const isSelected = dayIndex === selectedDayIndex;
+						const dateParts = getDayDateParts(day);
+						const previousDateParts = dayIndex > 0 ? getDayDateParts(days[dayIndex - 1]) : undefined;
+						const isNewMonth = dateParts !== undefined && dateParts.month !== previousDateParts?.month;
 						return (
 							<button
 								key={day.dayNumber}
@@ -39,10 +46,11 @@ export function DayRail({ days, selectedDayIndex, onSelectDay }: IDayRailProps)
 								style={{ "--day-color": day.color } as CSSProperties}
 								onClick={() => onSelectDay(dayIndex)}
 								aria-current={isSelected ? "true" : undefined}
-								title={day.title}
+								title={`${getDayLabel(day)}: ${day.title}`}
 							>
-								<span className={styles.dayWord}>Day</span>
-								<span className={styles.dayNumber}>{day.dayNumber}</span>
+								<span className={styles.dayWord}>{dateParts ? dateParts.weekday : "Day"}</span>
+								<span className={styles.dayNumber}>{dateParts ? dateParts.dayOfMonth : day.dayNumber}</span>
+								{isNewMonth && <span className={styles.monthTag}>{dateParts.month}</span>}
 							</button>
 						);
 					})}

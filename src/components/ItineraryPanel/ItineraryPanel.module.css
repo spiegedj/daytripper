@@ -76,8 +76,7 @@
 
 .tripName
 {
-	font: 500 12px/1.3 "Inter", system-ui, sans-serif;
-	color: #5b6577;
+	min-width: 0;
 }
 
 .body
@@ -145,16 +144,23 @@
 	}
 
 	.logo,
-	.brand,
-	.tripName
+	.brand
 	{
 		display: none;
 	}
 
+	/* Phones: the trip picker and the Day/Trip switch share the sheet's top row. */
+	.tripName
+	{
+		grid-column: 1 / 3;
+		grid-row: 1;
+	}
+
 	.viewSwitch
 	{
-		grid-column: 1 / -1;
-		justify-self: center;
+		grid-column: 3;
+		grid-row: 1;
+		justify-self: end;
 	}
 
 

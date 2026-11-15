@@ -95,6 +95,12 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 									{place.localName && " · "}
 									{categoryLabels[place.category]}
 								</span>
+								{stop.visit && (
+									<span className={styles.visitTime}>
+										<svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2.4" /><path d="M12 7v5l3 2" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" /></svg>
+										{stop.visit.end && stop.visit.end !== stop.visit.start ? `${stop.visit.start}–${stop.visit.end}` : stop.visit.start}
+									</span>
+								)}
 							</span>
 							<span className={styles.number}>{stopIndex + 1}</span>
 						</button>

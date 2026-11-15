@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
+import { getDayLabel } from "../../itinerary/dayLabels";
 import { useEffect, type CSSProperties } from "react";
 import type { IDay, IPlace, IPlaceDetails } from "../../itinerary/types";
 import { CategoryIcon, categoryColors, categoryLabels } from "../Markers/CategoryIcon";
@@ -81,7 +82,7 @@ export function PlaceDetailPanel({ isOpen, place, details, day, stopIndex, onClo
 										<CategoryIcon category={place.category} size={14} color={categoryColor} />
 										{categoryLabels[place.category]}
 									</span>
-									<span className={styles.dayChip}>Day {day.dayNumber} · Stop {stopIndex + 1}</span>
+									<span className={styles.dayChip}>{getDayLabel(day)} · Stop {stopIndex + 1}</span>
 								</div>
 
 								{arrival && (

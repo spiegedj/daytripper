@@ -3,6 +3,7 @@ import type { Map as MapLibreMap } from "maplibre-gl";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Layer, Marker, Source, useMap } from "react-map-gl/maplibre";
 import { getLegSegments } from "../../itinerary/routeGeometry";
+import { getDayLabel, getDayRangeLabel } from "../../itinerary/dayLabels";
 import { findDayTrips, findExploredAreas, formatDayRanges } from "../../itinerary/tripOverview";
 import type { ICity, ILegSegment, IPlace, ITrip } from "../../itinerary/types";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
@@ -351,7 +352,7 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 								<path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
 							</svg>
 						</button>
-						<span className={styles.cityDays}>Day {formatDayRanges(dayIndexes.map((dayIndex) => trip.days[dayIndex].dayNumber))}</span>
+						<span className={styles.cityDays}>{getDayRangeLabel(dayIndexes.map((dayIndex) => trip.days[dayIndex]), formatDayRanges)}</span>
 						<span className={styles.dayChips}>
 							{dayIndexes.map((dayIndex) =>
 							{
@@ -365,7 +366,7 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 										onClick={() => onSelectDay(dayIndex)}
 										onMouseEnter={() => onHighlightDay(day.dayNumber)}
 										onMouseLeave={() => onHighlightDay(undefined)}
-										title={`Day ${day.dayNumber}: ${day.title}`}
+										title={`${getDayLabel(day)}: ${day.title}`}
 										tabIndex={isDayDetail ? -1 : undefined}
 									>
 										{day.dayNumber}
@@ -417,8 +418,8 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 							onClick={() => onSelectDay(dayIndex)}
 							onMouseEnter={() => onHighlightDay(day.dayNumber)}
 							onMouseLeave={() => onHighlightDay(undefined)}
-							title={`${place.name} · Day ${day.dayNumber}`}
-							aria-label={`${place.name}, day ${day.dayNumber}`}
+							title={`${place.name} · ${getDayLabel(day)}`}
+							aria-label={`${place.name}, ${getDayLabel(day)}`}
 						>
 							<img src={place.landmarkIconUrl} alt="" draggable={false} />
 						</button>
@@ -462,7 +463,7 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 								onClick={() => onSelectDay(area.dayIndex)}
 								onMouseEnter={() => onHighlightDay(day.dayNumber)}
 								onMouseLeave={() => onHighlightDay(undefined)}
-								title={`Day ${day.dayNumber}: ${day.title}`}
+								title={`${getDayLabel(day)}: ${day.title}`}
 							>
 								<span className={styles.dayTripNumber}>{day.dayNumber}</span>
 								{area.isMainArea && day.title}

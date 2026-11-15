@@ -9,6 +9,7 @@ export const japanTrip: ITrip =
 {
 	id: "japan",
 	name: "Japan",
+	tagline: "Upcoming",
 	cities: japanCities,
 	places: japanPlaces,
 	placeDetails: placeDetails as Record<string, IPlaceDetails>,

@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { getDayLabel } from "../../itinerary/dayLabels";
 import type { IDay } from "../../itinerary/types";
 import { dayOverviewStopIndex } from "../../itinerary/useItineraryNavigation";
 import styles from "./StepPlayer.module.css";
@@ -25,7 +26,7 @@ export function StepPlayer({ day, nextDay, currentStopIndex, currentStopName, is
 {
 	const isDayOverview = currentStopIndex === dayOverviewStopIndex;
 	const isLastStopOfDay = currentStopIndex === day.stops.length - 1;
-	const nextLabel = isDayOverview ? "Start day" : isLastStopOfDay && nextDay ? `Day ${nextDay.dayNumber}` : "Next stop";
+	const nextLabel = isDayOverview ? "Start day" : isLastStopOfDay && nextDay ? getDayLabel(nextDay) : "Next stop";
 	const position = isDayOverview ? "Overview" : `Stop ${currentStopIndex + 1} of ${day.stops.length}`;
 
 	return (
@@ -34,7 +35,7 @@ export function StepPlayer({ day, nextDay, currentStopIndex, currentStopName, is
 				<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
 			</button>
 			<div className={styles.status}>
-				<span className={styles.eyebrow}>Day {day.dayNumber} · {position}</span>
+				<span className={styles.eyebrow}>{getDayLabel(day)} · {position}</span>
 				<span className={styles.title}>{currentStopName}</span>
 				<span className={styles.progress} aria-hidden="true">
 					{day.stops.map((stop, stopIndex) => (

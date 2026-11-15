@@ -1,14 +1,19 @@
 import { AnimatePresence, motion } from "motion/react";
 import type { CSSProperties } from "react";
+import { getDayLabel } from "../../itinerary/dayLabels";
 import type { ITrip } from "../../itinerary/types";
 import { DayRail } from "../DayRail/DayRail";
 import { DayTimeline } from "../DayTimeline/DayTimeline";
+import { TripPicker } from "../TripPicker/TripPicker";
 import { TripSummary } from "../TripSummary/TripSummary";
 import styles from "./ItineraryPanel.module.css";
 
 export interface IItineraryPanelProps
 {
 	trip: ITrip;
+	/** Every trip on the site, for the trip picker. */
+	trips: ITrip[];
+	onSelectTrip: (tripId: string) => void;
 	dayIndex: number;
 	stopIndex: number;
 	isOverview: boolean;
@@ -23,7 +28,7 @@ export interface IItineraryPanelProps
 /** The side panel (a bottom sheet on phones): trip title, Day/Trip switch, day rail, and either one day's timeline or the trip summary. */
 export function ItineraryPanel(props: IItineraryPanelProps)
 {
-	const { trip, dayIndex, stopIndex, isOverview, highlightedDayNumber, onSelectDay, onSelectStop, onOpenDetails, onShowOverview, onHighlightDay } = props;
+	const { trip, trips, onSelectTrip, dayIndex, stopIndex, isOverview, highlightedDayNumber, onSelectDay, onSelectStop, onOpenDetails, onShowOverview, onHighlightDay } = props;
 	const day = trip.days[dayIndex];
 
 	return (
@@ -31,7 +36,7 @@ export function ItineraryPanel(props: IItineraryPanelProps)
 			<header className={styles.header}>
 				<img className={styles.logo} src={`${import.meta.env.BASE_URL}icon.svg`} alt="" />
 				<span className={styles.brand}>Daytripper</span>
-				<span className={styles.tripName}>{trip.name} · {trip.days.length} days</span>
+				<div className={styles.tripName}><TripPicker trips={trips} currentTripId={trip.id} onSelectTrip={onSelectTrip} /></div>
 				<div className={styles.viewSwitch} role="group" aria-label="View">
 					<button type="button" className={`${styles.viewOption} ${isOverview ? "" : styles.viewOptionActive}`} onClick={() => onSelectDay(dayIndex)} aria-pressed={!isOverview}>Day</button>
 					<button type="button" className={`${styles.viewOption} ${isOverview ? styles.viewOptionActive : ""}`} onClick={onShowOverview} aria-pressed={isOverview}>Trip</button>
@@ -53,7 +58,7 @@ export function ItineraryPanel(props: IItineraryPanelProps)
 								: (
 									<>
 										<div className={styles.dayHeader}>
-											<span className={styles.dayEyebrow}>Day {day.dayNumber} · {day.baseCity}</span>
+											<span className={styles.dayEyebrow}>{getDayLabel(day)} · {day.baseCity}</span>
 											<h1 className={styles.dayTitle}>{day.title}</h1>
 											<span className={styles.daySummary}>{day.stops.length} stops</span>
 										</div>
