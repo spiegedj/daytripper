@@ -14,6 +14,7 @@ import { findDayExploredAreas } from "../../itinerary/tripOverview";
 import { dayOverviewStopIndex } from "../../itinerary/useItineraryNavigation";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import { getLegSegments } from "../../itinerary/routeGeometry";
+import { getFitPadding } from "./fitPadding";
 import { createLegRideChannel, followLegWithCamera, ridePaces, type TravelSpeed } from "./followLegWithCamera";
 import { findCompactStops, landmarkGroundOffset, miniLandmarkGroundOffset } from "./markerFootprint";
 
@@ -154,7 +155,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		cancelFollowRef.current = null;
 		if (isOverview)
 		{
-			map.fitBounds(tripBounds, { padding: getOverviewPadding(cameraPadding), duration: dayFlightMilliseconds });
+			map.fitBounds(tripBounds, { padding: getFitPadding(map.getMap(), getOverviewPadding(cameraPadding)), duration: dayFlightMilliseconds });
 			return;
 		}
 		const showTarget = (duration: number) =>
@@ -162,7 +163,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			// A day's overview frames the whole day; stepping back into a day lands on its last stop.
 			if (currentStopIndex === dayOverviewStopIndex)
 			{
-				map.fitBounds(dayBounds, { padding: cameraPadding, maxZoom: maximumDayZoom, duration });
+				map.fitBounds(dayBounds, { padding: getFitPadding(map.getMap(), cameraPadding), maxZoom: maximumDayZoom, duration });
 				return;
 			}
 			const currentPlace = dayPlaces[currentStopIndex];
@@ -220,7 +221,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		}
 
 		const visibleBounds = map.getBounds().toArray() as Bounds;
-		map.fitBounds(mergeBounds(visibleBounds, dayBounds) as LngLatBoundsLike, { padding: cameraPadding, duration: dayFlightMilliseconds });
+		map.fitBounds(mergeBounds(visibleBounds, dayBounds) as LngLatBoundsLike, { padding: getFitPadding(map.getMap(), cameraPadding), duration: dayFlightMilliseconds });
 		map.once("moveend", () =>
 		{
 			// A newer click may have started another camera move; only the latest one continues.
@@ -244,7 +245,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		// A panel opened or closed beside the map: slide the current stop (or whole day) back into the visible area.
 		if (currentStopIndex === dayOverviewStopIndex)
 		{
-			map.fitBounds(dayBounds, { padding: cameraPadding, maxZoom: maximumDayZoom, duration: 600 });
+			map.fitBounds(dayBounds, { padding: getFitPadding(map.getMap(), cameraPadding), maxZoom: maximumDayZoom, duration: 600 });
 			return;
 		}
 		const currentPlace = dayPlaces[currentStopIndex];

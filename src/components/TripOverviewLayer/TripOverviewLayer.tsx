@@ -6,6 +6,7 @@ import { getLegSegments } from "../../itinerary/routeGeometry";
 import { findDayTrips, findExploredAreas, formatDayRanges } from "../../itinerary/tripOverview";
 import type { ICity, ILegSegment, IPlace, ITrip } from "../../itinerary/types";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
+import { getFitPadding } from "../MapView/fitPadding";
 import type { ICameraPadding } from "../MapView/MapView";
 import { spreadLabels } from "./spreadLabels";
 import styles from "./TripOverviewLayer.module.css";
@@ -256,14 +257,19 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 		};
 		const bounds: [[number, number], [number, number]] =
 			[[Math.min(...longitudes), Math.min(...latitudes)], [Math.max(...longitudes), Math.max(...latitudes)]];
-		const camera = mapRef?.cameraForBounds(bounds, { padding, maxZoom: cityMaximumZoom });
-		if (!mapRef || !camera)
+		if (!mapRef)
+		{
+			return;
+		}
+		const fitPadding = getFitPadding(mapRef.getMap(), padding);
+		const camera = mapRef.cameraForBounds(bounds, { padding: fitPadding, maxZoom: cityMaximumZoom });
+		if (!camera)
 		{
 			return;
 		}
 		if ((camera.zoom ?? 0) >= minimumCityZoom)
 		{
-			mapRef.fitBounds(bounds, { padding, maxZoom: cityMaximumZoom, duration: cityZoomMilliseconds });
+			mapRef.fitBounds(bounds, { padding: fitPadding, maxZoom: cityMaximumZoom, duration: cityZoomMilliseconds });
 			return;
 		}
 		// On small screens a whole city only fits below the detail zoom; going in deeper is better than not showing the areas.

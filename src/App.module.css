@@ -37,6 +37,14 @@
 
 @media (max-width: 760px)
 {
+	/* Phones: the switches stack in the top corner, just left of the zoom buttons, instead of taking map below them. */
+	.routeStyleDock
+	{
+		top: calc(10px + env(safe-area-inset-top, 0px));
+		right: calc(10px + 29px + 8px);
+		gap: 6px;
+	}
+
 	.playerDock
 	{
 		left: 12px;
