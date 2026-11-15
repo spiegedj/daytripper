@@ -6,15 +6,15 @@
 }
 
 /* Sits under the map's zoom buttons in the top-right corner. */
+/* The map settings sit in one row along the top, just left of the zoom buttons (29 px wide, 10 px from the edge). */
 .routeStyleDock
 {
 	position: absolute;
 	z-index: 2;
-	top: calc(86px + env(safe-area-inset-top, 0px));
-	right: 10px;
+	top: calc(10px + env(safe-area-inset-top, 0px));
+	right: calc(10px + 29px + 8px + env(safe-area-inset-right, 0px));
 	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
+	align-items: flex-start;
 	gap: 8px;
 }
 
@@ -37,11 +37,8 @@
 
 @media (max-width: 760px)
 {
-	/* Phones: the switches stack in the top corner, just left of the zoom buttons, instead of taking map below them. */
 	.routeStyleDock
 	{
-		top: calc(10px + env(safe-area-inset-top, 0px));
-		right: calc(10px + 29px + 8px);
 		gap: 6px;
 	}
 

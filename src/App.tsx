@@ -16,7 +16,7 @@ const sideBySidePanelsQuery = "(min-width: 1181px)";
 const wideScreenPadding: ICameraPadding = { top: 90, bottom: 140, left: 480, right: 80 };
 // The details pane sits right next to the itinerary panel, so the map's visible area starts after both.
 const leftWithDetailsOpen = 16 + 420 + 12 + 400 + 40;
-const narrowScreenPadding: ICameraPadding = { top: 110, bottom: 0, left: 50, right: 50 };
+const narrowScreenPadding: ICameraPadding = { top: 60, bottom: 0, left: 50, right: 50 };
 
 function useMediaQuery(query: string): boolean
 {
