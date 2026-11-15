@@ -24,12 +24,11 @@ export const ukDays: IDay[] =
 		stops:
 		[
 			{ placeId: "heathrowAirport", visit: at("11:10") },
-			{ placeId: "marlinWaterloo", arrival: traveled("train", "Elizabeth line + Underground") },
-			{ placeId: "bigBen", arrival: traveled("walk"), visit: at("15:17", "15:19") },
-			{ placeId: "westminsterAbbey", arrival: traveled("walk"), visit: at("15:26", "15:32") },
+			{ placeId: "waterlooStation", arrival: traveled("train", "Elizabeth line, then Jubilee line") },
+			{ placeId: "marlinWaterloo", arrival: traveled("walk") },
+			// Photos from Parliament Square at 15:26 and 15:32 show Big Ben and the Supreme Court; the Abbey visit was the next morning.
+			{ placeId: "bigBen", arrival: traveled("walk"), visit: at("15:17", "15:32") },
 			{ placeId: "trafalgarSquare", arrival: traveled("walk"), visit: at("15:52", "16:09") },
-			{ placeId: "nationalGallery", arrival: traveled("walk") },
-			{ placeId: "nationalPortraitGallery", arrival: traveled("walk") },
 			{ placeId: "goldenJubileeBridge", arrival: traveled("walk"), visit: at("18:24", "18:26") },
 			{ placeId: "marlinWaterloo", arrival: traveled("walk") },
 		],
@@ -37,16 +36,25 @@ export const ukDays: IDay[] =
 	{
 		dayNumber: 2,
 		date: "2024-10-10",
-		title: "Westminster Abbey, British Museum & Abbey Road",
+		title: "Westminster Abbey, the galleries & Abbey Road",
 		baseCity: "London",
 		color: dayColors[1],
 		stops:
 		[
 			{ placeId: "marlinWaterloo" },
 			{ placeId: "westminsterAbbey", arrival: traveled("walk"), visit: at("09:47", "10:33") },
-			{ placeId: "britishMuseum", arrival: traveled("subway", "Underground"), visit: at("14:48", "15:13") },
-			{ placeId: "abbeyRoadCrossing", arrival: traveled("subway", "Underground"), visit: at("17:33", "17:42") },
-			{ placeId: "marlinWaterloo", arrival: traveled("subway", "Underground") },
+			// No photos inside the galleries; they fill the gap between the Abbey and the British Museum.
+			{ placeId: "nationalGallery", arrival: traveled("walk") },
+			{ placeId: "nationalPortraitGallery", arrival: traveled("walk") },
+			{ placeId: "leicesterSquareStation", arrival: traveled("walk") },
+			{ placeId: "tottenhamCourtRoadStation", arrival: traveled("subway", "Northern line") },
+			{ placeId: "britishMuseum", arrival: traveled("walk"), visit: at("14:48", "15:13") },
+			{ placeId: "tottenhamCourtRoadStation", arrival: traveled("walk") },
+			{ placeId: "stJohnsWoodStation", arrival: traveled("subway", "Central line, then Jubilee line") },
+			{ placeId: "abbeyRoadCrossing", arrival: traveled("walk"), visit: at("17:33", "17:42") },
+			{ placeId: "stJohnsWoodStation", arrival: traveled("walk") },
+			{ placeId: "waterlooStation", arrival: traveled("subway", "Jubilee line") },
+			{ placeId: "marlinWaterloo", arrival: traveled("walk") },
 		],
 	},
 	{
@@ -58,10 +66,17 @@ export const ukDays: IDay[] =
 		stops:
 		[
 			{ placeId: "marlinWaterloo" },
-			{ placeId: "beatlesRooftop", arrival: traveled("subway", "Underground"), visit: at("10:02", "10:04") },
+			{ placeId: "waterlooStation", arrival: traveled("walk") },
+			{ placeId: "piccadillyCircusStation", arrival: traveled("subway", "Bakerloo line") },
+			{ placeId: "beatlesRooftop", arrival: traveled("walk"), visit: at("10:02", "10:04") },
 			{ placeId: "buckinghamPalace", arrival: traveled("walk"), visit: at("10:24", "11:17") },
-			{ placeId: "towerOfLondon", arrival: traveled("subway", "Underground"), visit: at("12:01", "16:51") },
-			{ placeId: "bigBen", arrival: traveled("subway", "Underground"), visit: at("19:54", "19:58") },
+			{ placeId: "stJamesParkStation", arrival: traveled("walk") },
+			{ placeId: "towerHillStation", arrival: traveled("subway", "District line") },
+			{ placeId: "towerOfLondon", arrival: traveled("walk"), visit: at("12:01", "16:51") },
+			{ placeId: "towerHillStation", arrival: traveled("walk") },
+			{ placeId: "westminsterStation", arrival: traveled("subway", "District line") },
+			// Night photos of Big Ben, then the London Eye from Westminster Bridge on the walk back.
+			{ placeId: "bigBen", arrival: traveled("walk"), visit: at("19:54", "19:58") },
 			{ placeId: "marlinWaterloo", arrival: traveled("walk") },
 		],
 	},

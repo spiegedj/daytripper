@@ -27,6 +27,15 @@ const placeEntries: Record<string, IPlaceEntry> =
 	beatlesRooftop: { name: "3 Savile Row", category: "landmark", latitude: 51.5105, longitude: -0.1396 },
 	buckinghamPalace: { name: "Buckingham Palace", category: "landmark", latitude: 51.5008, longitude: -0.1430 },
 	towerOfLondon: { name: "Tower of London", category: "landmark", latitude: 51.5082, longitude: -0.0762 },
+	// Underground stations: the trip didn't record which ones we used, so these are the natural stations for each hop.
+	waterlooStation: { name: "Waterloo Station", category: "station", latitude: 51.5032, longitude: -0.1133 },
+	leicesterSquareStation: { name: "Leicester Square Station", category: "station", latitude: 51.5113, longitude: -0.1282 },
+	tottenhamCourtRoadStation: { name: "Tottenham Court Road Station", category: "station", latitude: 51.5165, longitude: -0.1309 },
+	stJohnsWoodStation: { name: "St John's Wood Station", category: "station", latitude: 51.5347, longitude: -0.1740 },
+	piccadillyCircusStation: { name: "Piccadilly Circus Station", category: "station", latitude: 51.5098, longitude: -0.1343 },
+	stJamesParkStation: { name: "St James's Park Station", category: "station", latitude: 51.4994, longitude: -0.1335 },
+	towerHillStation: { name: "Tower Hill Station", category: "station", latitude: 51.5100, longitude: -0.0765 },
+	westminsterStation: { name: "Westminster Station", category: "station", latitude: 51.5010, longitude: -0.1250 },
 	windsorCastle: { name: "Windsor Castle", category: "landmark", latitude: 51.4838, longitude: -0.6040 },
 	longWalk: { name: "The Long Walk", category: "nature", latitude: 51.4717, longitude: -0.6048 },
 

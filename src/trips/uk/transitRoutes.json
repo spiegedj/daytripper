@@ -1,5 +1,5 @@
 {
-	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Walk legs are routed automatically. Legs not listed here (London Underground hops where the line isn't recorded, Oxford to Salisbury, Salisbury to York) are drawn as arcs. Run: node scripts/fetchTransitRoutes.mjs uk",
+	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Walk legs are routed automatically. Legs not listed here (Oxford to Salisbury, Salisbury to York) are drawn as arcs. London Underground lines and stations are best guesses; the trip didn't record them. Run: node scripts/fetchTransitRoutes.mjs uk",
 	"legs":
 	[
 		{
@@ -7,10 +7,22 @@
 			"segments":
 			[
 				{ "mode": "train", "lineMatch": "Elizabeth", "from": { "name": "Heathrow Terminals 2 & 3", "latitude": 51.4713, "longitude": -0.4524 }, "to": { "name": "Bond Street", "latitude": 51.5142, "longitude": -0.1494 } },
-				{ "mode": "subway", "lineMatch": "Jubilee", "to": { "name": "Waterloo", "latitude": 51.5031, "longitude": -0.1132 } },
-				{ "mode": "walk" }
+				{ "mode": "subway", "lineMatch": "Jubilee" }
 			]
 		},
+		{ "dayNumber": 2, "arrivalStopIndex": 5, "segments": [{ "mode": "subway", "lineMatch": "Northern", "from": { "name": "Leicester Square northbound", "latitude": 51.5121, "longitude": -0.12858 } }] },
+		{
+			"dayNumber": 2, "arrivalStopIndex": 8,
+			"segments":
+			[
+				{ "mode": "subway", "lineMatch": "Central", "to": { "name": "Bond Street", "latitude": 51.5142, "longitude": -0.1494 } },
+				{ "mode": "subway", "lineMatch": "Jubilee" }
+			]
+		},
+		{ "dayNumber": 2, "arrivalStopIndex": 11, "segments": [{ "mode": "subway", "lineMatch": "Jubilee" }] },
+		{ "dayNumber": 3, "arrivalStopIndex": 2, "segments": [{ "mode": "subway", "lineMatch": "Bakerloo" }] },
+		{ "dayNumber": 3, "arrivalStopIndex": 6, "segments": [{ "mode": "subway", "lineMatch": "District" }] },
+		{ "dayNumber": 3, "arrivalStopIndex": 9, "segments": [{ "mode": "subway", "lineMatch": "District" }] },
 		{
 			"dayNumber": 4, "arrivalStopIndex": 1,
 			"segments":
