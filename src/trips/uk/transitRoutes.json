@@ -1,5 +1,5 @@
 {
-	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Walk legs are routed automatically. Legs not listed here (Oxford to Salisbury, Salisbury to York) are drawn as arcs. London Underground lines and stations are best guesses; the trip didn't record them. Run: node scripts/fetchTransitRoutes.mjs uk",
+	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Walk legs are routed automatically. London Underground lines and stations, and the Oxford to Salisbury change at Basingstoke, are best guesses; the trip didn't record them. Run: node scripts/fetchTransitRoutes.mjs uk",
 	"legs":
 	[
 		{
@@ -21,8 +21,20 @@
 		},
 		{ "dayNumber": 2, "arrivalStopIndex": 11, "segments": [{ "mode": "subway", "lineMatch": "Jubilee" }] },
 		{ "dayNumber": 3, "arrivalStopIndex": 2, "segments": [{ "mode": "subway", "lineMatch": "Bakerloo" }] },
-		{ "dayNumber": 3, "arrivalStopIndex": 6, "segments": [{ "mode": "subway", "lineMatch": "District" }] },
-		{ "dayNumber": 3, "arrivalStopIndex": 9, "segments": [{ "mode": "subway", "lineMatch": "District" }] },
+		{
+			"dayNumber": 3, "arrivalStopIndex": 5,
+			"_comment": "Round St James's Park lake: along the north shore, round the east end, back along the south shore to the Blue Bridge.",
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Lake, west end north side", "latitude": 51.50294, "longitude": -0.13765 } },
+				{ "mode": "walk", "to": { "name": "Lake, north shore", "latitude": 51.50370, "longitude": -0.13196 } },
+				{ "mode": "walk", "to": { "name": "Lake, east end", "latitude": 51.50324, "longitude": -0.12830 } },
+				{ "mode": "walk", "to": { "name": "Lake, south shore", "latitude": 51.50154, "longitude": -0.13217 } },
+				{ "mode": "walk" }
+			]
+		},
+		{ "dayNumber": 3, "arrivalStopIndex": 7, "segments": [{ "mode": "subway", "lineMatch": "District" }] },
+		{ "dayNumber": 3, "arrivalStopIndex": 10, "segments": [{ "mode": "subway", "lineMatch": "District" }] },
 		{
 			"dayNumber": 4, "arrivalStopIndex": 1,
 			"segments":
@@ -50,7 +62,28 @@
 				{ "mode": "train", "lineMatch": "Oxford", "railway": "rail" }
 			]
 		},
-		{ "dayNumber": 5, "arrivalStopIndex": 6, "segments": [{ "mode": "bus" }] },
+		{
+			"dayNumber": 5, "arrivalStopIndex": 6,
+			"_comment": "The bus went through the centre and up Woodstock Road.",
+			"segments":
+			[
+				{ "mode": "bus", "to": { "name": "Carfax", "latitude": 51.7519, "longitude": -1.2580 } },
+				{ "mode": "bus", "to": { "name": "St Giles", "latitude": 51.7575, "longitude": -1.2598 } },
+				{ "mode": "bus", "to": { "name": "Woodstock Road", "latitude": 51.7760, "longitude": -1.2700 } },
+				{ "mode": "bus" }
+			]
+		},
+		{ "dayNumber": 5, "arrivalStopIndex": 7, "segments": [{ "mode": "bus" }] },
+		{
+			"dayNumber": 5, "arrivalStopIndex": 8,
+			"segments":
+			[
+				{ "mode": "train", "railway": "rail", "to": { "name": "Reading", "latitude": 51.4589, "longitude": -0.9718 } },
+				{ "mode": "train", "railway": "rail", "to": { "name": "Basingstoke", "latitude": 51.2682, "longitude": -1.0872 } },
+				{ "mode": "train", "railway": "rail", "to": { "name": "Salisbury", "latitude": 51.0706, "longitude": -1.8064 } },
+				{ "mode": "walk" }
+			]
+		},
 		{ "dayNumber": 6, "arrivalStopIndex": 1, "segments": [{ "mode": "bus" }] },
 		{ "dayNumber": 6, "arrivalStopIndex": 2, "segments": [{ "mode": "bus" }] },
 		{ "dayNumber": 6, "arrivalStopIndex": 3, "segments": [{ "mode": "bus" }] },
@@ -73,7 +106,57 @@
 			]
 		},
 		{
-			"dayNumber": 9, "arrivalStopIndex": 6,
+			"dayNumber": 8, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Salisbury", "latitude": 51.0706, "longitude": -1.8064 } },
+				{ "mode": "train", "railway": "rail", "to": { "name": "Basingstoke", "latitude": 51.2682, "longitude": -1.0872 } },
+				{ "mode": "train", "railway": "rail", "to": { "name": "London Waterloo", "latitude": 51.5031, "longitude": -0.1132 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 8, "arrivalStopIndex": 2,
+			"segments":
+			[
+				{ "mode": "subway", "lineMatch": "Bakerloo", "to": { "name": "Oxford Circus", "latitude": 51.5152, "longitude": -0.1419 } },
+				{ "mode": "subway", "lineMatch": "Victoria", "to": { "name": "King's Cross St Pancras", "latitude": 51.5308, "longitude": -0.1238 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 8, "arrivalStopIndex": 3,
+			"segments":
+			[
+				{ "mode": "train", "lineMatch": "East Coast", "railway": "rail", "to": { "name": "York", "latitude": 53.9580, "longitude": -1.0931 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 9, "arrivalStopIndex": 2,
+			"_comment": "The whole circuit of the walls, clockwise from Bootham Bar (photo positions at Monk Bar, Walmgate, Clifford's Tower and by the station).",
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Bootham Bar", "latitude": 53.96212, "longitude": -1.08557 } },
+				{ "mode": "walk", "to": { "name": "Monk Bar", "latitude": 53.96316, "longitude": -1.07902 } },
+				{ "mode": "walk", "to": { "name": "Layerthorpe Postern", "latitude": 53.96167, "longitude": -1.07524 } },
+				{ "mode": "walk", "to": { "name": "Red Tower", "latitude": 53.95724, "longitude": -1.07120 } },
+				{ "mode": "walk", "to": { "name": "Walmgate Bar", "latitude": 53.95525, "longitude": -1.07262 } },
+				{ "mode": "walk", "to": { "name": "Fishergate Bar", "latitude": 53.95453, "longitude": -1.07662 } },
+				{ "mode": "walk", "to": { "name": "Fishergate Postern", "latitude": 53.95406, "longitude": -1.07954 } },
+				{ "mode": "walk", "to": { "name": "Clifford's Tower", "latitude": 53.95551, "longitude": -1.08048 } },
+				{ "mode": "walk", "to": { "name": "Skeldergate Bridge", "latitude": 53.95391, "longitude": -1.08215 } },
+				{ "mode": "walk", "to": { "name": "Baile Hill", "latitude": 53.95317, "longitude": -1.08515 } },
+				{ "mode": "walk", "to": { "name": "Victoria Bar", "latitude": 53.95441, "longitude": -1.08798 } },
+				{ "mode": "walk", "to": { "name": "Micklegate Bar", "latitude": 53.95536, "longitude": -1.09059 } },
+				{ "mode": "walk", "to": { "name": "Walls by the station", "latitude": 53.95811, "longitude": -1.09125 } },
+				{ "mode": "walk", "to": { "name": "Lendal Bridge", "latitude": 53.95999, "longitude": -1.08875 } },
+				{ "mode": "walk", "to": { "name": "Museum Gardens", "latitude": 53.96144, "longitude": -1.08680 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 9, "arrivalStopIndex": 5,
 			"segments":
 			[
 				{ "mode": "walk", "to": { "name": "York", "latitude": 53.9580, "longitude": -1.0931 } },
@@ -90,7 +173,38 @@
 			]
 		},
 		{ "dayNumber": 10, "arrivalStopIndex": 2, "segments": [{ "mode": "bus" }] },
+		{
+			"dayNumber": 10, "arrivalStopIndex": 3,
+			"_comment": "Along the wall itself; waypoints are the trip photos' positions.",
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Wall west of Housesteads", "latitude": 55.01284, "longitude": -2.33632 } },
+				{ "mode": "walk", "to": { "name": "Cuddy's Crags", "latitude": 55.01212, "longitude": -2.33926 } },
+				{ "mode": "walk", "to": { "name": "Hotbank Crags", "latitude": 55.01163, "longitude": -2.34442 } },
+				{ "mode": "walk", "to": { "name": "Hotbank", "latitude": 55.00944, "longitude": -2.35509 } },
+				{ "mode": "walk", "to": { "name": "Crag Lough", "latitude": 55.0051, "longitude": -2.36559 } },
+				{ "mode": "walk", "to": { "name": "Highshield Crags", "latitude": 55.00496, "longitude": -2.36899 } },
+				{ "mode": "walk", "to": { "name": "Above Sycamore Gap", "latitude": 55.00406, "longitude": -2.37281 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 10, "arrivalStopIndex": 4,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Peel Crags", "latitude": 55.00343, "longitude": -2.37846 } },
+				{ "mode": "walk" }
+			]
+		},
 		{ "dayNumber": 10, "arrivalStopIndex": 6, "segments": [{ "mode": "bus" }] },
+		{
+			"dayNumber": 10, "arrivalStopIndex": 7,
+			"segments":
+			[
+				{ "mode": "train", "lineMatch": "Tyne Valley", "railway": "rail", "to": { "name": "Newcastle", "latitude": 54.9688, "longitude": -1.6172 } },
+				{ "mode": "walk" }
+			]
+		},
 		{
 			"dayNumber": 11, "arrivalStopIndex": 1,
 			"segments":

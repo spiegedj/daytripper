@@ -36,6 +36,8 @@ const placeEntries: Record<string, IPlaceEntry> =
 	stJamesParkStation: { name: "St James's Park Station", category: "station", latitude: 51.4994, longitude: -0.1335 },
 	towerHillStation: { name: "Tower Hill Station", category: "station", latitude: 51.5100, longitude: -0.0765 },
 	westminsterStation: { name: "Westminster Station", category: "station", latitude: 51.5010, longitude: -0.1250 },
+	stJamesPark: { name: "St James's Park", category: "nature", latitude: 51.5025, longitude: -0.1338 },
+	kingsCross: { name: "King's Cross", category: "station", latitude: 51.5317, longitude: -0.1238, landmarkIconScale: 1.15 },
 	windsorCastle: { name: "Windsor Castle", category: "landmark", latitude: 51.4838, longitude: -0.6040 },
 	longWalk: { name: "The Long Walk", category: "nature", latitude: 51.4717, longitude: -0.6048 },
 
@@ -63,8 +65,9 @@ const placeEntries: Record<string, IPlaceEntry> =
 	// York
 	yorkMinster: { name: "York Minster", category: "temple", latitude: 53.9624, longitude: -1.0821 },
 	shambles: { name: "The Shambles", category: "shopping", latitude: 53.9593, longitude: -1.0800 },
-	yorkCityWalls: { name: "York City Walls", category: "landmark", latitude: 53.9627, longitude: -1.0786 },
-	yorkCastleMuseum: { name: "York Castle Museum", category: "museum", latitude: 53.9552, longitude: -1.0781 },
+	// Placed at Bootham Bar, where the walk round the walls started and finished.
+	yorkCityWalls: { name: "York City Walls", category: "landmark", latitude: 53.9621, longitude: -1.0855 },
+	nationalRailwayMuseum: { name: "National Railway Museum", category: "museum", latitude: 53.9595, longitude: -1.0948 },
 	yorkStation: { name: "York Station", category: "station", latitude: 53.9580, longitude: -1.0931 },
 	deanCourtYork: { name: "Dean Court York", category: "hotel", latitude: 53.9620, longitude: -1.0841 },
 

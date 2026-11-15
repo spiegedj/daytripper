@@ -1543,53 +1543,6 @@
 			}
 		]
 	},
-	"yorkCastleMuseum": {
-		"summary": "The York Castle Museum is a museum located in York, North Yorkshire, England, on the site of York Castle, which was originally built by William the Conqueror in 1068. The museum itself was founded by John L. Kirk in 1938, and is housed in prison buildings which were built on the site of the castle in the 18th century, the debtors' prison (built in 1701–05 using stone from the ruins of the castle) and the female prison (built 1780–85).",
-		"wikipediaTitle": "York Castle Museum",
-		"wikipediaUrl": "https://en.wikipedia.org/wiki/York_Castle_Museum",
-		"photos": [
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/York_-_Castle_Museum_-_1.jpg/960px-York_-_Castle_Museum_-_1.jpg",
-				"width": 960,
-				"height": 480,
-				"author": "Benjamin Smith",
-				"license": "CC BY-SA 4.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Castle_Museum_-_1.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kirkgate_street_from_ground.JPG/960px-Kirkgate_street_from_ground.JPG",
-				"width": 960,
-				"height": 640,
-				"author": "geni",
-				"license": "CC BY-SA 4.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Kirkgate_street_from_ground.JPG"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Mus%C3%A9e_York_Castle_York_1.jpg/960px-Mus%C3%A9e_York_Castle_York_1.jpg",
-				"width": 960,
-				"height": 640,
-				"author": "Chabe01",
-				"license": "CC BY-SA 4.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_York_Castle_York_1.jpg"
-			},
-			{
-				"url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Water_Mill%2C_York_Castle_Museum_-_geograph.org.uk_-_100871.jpg",
-				"width": 960,
-				"height": 720,
-				"author": "Sue Adair",
-				"license": "CC BY-SA 2.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Water_Mill,_York_Castle_Museum_-_geograph.org.uk_-_100871.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/York_-_Castle_Museum_-_2.jpg/960px-York_-_Castle_Museum_-_2.jpg",
-				"width": 960,
-				"height": 480,
-				"author": "Benjamin Smith",
-				"license": "CC BY-SA 4.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Castle_Museum_-_2.jpg"
-			}
-		]
-	},
 	"yorkStation": {
 		"summary": "York railway station is a principal stop on the East Coast Main Line (ECML) serving the cathedral city of York, in North Yorkshire, England. It is 188 miles 40 chains (303.4 km) north of London King's Cross and, on the main line, it is situated between Doncaster to the south and Thirsk to the north. As of June 2018, the station is operated by London North Eastern Railway (LNER). It is the busiest station in North Yorkshire, the third busiest in Yorkshire & the Humber and the sixth busiest in Northern England, as well as being the busiest intermediate station on the ECML. In Britain's 100 Best Railway Stations by Simon Jenkins, the station was one of only ten to be awarded five stars.",
 		"wikipediaTitle": "York railway station",
@@ -2656,6 +2609,122 @@
 				"author": "No machine-readable author provided. Voyager assumed (based on copyright claims).",
 				"license": "Public domain",
 				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Westminster_underground.jpg"
+			}
+		]
+	},
+	"stJamesPark": {
+		"summary": "St James's Park is a 23-hectare (57-acre) urban park in the City of Westminster, central London. A Royal Park, it is at the southernmost end of the St James's area, which was named after a once isolated medieval hospital dedicated to St James the Less, later the site of St James's Palace. The area was initially enclosed for a deer park near the Palace of Whitehall for King Henry VIII in the 1530s. It is the most easterly of a near-continuous chain of public parks that includes (moving westward) Green Park, Hyde Park, and Kensington Gardens.\n\nIt includes The Mall to the north, and is bounded by Buckingham Palace to the west, Horse Guards to the east, and Birdcage Walk to the south. It meets Green Park at Queen's Gardens with the Victoria Memorial at its centre, opposite the entrance to Buckingham Palace. St James's Palace is on the opposite side of The Mall. The closest London Underground stations are St James's Park, Green Park, Victoria, and Westminster.\n\nThe park is Grade I listed on the Register of Historic Parks and Gardens.",
+		"wikipediaTitle": "St James's Park",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/St_James%27s_Park",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/St_James%27s_Park_Lake_%E2%80%93_East_from_the_Blue_Bridge_-_2012-10-06.jpg/960px-St_James%27s_Park_Lake_%E2%80%93_East_from_the_Blue_Bridge_-_2012-10-06.jpg",
+				"width": 960,
+				"height": 488,
+				"author": "Colin",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:St_James%27s_Park_Lake_%E2%80%93_East_from_the_Blue_Bridge_-_2012-10-06.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Aerial_view_of_Hyde_Park.jpg",
+				"width": 960,
+				"height": 960,
+				"author": "Hyde_Park_from_the_air.jpg: Ben Leto derivative work: BaldBoris",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Hyde_Park.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Buckingham_Palace_viewed_from_St._James%27s_park.jpg/960px-Buckingham_Palace_viewed_from_St._James%27s_park.jpg",
+				"width": 960,
+				"height": 719,
+				"author": "Pointillist at English Wikipedia",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_viewed_from_St._James%27s_park.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Cottage_Duck_Island_London.jpg/960px-Cottage_Duck_Island_London.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Kunstlerbob (Robert Bauer)",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Cottage_Duck_Island_London.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Penny_Magazine_1837_492_St._James%27s_Park.jpg/960px-Penny_Magazine_1837_492_St._James%27s_Park.jpg",
+				"width": 960,
+				"height": 657,
+				"author": "Unknown artistUnknown artist",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Penny_Magazine_1837_492_St._James%27s_Park.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/St_James%27_Park_-_Temporary_Government_buildings._From_the_Foreign_Office._Art.IWMART1133.jpg/960px-St_James%27_Park_-_Temporary_Government_buildings._From_the_Foreign_Office._Art.IWMART1133.jpg",
+				"width": 960,
+				"height": 667,
+				"author": "Henry Rushbury",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:St_James%27_Park_-_Temporary_Government_buildings._From_the_Foreign_Office._Art.IWMART1133.jpg"
+			}
+		]
+	},
+	"kingsCross": {
+		"summary": "King's Cross station or Kings Cross station may refer to:",
+		"wikipediaTitle": "King's Cross station",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/King%27s_Cross_station",
+		"photos": []
+	},
+	"nationalRailwayMuseum": {
+		"summary": "The National Railway Museum (NRM) is a museum in York, England, forming part of the Science Museum Group. The museum tells the story of rail transport in Britain and its impact on society. It is the home of the national collection of historically significant railway vehicles such as Mallard, a Stirling 'Single', Duchess of Hamilton and a Japanese bullet train. In addition, the National Railway Museum holds a diverse collection of other objects, from a household recipe book used in George Stephenson's house to film showing a \"never-stop railway\" developed for the British Empire Exhibition. It has won many awards, including the European Museum of the Year Award in 2001.\n\nThe museum closed for large-scale renovations in 2009. A new entrance building was added to connect the two wings of the museum and the area around the museum underwent landscaping.",
+		"wikipediaTitle": "National Railway Museum",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/National_Railway_Museum",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/089-SFEC-YORK-20070827.JPG/960px-089-SFEC-YORK-20070827.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Steve F-E-Cameron",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:089-SFEC-YORK-20070827.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/31018_at_the_NRM_York.JPG/960px-31018_at_the_NRM_York.JPG",
+				"width": 960,
+				"height": 720,
+				"author": "Rkilpin at English Wikipedia",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:31018_at_the_NRM_York.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Chinese_Government_Railways_Class_KF7_No_607_National_Railway_Museum_York_15_March_2009.jpg/960px-Chinese_Government_Railways_Class_KF7_No_607_National_Railway_Museum_York_15_March_2009.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "User:Ultra7",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_Government_Railways_Class_KF7_No_607_National_Railway_Museum_York_15_March_2009.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/GNR_C2_990_%27Henry_Oakley%27_at_Doncaster_Works.JPG/960px-GNR_C2_990_%27Henry_Oakley%27_at_Doncaster_Works.JPG",
+				"width": 960,
+				"height": 616,
+				"author": "Our Phellap",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:GNR_C2_990_%27Henry_Oakley%27_at_Doncaster_Works.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Hogwarts_Express_at_York.jpg/960px-Hogwarts_Express_at_York.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Dashwortley at English Wikipedia",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hogwarts_Express_at_York.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/8/87/LNER_Museum.jpg",
+				"width": 960,
+				"height": 662,
+				"author": "Murgatroyd49",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:LNER_Museum.jpg"
 			}
 		]
 	}

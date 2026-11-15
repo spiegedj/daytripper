@@ -355,6 +355,27 @@ function roundCoordinates(points)
 	return points.map(([longitude, latitude]) => [Number(longitude.toFixed(5)), Number(latitude.toFixed(5))]);
 }
 
+// A waypoint just off the path makes the router walk out to it and straight back; drop that out-and-back where two walks meet.
+function trimWaypointSpurs(segments)
+{
+	const spurToleranceKilometers = 0.012;
+	for (let index = 0; index + 1 < segments.length; index++)
+	{
+		const incoming = segments[index].coordinates;
+		const outgoing = segments[index + 1].coordinates;
+		if (segments[index].mode !== "walk" || segments[index + 1].mode !== "walk")
+		{
+			continue;
+		}
+		while (incoming.length > 2 && outgoing.length > 2 && distanceKilometers(incoming[incoming.length - 2], outgoing[1]) < spurToleranceKilometers)
+		{
+			incoming.pop();
+			outgoing.shift();
+		}
+		outgoing[0] = incoming[incoming.length - 1];
+	}
+}
+
 async function main()
 {
 	const placeCoordinates = readPlaceCoordinates();
@@ -413,6 +434,7 @@ async function main()
 				position = target;
 				await wait(arcModes.has(segment.mode) ? 0 : 1200);
 			}
+			trimWaypointSpurs(segments);
 			routes[legKey] = segments;
 		}
 	}

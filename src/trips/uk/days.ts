@@ -69,7 +69,8 @@ export const ukDays: IDay[] =
 			{ placeId: "waterlooStation", arrival: traveled("walk") },
 			{ placeId: "piccadillyCircusStation", arrival: traveled("subway", "Bakerloo line") },
 			{ placeId: "beatlesRooftop", arrival: traveled("walk"), visit: at("10:02", "10:04") },
-			{ placeId: "buckinghamPalace", arrival: traveled("walk"), visit: at("10:24", "11:17") },
+			{ placeId: "buckinghamPalace", arrival: traveled("walk"), visit: at("10:24", "10:34") },
+			{ placeId: "stJamesPark", arrival: traveled("walk", "Around the lake"), visit: at("11:09", "11:17") },
 			{ placeId: "stJamesParkStation", arrival: traveled("walk") },
 			{ placeId: "towerHillStation", arrival: traveled("subway", "District line") },
 			{ placeId: "towerOfLondon", arrival: traveled("walk"), visit: at("12:01", "16:51") },
@@ -109,8 +110,9 @@ export const ukDays: IDay[] =
 			{ placeId: "bodleianLibrary", arrival: traveled("walk"), visit: at("15:09", "15:14") },
 			{ placeId: "radcliffeCamera", arrival: traveled("walk"), visit: at("15:17") },
 			{ placeId: "oxfordBotanicGarden", arrival: traveled("walk"), visit: at("15:53", "16:33") },
-			{ placeId: "tolkienGrave", arrival: traveled("bus"), visit: at("17:27", "17:30") },
-			{ placeId: "peartreeApartments", arrival: traveled("train") },
+			{ placeId: "tolkienGrave", arrival: traveled("bus", "Through the centre and up Woodstock Road"), visit: at("17:27", "17:30") },
+			{ placeId: "oxfordStation", arrival: traveled("bus") },
+			{ placeId: "peartreeApartments", arrival: traveled("train", "Changing at Basingstoke") },
 		],
 	},
 	{
@@ -155,24 +157,27 @@ export const ukDays: IDay[] =
 		stops:
 		[
 			{ placeId: "peartreeApartments" },
-			{ placeId: "yorkMinster", arrival: traveled("train"), visit: at("15:58", "16:19") },
-			{ placeId: "shambles", arrival: traveled("walk"), visit: at("16:23") },
+			{ placeId: "waterlooStation", arrival: traveled("train") },
+			{ placeId: "kingsCross", arrival: traveled("subway", "Bakerloo line, then Victoria line") },
+			{ placeId: "yorkStation", arrival: traveled("train", "East Coast Main Line") },
+			// Includes the climb up the central tower (a 16:23 photo looks down over the rooftops).
+			{ placeId: "yorkMinster", arrival: traveled("walk"), visit: at("15:58", "16:46") },
 			{ placeId: "deanCourtYork", arrival: traveled("walk") },
 		],
 	},
 	{
 		dayNumber: 9,
 		date: "2024-10-17",
-		title: "York, then on to Newcastle",
+		title: "York walls & Railway Museum, then Newcastle",
 		baseCity: "Newcastle",
 		color: dayColors[8],
 		stops:
 		[
 			{ placeId: "deanCourtYork" },
 			{ placeId: "yorkMinster", arrival: traveled("walk"), visit: at("10:07", "10:27") },
-			{ placeId: "yorkCityWalls", arrival: traveled("walk"), visit: at("10:30", "10:50") },
-			{ placeId: "yorkCastleMuseum", arrival: traveled("walk"), visit: at("11:16", "11:20") },
-			{ placeId: "yorkStation", arrival: traveled("walk"), visit: at("11:46") },
+			// Clockwise from Bootham Bar: Monk Bar 10:30, Walmgate 10:50, Clifford's Tower 11:16, the walls by the station 11:46.
+			{ placeId: "yorkCityWalls", arrival: traveled("walk", "The whole loop of the walls"), visit: at("10:30", "11:46") },
+			{ placeId: "nationalRailwayMuseum", arrival: traveled("walk") },
 			{ placeId: "shambles", arrival: traveled("walk"), visit: at("14:39", "14:40") },
 			{ placeId: "maldronNewcastle", arrival: traveled("train") },
 		],
@@ -191,7 +196,8 @@ export const ukDays: IDay[] =
 			{ placeId: "sycamoreGap", arrival: traveled("walk", "Along the wall"), visit: at("14:16", "14:43") },
 			{ placeId: "steelRigg", arrival: traveled("walk"), visit: at("14:52", "15:07") },
 			{ placeId: "theSill", arrival: traveled("walk") },
-			{ placeId: "maldronNewcastle", arrival: traveled("bus") },
+			{ placeId: "hexhamStation", arrival: traveled("bus", "AD122 Hadrian's Wall bus") },
+			{ placeId: "maldronNewcastle", arrival: traveled("train", "Tyne Valley line") },
 		],
 	},
 	{
