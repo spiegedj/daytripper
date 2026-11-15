@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow"><stop offset="0" stop-color="#1D2433" stop-opacity=".32"/><stop offset="1" stop-color="#1D2433" stop-opacity="0"/></radialGradient>
+		<linearGradient id="stone" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#F1DFB6"/><stop offset="0.50" stop-color="#DDC28C"/><stop offset="1.00" stop-color="#B89A63"/></linearGradient><linearGradient id="lead" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#8D99A6"/><stop offset="1.00" stop-color="#5C6875"/></linearGradient><linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#9ED3EE"/><stop offset="1.00" stop-color="#5BA3CF"/></linearGradient>
+	</defs>
+	<ellipse cx="64" cy="119" rx="62" ry="5.5" fill="url(#groundShadow)"/>
+	
+	<rect x="4" y="96" width="120" height="23" fill="url(#water)"/>
+	<path d="M4 108Q34 100 64 108T124 108" fill="none" stroke="#E4F4FB" stroke-width="2"/>
+	<path d="M4 113Q34 106 64 113T124 113" fill="none" stroke="#E4F4FB" stroke-width="1.4"/>
+	<path d="M10 98V80H118V98H104A10 10 0 0 0 84 98H74A10 10 0 0 0 54 98H44A10 10 0 0 0 24 98Z" fill="url(#stone)" stroke="#8E7448" stroke-width=".9"/>
+	<rect x="10" y="50" width="108" height="30" fill="url(#stone)" stroke="#8E7448" stroke-width=".9"/>
+	<rect x="16.00" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="27.60" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="39.20" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="50.80" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="62.40" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="74.00" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="85.60" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="97.20" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="108.80" y="56" width="5" height="8" rx=".5" fill="#5A4A34"/>
+	<rect x="16.00" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="27.60" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="39.20" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="50.80" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="62.40" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="74.00" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="85.60" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="97.20" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/><rect x="108.80" y="68" width="5" height="8" rx=".5" fill="#5A4A34"/>
+	<rect x="50" y="42" width="28" height="8" fill="url(#stone)" stroke="#8E7448" stroke-width=".8"/>
+	<path d="M48 42 64 32 80 42Z" fill="url(#stone)" stroke="#8E7448" stroke-width=".8" stroke-linejoin="round"/>
+	<path d="M6 50Q12 38 18 50Z" fill="url(#lead)" stroke="#3E4650" stroke-width=".7"/>
+	<path d="M110 50Q116 38 122 50Z" fill="url(#lead)" stroke="#3E4650" stroke-width=".7"/>
+	<rect x="6" y="50" width="12" height="30" fill="url(#stone)" stroke="#8E7448" stroke-width=".8"/>
+	<rect x="110" y="50" width="12" height="30" fill="url(#stone)" stroke="#8E7448" stroke-width=".8"/>
+	<path d="M8 50H120" stroke="#8E7448" stroke-width="1.2"/>
+	
+</svg>

@@ -26,7 +26,7 @@ function readPlaceCoordinates()
 {
 	const source = readFileSync(`${tripFolder}/places.ts`, "utf8");
 	const coordinates = {};
-	for (const match of source.matchAll(/(\w+):\s*\{[^}]*latitude:\s*([\d.]+),\s*longitude:\s*([\d.]+)/g))
+	for (const match of source.matchAll(/(\w+):\s*\{[^}]*latitude:\s*(-?[\d.]+),\s*longitude:\s*(-?[\d.]+)/g))
 	{
 		coordinates[match[1]] = { latitude: Number(match[2]), longitude: Number(match[3]) };
 	}
@@ -42,7 +42,8 @@ function readDays()
 	dayStarts.forEach((match, index) =>
 	{
 		const daySource = source.slice(match.index, dayStarts[index + 1]?.index);
-		const stops = [...daySource.matchAll(/\{\s*placeId:\s*"(\w+)"(?:,\s*arrival:\s*guessed\("(\w+)")?/g)]
+		// Any leg helper works (guessed("train", ...), traveled("walk"), ...); the arrival must come right after the place id.
+		const stops = [...daySource.matchAll(/\{\s*placeId:\s*"(\w+)"(?:,\s*arrival:\s*\w+\("(\w+)")?/g)]
 			.map((stopMatch) => ({ placeId: stopMatch[1], arrivalMode: stopMatch[2] }));
 		days.push({ dayNumber: Number(match[1]), stops });
 	});

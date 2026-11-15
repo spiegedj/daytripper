@@ -1,0 +1,2454 @@
+{
+	"heathrowAirport": {
+		"summary": "London Heathrow Airport (IATA: LHR, ICAO: EGLL) – named London Airport until 1966 – is the primary and largest international airport serving London, the capital of England and the United Kingdom. It is the largest of the six international airports in the London airport system (the others being Gatwick, Stansted, Luton, City, and Southend).\n\nThe airport is owned and operated by Heathrow Airport Holdings. In 2025, Heathrow was the busiest airport in Europe, the fifth-busiest airport in the world by passenger traffic and the second-busiest airport in the world by international passenger traffic. Heathrow was the airport with the most international connections in the world in 2024.",
+		"wikipediaTitle": "Heathrow Airport",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Heathrow_Airport",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/London_-_Heathrow_%28LHR_-_EGLL%29_AN1572653.jpg/960px-London_-_Heathrow_%28LHR_-_EGLL%29_AN1572653.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Konstantin Von Wedelstaedt",
+				"license": "GFDL 1.2",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:London_-_Heathrow_(LHR_-_EGLL)_AN1572653.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/A6EEE-LHR-20241011-161753.jpg/960px-A6EEE-LHR-20241011-161753.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "SIA321",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:A6EEE-LHR-20241011-161753.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Aerial_photograph_of_Heathrow_Airport%2C_1955.jpg",
+				"width": 960,
+				"height": 755,
+				"author": "The National Archives UK",
+				"license": "No restrictions",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_photograph_of_Heathrow_Airport,_1955.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Compass_Building_on_the_Bath_Road_by_Philip_Jeffrey.jpg/960px-Compass_Building_on_the_Bath_Road_by_Philip_Jeffrey.jpg",
+				"width": 960,
+				"height": 639,
+				"author": "Philip Jeffrey",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Compass_Building_on_the_Bath_Road_by_Philip_Jeffrey.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Concorde_G-BOAB_at_Heathrow.jpg/960px-Concorde_G-BOAB_at_Heathrow.jpg",
+				"width": 960,
+				"height": 453,
+				"author": "M McBey",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Concorde_G-BOAB_at_Heathrow.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Heathrow_Airport_010.jpg/960px-Heathrow_Airport_010.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Panhard",
+				"license": "CC BY 2.5",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Heathrow_Airport_010.jpg"
+			}
+		]
+	},
+	"bigBen": {
+		"summary": "Big Ben is the nickname for the Great Bell of the Great Clock of Westminster, and, by extension, for the clock tower that stands at the north end of the Palace of Westminster in London, England. Originally named the Clock Tower, the structure was renamed the Elizabeth Tower in 2012 to mark the Diamond Jubilee of Queen Elizabeth II. The clock is a striking clock with five bells.\n\nThe tower was designed by Augustus Pugin and Sir Charles Barry in the Perpendicular Gothic style and was completed in 1859. It is decorated with stone carvings and features symbols related to the four countries of the United Kingdom and the Tudor dynasty. A Latin inscription celebrates Queen Victoria, under whose reign the palace was built. It stands 316 feet (96 m) tall, and the climb from ground level to the belfry is 334 steps. Its base is square, measuring 40 feet (12 m) on each side. The dials of the clock are 22.5 feet (6.9 m) in diameter.",
+		"wikipediaTitle": "Big Ben",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Big_Ben",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Ayrton_Light.jpg/960px-Ayrton_Light.jpg",
+				"width": 960,
+				"height": 1127,
+				"author": "Morn; original photo by JSilv99",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ayrton_Light.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Big_Ben_2001-06-27.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "DS Pugh",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Big_Ben_2001-06-27.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Big_Ben_2018.jpg/960px-Big_Ben_2018.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Miyagi165",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Big_Ben_2018.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Big_Ben_Elizabeth_Tower_London_2023_01_Detail.jpg/960px-Big_Ben_Elizabeth_Tower_London_2023_01_Detail.jpg",
+				"width": 960,
+				"height": 806,
+				"author": "Julian Herzog (Website)",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Big_Ben_Elizabeth_Tower_London_2023_01_Detail.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Cleaning_the_Clock_Face%2C_%22Big_Ben%22%2C_Elizabeth_Tower%2C_Palace_of_Westminster_-_geograph.org.uk_-_4128239.jpg/960px-Cleaning_the_Clock_Face%2C_%22Big_Ben%22%2C_Elizabeth_Tower%2C_Palace_of_Westminster_-_geograph.org.uk_-_4128239.jpg",
+				"width": 960,
+				"height": 713,
+				"author": "Christine Matthews",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Cleaning_the_Clock_Face,_%22Big_Ben%22,_Elizabeth_Tower,_Palace_of_Westminster_-_geograph.org.uk_-_4128239.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Palace_of_Westminster_seen_from_the_north_bank_of_the_Thames%2C_London.jpg/960px-Palace_of_Westminster_seen_from_the_north_bank_of_the_Thames%2C_London.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "Christian David",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Palace_of_Westminster_seen_from_the_north_bank_of_the_Thames,_London.jpg"
+			}
+		]
+	},
+	"westminsterAbbey": {
+		"summary": "Westminster Abbey, formally titled the Collegiate Church of Saint Peter at Westminster, is an Anglican church in the City of Westminster, London, England. Since 1066, it has been the location of the coronations of 40 English and British monarchs and a burial site for 18 English, Scottish, and British monarchs. At least 16 royal weddings have taken place at the abbey since 1100.\n\nAlthough the origins of the church are obscure, an abbey housing Benedictine monks was on the site by the mid-10th century. The church got its first large building from the 1040s, commissioned by King Edward the Confessor, who is buried inside. Construction of the present church began in 1245 on the orders of Henry III. The monastery was dissolved in 1559, and the church was made a royal peculiar – a Church of England church, accountable directly to the sovereign – by Elizabeth I. The abbey, the Palace of Westminster and St Margaret's Church became a UNESCO World Heritage Site in 1987 because of their historic and symbolic significance.",
+		"wikipediaTitle": "Westminster Abbey",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Westminster_Abbey",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Baron_Boyce_Banner_of_the_Order_of_the_Bath.jpg/960px-Baron_Boyce_Banner_of_the_Order_of_the_Bath.jpg",
+				"width": 960,
+				"height": 599,
+				"author": "JRennocks",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Baron_Boyce_Banner_of_the_Order_of_the_Bath.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/1/19/BayeuxTapestryScene26.jpg",
+				"width": 960,
+				"height": 468,
+				"author": "Image on web site of Ulrich Harsh.",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:BayeuxTapestryScene26.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Britains_Oldest_Door_Westminster_Abbey_London_England.jpg/960px-Britains_Oldest_Door_Westminster_Abbey_London_England.jpg",
+				"width": 960,
+				"height": 960,
+				"author": "amanderson2",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Britains_Oldest_Door_Westminster_Abbey_London_England.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Ceiling_of_Henry_VII_Chapel.jpg/960px-Ceiling_of_Henry_VII_Chapel.jpg",
+				"width": 960,
+				"height": 960,
+				"author": "JRennocks",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceiling_of_Henry_VII_Chapel.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Chamber_of_the_Pyx.jpg/960px-Chamber_of_the_Pyx.jpg",
+				"width": 960,
+				"height": 638,
+				"author": "\"ptwo\"",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Chamber_of_the_Pyx.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Choir_Westminster_Abbey_London_England.jpg/960px-Choir_Westminster_Abbey_London_England.jpg",
+				"width": 960,
+				"height": 960,
+				"author": "amanderson2",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Choir_Westminster_Abbey_London_England.jpg"
+			}
+		]
+	},
+	"trafalgarSquare": {
+		"summary": "Trafalgar Square ( trə-FAL-gər) is a public square in the City of Westminster in Central London. It was established in the early 19th century around the area known as Charing Cross. Its name commemorates the Battle of Trafalgar, the British naval victory in the Napoleonic Wars over France and Spain that took place on 21 October 1805 off the coast of Cape Trafalgar.",
+		"wikipediaTitle": "Trafalgar Square",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Trafalgar_Square",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Trafalgar_Square%2C_London_2_-_Jun_2009.jpg/960px-Trafalgar_Square%2C_London_2_-_Jun_2009.jpg",
+				"width": 960,
+				"height": 635,
+				"author": "Diliff",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Trafalgar_Square,_London_2_-_Jun_2009.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/DemonstrationAgainstAntiTerrorismLawLondon23Jan.jpg/960px-DemonstrationAgainstAntiTerrorismLawLondon23Jan.jpg",
+				"width": 960,
+				"height": 638,
+				"author": "Andy F",
+				"license": "CC BY 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:DemonstrationAgainstAntiTerrorismLawLondon23Jan.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/London%2C_Trafalgar_Square%2C_Nelson%27s_Column_--_2016_--_4851.jpg/960px-London%2C_Trafalgar_Square%2C_Nelson%27s_Column_--_2016_--_4851.jpg",
+				"width": 960,
+				"height": 1344,
+				"author": "Dietmar Rabich",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:London,_Trafalgar_Square,_Nelson%27s_Column_--_2016_--_4851.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/People_feeding_pigeons_in_Trafalgar_Square_c.1993.jpg/960px-People_feeding_pigeons_in_Trafalgar_Square_c.1993.jpg",
+				"width": 960,
+				"height": 644,
+				"author": "Billy Hicks",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:People_feeding_pigeons_in_Trafalgar_Square_c.1993.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Perspective_View_of_the_Royal_Stables_at_Charing_Cross_-_J._Maurer%2C_1747_-_grosvenor11544.jpg",
+				"width": 960,
+				"height": 684,
+				"author": "John Maurer",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Perspective_View_of_the_Royal_Stables_at_Charing_Cross_-_J._Maurer,_1747_-_grosvenor11544.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Rally_at_Trafalgar_Square%2C_part_of_the_Mud_March.jpg/960px-Rally_at_Trafalgar_Square%2C_part_of_the_Mud_March.jpg",
+				"width": 960,
+				"height": 505,
+				"author": "Daily Mirror photographer. No listing on the newspaper and reverse image searches have shown no information on the identity of the photographer",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Rally_at_Trafalgar_Square,_part_of_the_Mud_March.jpg"
+			}
+		]
+	},
+	"nationalGallery": {
+		"summary": "The National Gallery is an art museum in Trafalgar Square in the City of Westminster, in Central London, England. Founded in 1824, it houses a collection of more than 2,300 paintings dating from the mid-13th century to 1900. The current director of the National Gallery is Gabriele Finaldi.\n\nThe National Gallery is an exempt charity, and a non-departmental public body of the Department for Culture, Media and Sport. Its collection is held in trust by the charity on behalf of the British public, and entry to the main collection is free of charge.",
+		"wikipediaTitle": "National Gallery",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/National_Gallery",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_036.JPG/960px-Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_036.JPG",
+				"width": 960,
+				"height": 509,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Galer%C3%ADa_Nacional,_Londres,_Inglaterra,_2014-08-07,_DD_036.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/B%C3%B3veda_de_la_sala_36%2C_Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-11%2C_DD_165-167_HDR.JPG/960px-B%C3%B3veda_de_la_sala_36%2C_Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-11%2C_DD_165-167_HDR.JPG",
+				"width": 960,
+				"height": 952,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%B3veda_de_la_sala_36,_Galer%C3%ADa_Nacional,_Londres,_Inglaterra,_2014-08-11,_DD_165-167_HDR.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Central_Hall%2C_National_Gallery.jpg/960px-Central_Hall%2C_National_Gallery.jpg",
+				"width": 960,
+				"height": 636,
+				"author": "xiquinhosilva",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Central_Hall,_National_Gallery.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg/960px-Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg",
+				"width": 960,
+				"height": 658,
+				"author": "Diego Velázquez",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Francisco_Goya_-_Portrait_of_the_Duke_of_Wellington.jpg/960px-Francisco_Goya_-_Portrait_of_the_Duke_of_Wellington.jpg",
+				"width": 960,
+				"height": 1191,
+				"author": "Francisco Goya",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Francisco_Goya_-_Portrait_of_the_Duke_of_Wellington.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-11%2C_DD_173.JPG/960px-Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-11%2C_DD_173.JPG",
+				"width": 960,
+				"height": 990,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Galer%C3%ADa_Nacional,_Londres,_Inglaterra,_2014-08-11,_DD_173.JPG"
+			}
+		]
+	},
+	"nationalPortraitGallery": {
+		"summary": "The National Portrait Gallery (NPG) is an art gallery in London that houses a collection of portraits of historically important and famous British people. When it opened in 1856, it was arguably the first national public gallery in the world that was dedicated to portraits.\n\nThe gallery moved in 1896 to its current site at St Martin's Place, off Trafalgar Square, and adjoining the National Gallery. The National Portrait Gallery also has regional outposts at Beningbrough Hall in Yorkshire and Montacute House in Somerset. It is unconnected to the Scottish National Portrait Gallery in Edinburgh, with which its remit overlaps. The gallery is a non-departmental public body sponsored by the Department for Digital, Culture, Media and Sport.",
+		"wikipediaTitle": "National Portrait Gallery, London",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/National_Portrait_Gallery,_London",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/National_Portrait_Gallery%2C_London%2C_Floor_3%2C_Room_10.jpg/960px-National_Portrait_Gallery%2C_London%2C_Floor_3%2C_Room_10.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "APK",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Portrait_Gallery,_London,_Floor_3,_Room_10.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/National_Portrait_Gallery%2C_London%2C_June_2023_19.jpg/960px-National_Portrait_Gallery%2C_London%2C_June_2023_19.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "No Swan So Fine",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Portrait_Gallery,_London,_June_2023_19.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/National_Portrait_Gallery%2C_London%2C_June_2023_34.jpg/960px-National_Portrait_Gallery%2C_London%2C_June_2023_34.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "No Swan So Fine",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Portrait_Gallery,_London,_June_2023_34.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/National_Portrait_Gallery_%2840400017530%29.jpg/960px-National_Portrait_Gallery_%2840400017530%29.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Wei-Te Wong from Taipei City, Taiwan, Republic of China",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Portrait_Gallery_(40400017530).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/National_Portrait_Gallery_London_Portraying_Colonial_Expansion_%26_Experience_2026-06-20.jpg/960px-National_Portrait_Gallery_London_Portraying_Colonial_Expansion_%26_Experience_2026-06-20.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Lumaag",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Portrait_Gallery_London_Portraying_Colonial_Expansion_%26_Experience_2026-06-20.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/National_Portrait_Gallery_door_panel_by_Tracey_Emin_01.jpg/960px-National_Portrait_Gallery_door_panel_by_Tracey_Emin_01.jpg",
+				"width": 960,
+				"height": 1093,
+				"author": "14GTR",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Portrait_Gallery_door_panel_by_Tracey_Emin_01.jpg"
+			}
+		]
+	},
+	"goldenJubileeBridge": {
+		"summary": "The Hungerford Bridge crosses the River Thames in London, and lies between Waterloo Bridge and Westminster Bridge. Owned by Network Rail Infrastructure Ltd (who use its official name of Charing Cross Bridge) it is a steel truss railway bridge flanked by two more recent, cable-stayed, pedestrian bridges that share the railway bridge's foundation piers, and which are named the Golden Jubilee Bridges.\n\nThe north end of the bridge is Charing Cross railway station, and is near Embankment Pier and the Victoria Embankment. The south end is near Waterloo station, County Hall, the Royal Festival Hall, and the London Eye. Each pedestrian bridge has steps and lift access.",
+		"wikipediaTitle": "Hungerford Bridge and Golden Jubilee Bridges",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Hungerford_Bridge_and_Golden_Jubilee_Bridges",
+		"photos": [
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hungerford_Bridge%2C_River_Thames%2C_London%2C_England.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Unknown author",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hungerford_Bridge,_River_Thames,_London,_England.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Charing_Cross_Bridge%2C_Monet.jpg/960px-Charing_Cross_Bridge%2C_Monet.jpg",
+				"width": 960,
+				"height": 780,
+				"author": "Claude Monet",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Charing_Cross_Bridge,_Monet.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Class_375_on_Hungerford_Bridge.jpg",
+				"width": 960,
+				"height": 637,
+				"author": "Murgatroyd49",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Class_375_on_Hungerford_Bridge.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Hungerford_Bridge_from_London_Eye.jpg/960px-Hungerford_Bridge_from_London_Eye.jpg",
+				"width": 960,
+				"height": 449,
+				"author": "Own work",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hungerford_Bridge_from_London_Eye.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Hungerford_Suspension_Bridge_%281845%29.jpg/960px-Hungerford_Suspension_Bridge_%281845%29.jpg",
+				"width": 960,
+				"height": 759,
+				"author": "William Henry Fox Talbot",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hungerford_Suspension_Bridge_(1845).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/UK_Londen_20040713_18891.JPG/960px-UK_Londen_20040713_18891.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Debot at Dutch Wikipedia",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:UK_Londen_20040713_18891.JPG"
+			}
+		]
+	},
+	"britishMuseum": {
+		"summary": "The British Museum is a public museum dedicated to human history, art and culture located in the Bloomsbury area of London. Its permanent collection of eight million artefacts is the largest in the world. It documents the story of human culture from its beginnings to the present. Established in 1753, the British Museum was the world's first public national museum. In 2025, the museum received 6,440,120 visitors and was the second most visited attraction in the United Kingdom.\n\nAt its beginning, the museum was largely based on the collections of the Anglo-Irish physician and scientist Sir Hans Sloane. It opened to the public in 1759, in Montagu House, on the site of the current building. The museum's expansion over the following 250 years was largely a result of British colonisation and resulted in the creation of several branch institutions, or independent spin-offs, the first being the Natural History Museum in 1881. Some of its best-known acquisitions, such as the Greek Elgin Marbles and the Egyptian Rosetta Stone, are subject to long-term disputes and repatriation claims.",
+		"wikipediaTitle": "British Museum",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/British_Museum",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/British_Museum_from_NE_2.JPG/960px-British_Museum_from_NE_2.JPG",
+				"width": 960,
+				"height": 689,
+				"author": "Ham",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:British_Museum_from_NE_2.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/AHOTWgold_lama.JPG/960px-AHOTWgold_lama.JPG",
+				"width": 960,
+				"height": 1007,
+				"author": "geni",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:AHOTWgold_lama.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/A_Lady%2C_called_Anne_Boleyn%2C_by_Hans_Holbein_the_Younger.jpg/960px-A_Lady%2C_called_Anne_Boleyn%2C_by_Hans_Holbein_the_Younger.jpg",
+				"width": 960,
+				"height": 1250,
+				"author": "Hans Holbein the Younger",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Lady,_called_Anne_Boleyn,_by_Hans_Holbein_the_Younger.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/A_fool%2C_seated_on_a_basket%2C_about_to_be_shaved_by_a_nun_holding_a_wafer_iron_by_Hieronymus_Bosch.jpg/960px-A_fool%2C_seated_on_a_basket%2C_about_to_be_shaved_by_a_nun_holding_a_wafer_iron_by_Hieronymus_Bosch.jpg",
+				"width": 960,
+				"height": 811,
+				"author": "Hieronymus Bosch",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:A_fool,_seated_on_a_basket,_about_to_be_shaved_by_a_nun_holding_a_wafer_iron_by_Hieronymus_Bosch.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/A_pair_of_lamassus_from_the_Throne_Room%2C_Room_B%2C_of_the_North-West_Palace_at_Nimrud%2C_Iraq%2C_9th_century_BC._The_British_Museum.jpg/960px-A_pair_of_lamassus_from_the_Throne_Room%2C_Room_B%2C_of_the_North-West_Palace_at_Nimrud%2C_Iraq%2C_9th_century_BC._The_British_Museum.jpg",
+				"width": 960,
+				"height": 638,
+				"author": "Osama Shukir Muhammed Amin FRCP(Glasg)",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:A_pair_of_lamassus_from_the_Throne_Room,_Room_B,_of_the_North-West_Palace_at_Nimrud,_Iraq,_9th_century_BC._The_British_Museum.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/A_woman_with_a_rose_drawn_by_Thomas_Gainsborough.jpg/960px-A_woman_with_a_rose_drawn_by_Thomas_Gainsborough.jpg",
+				"width": 960,
+				"height": 1350,
+				"author": "Thomas Gainsborough",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:A_woman_with_a_rose_drawn_by_Thomas_Gainsborough.jpg"
+			}
+		]
+	},
+	"abbeyRoadCrossing": {
+		"summary": "Abbey Road is the eleventh studio album by the English rock band the Beatles, released on 26 September 1969 by Apple Records. It is the last album the group recorded – although Let It Be had mostly been recorded earlier, its release was delayed due to production issues. Abbey Road was mostly recorded in April, July and August 1969, and topped the record charts in both the United States and the United Kingdom. A double A-side single from the album, \"Something\" / \"Come Together\", was released in October, which also topped the charts in the US.",
+		"wikipediaTitle": "Abbey Road",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Abbey_Road",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Beatles_Abbey_Road_album_cover.jpg/960px-The_Beatles_Abbey_Road_album_cover.jpg",
+				"width": 960,
+				"height": 960,
+				"author": "John Kosh / Iain Macmillan",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Beatles_Abbey_Road_album_cover.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Cassini_team_Abbey_road.jpg",
+				"width": 960,
+				"height": 808,
+				"author": "Cassini",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Cassini_team_Abbey_road.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/TG12345_Mk.II_desk_%281970s%29_and_Microphones%2C_Abbey_Road_Studios.jpg/960px-TG12345_Mk.II_desk_%281970s%29_and_Microphones%2C_Abbey_Road_Studios.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Josephenus P. Riley",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:TG12345_Mk.II_desk_(1970s)_and_Microphones,_Abbey_Road_Studios.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/0/01/The_Beatles_The_End_final_lyrics_plaque.jpg",
+				"width": 960,
+				"height": 1248,
+				"author": "Andreas Thum",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Beatles_The_End_final_lyrics_plaque.jpg"
+			}
+		]
+	},
+	"beatlesRooftop": {
+		"summary": "On 30 January 1969, the Beatles performed a concert from the rooftop of their Apple Corps headquarters at 3 Savile Row, in central London's office and fashion district. Joined by guest keyboardist Billy Preston, the band played a 42-minute set before the Metropolitan Police arrived and told them to reduce the volume. It was the final public performance of their career.\n\nThey performed nine takes of five new songs as crowds of onlookers, many on lunch breaks, congregated in the streets and on the rooftops of nearby buildings to listen. The concert ended with \"Get Back\", and John Lennon jokingly said, \"I'd like to say thank you on behalf of the group and ourselves, and I hope we've passed the audition.\"\n\nThe performance was filmed and recorded. The first performance of \"I've Got a Feeling\" and single takes of \"One After 909\" and \"Dig a Pony\" were included on Let It Be, the band's 12th and final studio album, while footage was used in the 1970 documentary film Let It Be.",
+		"wikipediaTitle": "The Beatles' rooftop concert",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/The_Beatles%27_rooftop_concert",
+		"photos": []
+	},
+	"buckinghamPalace": {
+		"summary": "Buckingham Palace (UK: ) is the official residence and administrative headquarters of the monarch of the United Kingdom in London, England. Located in the City of Westminster, the palace is often at the centre of state occasions and royal hospitality. It has been a focal point for the British people at times of national rejoicing and mourning.",
+		"wikipediaTitle": "Buckingham Palace",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Buckingham_Palace",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Buckingham_Palace_London_Morning_2020_01_%28cropped%29.jpg/960px-Buckingham_Palace_London_Morning_2020_01_%28cropped%29.jpg",
+				"width": 960,
+				"height": 575,
+				"author": "Julian Herzog (Website)",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_London_Morning_2020_01_(cropped).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Buckingham_House%2C_East_Front%2C_by_William_Westall%2C_1819_-_royal_coll_922137_257059_ORI_0.jpg/960px-Buckingham_House%2C_East_Front%2C_by_William_Westall%2C_1819_-_royal_coll_922137_257059_ORI_0.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "William Westall",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Buckingham_House,_East_Front,_by_William_Westall,_1819_-_royal_coll_922137_257059_ORI_0.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Buckingham_House_1710.jpeg/960px-Buckingham_House_1710.jpeg",
+				"width": 960,
+				"height": 671,
+				"author": "Unknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Buckingham_House_1710.jpeg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Buckingham_Palace_Garden_Party_in_2024.jpg/960px-Buckingham_Palace_Garden_Party_in_2024.jpg",
+				"width": 960,
+				"height": 653,
+				"author": "Tony Hisgett",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_Garden_Party_in_2024.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Buckingham_Palace_aerial_view_2016.jpg/960px-Buckingham_Palace_aerial_view_2016.jpg",
+				"width": 960,
+				"height": 594,
+				"author": "SAC Matthew 'Gerry' Gerrard RAF/© MoD Crown Copyright 2016",
+				"license": "OGL v1.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_aerial_view_2016.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Buckingham_Palace_engraved_by_J.Woods_after_Hablot_Browne_%26_R.Garland_publ_1837_edited.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Unknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_engraved_by_J.Woods_after_Hablot_Browne_%26_R.Garland_publ_1837_edited.jpg"
+			}
+		]
+	},
+	"towerOfLondon": {
+		"summary": "The Tower of London, officially His Majesty's Royal Palace and Fortress of the Tower of London, is a historic citadel and castle on the north bank of the River Thames in London, England. It lies within the London Borough of Tower Hamlets, which is separated from the eastern edge of the square mile of the City of London by the open space known as Tower Hill. It was founded toward the end of 1066 as part of the Norman Conquest. The White Tower, which gives the castle its name, was built by William the Conqueror in 1078 and was initially a resented symbol of oppression. A grand palace early in its history, it served as a royal residence. The Tower is a complex of several buildings set within two concentric rings of defensive walls and a moat. There were several phases of expansion, mainly under kings Richard I, Henry III, and Edward I in the 12th and 13th centuries.",
+		"wikipediaTitle": "Tower of London",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Tower_of_London",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Tower_of_London_from_the_Shard_%288515883950%29.jpg/960px-Tower_of_London_from_the_Shard_%288515883950%29.jpg",
+				"width": 960,
+				"height": 623,
+				"author": "[Duncan] from Nottingham, UK",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Tower_of_London_from_the_Shard_(8515883950).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Elephant_sculpture_by_Kendra_Haste%2C_Tower_of_London.jpg/960px-Elephant_sculpture_by_Kendra_Haste%2C_Tower_of_London.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "Rachelle Haun",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Elephant_sculpture_by_Kendra_Haste,_Tower_of_London.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/James_Basire_-_The_Procession_of_King_Edward_VI_from_the_Tower_-_B1977.14.11652_-_Yale_Center_for_British_Art.jpg/960px-James_Basire_-_The_Procession_of_King_Edward_VI_from_the_Tower_-_B1977.14.11652_-_Yale_Center_for_British_Art.jpg",
+				"width": 960,
+				"height": 485,
+				"author": "James Basire",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:James_Basire_-_The_Procession_of_King_Edward_VI_from_the_Tower_-_B1977.14.11652_-_Yale_Center_for_British_Art.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg/960px-Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg",
+				"width": 960,
+				"height": 960,
+				"author": "Colin",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Jubilee_and_Munin,_Ravens,_Tower_of_London_2016-04-30.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/King%27s_House_and_Tower_Green%2C_Tower_of_London.jpg/960px-King%27s_House_and_Tower_Green%2C_Tower_of_London.jpg",
+				"width": 960,
+				"height": 406,
+				"author": "APK",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:King%27s_House_and_Tower_Green,_Tower_of_London.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/London-10-2_%2848189346536%29.jpg/960px-London-10-2_%2848189346536%29.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "Rachelle Haun",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:London-10-2_(48189346536).jpg"
+			}
+		]
+	},
+	"windsorCastle": {
+		"summary": "Windsor Castle is a royal residence at Windsor in the English county of Berkshire, about 25 miles (40 km) west of central London. It is strongly associated with the English and succeeding British royal family, and embodies almost a millennium of architectural history.\n\nThe original castle was built in the 11th century, after the Norman invasion of England by William the Conqueror. Since the time of Henry I (who reigned 1100–1135), it has been used by the monarch and is the longest-occupied palace in Europe. The castle's lavish early 19th-century state apartments were described by the art historian Hugh Roberts as \"a superb and unrivalled sequence of rooms widely regarded as the finest and most complete expression of later Georgian taste\". Inside the castle walls is the 15th-century St George's Chapel, considered by the historian John Martin Robinson to be \"one of the supreme achievements of English Perpendicular Gothic\" design.",
+		"wikipediaTitle": "Windsor Castle",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Windsor_Castle",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Windsor_Castle_at_Sunset_-_Nov_2006.jpg/960px-Windsor_Castle_at_Sunset_-_Nov_2006.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Diliff",
+				"license": "CC BY 2.5",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Windsor_Castle_at_Sunset_-_Nov_2006.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Cmglee_Windsor_Castle_aerial_view.jpg/960px-Cmglee_Windsor_Castle_aerial_view.jpg",
+				"width": 960,
+				"height": 360,
+				"author": "Cmglee",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Cmglee_Windsor_Castle_aerial_view.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Mary_Steen_Victoria_Beatrice_Windsor_1895.jpg/960px-Mary_Steen_Victoria_Beatrice_Windsor_1895.jpg",
+				"width": 960,
+				"height": 1273,
+				"author": "Mary Steen",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Mary_Steen_Victoria_Beatrice_Windsor_1895.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Paul_Sandby_001.jpg/960px-Paul_Sandby_001.jpg",
+				"width": 960,
+				"height": 698,
+				"author": "Paul Sandby",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Paul_Sandby_001.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Puerta_normanda_del_castillo_de_Windsor.jpg/960px-Puerta_normanda_del_castillo_de_Windsor.jpg",
+				"width": 960,
+				"height": 960,
+				"author": "Itto Ogami",
+				"license": "CC BY 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Puerta_normanda_del_castillo_de_Windsor.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/St._Georges_Chapel%2C_Windsor_Castle_%282%29.jpg/960px-St._Georges_Chapel%2C_Windsor_Castle_%282%29.jpg",
+				"width": 960,
+				"height": 620,
+				"author": "Aurelien Guichard from London, United Kingdom (changes by Rabanus Flavus)",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:St._Georges_Chapel,_Windsor_Castle_(2).jpg"
+			}
+		]
+	},
+	"longWalk": {
+		"summary": "Windsor Great Park is a royal park of 2,020 hectares (5,000 acres) to the south of the town of Windsor on the border of Berkshire and Surrey in England. It is adjacent to the private 265-hectare (650-acre) Home Park, which is nearer the castle. The park was, for many centuries, the private hunting ground of Windsor Castle, which dates primarily from the mid-13th century and still includes a deer park. Historically the park covered an area many times the current size known as Windsor Forest, Windsor Royal Park or its current name. The park is managed and funded by the Crown Estate, and is the only royal park not managed by The Royal Parks. Most parts of the park are open to the public, free of charge, from dawn to dusk, although there is a charge to enter Savill Garden.",
+		"wikipediaTitle": "Windsor Great Park",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Windsor_Great_Park",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Conqueror%27s_Oak.jpg/960px-Conqueror%27s_Oak.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "Hypercolius",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Conqueror%27s_Oak.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Cumberland_Lodge%2C_Windsor_Great_Park.jpg/960px-Cumberland_Lodge%2C_Windsor_Great_Park.jpg",
+				"width": 960,
+				"height": 787,
+				"author": "Nicola Hine",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Cumberland_Lodge,_Windsor_Great_Park.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/King_Offa%27s_Oak_20-09-22.jpg/960px-King_Offa%27s_Oak_20-09-22.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Hypercolius",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:King_Offa%27s_Oak_20-09-22.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Panorama_from_Snow_Hill.jpg/960px-Panorama_from_Snow_Hill.jpg",
+				"width": 960,
+				"height": 539,
+				"author": "Peter Suranyi",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_from_Snow_Hill.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/President_Ronald_Reagan_Riding_Horses_with_Queen_Elizabeth_Ii_During_Visit_to_Windsor_Castle_-_DPLA_-_934bb1fd137bd8789fa9648e928f9ded.jpg/960px-President_Ronald_Reagan_Riding_Horses_with_Queen_Elizabeth_Ii_During_Visit_to_Windsor_Castle_-_DPLA_-_934bb1fd137bd8789fa9648e928f9ded.jpg",
+				"width": 960,
+				"height": 643,
+				"author": "President (1981-1989 : Reagan). White House Photographic Office. 1981-1989",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:President_Ronald_Reagan_Riding_Horses_with_Queen_Elizabeth_Ii_During_Visit_to_Windsor_Castle_-_DPLA_-_934bb1fd137bd8789fa9648e928f9ded.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/R._legaliae_from_Windsor_Great_Park%2C_Berkshire.jpg/960px-R._legaliae_from_Windsor_Great_Park%2C_Berkshire.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Hypercolius",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:R._legaliae_from_Windsor_Great_Park,_Berkshire.jpg"
+			}
+		]
+	},
+	"oxfordStation": {
+		"summary": "Oxford is a main line railway station, one of two that serve the city of Oxford, in Oxfordshire, England. It lies about 0.5 miles (800 m) west of the city centre, north-west of Frideswide Square and the eastern end of Botley Road. It is the busiest station in the county and the fourth busiest in the South East England region. Immediately to the north is Sheepwash Channel Railway Bridge over the Sheepwash Channel.\n\nThe station is a stop on the line for trains between London Paddington and Hereford, via Worcester Shrub Hill. It is a starting point for fast and local trains to London Paddington and London Marylebone, and for local trains to Reading, Worcester (Shrub Hill and Foregate stations), and Banbury. It is also on the north–south Cross Country Route from Manchester Piccadilly and Newcastle, via Birmingham New Street and Reading, to Southampton Central and Bournemouth. The station is managed by Great Western Railway, which also provides services along with CrossCountry and Chiltern Railways.",
+		"wikipediaTitle": "Oxford railway station",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Oxford_railway_station",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Oxford_Station_-_geograph.org.uk_-_7930132.jpg/960px-Oxford_Station_-_geograph.org.uk_-_7930132.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "Philip Halling",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Oxford_Station_-_geograph.org.uk_-_7930132.jpg"
+			}
+		]
+	},
+	"ashmoleanMuseum": {
+		"summary": "The Ashmolean Museum of Art and Archaeology () on Beaumont Street in Oxford, England, is Britain's first public museum. Its first building was erected in 1678–1683 to house the cabinet of curiosities that Elias Ashmole gave to the University of Oxford in 1677. It is also the world's second university museum, after the establishment of the Kunstmuseum Basel in 1661 by the University of Basel.\n\nThe present building was built between 1841 and 1845. The museum reopened in 2009 after a major redevelopment, and in November 2011, new galleries focusing on Egypt and Nubia were unveiled. In May 2016, the museum redisplayed galleries of 19th-century art.",
+		"wikipediaTitle": "Ashmolean Museum",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Ashmolean_Museum",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Ashmolean_Museum_in_July_2014.jpg/960px-Ashmolean_Museum_in_July_2014.jpg",
+				"width": 960,
+				"height": 638,
+				"author": "Lewis Clarke",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ashmolean_Museum_in_July_2014.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/0_Gemma_Tiberiana_-_Rubens_-_Ashmolean_Museum_-_WA1989.74.JPG/960px-0_Gemma_Tiberiana_-_Rubens_-_Ashmolean_Museum_-_WA1989.74.JPG",
+				"width": 960,
+				"height": 1150,
+				"author": "Peter Paul Rubens",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:0_Gemma_Tiberiana_-_Rubens_-_Ashmolean_Museum_-_WA1989.74.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Ashmolean_Museum_%288401780654%29.jpg/960px-Ashmolean_Museum_%288401780654%29.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "Unknown author",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ashmolean_Museum_(8401780654).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Ashmolean_Museum_Atrium_Oxford_2009.jpg/960px-Ashmolean_Museum_Atrium_Oxford_2009.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "Sarah Casey",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ashmolean_Museum_Atrium_Oxford_2009.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Ashmolean_Museum_and_Taylorian_Institute%2C_Oxford%3B_panoramic_Wellcome_V0014258.jpg/960px-Ashmolean_Museum_and_Taylorian_Institute%2C_Oxford%3B_panoramic_Wellcome_V0014258.jpg",
+				"width": 960,
+				"height": 596,
+				"author": "Charles D. Laing after Charles Robert Cockerell",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ashmolean_Museum_and_Taylorian_Institute,_Oxford;_panoramic_Wellcome_V0014258.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/BrightonPierrotsWalterSickert.jpg",
+				"width": 960,
+				"height": 803,
+				"author": "Walter Sickert",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:BrightonPierrotsWalterSickert.jpg"
+			}
+		]
+	},
+	"bodleianLibrary": {
+		"summary": "The Bodleian Library () is the main research library of the University of Oxford. Founded in 1602 by Sir Thomas Bodley, it is one of the oldest libraries in Europe. With over 13 million printed items, it is the second-largest library in Britain after the British Library. Under the Legal Deposit Libraries Act 2003, it is one of six legal deposit libraries for works published in the United Kingdom, and under Irish law it is entitled to request a copy of each book published in the Republic of Ireland. Known to Oxford scholars as \"Bodley\" or \"the Bod\", it operates principally as a reference library and, in general, documents may not be removed from the reading rooms.\n\nIn 2000, a number of libraries within the University of Oxford were brought together for administrative purposes under the aegis of what was initially known as Oxford University Library Services (OULS), and since 2010 as the Bodleian Libraries, of which the Bodleian Library is the largest component.",
+		"wikipediaTitle": "Bodleian Library",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Bodleian_Library",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Bibliotheca_Bodleiana.jpg/960px-Bibliotheca_Bodleiana.jpg",
+				"width": 960,
+				"height": 707,
+				"author": "Honcques Laus",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bibliotheca_Bodleiana.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Architectural_Study_%28Old_Schools_Hall%2C_Oxford%29_LACMA_M.2008.40.905.jpg/960px-Architectural_Study_%28Old_Schools_Hall%2C_Oxford%29_LACMA_M.2008.40.905.jpg",
+				"width": 960,
+				"height": 898,
+				"author": "William Henry Fox Talbot (England, 1800-1877)",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Architectural_Study_(Old_Schools_Hall,_Oxford)_LACMA_M.2008.40.905.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Bodleian_Library_and_nearby_buildings.jpg/960px-Bodleian_Library_and_nearby_buildings.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Peter K Burian",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bodleian_Library_and_nearby_buildings.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bodleian_from_Radcliffe_Square.jpg/960px-Bodleian_from_Radcliffe_Square.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "BethNaught",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bodleian_from_Radcliffe_Square.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Divinity_School_Interior_2%2C_Bodleian_Library%2C_Oxford%2C_UK_-_Diliff.jpg/960px-Divinity_School_Interior_2%2C_Bodleian_Library%2C_Oxford%2C_UK_-_Diliff.jpg",
+				"width": 960,
+				"height": 873,
+				"author": "Diliff",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Divinity_School_Interior_2,_Bodleian_Library,_Oxford,_UK_-_Diliff.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Duke_Humfrey%27s_Library_Interior_5%2C_Bodleian_Library%2C_Oxford%2C_UK_-_Diliff.jpg/960px-Duke_Humfrey%27s_Library_Interior_5%2C_Bodleian_Library%2C_Oxford%2C_UK_-_Diliff.jpg",
+				"width": 960,
+				"height": 802,
+				"author": "Diliff",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Duke_Humfrey%27s_Library_Interior_5,_Bodleian_Library,_Oxford,_UK_-_Diliff.jpg"
+			}
+		]
+	},
+	"radcliffeCamera": {
+		"summary": "The Radcliffe Camera (colloquially known as the \"Rad Cam\" or \"The Camera\"; from Latin camera, meaning 'chamber') is a building of the University of Oxford, England, designed by James Gibbs in a Baroque style and built in 1737–49 to house a library, ultimately becoming a reading room of the Bodleian Library, not open to the public, after the original library moved out.\n\nIt is sited to the south of the Old Bodleian, north of the Church of St Mary the Virgin, and between Brasenose College to the west and All Souls College to the east. The Radcliffe Camera's circularity, its position in the heart of Oxford, and its separation from other buildings make it the focal point of the University of Oxford, and as such it is almost always included in shorthand visual representations of the university.\n\nThe library's construction and maintenance was funded from the estate of John Radcliffe, a physician who left £40,000 upon his death in 1714; the library was not ready to open until 1749.",
+		"wikipediaTitle": "Radcliffe Camera",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Radcliffe_Camera",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/1_radcliffe_camera_night_2012.jpg/960px-1_radcliffe_camera_night_2012.jpg",
+				"width": 960,
+				"height": 639,
+				"author": "chensiyuan",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:1_radcliffe_camera_night_2012.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Oxford_Palestine_solidarity_encampment_-_second_encampment_at_Radcliffe_Square_-_20_May_2024_07.jpg/960px-Oxford_Palestine_solidarity_encampment_-_second_encampment_at_Radcliffe_Square_-_20_May_2024_07.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Kiri of Karitane",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Oxford_Palestine_solidarity_encampment_-_second_encampment_at_Radcliffe_Square_-_20_May_2024_07.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Radcliffe2ndlevel.jpg/960px-Radcliffe2ndlevel.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Stickinho",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Radcliffe2ndlevel.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Radcliffe_Camera%2C_Oxford%3B_panoramic_view_with_All_Soul%27s_Col_Wellcome_V0014214.jpg/960px-Radcliffe_Camera%2C_Oxford%3B_panoramic_view_with_All_Soul%27s_Col_Wellcome_V0014214.jpg",
+				"width": 960,
+				"height": 630,
+				"author": "Unknown author",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Radcliffe_Camera,_Oxford;_panoramic_view_with_All_Soul%27s_Col_Wellcome_V0014214.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Radcliffe_Camera_Oxford_2018_03.jpg/960px-Radcliffe_Camera_Oxford_2018_03.jpg",
+				"width": 960,
+				"height": 832,
+				"author": "Julian Herzog (Website)",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Radcliffe_Camera_Oxford_2018_03.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/The_Radcliffe_Camera_from_the_Bodleian_end_of_Catte_Street.jpg/960px-The_Radcliffe_Camera_from_the_Bodleian_end_of_Catte_Street.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "Ozeye",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Radcliffe_Camera_from_the_Bodleian_end_of_Catte_Street.jpg"
+			}
+		]
+	},
+	"oxfordBotanicGarden": {
+		"summary": "The University of Oxford Botanic Garden is the oldest botanic garden in Great Britain and one of the oldest scientific gardens in the world. The garden was founded in 1621 as a physic garden growing plants for medicinal research. Today it contains over 5,000 different plant species on 1.8 ha (4+1⁄2 acres). It is one of the most diverse yet compact collections of plants in the world and includes representatives from over 90% of the higher plant families.\n\nProfessor Simon Hiscock became Director of Oxford Botanic Garden in 2015.",
+		"wikipediaTitle": "University of Oxford Botanic Garden",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/University_of_Oxford_Botanic_Garden",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Oxford_Botanic_Garden_LV_2025.jpg/960px-Oxford_Botanic_Garden_LV_2025.jpg",
+				"width": 960,
+				"height": 648,
+				"author": "Honcques Laus",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Oxford_Botanic_Garden_LV_2025.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Alice-queen-hearts.jpg/960px-Alice-queen-hearts.jpg",
+				"width": 960,
+				"height": 1175,
+				"author": "Unknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Alice-queen-hearts.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/An_obscured_Magdalen_Great_Tower_from_the_Botanic_Gardens.jpg/960px-An_obscured_Magdalen_Great_Tower_from_the_Botanic_Gardens.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Ozeye",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:An_obscured_Magdalen_Great_Tower_from_the_Botanic_Gardens.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Image_at_Oxford_Botanic_Garden.jpg/960px-Image_at_Oxford_Botanic_Garden.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "CatullusOdi",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Image_at_Oxford_Botanic_Garden.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Lyra%2BWill.jpg",
+				"width": 960,
+				"height": 722,
+				"author": "Unknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Lyra%2BWill.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Magdalen_College_Oxford_2023_02.jpg/960px-Magdalen_College_Oxford_2023_02.jpg",
+				"width": 960,
+				"height": 533,
+				"author": "Julian Herzog (Website)",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Magdalen_College_Oxford_2023_02.jpg"
+			}
+		]
+	},
+	"tolkienGrave": {
+		"summary": "Wolvercote Cemetery is a cemetery in the parish of Wolvercote and district of Cutteslowe in Oxford, England. Its main entrance is on Banbury Road, and it has a side entrance (usually closed) in Five Mile Drive. It has a funeral chapel, public toilets, and a small amount of car parking. It was awarded plaques as a category winner of 'Cemetery of the Year' in 1999 and 2001.\n\nThe cemetery was opened in 1889 and now contains more than 15,000 burials. Along with the other Oxford public cemeteries, it was expected to be full before 2021.",
+		"wikipediaTitle": "Wolvercote Cemetery",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Wolvercote_Cemetery",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Headstones_in_Wolvercote_Cemetery_-_geograph.org.uk_-_3872700.jpg/960px-Headstones_in_Wolvercote_Cemetery_-_geograph.org.uk_-_3872700.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Bill Nicholls",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Headstones_in_Wolvercote_Cemetery_-_geograph.org.uk_-_3872700.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/WolvercoteCemetery_chapelSE.jpg/960px-WolvercoteCemetery_chapelSE.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Motacilla",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:WolvercoteCemetery_chapelSE.jpg"
+			}
+		]
+	},
+	"stonehenge": {
+		"summary": "Stonehenge is a prehistoric megalithic structure on Salisbury Plain in Wiltshire, England, two miles (3 km) west of Amesbury. It consists of an outer ring of vertical sarsen standing stones, each around 13 feet (4.0 m) high, seven feet (2.1 m) wide, and weighing around 25 tons, topped by connecting horizontal lintel stones which are held in place with mortise and tenon joints—a feature unique among contemporary monuments. Inside is a ring of smaller bluestones. Inside these are free-standing trilithons: two bulkier vertical sarsens joined by a single lintel. The whole monument, now in ruins, is aligned towards the sunrise on the summer solstice and sunset on the winter solstice. The stones are set within earthworks in the middle of the densest complex of Neolithic and Bronze Age monuments in England, including several hundred tumuli (burial mounds).",
+		"wikipediaTitle": "Stonehenge",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Stonehenge",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/960px-Stonehenge2007_07_30.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "garethwiscombe",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/BLEgerton3028Fol30rStonehengeCropped.jpg",
+				"width": 960,
+				"height": 1010,
+				"author": "Unknown artistUnknown artist",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:BLEgerton3028Fol30rStonehengeCropped.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Constable_-_Stonehenge%2C_1629-1888%2C_2006AK8142.jpg/960px-Constable_-_Stonehenge%2C_1629-1888%2C_2006AK8142.jpg",
+				"width": 960,
+				"height": 636,
+				"author": "John Constable",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Constable_-_Stonehenge,_1629-1888,_2006AK8142.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Stone_Henge_1920_restoration_-_newspaperphoto.jpg/960px-Stone_Henge_1920_restoration_-_newspaperphoto.jpg",
+				"width": 960,
+				"height": 347,
+				"author": "Richmond times-dispatch",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Stone_Henge_1920_restoration_-_newspaperphoto.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Stonehenge84.jpg/960px-Stonehenge84.jpg",
+				"width": 960,
+				"height": 648,
+				"author": "Salix alba",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Stonehenge84.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Stonehenge_-_Wiltonia_sive_Comitatus_Wiltoniensis%3B_Anglice_Wilshire_%28Atlas_van_Loon%29.jpg/960px-Stonehenge_-_Wiltonia_sive_Comitatus_Wiltoniensis%3B_Anglice_Wilshire_%28Atlas_van_Loon%29.jpg",
+				"width": 960,
+				"height": 811,
+				"author": "Blaeu, J",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Stonehenge_-_Wiltonia_sive_Comitatus_Wiltoniensis;_Anglice_Wilshire_(Atlas_van_Loon).jpg"
+			}
+		]
+	},
+	"oldSarum": {
+		"summary": "Old Sarum, in Wiltshire, South West England, is the ruined and deserted site of the earliest settlement of Salisbury. Situated on a hill about two miles (three kilometres) north of modern Salisbury near the A345 road, the settlement appears in some of the earliest records in the country. It is an English Heritage property and is open to the public.",
+		"wikipediaTitle": "Old Sarum",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Old_Sarum",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Aerial_photograph_of_Old_Sarum_site%2C_on_departure_from_Old_Sarum_airfield.jpg/960px-Aerial_photograph_of_Old_Sarum_site%2C_on_departure_from_Old_Sarum_airfield.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "MARKEDWARDS",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_photograph_of_Old_Sarum_site,_on_departure_from_Old_Sarum_airfield.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Foundations_of_Old_Sarum_Cathedral.jpg/960px-Foundations_of_Old_Sarum_Cathedral.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Margaret Anne Clarke",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Foundations_of_Old_Sarum_Cathedral.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/John_Constable_-_Old_Sarum_at_Noon_-_Google_Art_Project.jpg/960px-John_Constable_-_Old_Sarum_at_Noon_-_Google_Art_Project.jpg",
+				"width": 960,
+				"height": 665,
+				"author": "John Constable",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Constable_-_Old_Sarum_at_Noon_-_Google_Art_Project.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Old_Sarum_Cathedral_with_motte.JPG/960px-Old_Sarum_Cathedral_with_motte.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Nessino",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_Sarum_Cathedral_with_motte.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Old_Sarum_Model_from_West.jpg/960px-Old_Sarum_Model_from_West.jpg",
+				"width": 960,
+				"height": 523,
+				"author": "Model: John B. Thorp. Photo: Kurt Kastner.",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_Sarum_Model_from_West.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/The_history_of_England%2C_from_the_accession_of_James_the_Second_%281914%29_%2814780781994%29.jpg/960px-The_history_of_England%2C_from_the_accession_of_James_the_Second_%281914%29_%2814780781994%29.jpg",
+				"width": 960,
+				"height": 506,
+				"author": "Macaulay, Thomas Babington Macaulay, Baron, 1800-1859; Firth, C. H. (Charles Harding), 1857-1936",
+				"license": "No restrictions",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_history_of_England,_from_the_accession_of_James_the_Second_(1914)_(14780781994).jpg"
+			}
+		]
+	},
+	"salisburyCathedral": {
+		"summary": "Salisbury Cathedral, formally the Cathedral Church of the Blessed Virgin Mary, is an Anglican cathedral in the city of Salisbury, England. The cathedral is regarded as one of the leading examples of Early English Gothic design. Built over a relatively short period, some 38 years between 1220 and 1258, it has a unity and coherence that is unusual in medieval English cathedrals. The tower and spire were completed by 1330. The cathedral's spire, at 404 feet (123 m), is the tallest in England.",
+		"wikipediaTitle": "Salisbury Cathedral",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Salisbury_Cathedral",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/SalisburyCathedral-wyrdlight-EastExt.jpg/960px-SalisburyCathedral-wyrdlight-EastExt.jpg",
+				"width": 960,
+				"height": 792,
+				"author": "Antony McCallum: Who is the uploader, photographer, full copyright owner and proprietor of WyrdLight.com",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:SalisburyCathedral-wyrdlight-EastExt.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/1023581-Cathedral_Church_of_St_Mary_%288%29.jpg/960px-1023581-Cathedral_Church_of_St_Mary_%288%29.jpg",
+				"width": 960,
+				"height": 1121,
+				"author": "Johan Bakker",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:1023581-Cathedral_Church_of_St_Mary_(8).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/C_E_Buckeridge_altar_at_Salisbury_Cathedral.jpg/960px-C_E_Buckeridge_altar_at_Salisbury_Cathedral.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "ShannonMArthur",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:C_E_Buckeridge_altar_at_Salisbury_Cathedral.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Catedral_de_Salisbury%2C_Salisbury%2C_Inglaterra%2C_2014-08-12%2C_DD_03.JPG/960px-Catedral_de_Salisbury%2C_Salisbury%2C_Inglaterra%2C_2014-08-12%2C_DD_03.JPG",
+				"width": 960,
+				"height": 725,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Catedral_de_Salisbury,_Salisbury,_Inglaterra,_2014-08-12,_DD_03.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Catedral_de_Salisbury%2C_Salisbury%2C_Inglaterra%2C_2014-08-12%2C_DD_54.JPG/960px-Catedral_de_Salisbury%2C_Salisbury%2C_Inglaterra%2C_2014-08-12%2C_DD_54.JPG",
+				"width": 960,
+				"height": 356,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Catedral_de_Salisbury,_Salisbury,_Inglaterra,_2014-08-12,_DD_54.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Catedral_de_Salisbury%2C_Salisbury%2C_Inglaterra%2C_2014-08-12%2C_DD_56.JPG/960px-Catedral_de_Salisbury%2C_Salisbury%2C_Inglaterra%2C_2014-08-12%2C_DD_56.JPG",
+				"width": 960,
+				"height": 934,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Catedral_de_Salisbury,_Salisbury,_Inglaterra,_2014-08-12,_DD_56.JPG"
+			}
+		]
+	},
+	"salisburyMuseum": {
+		"summary": "The Salisbury Museum (previously The Salisbury and South Wiltshire Museum) is a museum in Salisbury, Wiltshire, England. It houses one of the best collections relating to Stonehenge and local archaeology.\n\nThe museum is housed in The King's House, a Grade I listed building, where King James I of England was entertained in 1610 and 1613. Set in the surroundings of the Cathedral Close, the museum faces the west front of Salisbury Cathedral. Previously at 40-42 St Ann Street, where it had been founded in 1860 by Dr Richard Fowler, FRS, it transferred to its current site in 1981.\n\nThe original three-storey building, with mullioned and transomed windows, ornate plaster ceilings and a fine oak-balustraded staircase, houses the main temporary exhibition gallery with the ceramics gallery above. The arms of James I's eldest son, Henry Frederick, Prince of Wales, can be seen in a window in the Wedgwood gallery upstairs.\n\nThe director of the museum is Adrian Green. He is supported by chief operating officer Lucy Bridal.",
+		"wikipediaTitle": "The Salisbury Museum",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/The_Salisbury_Museum",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Kings_House_Salisbury_Museum.jpg/960px-Kings_House_Salisbury_Museum.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "SalisburyMuseum1",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Kings_House_Salisbury_Museum.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Salisbury_museum_wessex_gallery.JPG/960px-Salisbury_museum_wessex_gallery.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Geni",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Salisbury_museum_wessex_gallery.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Stonehenge_Closeup.jpg/960px-Stonehenge_Closeup.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Unknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Stonehenge_Closeup.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/The_Amesbury_Archer.JPG/960px-The_Amesbury_Archer.JPG",
+				"width": 960,
+				"height": 720,
+				"author": "Richard Avery",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Amesbury_Archer.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/The_Giant_and_Hobnob.JPG/960px-The_Giant_and_Hobnob.JPG",
+				"width": 960,
+				"height": 1280,
+				"author": "Richard Avery",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Giant_and_Hobnob.JPG"
+			}
+		]
+	},
+	"pulteneyBridge": {
+		"summary": "Pulteney Bridge is a bridge over the River Avon in Bath, England. It was completed by 1774, and connected the city with land in Bathwick which Sir William Pulteney and his family wished to develop. Designed by Robert Adam in a Palladian style, it is one of only four bridges in the world to have shops across its full span on both sides. It has been designated as a Grade I listed building.\n\nThe bridge is named after Frances Pulteney, wife of the Scottish lawyer and politician Sir William Pulteney, 5th Baronet. Frances was a first cousin once removed of William Pulteney, 1st Earl of Bath. She inherited the Earl's substantial fortune in Somerset after his death in 1764. The rural Bathwick estate, which Frances and William inherited in 1767, was across the river from the city and could be reached only by ferry. William made plans to create a new town, which would become a suburb to the historic city of Bath, but first he needed a better river crossing.",
+		"wikipediaTitle": "Pulteney Bridge",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Pulteney_Bridge",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Puente_Pulteney%2C_Bath%2C_Inglaterra%2C_2014-08-12%2C_DD_51.JPG/960px-Puente_Pulteney%2C_Bath%2C_Inglaterra%2C_2014-08-12%2C_DD_51.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Puente_Pulteney,_Bath,_Inglaterra,_2014-08-12,_DD_51.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Bath_England_0400_09.jpg/960px-Bath_England_0400_09.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "FrDr",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bath_England_0400_09.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Bath_Weir_%281%29_2025-07-23.jpg/960px-Bath_Weir_%281%29_2025-07-23.jpg",
+				"width": 960,
+				"height": 723,
+				"author": "Andy Li",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bath_Weir_(1)_2025-07-23.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Malton_Pulteney_Bridge_1785.JPG",
+				"width": 960,
+				"height": 649,
+				"author": "Thomas Malton",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Malton_Pulteney_Bridge_1785.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Pulteney_Bridge%2C_Bath_2.jpg/960px-Pulteney_Bridge%2C_Bath_2.jpg",
+				"width": 960,
+				"height": 1356,
+				"author": "MichaelMaggs",
+				"license": "CC BY-SA 2.5",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Pulteney_Bridge,_Bath_2.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Pulteney_Bridge_%28view_from_the_north_side%29.jpg/960px-Pulteney_Bridge_%28view_from_the_north_side%29.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Mx. Granger",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Pulteney_Bridge_(view_from_the_north_side).jpg"
+			}
+		]
+	},
+	"bathAbbey": {
+		"summary": "The Abbey Church of Saint Peter and Saint Paul, commonly known as Bath Abbey, is a parish church of the Church of England and former Benedictine monastery in Bath, Somerset, England. Founded in the 7th century, it was reorganised in the 10th century and rebuilt in the 12th and 16th centuries; major restoration work was carried out by Sir George Gilbert Scott in the 1860s. It is one of the most significant examples of Perpendicular Gothic architecture in the West Country. The medieval abbey church served as a sometime cathedral of a bishop. After long contention between churchmen in Bath and Wells the seat of the Diocese of Bath and Wells was later consolidated at Wells Cathedral. The Benedictine community was dissolved in 1539 during the Dissolution of the Monasteries.\n\nThe church architecture is cruciform in plan and can seat up to 1,200 people. An active place of worship, it also hosts civic ceremonies, concerts and lectures. There is a museum in the cellars.",
+		"wikipediaTitle": "Bath Abbey",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Bath_Abbey",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Bath_Abbey_from_the_South_West.jpg/960px-Bath_Abbey_from_the_South_West.jpg",
+				"width": 960,
+				"height": 680,
+				"author": "GarfieldJAustin",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bath_Abbey_from_the_South_West.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Abad%C3%ADa_de_Bath%2C_Bath%2C_Inglaterra%2C_2014-08-12%2C_DD_46.JPG/960px-Abad%C3%ADa_de_Bath%2C_Bath%2C_Inglaterra%2C_2014-08-12%2C_DD_46.JPG",
+				"width": 960,
+				"height": 680,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Abad%C3%ADa_de_Bath,_Bath,_Inglaterra,_2014-08-12,_DD_46.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Bath.abbey.flying.buttresses.closeup.arp.jpg/960px-Bath.abbey.flying.buttresses.closeup.arp.jpg",
+				"width": 960,
+				"height": 699,
+				"author": "Arpingstone",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bath.abbey.flying.buttresses.closeup.arp.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Bath_Abbey%2C_1875.jpg/960px-Bath_Abbey%2C_1875.jpg",
+				"width": 960,
+				"height": 600,
+				"author": "not listed",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bath_Abbey,_1875.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Bath_Abbey%2C_ceiling_-_geograph.org.uk_-_717407.jpg",
+				"width": 960,
+				"height": 719,
+				"author": "Brian Robert Marshall",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bath_Abbey,_ceiling_-_geograph.org.uk_-_717407.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Bath_Abbey_Exterior%2C_Somerset%2C_UK_-_Diliff.jpg/960px-Bath_Abbey_Exterior%2C_Somerset%2C_UK_-_Diliff.jpg",
+				"width": 960,
+				"height": 1061,
+				"author": "Diliff",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bath_Abbey_Exterior,_Somerset,_UK_-_Diliff.jpg"
+			}
+		]
+	},
+	"romanBaths": {
+		"summary": "The Roman Baths are well-preserved thermae in the city of Bath, Somerset, England. A temple was constructed on the site between 60 and 70 AD in the first few decades of Roman Britain. Its presence led to the development of the small Roman urban settlement known as Aquae Sulis around the site. The Roman baths were designed for public bathing and were used until the end of Roman rule in Britain in the 5th century AD. According to the Anglo-Saxon Chronicle, the original Roman baths were in ruins a century later. The area around the natural springs was redeveloped several times during the Early and Late Middle Ages.",
+		"wikipediaTitle": "Roman Baths (Bath)",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Roman_Baths_(Bath)",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Roman_Baths_in_Bath_Spa%2C_England_-_July_2006.jpg/960px-Roman_Baths_in_Bath_Spa%2C_England_-_July_2006.jpg",
+				"width": 960,
+				"height": 836,
+				"author": "Diliff",
+				"license": "CC BY 2.5",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Roman_Baths_in_Bath_Spa,_England_-_July_2006.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/%2C_Roman_Baths%2C_Bath%2C_South_West_England%2C_England%2C_Britain%2C_UK%2C_United_Kingdom%2C_United_Kingdom_of_Great_Britain_and_Northern_Ireland_%2840324624295%29.jpg/960px-%2C_Roman_Baths%2C_Bath%2C_South_West_England%2C_England%2C_Britain%2C_UK%2C_United_Kingdom%2C_United_Kingdom_of_Great_Britain_and_Northern_Ireland_%2840324624295%29.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "bryan...",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:,_Roman_Baths,_Bath,_South_West_England,_England,_Britain,_UK,_United_Kingdom,_United_Kingdom_of_Great_Britain_and_Northern_Ireland_(40324624295).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Ba%C3%B1os_Romanos%2C_Bath%2C_Inglaterra%2C_2014-08-12%2C_DD_39-41_HDR.JPG/960px-Ba%C3%B1os_Romanos%2C_Bath%2C_Inglaterra%2C_2014-08-12%2C_DD_39-41_HDR.JPG",
+				"width": 960,
+				"height": 652,
+				"author": "Diego Delso",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ba%C3%B1os_Romanos,_Bath,_Inglaterra,_2014-08-12,_DD_39-41_HDR.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Bladud_Statue_at_Roman_Baths%2C_Bath.jpg/960px-Bladud_Statue_at_Roman_Baths%2C_Bath.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "Smalljim",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Bladud_Statue_at_Roman_Baths,_Bath.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Gorgon%27s_Head_of_the_Temple_Sulis_Minerva_at_Bath_-_Roman_Baths_%28Bath%29.jpg",
+				"width": 960,
+				"height": 848,
+				"author": "Joyofmuseums",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Gorgon%27s_Head_of_the_Temple_Sulis_Minerva_at_Bath_-_Roman_Baths_(Bath).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Maquette_Roman_Baths.jpg/960px-Maquette_Roman_Baths.jpg",
+				"width": 960,
+				"height": 638,
+				"author": "Tristan Surtel",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Maquette_Roman_Baths.jpg"
+			}
+		]
+	},
+	"theCircus": {
+		"summary": "The Circus is a historic ring of large townhouses in the city of Bath, Somerset, England, forming a circle with three entrances. Designed by architect John Wood, the Elder, it was built between 1754 and 1768, and is regarded as a pre-eminent example of Georgian architecture. The Latin word circus means a ring, oval or circle. The construction has been designated as a Grade I listed building.\n\nThe Circus is divided into three segments of equal length, with a lawn in the centre. Each segment faces one of the three entrances, ensuring a classical façade is always presented straight ahead.",
+		"wikipediaTitle": "The Circus, Bath",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/The_Circus,_Bath",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/The.circus.bath.arp.jpg/960px-The.circus.bath.arp.jpg",
+				"width": 960,
+				"height": 730,
+				"author": "Unknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The.circus.bath.arp.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Assembly_Rooms_and_The_Circus_from_a_balloon-geograph-2042508-by-Roger-Beale.jpg/960px-Assembly_Rooms_and_The_Circus_from_a_balloon-geograph-2042508-by-Roger-Beale.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Roger Beale",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Assembly_Rooms_and_The_Circus_from_a_balloon-geograph-2042508-by-Roger-Beale.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/John_Robert_Cozens_-_Bath%2C_The_Circus_-_B1985.36.1322_-_Yale_Center_for_British_Art.jpg/960px-John_Robert_Cozens_-_Bath%2C_The_Circus_-_B1985.36.1322_-_Yale_Center_for_British_Art.jpg",
+				"width": 960,
+				"height": 710,
+				"author": "John Robert Cozens",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Robert_Cozens_-_Bath,_The_Circus_-_B1985.36.1322_-_Yale_Center_for_British_Art.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/The_circus_in_bath_england_arp.jpg/960px-The_circus_in_bath_england_arp.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Adrian Pingstone (Arpingstone)",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_circus_in_bath_england_arp.jpg"
+			}
+		]
+	},
+	"yorkMinster": {
+		"summary": "York Minster, formally the Cathedral and Metropolitical Church of St Peter in York, is an Anglican cathedral in the city of York, North Yorkshire, England. The minster is the seat of the archbishop of York, the second-highest office of the Church of England, and is the mother church for the diocese of York and the province of York. It is administered by its dean and chapter. The minster is a Grade I listed building and a scheduled monument.\n\nThe first record of a church on the site dates to 627; the title \"minster\" also dates to the Anglo-Saxon period, originally denoting a missionary teaching church and now an honorific. The minster undercroft contains re-used fabric of c. 1160, but the bulk of the building was constructed between 1220 and 1472. It consists of Early English Gothic north and south transepts, a Decorated Gothic nave and chapter house, and a Perpendicular Gothic eastern arm and central tower.",
+		"wikipediaTitle": "York Minster",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/York_Minster",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/York_Minster_%282797690%29.jpg/960px-York_Minster_%282797690%29.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "FEGreene",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_Minster_(2797690).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Clock_-_York_Minster_-_Flickr_-_S._Rae.jpg/960px-Clock_-_York_Minster_-_Flickr_-_S._Rae.jpg",
+				"width": 960,
+				"height": 1214,
+				"author": "S. Rae from Scotland, UK",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Clock_-_York_Minster_-_Flickr_-_S._Rae.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Inspecting_Fire_damage%2C_firemen%2C_York_Minster.jpg/960px-Inspecting_Fire_damage%2C_firemen%2C_York_Minster.jpg",
+				"width": 960,
+				"height": 629,
+				"author": "Virgil Lucky",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Inspecting_Fire_damage,_firemen,_York_Minster.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Memorial_to_Thomas_Watson_Wentworth_in_York_Minster.JPG/960px-Memorial_to_Thomas_Watson_Wentworth_in_York_Minster.JPG",
+				"width": 960,
+				"height": 717,
+				"author": "Andrewrabbott",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Memorial_to_Thomas_Watson_Wentworth_in_York_Minster.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/YorkMCrypt.jpg/960px-YorkMCrypt.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "User:SUM1",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:YorkMCrypt.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/YorkMinsterDeckeChorH1c.jpg/960px-YorkMinsterDeckeChorH1c.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "Helge Klaus Rieder",
+				"license": "CC0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:YorkMinsterDeckeChorH1c.jpg"
+			}
+		]
+	},
+	"shambles": {
+		"summary": "The Shambles is a historic street in York, England, featuring preserved medieval buildings, some dating to the 14th century. Running between Newgate in the north and Pavement in the south, the street is narrow, with many timber-framed buildings with jettied floors which overhang the street by several feet. It was once known as the \"Great Flesh Shambles\", a name reflecting its historical use as a butchers' street. The word shambles derives from Old English sċeamol (\"bench, stall\"), referring to vendors' or butchers' stalls. In 1885, thirty-one butchers' shops were located along the street, but none remain today.",
+		"wikipediaTitle": "The Shambles",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/The_Shambles",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Shambles_shopper_8686.jpg/960px-Shambles_shopper_8686.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Peter K Burian",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Shambles_shopper_8686.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/10_and_11_Shambles.jpg/960px-10_and_11_Shambles.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "Warofdreams",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:10_and_11_Shambles.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Sanctuaire_St_Margaret_Clitherow_York_2.jpg/960px-Sanctuaire_St_Margaret_Clitherow_York_2.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Chabe01",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanctuaire_St_Margaret_Clitherow_York_2.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/The_Shambles_Overhangs.jpg/960px-The_Shambles_Overhangs.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "MuleAthon",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Shambles_Overhangs.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/York%2C_Feb_85_%2853239323178%29.jpg/960px-York%2C_Feb_85_%2853239323178%29.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "wilford peloquin",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York,_Feb_85_(53239323178).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/York_-_The_Shambles.jpg/960px-York_-_The_Shambles.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_The_Shambles.jpg"
+			}
+		]
+	},
+	"yorkCityWalls": {
+		"summary": "York has, since Roman times, been defended by walls of one form or another. To this day, substantial portions of the walls remain, and York has more miles of intact wall than any other city in England. They are known variously as York City Walls, the Bar Walls and the Roman walls (though this last is a misnomer as very little of the extant stonework is of Roman origin, and the course of the wall has been substantially altered since Roman times). The walls are generally 13 feet (4 m) high and 6 feet (1.8 m) wide. They are the longest town walls in England.",
+		"wikipediaTitle": "York city walls",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/York_city_walls",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/York_-_City_walls_-_2.jpg/960px-York_-_City_walls_-_2.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_City_walls_-_2.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Micklegate_Bar%2C_Hospital_of_St._Thomas%2C_York%2C_England._Engra_Wellcome_V0014644.jpg/960px-Micklegate_Bar%2C_Hospital_of_St._Thomas%2C_York%2C_England._Engra_Wellcome_V0014644.jpg",
+				"width": 960,
+				"height": 786,
+				"author": "Unknown author",
+				"license": "CC BY 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Micklegate_Bar,_Hospital_of_St._Thomas,_York,_England._Engra_Wellcome_V0014644.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/York_-_Bootham_Bar_-_1.jpg/960px-York_-_Bootham_Bar_-_1.jpg",
+				"width": 960,
+				"height": 1155,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Bootham_Bar_-_1.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/York_-_Fishergate_Postern_Tower.jpg/960px-York_-_Fishergate_Postern_Tower.jpg",
+				"width": 960,
+				"height": 686,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Fishergate_Postern_Tower.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/York_-_Walmgate_Bar_-_2.jpg/960px-York_-_Walmgate_Bar_-_2.jpg",
+				"width": 960,
+				"height": 686,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Walmgate_Bar_-_2.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/7/75/York_city_walls_in_1807_showing_the_Multangular_Tower.jpg",
+				"width": 960,
+				"height": 708,
+				"author": "Unknown authorUnknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_city_walls_in_1807_showing_the_Multangular_Tower.jpg"
+			}
+		]
+	},
+	"yorkCastleMuseum": {
+		"summary": "The York Castle Museum is a museum located in York, North Yorkshire, England, on the site of York Castle, which was originally built by William the Conqueror in 1068. The museum itself was founded by John L. Kirk in 1938, and is housed in prison buildings which were built on the site of the castle in the 18th century, the debtors' prison (built in 1701–05 using stone from the ruins of the castle) and the female prison (built 1780–85).",
+		"wikipediaTitle": "York Castle Museum",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/York_Castle_Museum",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/York_-_Castle_Museum_-_1.jpg/960px-York_-_Castle_Museum_-_1.jpg",
+				"width": 960,
+				"height": 480,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Castle_Museum_-_1.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kirkgate_street_from_ground.JPG/960px-Kirkgate_street_from_ground.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "geni",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Kirkgate_street_from_ground.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Mus%C3%A9e_York_Castle_York_1.jpg/960px-Mus%C3%A9e_York_Castle_York_1.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Chabe01",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_York_Castle_York_1.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Water_Mill%2C_York_Castle_Museum_-_geograph.org.uk_-_100871.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Sue Adair",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Water_Mill,_York_Castle_Museum_-_geograph.org.uk_-_100871.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/York_-_Castle_Museum_-_2.jpg/960px-York_-_Castle_Museum_-_2.jpg",
+				"width": 960,
+				"height": 480,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Castle_Museum_-_2.jpg"
+			}
+		]
+	},
+	"yorkStation": {
+		"summary": "York railway station is a principal stop on the East Coast Main Line (ECML) serving the cathedral city of York, in North Yorkshire, England. It is 188 miles 40 chains (303.4 km) north of London King's Cross and, on the main line, it is situated between Doncaster to the south and Thirsk to the north. As of June 2018, the station is operated by London North Eastern Railway (LNER). It is the busiest station in North Yorkshire, the third busiest in Yorkshire & the Humber and the sixth busiest in Northern England, as well as being the busiest intermediate station on the ECML. In Britain's 100 Best Railway Stations by Simon Jenkins, the station was one of only ten to be awarded five stars.",
+		"wikipediaTitle": "York railway station",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/York_railway_station",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/York_Railway_Station_Paul_Hudson_1.jpg/960px-York_Railway_Station_Paul_Hudson_1.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Paul Hudson",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_Railway_Station_Paul_Hudson_1.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Interior_of_York_station.jpg/960px-Interior_of_York_station.jpg",
+				"width": 960,
+				"height": 803,
+				"author": "Unknown authorUnknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_York_station.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Network_Rail_York_Office.jpg/960px-Network_Rail_York_Office.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Sebastiandoe5",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Network_Rail_York_Office.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Under_the_roof_-_geograph.org.uk_-_7358415.jpg/960px-Under_the_roof_-_geograph.org.uk_-_7358415.jpg",
+				"width": 960,
+				"height": 643,
+				"author": "Bob Harvey",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Under_the_roof_-_geograph.org.uk_-_7358415.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/York_-_Railway_station_-_1.jpg/960px-York_-_Railway_station_-_1.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Railway_station_-_1.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/York_-_Railway_station_-_5.jpg/960px-York_-_Railway_station_-_5.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:York_-_Railway_station_-_5.jpg"
+			}
+		]
+	},
+	"hexhamStation": {
+		"summary": "Hexham is a railway station on the Tyne Valley Line, which runs between Newcastle and Carlisle. The station serves the market town of Hexham, in Northumberland, England; it is situated 22 miles 22 chains (22.3 mi; 35.8 km) west of Newcastle. It is owned by Network Rail and managed by Northern Trains, which also operates all services.",
+		"wikipediaTitle": "Hexham railway station",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Hexham_railway_station",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Hexham_-_Railway_station_-_4.jpg/960px-Hexham_-_Railway_station_-_4.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hexham_-_Railway_station_-_4.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Hexham_-_Railway_station_-_1.jpg/960px-Hexham_-_Railway_station_-_1.jpg",
+				"width": 960,
+				"height": 480,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hexham_-_Railway_station_-_1.jpg"
+			}
+		]
+	},
+	"housesteadsFort": {
+		"summary": "Housesteads Roman Fort was an auxiliary fort on Hadrian's Wall, at Housesteads, Northumberland, England. It is dramatically positioned on the end of the 1-mile (1.6 km)-long crag of the Whin Sill over which the Wall runs, overlooking sparsely populated hills.\n\nIt was called the \"grandest station\" on the Wall and is one of the best-preserved and extensively displayed forts. It was occupied for almost 300 years. It was located 5.3 miles (8.5 km) west from Carrawburgh fort, 6 miles (9.7 km) east of Great Chesters fort and about 2-mile (3.2 km) north east of the existing fort at Vindolanda on the Stanegate road.\n\nThe site is now owned by the National Trust and is currently in the care of English Heritage. Finds from the fort can be seen in the site museum, in the museum at Chesters, and in the Great North Museum: Hancock in Newcastle upon Tyne.",
+		"wikipediaTitle": "Housesteads Roman Fort",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Housesteads_Roman_Fort",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Housesteads_Roman_Fort_aerial.jpg/960px-Housesteads_Roman_Fort_aerial.jpg",
+				"width": 960,
+				"height": 643,
+				"author": "Lieven Smits",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Housesteads_Roman_Fort_aerial.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Granary_at_Housesteads_Roman_Fort.jpg/960px-Granary_at_Housesteads_Roman_Fort.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "uploaded to Wikipedia by Fryslan0109",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Granary_at_Housesteads_Roman_Fort.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Housesteads_latrines.jpg/960px-Housesteads_latrines.jpg",
+				"width": 960,
+				"height": 638,
+				"author": "Steven Fruitsmaak",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Housesteads_latrines.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Milecastle_42%2C_Cawfields%2C_Hadrian%27s_Wall_-_geograph.org.uk_-_57718.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "John Gibson",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Milecastle_42,_Cawfields,_Hadrian%27s_Wall_-_geograph.org.uk_-_57718.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Willimoteswick_Bastle%2C_Haltwhistle_-_geograph.org.uk_-_124371.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Les Hull",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Willimoteswick_Bastle,_Haltwhistle_-_geograph.org.uk_-_124371.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Wroxeter_baths%2C_2010.jpg/960px-Wroxeter_baths%2C_2010.jpg",
+				"width": 960,
+				"height": 667,
+				"author": "stephen jones from uk",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Wroxeter_baths,_2010.jpg"
+			}
+		]
+	},
+	"sycamoreGap": {
+		"summary": "The Sycamore Gap tree, also known as the Robin Hood tree, is a 150-year-old sycamore tree next to Hadrian's Wall near Crag Lough in Northumberland, England. It now exists only as a stump, having been illegally felled in 2023. Standing in a dip in the landscape created by glacial meltwater, it was one of the country's most photographed trees and an emblem for the North East of England. Its alternative name is derived from featuring in a scene in the 1991 film Robin Hood: Prince of Thieves. The tree won the Woodland Trust 2016 England Tree of the Year award, receiving a £1,000 care grant funded by the People's Postcode Lottery.\n\nIn July 2025, Daniel Graham and Adam Carruthers were convicted of causing criminal damage by felling the tree, and were each sentenced to 4 years and 3 months in prison. Carruthers was released in April 2026 and Graham that October. The stump has thrown up basal shoots, and seeds and cuttings have been gathered for propagation. Now standing as a coppiced specimen, the tree is expected to take more than 150 years to regrow back to its former size.",
+		"wikipediaTitle": "Sycamore Gap tree",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Sycamore_Gap_tree",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Sycamore_Gap_Tree_arbre.jpg/960px-Sycamore_Gap_Tree_arbre.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Clementp.fr",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Sycamore_Gap_Tree_arbre.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/FelledSycamoreTree.jpg/960px-FelledSycamoreTree.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Wandering wounder",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:FelledSycamoreTree.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Sycamore_Gap_2007.jpg/960px-Sycamore_Gap_2007.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Robin van Mourik",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Sycamore_Gap_2007.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Sycamore_Gap_Tree.jpg/960px-Sycamore_Gap_Tree.jpg",
+				"width": 960,
+				"height": 245,
+				"author": "Clementp.fr",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Sycamore_Gap_Tree.jpg"
+			}
+		]
+	},
+	"steelRigg": {
+		"summary": "Hadrian's Wall is a former defensive fortification of the Roman province of Britannia, begun in AD 122 in the reign of the Emperor Hadrian. Running from Wallsend on the River Tyne in the east to Bowness-on-Solway in the west of what is now northern England, it was a stone wall (in its final version) with large ditches in front and behind, stretching across the whole width of the island. Soldiers were garrisoned along the line of the wall in large forts, smaller milecastles, and intervening turrets. In addition to the wall's defensive military role, its gates may have been customs posts.",
+		"wikipediaTitle": "Hadrian's Wall",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Hadrian%27s_Wall",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Hadrians_Wall_map.svg/960px-Hadrians_Wall_map.svg.png",
+				"width": 960,
+				"height": 1194,
+				"author": "Hadrians_Wall_map.png: Created by NormanEinstein, September 20, 2005 derivative work: Talifero (talk)",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hadrians_Wall_map.svg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Beacons_lit_along_Hadrians_Wall_%28geograph_4917923%29.jpg/960px-Beacons_lit_along_Hadrians_Wall_%28geograph_4917923%29.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Gary Dickson",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Beacons_lit_along_Hadrians_Wall_(geograph_4917923).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Hadrian%27s_Wall%2C_junction_of_the_Broad_Wall_and_Narrow_Wall_bases.jpg/960px-Hadrian%27s_Wall%2C_junction_of_the_Broad_Wall_and_Narrow_Wall_bases.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "Richard Keatinge",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hadrian%27s_Wall,_junction_of_the_Broad_Wall_and_Narrow_Wall_bases.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Hadrian%27s_Wall_Vallum_-_2007-05-19.jpg/960px-Hadrian%27s_Wall_Vallum_-_2007-05-19.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Voice of Clam",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hadrian%27s_Wall_Vallum_-_2007-05-19.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Hadrian%27s_Wall_at_Sycamore_Gap_-_geograph.org.uk_-_4593047.jpg/960px-Hadrian%27s_Wall_at_Sycamore_Gap_-_geograph.org.uk_-_4593047.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Andrew Curtis",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hadrian%27s_Wall_at_Sycamore_Gap_-_geograph.org.uk_-_4593047.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Hadrian%27s_Wall_on_Housesteads_Crags_-_06.jpg/960px-Hadrian%27s_Wall_on_Housesteads_Crags_-_06.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "Benjamin Smith",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Hadrian%27s_Wall_on_Housesteads_Crags_-_06.jpg"
+			}
+		]
+	},
+	"edinburghCastle": {
+		"summary": "Edinburgh Castle (Scottish Gaelic: Caisteal Dhùn Èideann) is a historic castle in Edinburgh, Scotland. It stands on Castle Rock, which has been occupied by humans since at least the Iron Age. There has been a royal castle on the rock since the reign of Malcolm III in the 11th century, and the castle continued to be a royal residence until 1633. From the 15th century, the castle's residential role declined, and by the 17th century it was principally used as a military garrison. Its importance as a part of Scotland's national heritage was recognised increasingly from the early 19th century onwards, and various restoration programmes have been carried out since the middle of the 19th century.",
+		"wikipediaTitle": "Edinburgh Castle",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Edinburgh_Castle",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Edinburgh_Castle_from_Esplanade_20211019.jpg/960px-Edinburgh_Castle_from_Esplanade_20211019.jpg",
+				"width": 960,
+				"height": 689,
+				"author": "Daniel Kraft",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_from_Esplanade_20211019.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/79/Aerial_View_of_Edinburgh%2C_by_Alfred_Buckham%2C_from_about_1920.jpg/960px-Aerial_View_of_Edinburgh%2C_by_Alfred_Buckham%2C_from_about_1920.jpg",
+				"width": 960,
+				"height": 1175,
+				"author": "Alfred G. Buckham (1879 - 1956); restored by Adam Cuerden",
+				"license": "PD-US",
+				"sourceUrl": "https://en.wikipedia.org/wiki/File:Aerial_View_of_Edinburgh,_by_Alfred_Buckham,_from_about_1920.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Braun_%26_Hogenberg_%27Castrum_Puellarum%27_%28Edinburgh_Castle%29_c.1581.jpg/960px-Braun_%26_Hogenberg_%27Castrum_Puellarum%27_%28Edinburgh_Castle%29_c.1581.jpg",
+				"width": 960,
+				"height": 774,
+				"author": "Braun &amp; Hogenberg",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Braun_%26_Hogenberg_%27Castrum_Puellarum%27_(Edinburgh_Castle)_c.1581.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Edinburgh-Castle.jpg/960px-Edinburgh-Castle.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Christian Bickel",
+				"license": "CC BY-SA 2.0 de",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh-Castle.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/EdinburghSNWM.JPG/960px-EdinburghSNWM.JPG",
+				"width": 960,
+				"height": 615,
+				"author": "LeCardinal",
+				"license": "CC BY 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:EdinburghSNWM.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Edinburgh_Castle_%289860908625%29.jpg/960px-Edinburgh_Castle_%289860908625%29.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "sebastian.b.",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_(9860908625).jpg"
+			}
+		]
+	},
+	"nationalMuseumOfScotland": {
+		"summary": "The National Museum of Scotland (Scottish Gaelic: Taigh-tasgaidh Nàiseanta na h-Alba) in Edinburgh, Scotland, is a museum of Scottish history and culture.\n\nIt was formed in 2006 with the merger of the new Museum of Scotland, with collections relating to Scottish antiquities, culture and history, and the adjacent Royal Scottish Museum (opened in 1866 as the Edinburgh Museum of Science and Art, renamed in 1904, and for the period between 1985 and the merger named the Royal Museum of Scotland or simply the Royal Museum), with international collections covering science and technology, natural history, and world cultures. The two connected buildings stand beside each other on Chambers Street, by the junction with the George IV Bridge, in central Edinburgh. The museum is part of National Museums Scotland and admission is free.",
+		"wikipediaTitle": "National Museum of Scotland",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/National_Museum_of_Scotland",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Museum_of_Scotland.jpg/960px-Museum_of_Scotland.jpg",
+				"width": 960,
+				"height": 718,
+				"author": "No machine-readable author provided. Maccoinnich~commonswiki assumed (based on copyright claims).",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Scotland.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Animals_%285986846359%29.jpg/960px-Animals_%285986846359%29.jpg",
+				"width": 960,
+				"height": 1280,
+				"author": "subberculture",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Animals_(5986846359).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Carved_ivory_horn%2C_National_Museum_of_Scotland%2C_Edinburgh.jpg/960px-Carved_ivory_horn%2C_National_Museum_of_Scotland%2C_Edinburgh.jpg",
+				"width": 960,
+				"height": 468,
+				"author": "Kleon3",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Carved_ivory_horn,_National_Museum_of_Scotland,_Edinburgh.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Chess01.jpg/960px-Chess01.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Unknown author",
+				"license": "CC BY-SA 2.0 de",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Chess01.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Dolly_the_Sheep_National_Museum_of_Scotland.jpg/960px-Dolly_the_Sheep_National_Museum_of_Scotland.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "Sgerbic",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Dolly_the_Sheep_National_Museum_of_Scotland.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Galloway_Hoard_-_Brooch.jpg/960px-Galloway_Hoard_-_Brooch.jpg",
+				"width": 960,
+				"height": 967,
+				"author": "John Lord",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Galloway_Hoard_-_Brooch.jpg"
+			}
+		]
+	},
+	"arthursSeat": {
+		"summary": "Arthur's Seat (Scottish Gaelic: Suidhe Artair, pronounced) is an ancient extinct volcano. It is the main peak of a group of hills in Edinburgh, Scotland, which form most of Holyrood Park. Robert Louis Stevenson described it as \"a hill for magnitude, a mountain in virtue of its bold design\". It is situated just to the east of the city centre, about 1 mile (1.6 km) to the east of Edinburgh Castle. The hill rises above the city to a height of 250.5 m (822 ft), provides panoramic views of the city and beyond, is relatively easy to climb, and is popular for hillwalking. Though it can be climbed from almost any direction, the easiest ascent is from the east, where a grassy slope rises above Dunsapie Loch. At a spur of the hill, Salisbury Crags has historically been a rock climbing venue with routes of various degrees of difficulty. Rock climbing was restricted to the South Quarry, but access was banned altogether in 2019 by Historic Environment Scotland.",
+		"wikipediaTitle": "Arthur's Seat",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Arthur%27s_Seat",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Arthur%27s_Seat%2C_Edinburgh.JPG/960px-Arthur%27s_Seat%2C_Edinburgh.JPG",
+				"width": 960,
+				"height": 349,
+				"author": "Kim Traynor",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Arthur%27s_Seat,_Edinburgh.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Arthur%27s_Seat_as_seen_over_the_Firth_of_Forth_from_Fife.jpg/960px-Arthur%27s_Seat_as_seen_over_the_Firth_of_Forth_from_Fife.jpg",
+				"width": 960,
+				"height": 639,
+				"author": "Stephencdickson",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Arthur%27s_Seat_as_seen_over_the_Firth_of_Forth_from_Fife.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Arthur%27s_Seat_coffins.jpg/960px-Arthur%27s_Seat_coffins.jpg",
+				"width": 960,
+				"height": 732,
+				"author": "Kim Traynor",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Arthur%27s_Seat_coffins.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Arthur%27s_Seat_from_Edinburgh_Castle.jpg",
+				"width": 960,
+				"height": 571,
+				"author": "Kim Traynor",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Arthur%27s_Seat_from_Edinburgh_Castle.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Arthurs_seat_summit_panorama.jpg/960px-Arthurs_seat_summit_panorama.jpg",
+				"width": 960,
+				"height": 97,
+				"author": "Tyler Brenot",
+				"license": "CC BY 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Arthurs_seat_summit_panorama.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Burgh_arms_of_the_Canongate.jpg/960px-Burgh_arms_of_the_Canongate.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Kim Traynor",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Burgh_arms_of_the_Canongate.jpg"
+			}
+		]
+	},
+	"dryDam": {
+		"summary": "Holyrood Park (the official name since at least the 1950s, as outlined in the ‘Holyrood Park Regulations 1959’ but also colloquially called the King's Park or Queen's Park depending on the reigning monarch's gender) is a public park in central Edinburgh, Scotland about 1 mile (1.6 kilometres) to the east of Edinburgh Castle. It has an array of hills, lochs, glens, ridges, basalt cliffs, and patches of gorse, providing a wild piece of highland landscape within its 650-acre (260 ha) area. The park is associated with the Palace of Holyroodhouse and was formerly a royal hunting estate. The park was created in 1541 when James V had the ground \"circulit about Arthurs Sett, Salisborie and Duddingston craggis\" enclosed by a stone wall.",
+		"wikipediaTitle": "Holyrood Park",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Holyrood_Park",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Edinburgh_Arthur_Seat_dsc06165.jpg/960px-Edinburgh_Arthur_Seat_dsc06165.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "David Monniaux",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Arthur_Seat_dsc06165.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Edinburgh-mountain-1060957.jpg/960px-Edinburgh-mountain-1060957.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "ermell",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh-mountain-1060957.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Edinburgh_from_Salisbury_Crags_Radical_Road.jpg/960px-Edinburgh_from_Salisbury_Crags_Radical_Road.jpg",
+				"width": 960,
+				"height": 270,
+				"author": "dave souza",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_from_Salisbury_Crags_Radical_Road.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Holyrood_Palace_1544.jpg/960px-Holyrood_Palace_1544.jpg",
+				"width": 960,
+				"height": 575,
+				"author": "Unknown authorUnknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Palace_1544.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Holyrood_Park_Samsons_ribs_DSC04975.JPG/960px-Holyrood_Park_Samsons_ribs_DSC04975.JPG",
+				"width": 960,
+				"height": 720,
+				"author": "David Monniaux",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Park_Samsons_ribs_DSC04975.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Holyrood_Park_Samsons_ribs_DSC04978.JPG/960px-Holyrood_Park_Samsons_ribs_DSC04978.JPG",
+				"width": 960,
+				"height": 720,
+				"author": "David Monniaux",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Park_Samsons_ribs_DSC04978.JPG"
+			}
+		]
+	},
+	"scottishNationalGallery": {
+		"summary": "The National (formerly the Scottish National Gallery) is the national art gallery of Scotland. It is located on The Mound in central Edinburgh, close to Princes Street. The building was designed in a neoclassical style by William Henry Playfair, and first opened to the public in 1859.\n\nThe gallery houses Scotland's national collection of fine art, spanning Scottish and international art from the beginning of the Renaissance up to the start of the 20th century.\n\nThe National is run by National Galleries Scotland, a public body that also owns the Scottish National Gallery of Modern Art and the Scottish National Portrait Gallery. Because of its architectural similarity, the National is frequently confused by visitors with the neighbouring Royal Scottish Academy Building (RSA), a separate institution which works closely with the National.",
+		"wikipediaTitle": "Scottish National Gallery",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Scottish_National_Gallery",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Scottish_National_Gallery_-_aerial_-_2025-04-19_01.jpg/960px-Scottish_National_Gallery_-_aerial_-_2025-04-19_01.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "瑞丽江的河水",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Scottish_National_Gallery_-_aerial_-_2025-04-19_01.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Benjamin_West_-_Alexander_III_of_Scotland_Rescued_from_the_Fury_of_a_Stag_by_the_Intrepidity_of_Colin_Fitzgerald_%28%27The_Death_of_the_Stag%27%29_-_Google_Art_Project.jpg/960px-thumbnail.jpg",
+				"width": 960,
+				"height": 682,
+				"author": "Benjamin West",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Benjamin_West_-_Alexander_III_of_Scotland_Rescued_from_the_Fury_of_a_Stag_by_the_Intrepidity_of_Colin_Fitzgerald_(%27The_Death_of_the_Stag%27)_-_Google_Art_Project.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Claude_Monet_-_Haystacks%2C_Snow_Effect_-_NG_2283_-_National_Galleries_of_Scotland.jpg/960px-Claude_Monet_-_Haystacks%2C_Snow_Effect_-_NG_2283_-_National_Galleries_of_Scotland.jpg",
+				"width": 960,
+				"height": 683,
+				"author": "Claude Monet",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Haystacks,_Snow_Effect_-_NG_2283_-_National_Galleries_of_Scotland.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Edinburgh_Castle_and_National_Gallery_%283610788685%29.jpg/960px-Edinburgh_Castle_and_National_Gallery_%283610788685%29.jpg",
+				"width": 960,
+				"height": 632,
+				"author": "Cornell University Library",
+				"license": "No restrictions",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_and_National_Gallery_(3610788685).jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Frans_Hals_104_WGA_version.jpg",
+				"width": 960,
+				"height": 1301,
+				"author": "Frans Hals",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Frans_Hals_104_WGA_version.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Frederic_Edwin_Church_-_Niagara_Falls%2C_from_the_American_Side_-_Google_Art_Project.jpg/960px-Frederic_Edwin_Church_-_Niagara_Falls%2C_from_the_American_Side_-_Google_Art_Project.jpg",
+				"width": 960,
+				"height": 1090,
+				"author": "Frederic Edwin Church",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Frederic_Edwin_Church_-_Niagara_Falls,_from_the_American_Side_-_Google_Art_Project.jpg"
+			}
+		]
+	},
+	"edinburghWaverley": {
+		"summary": "Edinburgh Waverley (also known simply as Edinburgh; Scottish Gaelic: Waverley Dhùn Èideann) is the principal railway station serving Edinburgh, Scotland. It is the second-busiest station in Scotland, after Glasgow Central. The station serves as the northern terminus of the East Coast Main Line, 393 miles 13 chains (393.16 miles; 632.7 kilometres) from London King's Cross, although some trains operated by London North Eastern Railway continue to other Scottish destinations beyond Edinburgh.",
+		"wikipediaTitle": "Edinburgh Waverley railway station",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Edinburgh_Waverley_railway_station",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Edinburgh_Waverley_railway_station_-_aerial_-_2025-04-19_01.jpg/960px-Edinburgh_Waverley_railway_station_-_aerial_-_2025-04-19_01.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "瑞丽江的河水",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Waverley_railway_station_-_aerial_-_2025-04-19_01.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/City_of_Edinburgh_-_Edinburgh_Waverley_railway_station_-_20240529001627.jpg/960px-City_of_Edinburgh_-_Edinburgh_Waverley_railway_station_-_20240529001627.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Gillfoto",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:City_of_Edinburgh_-_Edinburgh_Waverley_railway_station_-_20240529001627.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Edinburgh_-_TPE_350405_and_Abellio_380105.JPG/960px-Edinburgh_-_TPE_350405_and_Abellio_380105.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Geof Sheppard",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_-_TPE_350405_and_Abellio_380105.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Edinburgh_Waverley_geograph-2261655-by-Ben-Brooksbank.jpg/960px-Edinburgh_Waverley_geograph-2261655-by-Ben-Brooksbank.jpg",
+				"width": 960,
+				"height": 663,
+				"author": "Ben Brooksbank",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Waverley_geograph-2261655-by-Ben-Brooksbank.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Edinburgh_Waverley_station_main_concourse%2C_June_2024.jpg/960px-Edinburgh_Waverley_station_main_concourse%2C_June_2024.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "PEPSI697",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Waverley_station_main_concourse,_June_2024.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Glasgow_Central_-_Abellio_385020_Shotts_service.JPG/960px-Glasgow_Central_-_Abellio_385020_Shotts_service.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Geof Sheppard",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Glasgow_Central_-_Abellio_385020_Shotts_service.JPG"
+			}
+		]
+	},
+	"edinburghAirport": {
+		"summary": "Edinburgh Airport (IATA: EDI, ICAO: EGPH) is an international airport located in the Ingliston area of Edinburgh, Scotland. It is located 6 miles (9 km)\n\nwest of the city centre, just off the M8 and M9 motorways. It is owned and operated by Edinburgh Airport Limited.\n\nThe airport is the busiest in Scotland based on passenger numbers, with 15.8 million passengers flying from the airport in 2024, a 10% increase on passenger numbers from 2023. A total of 35 airlines use the airport to fly to over 152 international destinations. As well as being the busiest airport in Scotland, it is the sixth busiest airport in the United Kingdom.",
+		"wikipediaTitle": "Edinburgh Airport",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Edinburgh_Airport",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Edinburgh_Airport.jpg/960px-Edinburgh_Airport.jpg",
+				"width": 960,
+				"height": 638,
+				"author": "Herbert Frank from Wien (Vienna), AT",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Airport.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/EDI_AIRPORT_FROM_FLIGHT_ORY-KEF_757_ICELANDAIR_TF-FIK_%2835461420664%29.jpg/960px-EDI_AIRPORT_FROM_FLIGHT_ORY-KEF_757_ICELANDAIR_TF-FIK_%2835461420664%29.jpg",
+				"width": 960,
+				"height": 651,
+				"author": "ERIC SALARD from PARIS, FRANCE",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:EDI_AIRPORT_FROM_FLIGHT_ORY-KEF_757_ICELANDAIR_TF-FIK_(35461420664).jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Edinburgh_Airport_-_1978_-_geograph.org.uk_-_3052448.jpg/960px-Edinburgh_Airport_-_1978_-_geograph.org.uk_-_3052448.jpg",
+				"width": 960,
+				"height": 649,
+				"author": "Andrew Richardson",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Airport_-_1978_-_geograph.org.uk_-_3052448.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Edinburgh_Airport_-_geograph.org.uk_-_3588330.jpg",
+				"width": 960,
+				"height": 551,
+				"author": "Thomas Nugent",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Airport_-_geograph.org.uk_-_3588330.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Glasgow_Central_-_Abellio_385020_Shotts_service.JPG/960px-Glasgow_Central_-_Abellio_385020_Shotts_service.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Geof Sheppard",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Glasgow_Central_-_Abellio_385020_Shotts_service.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Lothian_Buses_851.JPG/960px-Lothian_Buses_851.JPG",
+				"width": 960,
+				"height": 1348,
+				"author": "Ad Meskens",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Lothian_Buses_851.JPG"
+			}
+		]
+	},
+	"lochLomondShores": {
+		"summary": "Balloch ( BAH-ləkh; Scottish Gaelic: Am Bealach) is a village in West Dunbartonshire, Scotland, at the foot of Loch Lomond.",
+		"wikipediaTitle": "Balloch, West Dunbartonshire",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Balloch,_West_Dunbartonshire",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Lochside_view_Balloch.JPG/960px-Lochside_view_Balloch.JPG",
+				"width": 960,
+				"height": 718,
+				"author": "Rosser1954",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Lochside_view_Balloch.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Environmental_Art_Balloch.JPG/960px-Environmental_Art_Balloch.JPG",
+				"width": 960,
+				"height": 718,
+				"author": "Rosser1954",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Environmental_Art_Balloch.JPG"
+			}
+		]
+	},
+	"lochLomondCruise": {
+		"summary": "Loch Lomond (; Scottish Gaelic: Loch Laomainn) is a freshwater Scottish loch that spans the Highland Boundary Fault, often considered the boundary between the Lowlands and Highlands of Scotland. Traditionally forming part of the boundary between the counties of Stirlingshire and Dunbartonshire, it is today split between the council areas of Stirling, Argyll and Bute and West Dunbartonshire. Its southern shores are about 23 kilometres (14 mi) northwest of the centre of Glasgow, Scotland's largest city. The loch forms part of Loch Lomond and The Trossachs National Park, which was established in 2002. From a limnological perspective, Loch Lomond is classified as a dimictic lake, typically undergoing two mixing periods each year. This occurs in the spring and autumn when the water column becomes uniformly mixed due to temperature-driven density changes.",
+		"wikipediaTitle": "Loch Lomond",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Loch_Lomond",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Loch_Lomond_2013_2.JPG/960px-Loch_Lomond_2013_2.JPG",
+				"width": 960,
+				"height": 640,
+				"author": "Mimihitam",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Loch_Lomond_2013_2.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Atchafalaya_Basin.jpg/960px-Atchafalaya_Basin.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "U.S. Army Corps of Engineers, photographer not specified or unknown",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Atchafalaya_Basin.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Ben_Lomand_Loch.jpg/960px-Ben_Lomand_Loch.jpg",
+				"width": 960,
+				"height": 556,
+				"author": "Thomas J. Marple",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ben_Lomand_Loch.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Birds_on_the_loch%2C_RSPB_Loch_Lomond_-_geograph.org.uk_-_4973354.jpg/960px-Birds_on_the_loch%2C_RSPB_Loch_Lomond_-_geograph.org.uk_-_4973354.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Richard Sutcliffe",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Birds_on_the_loch,_RSPB_Loch_Lomond_-_geograph.org.uk_-_4973354.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Glen_Douglas_-_geograph.org.uk_-_33009.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "william craig",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Glen_Douglas_-_geograph.org.uk_-_33009.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/LochLomond%28wfmillar%29Jan2000.jpg",
+				"width": 960,
+				"height": 662,
+				"author": "wfmillar",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:LochLomond(wfmillar)Jan2000.jpg"
+			}
+		]
+	},
+	"threeLochsForestDrive": {
+		"summary": "Queen Elizabeth Forest Park is a 19,665-hectare (48,590-acre) forest park in the Scottish Highlands which extends from the eastern shores of Loch Lomond to the mountains of Strathyre. The forest park is one of six such parks in Scotland, and was established in 1953, the year of the coronation of Queen Elizabeth II. It is owned and managed by Forestry and Land Scotland.",
+		"wikipediaTitle": "Queen Elizabeth Forest Park",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Queen_Elizabeth_Forest_Park",
+		"photos": [
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Queen_elizabeth_forest_park_zoom.png",
+				"width": 960,
+				"height": 484,
+				"author": "Grinner",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Queen_elizabeth_forest_park_zoom.png"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Achray_Forest_-_geograph.org.uk_-_669038.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "John Gibson",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Achray_Forest_-_geograph.org.uk_-_669038.jpg"
+			}
+		]
+	},
+	"lochVenachar": {
+		"summary": "Loch Venachar (Scottish Gaelic: Loch Bheannchair) is a freshwater loch in Stirling district, Scotland.",
+		"wikipediaTitle": "Loch Venachar",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Loch_Venachar",
+		"photos": [
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Loch_Venachar.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Callum Black",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Loch_Venachar.jpg"
+			}
+		]
+	},
+	"douneCastle": {
+		"summary": "Doune Castle is a medieval stronghold near the village of Doune, in the Stirling council area of central Scotland and the historic county of Perthshire. The castle is sited on a wooded bend where the Ardoch Burn flows into the River Teith. It lies 8 miles (13 kilometres) northwest of Stirling, where the Teith flows into the River Forth. Upstream, 8 miles (13 kilometres) further northwest, the town of Callander lies at the edge of the Trossachs, on the fringe of the Scottish Highlands.",
+		"wikipediaTitle": "Doune Castle",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Doune_Castle",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Scotland-2016-Aerial-Doune_Castle_%28and_Castle_keeper%27s_cottage%29.jpg/960px-Scotland-2016-Aerial-Doune_Castle_%28and_Castle_keeper%27s_cottage%29.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Godot13",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Scotland-2016-Aerial-Doune_Castle_(and_Castle_keeper%27s_cottage).jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Doune_Castle_-_great_hall.jpg",
+				"width": 960,
+				"height": 648,
+				"author": "Otter",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Doune_Castle_-_great_hall.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Doune_Castle_Scotland.jpg/960px-Doune_Castle_Scotland.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Wikifan75",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Doune_Castle_Scotland.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Scotia_Depicta_-_Doune_Castle_-Plate-.jpg/960px-Scotia_Depicta_-_Doune_Castle_-Plate-.jpg",
+				"width": 960,
+				"height": 811,
+				"author": "John Claude Nattes / James Fittler",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Scotia_Depicta_-_Doune_Castle_-Plate-.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/The_Castle_of_Doune_by_Henry_Fox_Talbot.jpg",
+				"width": 960,
+				"height": 749,
+				"author": "William Henry Fox Talbot",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Castle_of_Doune_by_Henry_Fox_Talbot.jpg"
+			}
+		]
+	},
+	"stirlingCastle": {
+		"summary": "Stirling Castle (Scottish Gaelic: Caisteal Shruighlea) is one of the largest and most historically and architecturally important castles in Scotland. The castle sits atop an intrusive crag, which forms part of the Stirling Sill geological formation. It is surrounded on three sides by steep cliffs, giving it a strong defensive position. Its strategic location, guarding what was, until the 1890s, the farthest downstream crossing of the River Forth, has made it an important fortification in the region from the earliest times.\n\nMost of the principal buildings of the castle date from the fifteenth and sixteenth centuries. A few structures remain from the fourteenth century, while the outer defences fronting the town date from the early eighteenth century.\n\nBefore the union with England, Stirling Castle was also one of the most used of the many Scottish royal residences, very much a palace as well as a fortress. Several Scottish Kings and Queens have been crowned at Stirling, including Mary, Queen of Scots, in 1542, and others were born or died there.",
+		"wikipediaTitle": "Stirling Castle",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Stirling_Castle",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Stirling_Castle_Aerial_Photo.jpg/960px-Stirling_Castle_Aerial_Photo.jpg",
+				"width": 960,
+				"height": 651,
+				"author": "John McPake",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_Aerial_Photo.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Cannon_at_the_French_Spur%2C_Stirling_Castle.jpg/960px-Cannon_at_the_French_Spur%2C_Stirling_Castle.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "Kim Traynor",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Cannon_at_the_French_Spur,_Stirling_Castle.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Chapel_Royal%2C_Stirling_Castle_-_geograph.org.uk_-_1484086.jpg",
+				"width": 960,
+				"height": 639,
+				"author": "Bill Harrison",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Chapel_Royal,_Stirling_Castle_-_geograph.org.uk_-_1484086.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Edward_repulsed_from_Stirling_Castle.jpg/960px-Edward_repulsed_from_Stirling_Castle.jpg",
+				"width": 960,
+				"height": 748,
+				"author": "James Grant (book author)",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edward_repulsed_from_Stirling_Castle.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Interior_Great_Hall.JPG/960px-Interior_Great_Hall.JPG",
+				"width": 960,
+				"height": 1280,
+				"author": "Rab-k at English Wikipedia",
+				"license": "CC BY 2.5",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Interior_Great_Hall.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Portrait_of_James_V_of_Scotland_%281512_-_1542%29.jpg/960px-Portrait_of_James_V_of_Scotland_%281512_-_1542%29.jpg",
+				"width": 960,
+				"height": 1165,
+				"author": "Corneille de Lyon",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_James_V_of_Scotland_(1512_-_1542).jpg"
+			}
+		]
+	},
+	"theKelpies": {
+		"summary": "The Kelpies are a pair of monumental steel horse-heads between the Scottish towns of Falkirk and Grangemouth. They stand next to the M9 motorway and form the eastern gateway of the Forth and Clyde Canal, which meets the River Carron here. Each head is 30 metres (98 ft) high and weighs approximately 300 tonnes (47,000 st).\n\nThe sculptures, which represent kelpies, were designed by sculptor Andy Scott and were completed in October 2013. An unveiling ceremony took place in April 2014. Around the sculptures is an area of parkland known as the Helix.",
+		"wikipediaTitle": "The Kelpies",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/The_Kelpies",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/The_Kelpies_at_The_Helix_in_Falkirk%2C_Scotland%2C_June_2014.jpg/960px-The_Kelpies_at_The_Helix_in_Falkirk%2C_Scotland%2C_June_2014.jpg",
+				"width": 960,
+				"height": 640,
+				"author": "Steven Straiton",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Kelpies_at_The_Helix_in_Falkirk,_Scotland,_June_2014.jpg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Kelpies_under_construction.jpeg",
+				"width": 960,
+				"height": 720,
+				"author": "Scottish Government",
+				"license": "CC BY 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Kelpies_under_construction.jpeg"
+			},
+			{
+				"url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/The_Kelpies_at_Edinburgh_Airport_-_geograph.org.uk_-_2580937.jpg",
+				"width": 960,
+				"height": 573,
+				"author": "Thomas Nugent",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Kelpies_at_Edinburgh_Airport_-_geograph.org.uk_-_2580937.jpg"
+			}
+		]
+	}
+}

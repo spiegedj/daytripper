@@ -1,0 +1,110 @@
+{
+	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Walk legs are routed automatically. Legs not listed here (London Underground hops where the line isn't recorded, Oxford to Salisbury, Salisbury to York) are drawn as arcs. Run: node scripts/fetchTransitRoutes.mjs uk",
+	"legs":
+	[
+		{
+			"dayNumber": 1, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "train", "lineMatch": "Elizabeth", "from": { "name": "Heathrow Terminals 2 & 3", "latitude": 51.4713, "longitude": -0.4524 }, "to": { "name": "Bond Street", "latitude": 51.5142, "longitude": -0.1494 } },
+				{ "mode": "subway", "lineMatch": "Jubilee", "to": { "name": "Waterloo", "latitude": 51.5031, "longitude": -0.1132 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 4, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "London Waterloo", "latitude": 51.5031, "longitude": -0.1132 } },
+				{ "mode": "train", "lineMatch": "Windsor", "railway": "rail", "to": { "name": "Windsor & Eton Riverside", "latitude": 51.4856, "longitude": -0.6065 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 4, "arrivalStopIndex": 4,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Windsor & Eton Riverside", "latitude": 51.4856, "longitude": -0.6065 } },
+				{ "mode": "train", "lineMatch": "Windsor", "railway": "rail", "to": { "name": "London Waterloo", "latitude": 51.5031, "longitude": -0.1132 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 5, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Waterloo", "latitude": 51.5031, "longitude": -0.1132 } },
+				{ "mode": "subway", "lineMatch": "Bakerloo", "to": { "name": "Paddington", "latitude": 51.5154, "longitude": -0.1755 } },
+				{ "mode": "train", "lineMatch": "Oxford", "railway": "rail" }
+			]
+		},
+		{ "dayNumber": 5, "arrivalStopIndex": 6, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 6, "arrivalStopIndex": 1, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 6, "arrivalStopIndex": 2, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 6, "arrivalStopIndex": 3, "segments": [{ "mode": "bus" }] },
+		{
+			"dayNumber": 7, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Salisbury", "latitude": 51.0706, "longitude": -1.8064 } },
+				{ "mode": "train", "lineMatch": "Cardiff|Bristol|Bath", "railway": "rail", "to": { "name": "Bath Spa", "latitude": 51.3776, "longitude": -2.3567 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 7, "arrivalStopIndex": 6,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Bath Spa", "latitude": 51.3776, "longitude": -2.3567 } },
+				{ "mode": "train", "lineMatch": "Cardiff|Bristol|Bath", "railway": "rail", "to": { "name": "Salisbury", "latitude": 51.0706, "longitude": -1.8064 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 9, "arrivalStopIndex": 6,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "York", "latitude": 53.9580, "longitude": -1.0931 } },
+				{ "mode": "train", "lineMatch": "East Coast", "railway": "rail", "to": { "name": "Newcastle", "latitude": 54.9688, "longitude": -1.6172 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 10, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Newcastle", "latitude": 54.9688, "longitude": -1.6172 } },
+				{ "mode": "train", "lineMatch": "Tyne Valley", "railway": "rail" }
+			]
+		},
+		{ "dayNumber": 10, "arrivalStopIndex": 2, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 10, "arrivalStopIndex": 6, "segments": [{ "mode": "bus" }] },
+		{
+			"dayNumber": 11, "arrivalStopIndex": 1,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Newcastle", "latitude": 54.9688, "longitude": -1.6172 } },
+				{ "mode": "train", "lineMatch": "East Coast", "railway": "rail", "to": { "name": "Edinburgh Waverley", "latitude": 55.9519, "longitude": -3.1904 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 13, "arrivalStopIndex": 1,
+			"_comment": "The coach went west past Stirling (photos at Gargunnock 9:33 and Drymen 9:56), not through Glasgow.",
+			"segments":
+			[
+				{ "mode": "bus", "to": { "name": "Gargunnock", "latitude": 56.1314, "longitude": -4.0702 } },
+				{ "mode": "bus", "to": { "name": "Drymen", "latitude": 56.0613, "longitude": -4.4510 } },
+				{ "mode": "bus" }
+			]
+		},
+		{ "dayNumber": 13, "arrivalStopIndex": 2, "segments": [{ "mode": "ferry" }] },
+		{ "dayNumber": 13, "arrivalStopIndex": 3, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 13, "arrivalStopIndex": 4, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 13, "arrivalStopIndex": 5, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 13, "arrivalStopIndex": 6, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 13, "arrivalStopIndex": 7, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 13, "arrivalStopIndex": 8, "segments": [{ "mode": "bus" }] },
+		{ "dayNumber": 14, "arrivalStopIndex": 2, "segments": [{ "mode": "bus" }] }
+	]
+}

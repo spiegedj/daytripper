@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow"><stop offset="0" stop-color="#1D2433" stop-opacity=".32"/><stop offset="1" stop-color="#1D2433" stop-opacity="0"/></radialGradient>
+		<linearGradient id="stone" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#EEE8DA"/><stop offset="0.50" stop-color="#D8CFBC"/><stop offset="1.00" stop-color="#ACA28C"/></linearGradient><linearGradient id="slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#6E7882"/><stop offset="1.00" stop-color="#454E58"/></linearGradient>
+	</defs>
+	<ellipse cx="64" cy="119" rx="60" ry="5.5" fill="url(#groundShadow)"/>
+	
+	<path d="M6 119H122L120 114H8Z" fill="#9AB37E"/>
+	<rect x="8" y="80" width="40" height="34" fill="url(#stone)" stroke="#8C826E" stroke-width=".8"/>
+	<path d="M6 80H50L46 72H10Z" fill="url(#slate)" stroke="#3E4650" stroke-width=".7"/>
+	<path d="M12.00 102.00V90.55Q12.00 88.00 13.70 88.00Q15.40 88.00 15.40 90.55V102.00Z" fill="#3E4652"/><path d="M19.40 102.00V90.55Q19.40 88.00 21.10 88.00Q22.80 88.00 22.80 90.55V102.00Z" fill="#3E4652"/><path d="M26.80 102.00V90.55Q26.80 88.00 28.50 88.00Q30.20 88.00 30.20 90.55V102.00Z" fill="#3E4652"/><path d="M34.20 102.00V90.55Q34.20 88.00 35.90 88.00Q37.60 88.00 37.60 90.55V102.00Z" fill="#3E4652"/><path d="M41.60 102.00V90.55Q41.60 88.00 43.30 88.00Q45.00 88.00 45.00 90.55V102.00Z" fill="#3E4652"/>
+	<rect x="80" y="80" width="40" height="34" fill="url(#stone)" stroke="#8C826E" stroke-width=".8"/>
+	<path d="M78 80H122L118 72H82Z" fill="url(#slate)" stroke="#3E4650" stroke-width=".7"/>
+	<path d="M84.00 102.00V90.55Q84.00 88.00 85.70 88.00Q87.40 88.00 87.40 90.55V102.00Z" fill="#3E4652"/><path d="M91.40 102.00V90.55Q91.40 88.00 93.10 88.00Q94.80 88.00 94.80 90.55V102.00Z" fill="#3E4652"/><path d="M98.80 102.00V90.55Q98.80 88.00 100.50 88.00Q102.20 88.00 102.20 90.55V102.00Z" fill="#3E4652"/><path d="M106.20 102.00V90.55Q106.20 88.00 107.90 88.00Q109.60 88.00 109.60 90.55V102.00Z" fill="#3E4652"/><path d="M113.60 102.00V90.55Q113.60 88.00 115.30 88.00Q117.00 88.00 117.00 90.55V102.00Z" fill="#3E4652"/>
+	<rect x="48" y="66" width="32" height="48" fill="url(#stone)" stroke="#8C826E" stroke-width=".9"/>
+	<path d="M53.00 90.00V77.00Q53.00 74.00 55.00 74.00Q57.00 74.00 57.00 77.00V90.00Z" fill="#3E4652"/><path d="M59.40 90.00V77.00Q59.40 74.00 61.40 74.00Q63.40 74.00 63.40 77.00V90.00Z" fill="#3E4652"/><path d="M65.80 90.00V77.00Q65.80 74.00 67.80 74.00Q69.80 74.00 69.80 77.00V90.00Z" fill="#3E4652"/><path d="M72.20 90.00V77.00Q72.20 74.00 74.20 74.00Q76.20 74.00 76.20 77.00V90.00Z" fill="#3E4652"/>
+	<rect x="52" y="44" width="24" height="22" fill="url(#stone)" stroke="#8C826E" stroke-width=".9"/>
+	<path d="M55.40 60.00V49.95Q55.40 48.00 56.70 48.00Q58.00 48.00 58.00 49.95V60.00Z" fill="#3E4652"/><path d="M59.30 60.00V49.95Q59.30 48.00 60.60 48.00Q61.90 48.00 61.90 49.95V60.00Z" fill="#3E4652"/><path d="M63.20 60.00V49.95Q63.20 48.00 64.50 48.00Q65.80 48.00 65.80 49.95V60.00Z" fill="#3E4652"/><path d="M67.10 60.00V49.95Q67.10 48.00 68.40 48.00Q69.70 48.00 69.70 49.95V60.00Z" fill="#3E4652"/><path d="M71.00 60.00V49.95Q71.00 48.00 72.30 48.00Q73.60 48.00 73.60 49.95V60.00Z" fill="#3E4652"/>
+	<path d="M51 44 64 2 77 44Z" fill="url(#stone)" stroke="#8C826E" stroke-width=".9" stroke-linejoin="round"/>
+	<path d="M64 2V44M57.5 23H70.5M55 34H73" stroke="#BDB29B" stroke-width=".7"/>
+	<g fill="url(#stone)" stroke="#8C826E" stroke-width=".6"><path d="M50 45 51.5 36 53 45Z"/><path d="M75 45 76.5 36 78 45Z"/></g>
+	<path d="M64 2V-1" stroke="#5C5446" stroke-width=".8"/>
+	
+</svg>
