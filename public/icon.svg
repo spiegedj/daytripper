@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs>
+	<linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0" stop-color="#86D4EE"/>
+		<stop offset=".55" stop-color="#C6ECF4"/>
+		<stop offset="1" stop-color="#DDF4F5"/>
+	</linearGradient>
+	<linearGradient id="sun" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0" stop-color="#FBB13C"/>
+		<stop offset="1" stop-color="#F59A2A"/>
+	</linearGradient>
+	<linearGradient id="meadow" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0" stop-color="#DDF2AC"/>
+		<stop offset="1" stop-color="#CBEA92"/>
+	</linearGradient>
+	<linearGradient id="water" x1="0" x2="1" y1="0" y2="1">
+		<stop offset="0" stop-color="#84D3F3"/>
+		<stop offset="1" stop-color="#53B9EA"/>
+	</linearGradient>
+	<linearGradient id="wall" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0" stop-color="#F7B567"/>
+		<stop offset="1" stop-color="#EA8B3D"/>
+	</linearGradient>
+	<clipPath id="tile"><rect x="24" y="24" width="464" height="464" rx="104"/></clipPath>
+	<clipPath id="frame"><rect width="512" height="512"/></clipPath>
+</defs>
+<rect x="8" y="8" width="496" height="496" rx="120" fill="#1D2433"/>
+<clipPath id="inner"><rect x="30" y="30" width="452" height="452" rx="98"/></clipPath>
+<g clip-path="url(#inner)">
+	<rect x="-80" y="-80" width="672" height="672" fill="url(#sky)"/>
+	<circle cx="352" cy="98" r="72" fill="#FFFFFF" opacity=".45"/>
+	<circle cx="352" cy="98" r="60" fill="url(#sun)"/>
+	<g fill="#FFFFFF">
+		<circle cx="98" cy="128" r="21"/>
+		<circle cx="140" cy="110" r="34"/>
+		<circle cx="182" cy="126" r="24"/>
+		<rect x="74" y="122" width="134" height="27" rx="13.5"/>
+	</g>
+	<path d="M150 262C210 222 262 152 318 136C380 152 432 200 590 226V290H150Z" fill="#D4EFF2"/>
+	<path d="M-80 214C40 180 170 194 262 238C302 256 334 266 380 270H590V590H-80Z" fill="#BEE496"/>
+	<path d="M178 272C198 240 236 224 266 226C292 228 316 244 344 272Z" fill="#8ACB66"/>
+	<path d="M240 274C320 262 430 256 590 262V350C460 334 380 312 300 296Z" fill="#7DC25E"/>
+	<path d="M-80 266C120 248 240 280 330 300C410 318 470 334 590 352V590H-80Z" fill="url(#meadow)"/>
+	<path d="M-80 352C-20 330 40 334 66 346C82 334 120 334 140 358C152 374 156 392 156 412H-80Z" fill="#82C65E"/>
+	<path d="M-80 404H190C240 404 272 432 300 472L340 590H-80Z" fill="url(#water)"/>
+	<circle cx="121" cy="286" r="52" fill="#FFFFFF" opacity=".85"/>
+	<circle cx="388" cy="380" r="44" fill="#FFFFFF" opacity=".55"/>
+	<path d="M160 290C205 290 228 312 252 342C272 368 300 384 352 382" fill="none" stroke="#1D2433" stroke-width="15" stroke-linecap="round" stroke-dasharray="10 31"/>
+	<circle cx="121" cy="286" r="29" fill="#FFFFFF" stroke="#1D2433" stroke-width="16"/>
+	<circle cx="388" cy="380" r="27" fill="#FFFFFF" stroke="#1D2433" stroke-width="15"/>
+	<g fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round" opacity=".75">
+	<path d="M380 128C398 140 418 158 446 166Q455 169 452 176H308Q305 169 314 166C342 158 362 140 380 128Z"/>
+	<path d="M326 203H434L458 214Q467 218 462 223H298Q293 218 302 214Z"/>
+	</g>
+	<rect x="338" y="174" width="84" height="32" fill="url(#wall)"/>
+	<rect x="326" y="221" width="108" height="42" fill="url(#wall)"/>
+	<g fill="#1D2433">
+	<path d="M380 128C398 140 418 158 446 166Q455 169 452 176H308Q305 169 314 166C342 158 362 140 380 128Z"/>
+	<path d="M326 203H434L458 214Q467 218 462 223H298Q293 218 302 214Z"/>
+		<rect x="334" y="174" width="9" height="32"/>
+		<rect x="417" y="174" width="9" height="32"/>
+		<path d="M372 206V194A8 8 0 0 1 388 194V206Z"/>
+		<rect x="321" y="221" width="10" height="42"/>
+		<rect x="429" y="221" width="10" height="42"/>
+		<rect x="290" y="260" width="77" height="15" rx="7.5"/>
+		<rect x="393" y="260" width="72" height="15" rx="7.5"/>
+	</g>
+	<g fill="#D06A3E">
+		<path d="M342 256V240A7 7 0 0 1 356 240V256Z"/>
+		<path d="M404 256V240A7 7 0 0 1 418 240V256Z"/>
+	</g>
+	<path d="M371 262V244A9 9 0 0 1 389 244V262Z" fill="#FCD58E"/>
+</g>
+</svg>

@@ -19,27 +19,23 @@
 	display: grid;
 	grid-template-columns: auto 1fr auto;
 	grid-template-rows: auto auto;
-	column-gap: 10px;
+	column-gap: 12px;
+	row-gap: 2px;
 	align-items: center;
-	padding: 16px 16px 12px;
+	padding: 18px 16px 14px;
 }
 
 .logo
 {
 	grid-row: span 2;
-	display: grid;
-	place-items: center;
-	width: 36px;
-	height: 36px;
-	border-radius: 11px;
-	background: #e03131;
-	color: #ffffff;
-	font: 800 20px/1 "M PLUS Rounded 1c", system-ui, sans-serif;
+	display: block;
+	width: 52px;
+	height: 52px;
 }
 
 .brand
 {
-	font: 800 18px/1.1 "M PLUS Rounded 1c", "Inter", system-ui, sans-serif;
+	font: 800 20px/1.1 "M PLUS Rounded 1c", "Inter", system-ui, sans-serif;
 	color: #1d2433;
 }
 

@@ -29,7 +29,7 @@ export function ItineraryPanel(props: IItineraryPanelProps)
 	return (
 		<aside className={styles.panel} style={{ "--day-color": day.color } as CSSProperties}>
 			<header className={styles.header}>
-				<span className={styles.logo} aria-hidden="true">旅</span>
+				<img className={styles.logo} src={`${import.meta.env.BASE_URL}icon.svg`} alt="" />
 				<span className={styles.brand}>Daytripper</span>
 				<span className={styles.tripName}>{trip.name} · {trip.days.length} days</span>
 				<div className={styles.viewSwitch} role="group" aria-label="View">

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs>
+	<linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0" stop-color="#86D4EE"/>
+		<stop offset=".55" stop-color="#C6ECF4"/>
+		<stop offset="1" stop-color="#DDF4F5"/>
+	</linearGradient>
+	<linearGradient id="sun" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0" stop-color="#FBB13C"/>
+		<stop offset="1" stop-color="#F59A2A"/>
+	</linearGradient>
+	<linearGradient id="meadow" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0" stop-color="#DDF2AC"/>
+		<stop offset="1" stop-color="#CBEA92"/>
+	</linearGradient>
+	<linearGradient id="water" x1="0" x2="1" y1="0" y2="1">
+		<stop offset="0" stop-color="#84D3F3"/>
+		<stop offset="1" stop-color="#53B9EA"/>
+	</linearGradient>
+	<linearGradient id="wall" x1="0" x2="0" y1="0" y2="1">
+		<stop offset="0" stop-color="#F7B567"/>
+		<stop offset="1" stop-color="#EA8B3D"/>
+	</linearGradient>
+	<clipPath id="tile"><rect x="24" y="24" width="464" height="464" rx="104"/></clipPath>
+	<clipPath id="frame"><rect width="512" height="512"/></clipPath>
+</defs>
+<rect x="8" y="8" width="496" height="496" rx="120" fill="#1D2433"/>
+<clipPath id="inner"><rect x="30" y="30" width="452" height="452" rx="98"/></clipPath>
+<g clip-path="url(#inner)">
+	<rect x="-80" y="-80" width="672" height="672" fill="url(#sky)"/>
+	<circle cx="352" cy="104" r="66" fill="url(#sun)"/>
+	<path d="M-80 250C120 234 260 270 340 292C420 312 480 330 590 346V590H-80Z" fill="url(#meadow)"/>
+	<path d="M240 270C320 258 430 252 590 258V340C460 326 380 306 300 292Z" fill="#7DC25E"/>
+	<path d="M-80 404H190C240 404 272 432 300 472L340 590H-80Z" fill="url(#water)"/>
+	<path d="M168 296C220 300 250 340 280 372" fill="none" stroke="#1D2433" stroke-width="26" stroke-linecap="round" stroke-dasharray="14 46"/>
+	<circle cx="116" cy="290" r="40" fill="#FFFFFF" stroke="#1D2433" stroke-width="26"/>
+	<circle cx="372" cy="392" r="36" fill="#FFFFFF" stroke="#1D2433" stroke-width="24"/>
+	<rect x="324" y="168" width="112" height="100" fill="url(#wall)"/>
+	<g fill="#1D2433">
+		<path d="M380 112C402 128 424 150 456 160Q466 164 462 176H298Q294 164 304 160C336 150 358 128 380 112Z"/>
+		<path d="M320 204H440L470 218Q478 224 470 230H290Q282 224 290 218Z"/>
+		<rect x="282" y="258" width="196" height="22" rx="11"/>
+	</g>
+</g>
+</svg>
