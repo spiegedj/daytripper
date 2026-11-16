@@ -168,6 +168,8 @@ export const irelandDays: IDay[] =
 			{ placeId: "skelligRing", arrival: traveled("car", drive), visit: at("12:21", "12:24") },
 			{ placeId: "kerryCliffs", arrival: traveled("car", drive), visit: at("12:46", "13:15") },
 			{ placeId: "internationalKillarney", arrival: traveled("car", drive) },
+			{ placeId: "killarneyBrewing", arrival: traveled("walk") },
+			{ placeId: "internationalKillarney", arrival: traveled("walk") },
 		],
 	},
 	{
@@ -198,6 +200,8 @@ export const irelandDays: IDay[] =
 			{ placeId: "hagsHeadTrail", arrival: traveled("walk", "Along the cliff path"), visit: at("10:59", "11:08") },
 			{ placeId: "cliffsOfMoher", arrival: traveled("walk", "Back along the cliff path"), visit: at("12:08", "13:48") },
 			{ placeId: "eyreSquareHotel", arrival: traveled("car", drive) },
+			{ placeId: "mcGettigans", arrival: traveled("walk") },
+			{ placeId: "eyreSquareHotel", arrival: traveled("walk") },
 		],
 	},
 	{

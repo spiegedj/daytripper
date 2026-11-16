@@ -59,6 +59,7 @@ const placeEntries: Record<string, IPlaceEntry> =
 	internationalKillarney: { name: "The International Hotel Killarney", category: "hotel", latitude: 52.05801, longitude: -9.50743 },
 	theShire: { name: "The Shire", category: "food", latitude: 52.06017, longitude: -9.50641 },
 	robsRanchHouse: { name: "Rob's Ranch House", category: "food", latitude: 52.05866, longitude: -9.50828 },
+	killarneyBrewing: { name: "Killarney Brewing", category: "food", latitude: 52.05431, longitude: -9.50706 },
 	fahanBeehiveHuts: { name: "Fahan beehive huts", category: "landmark", latitude: 52.10072, longitude: -10.42485 },
 	sleaHead: { name: "Slea Head", category: "nature", latitude: 52.09809, longitude: -10.45530 },
 	dunmoreHead: { name: "Dunmore Head", category: "nature", latitude: 52.10900, longitude: -10.47400 },
@@ -77,6 +78,7 @@ const placeEntries: Record<string, IPlaceEntry> =
 	// Galway, Clare and the Aran Islands
 	eyreSquareHotel: { name: "Eyre Square Hotel", category: "hotel", latitude: 53.27428, longitude: -9.04745 },
 	anPucan: { name: "An Púcán", category: "food", latitude: 53.27451, longitude: -9.04745 },
+	mcGettigans: { name: "McGettigan's", category: "food", latitude: 53.27564, longitude: -9.04911 },
 	cliffsOfMoher: { name: "Cliffs of Moher", category: "nature", latitude: 52.97192, longitude: -9.42582, landmarkIconScale: 1.2 },
 	hagsHeadTrail: { name: "Cliff path towards Hag's Head", category: "nature", latitude: 52.94816, longitude: -9.46774 },
 	rossaveal: { name: "Rossaveal ferry port", category: "station", latitude: 53.26690, longitude: -9.56110 },

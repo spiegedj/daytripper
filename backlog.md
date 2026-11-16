@@ -44,7 +44,6 @@ These are best guesses in the data; correct them if memory or photos say otherwi
 
 Built from the photos and the hotel and spending sheets (there was no Wanderlog plan).
 
-- **Two dinners still need a location:** Killarney Brewing (Apr 7) and McGettigan's (Apr 9). Neither is on OpenStreetMap; the traveler will say where they were.
 - **Meals without photos:** their place in each day's order follows the sheet (lunch before dinner), but the exact order around sights is a guess. Examples: the Kilkenny Café lunch before the Liffey walk on Apr 1; Grogan's after Hore Abbey on Apr 4.
 - **Apr 5:** drove back to the hotel after Kinsale, then walked to St Fin Barre's for the evening.
 - **Apr 10:** the bike route on Inis Mór follows the photos, but the exact roads are routed.

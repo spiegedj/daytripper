@@ -13,30 +13,49 @@
 		},
 		{
 			"dayNumber": 11, "arrivalStopIndex": 2,
-			"_comment": "South along the cliff path; waypoints are the photo positions.",
+			"_comment": "South along the cliff-edge trail to Hag's Head, traced through the photo positions (the foot router would take the road).",
 			"segments":
 			[
-				{ "mode": "walk", "to": { "name": "Cliff path (09:51)", "latitude": 52.9687, "longitude": -9.43066 } },
-				{ "mode": "walk", "to": { "name": "Cliff path (10:01)", "latitude": 52.96446, "longitude": -9.43674 } },
-				{ "mode": "walk", "to": { "name": "Cliff path (10:12)", "latitude": 52.96114, "longitude": -9.44067 } },
-				{ "mode": "walk", "to": { "name": "Cliff path (10:27)", "latitude": 52.95758, "longitude": -9.44896 } },
-				{ "mode": "walk", "to": { "name": "Cliff path (10:38)", "latitude": 52.95407, "longitude": -9.45169 } },
-				{ "mode": "walk", "to": { "name": "Cliff path (10:49)", "latitude": 52.95043, "longitude": -9.46081 } },
-				{ "mode": "walk" }
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 1", "latitude": 52.96968, "longitude": -9.42863 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 2", "latitude": 52.9687, "longitude": -9.43066 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 3", "latitude": 52.96738, "longitude": -9.43114 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 4", "latitude": 52.96446, "longitude": -9.43674 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 5", "latitude": 52.96424, "longitude": -9.43769 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 6", "latitude": 52.96304, "longitude": -9.4375 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 7", "latitude": 52.96249, "longitude": -9.43758 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 8", "latitude": 52.96114, "longitude": -9.44067 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 9", "latitude": 52.96061, "longitude": -9.44213 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 10", "latitude": 52.95758, "longitude": -9.44896 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 11", "latitude": 52.95679, "longitude": -9.44902 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 12", "latitude": 52.95616, "longitude": -9.44891 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 13", "latitude": 52.95447, "longitude": -9.45149 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 14", "latitude": 52.95407, "longitude": -9.45169 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 15", "latitude": 52.95043, "longitude": -9.46081 } },
+				{ "mode": "walk", "isStraight": true}
 			]
 		},
 		{
 			"dayNumber": 11, "arrivalStopIndex": 3,
-			"_comment": "Back the same way.",
+			"_comment": "Back north along the same cliff trail, traced through the return walk's photo positions.",
 			"segments":
 			[
-				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 6 }, "to": { "name": "Cliff path (10:49)", "latitude": 52.95043, "longitude": -9.46081 } },
-				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 5 }, "to": { "name": "Cliff path (10:38)", "latitude": 52.95407, "longitude": -9.45169 } },
-				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 4 }, "to": { "name": "Cliff path (10:27)", "latitude": 52.95758, "longitude": -9.44896 } },
-				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 3 }, "to": { "name": "Cliff path (10:12)", "latitude": 52.96114, "longitude": -9.44067 } },
-				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 2 }, "to": { "name": "Cliff path (10:01)", "latitude": 52.96446, "longitude": -9.43674 } },
-				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 1 }, "to": { "name": "Cliff path (09:51)", "latitude": 52.9687, "longitude": -9.43066 } },
-				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 0 } }
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 1", "latitude": 52.94923, "longitude": -9.46559 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 2", "latitude": 52.95045, "longitude": -9.46085 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 3", "latitude": 52.95121, "longitude": -9.45808 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 4", "latitude": 52.954, "longitude": -9.45171 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 5", "latitude": 52.9581, "longitude": -9.44808 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 6", "latitude": 52.95832, "longitude": -9.44727 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 7", "latitude": 52.96004, "longitude": -9.44336 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 8", "latitude": 52.9611, "longitude": -9.44054 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 9", "latitude": 52.96138, "longitude": -9.43899 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 10", "latitude": 52.96221, "longitude": -9.43765 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 11", "latitude": 52.96346, "longitude": -9.43757 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 12", "latitude": 52.96414, "longitude": -9.4377 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 13", "latitude": 52.96451, "longitude": -9.43677 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 14", "latitude": 52.96551, "longitude": -9.43387 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 15", "latitude": 52.96778, "longitude": -9.43089 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Cliff path 16", "latitude": 52.9697, "longitude": -9.42856 } },
+				{ "mode": "walk", "isStraight": true}
 			]
 		},
 		{
