@@ -1935,61 +1935,6 @@
 			}
 		]
 	},
-	"dryDam": {
-		"summary": "Holyrood Park (the official name since at least the 1950s, as outlined in the ‘Holyrood Park Regulations 1959’ but also colloquially called the King's Park or Queen's Park depending on the reigning monarch's gender) is a public park in central Edinburgh, Scotland about 1 mile (1.6 kilometres) to the east of Edinburgh Castle. It has an array of hills, lochs, glens, ridges, basalt cliffs, and patches of gorse, providing a wild piece of highland landscape within its 650-acre (260 ha) area. The park is associated with the Palace of Holyroodhouse and was formerly a royal hunting estate. The park was created in 1541 when James V had the ground \"circulit about Arthurs Sett, Salisborie and Duddingston craggis\" enclosed by a stone wall.",
-		"wikipediaTitle": "Holyrood Park",
-		"wikipediaUrl": "https://en.wikipedia.org/wiki/Holyrood_Park",
-		"photos": [
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Edinburgh_Arthur_Seat_dsc06165.jpg/960px-Edinburgh_Arthur_Seat_dsc06165.jpg",
-				"width": 960,
-				"height": 720,
-				"author": "David Monniaux",
-				"license": "CC BY-SA 3.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Arthur_Seat_dsc06165.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Edinburgh-mountain-1060957.jpg/960px-Edinburgh-mountain-1060957.jpg",
-				"width": 960,
-				"height": 720,
-				"author": "ermell",
-				"license": "CC BY-SA 4.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh-mountain-1060957.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Edinburgh_from_Salisbury_Crags_Radical_Road.jpg/960px-Edinburgh_from_Salisbury_Crags_Radical_Road.jpg",
-				"width": 960,
-				"height": 270,
-				"author": "dave souza",
-				"license": "CC BY-SA 4.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_from_Salisbury_Crags_Radical_Road.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Holyrood_Palace_1544.jpg/960px-Holyrood_Palace_1544.jpg",
-				"width": 960,
-				"height": 575,
-				"author": "Unknown authorUnknown author",
-				"license": "Public domain",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Palace_1544.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Holyrood_Park_Samsons_ribs_DSC04975.JPG/960px-Holyrood_Park_Samsons_ribs_DSC04975.JPG",
-				"width": 960,
-				"height": 720,
-				"author": "David Monniaux",
-				"license": "CC BY-SA 3.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Park_Samsons_ribs_DSC04975.JPG"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Holyrood_Park_Samsons_ribs_DSC04978.JPG/960px-Holyrood_Park_Samsons_ribs_DSC04978.JPG",
-				"width": 960,
-				"height": 720,
-				"author": "David Monniaux",
-				"license": "CC BY-SA 3.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Park_Samsons_ribs_DSC04978.JPG"
-			}
-		]
-	},
 	"scottishNationalGallery": {
 		"summary": "The National (formerly the Scottish National Gallery) is the national art gallery of Scotland. It is located on The Mound in central Edinburgh, close to Princes Street. The building was designed in a neoclassical style by William Henry Playfair, and first opened to the public in 1859.\n\nThe gallery houses Scotland's national collection of fine art, spanning Scottish and international art from the beginning of the Renaissance up to the start of the 20th century.\n\nThe National is run by National Galleries Scotland, a public body that also owns the Scottish National Gallery of Modern Art and the Scottish National Portrait Gallery. Because of its architectural similarity, the National is frequently confused by visitors with the neighbouring Royal Scottish Academy Building (RSA), a separate institution which works closely with the National.",
 		"wikipediaTitle": "Scottish National Gallery",
@@ -2725,6 +2670,61 @@
 				"author": "Murgatroyd49",
 				"license": "CC BY-SA 4.0",
 				"sourceUrl": "https://commons.wikimedia.org/wiki/File:LNER_Museum.jpg"
+			}
+		]
+	},
+	"stAnthonysChapel": {
+		"summary": "Holyrood Park (the official name since at least the 1950s, as outlined in the ‘Holyrood Park Regulations 1959’ but also colloquially called the King's Park or Queen's Park depending on the reigning monarch's gender) is a public park in central Edinburgh, Scotland about 1 mile (1.6 kilometres) to the east of Edinburgh Castle. It has an array of hills, lochs, glens, ridges, basalt cliffs, and patches of gorse, providing a wild piece of highland landscape within its 650-acre (260 ha) area. The park is associated with the Palace of Holyroodhouse and was formerly a royal hunting estate. The park was created in 1541 when James V had the ground \"circulit about Arthurs Sett, Salisborie and Duddingston craggis\" enclosed by a stone wall.",
+		"wikipediaTitle": "Holyrood Park",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Holyrood_Park",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Edinburgh_Arthur_Seat_dsc06165.jpg/960px-Edinburgh_Arthur_Seat_dsc06165.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "David Monniaux",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_Arthur_Seat_dsc06165.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Edinburgh-mountain-1060957.jpg/960px-Edinburgh-mountain-1060957.jpg",
+				"width": 960,
+				"height": 720,
+				"author": "ermell",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh-mountain-1060957.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Edinburgh_from_Salisbury_Crags_Radical_Road.jpg/960px-Edinburgh_from_Salisbury_Crags_Radical_Road.jpg",
+				"width": 960,
+				"height": 270,
+				"author": "dave souza",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Edinburgh_from_Salisbury_Crags_Radical_Road.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Holyrood_Palace_1544.jpg/960px-Holyrood_Palace_1544.jpg",
+				"width": 960,
+				"height": 575,
+				"author": "Unknown authorUnknown author",
+				"license": "Public domain",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Palace_1544.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Holyrood_Park_Samsons_ribs_DSC04975.JPG/960px-Holyrood_Park_Samsons_ribs_DSC04975.JPG",
+				"width": 960,
+				"height": 720,
+				"author": "David Monniaux",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Park_Samsons_ribs_DSC04975.JPG"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Holyrood_Park_Samsons_ribs_DSC04978.JPG/960px-Holyrood_Park_Samsons_ribs_DSC04978.JPG",
+				"width": 960,
+				"height": 720,
+				"author": "David Monniaux",
+				"license": "CC BY-SA 3.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Holyrood_Park_Samsons_ribs_DSC04978.JPG"
 			}
 		]
 	}

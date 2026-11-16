@@ -339,6 +339,11 @@ async function buildSegmentPath(segment, from, to)
 	{
 		return createArc(from, to);
 	}
+	// Hill paths the foot router doesn't know: draw the stretch straight between known positions (photo GPS) instead of a long detour.
+	if (segment.isStraight)
+	{
+		return [[from.longitude, from.latitude], [to.longitude, to.latitude]];
+	}
 	if (segment.mode === "walk")
 	{
 		return fetchRoadPath(footRouterUrl, from, to);
@@ -423,7 +428,13 @@ async function main()
 				let coordinates;
 				try
 				{
-					coordinates = await buildSegmentPath(segment, start, target);
+					// A return trip on the same bus line retraces an earlier leg's path backwards instead of being routed afresh.
+					const retraced = segment.reverseOf ? routes[segment.reverseOf.leg]?.[segment.reverseOf.segment] : undefined;
+					if (segment.reverseOf && !retraced)
+					{
+						throw new Error(`leg ${segment.reverseOf.leg} segment ${segment.reverseOf.segment} has no path to retrace`);
+					}
+					coordinates = retraced ? [...retraced.coordinates].reverse() : await buildSegmentPath(segment, start, target);
 				}
 				catch (error)
 				{

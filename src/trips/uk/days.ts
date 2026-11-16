@@ -110,8 +110,8 @@ export const ukDays: IDay[] =
 			{ placeId: "bodleianLibrary", arrival: traveled("walk"), visit: at("15:09", "15:14") },
 			{ placeId: "radcliffeCamera", arrival: traveled("walk"), visit: at("15:17") },
 			{ placeId: "oxfordBotanicGarden", arrival: traveled("walk"), visit: at("15:53", "16:33") },
-			{ placeId: "tolkienGrave", arrival: traveled("bus", "Through the centre and up Woodstock Road"), visit: at("17:27", "17:30") },
-			{ placeId: "oxfordStation", arrival: traveled("bus") },
+			{ placeId: "tolkienGrave", arrival: traveled("bus", "Up Woodstock Road"), visit: at("17:27", "17:30") },
+			{ placeId: "oxfordStation", arrival: traveled("bus", "The same bus line back") },
 			{ placeId: "peartreeApartments", arrival: traveled("train", "Changing at Basingstoke") },
 		],
 	},
@@ -223,10 +223,11 @@ export const ukDays: IDay[] =
 		stops:
 		[
 			{ placeId: "apexGrassmarket" },
-			{ placeId: "nationalMuseumOfScotland", arrival: traveled("walk") },
-			{ placeId: "arthursSeat", arrival: traveled("walk"), visit: at("13:51", "14:36") },
-			{ placeId: "dryDam", arrival: traveled("walk"), visit: at("14:56", "15:27") },
+			// Neither the gallery nor the museum has photos; both come before the climb, which starts at 13:41.
 			{ placeId: "scottishNationalGallery", arrival: traveled("walk") },
+			{ placeId: "nationalMuseumOfScotland", arrival: traveled("walk") },
+			{ placeId: "arthursSeat", arrival: traveled("walk", "Up from the south-west"), visit: at("13:41", "14:36") },
+			{ placeId: "stAnthonysChapel", arrival: traveled("walk", "Down through the Dry Dam"), visit: at("14:56", "15:24") },
 			{ placeId: "apexGrassmarket", arrival: traveled("walk"), visit: at("17:31") },
 		],
 	},

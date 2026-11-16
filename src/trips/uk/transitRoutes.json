@@ -64,16 +64,26 @@
 		},
 		{
 			"dayNumber": 5, "arrivalStopIndex": 6,
-			"_comment": "The bus went through the centre and up Woodstock Road.",
+			"_comment": "The bus up Woodstock Road, then a short walk from the stop to the cemetery.",
 			"segments":
 			[
-				{ "mode": "bus", "to": { "name": "Carfax", "latitude": 51.7519, "longitude": -1.2580 } },
 				{ "mode": "bus", "to": { "name": "St Giles", "latitude": 51.7575, "longitude": -1.2598 } },
 				{ "mode": "bus", "to": { "name": "Woodstock Road", "latitude": 51.7760, "longitude": -1.2700 } },
-				{ "mode": "bus" }
+				{ "mode": "bus", "to": { "name": "Woodstock Road stop by the cemetery", "latitude": 51.7883, "longitude": -1.2810 } },
+				{ "mode": "walk" }
 			]
 		},
-		{ "dayNumber": 5, "arrivalStopIndex": 7, "segments": [{ "mode": "bus" }] },
+		{
+			"dayNumber": 5, "arrivalStopIndex": 7,
+			"_comment": "Back to the same stop and the same bus line in the other direction, then a walk from St Giles to the station.",
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Woodstock Road stop by the cemetery", "latitude": 51.7883, "longitude": -1.2810 } },
+				{ "mode": "bus", "reverseOf": { "leg": "5:6", "segment": 2 }, "to": { "name": "Woodstock Road", "latitude": 51.7760, "longitude": -1.2700 } },
+				{ "mode": "bus", "reverseOf": { "leg": "5:6", "segment": 1 }, "to": { "name": "St Giles", "latitude": 51.7575, "longitude": -1.2598 } },
+				{ "mode": "walk" }
+			]
+		},
 		{
 			"dayNumber": 5, "arrivalStopIndex": 8,
 			"segments":
@@ -211,6 +221,34 @@
 			[
 				{ "mode": "walk", "to": { "name": "Newcastle", "latitude": 54.9688, "longitude": -1.6172 } },
 				{ "mode": "train", "lineMatch": "East Coast", "railway": "rail", "to": { "name": "Edinburgh Waverley", "latitude": 55.9519, "longitude": -3.1904 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 3,
+			"_comment": "Up from the south-west; waypoints are the photo positions. The foot router does not know the paths up this side, so the climb is drawn straight between them.",
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Below Salisbury Crags (13:41)", "latitude": 55.94217, "longitude": -3.17044 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Climbing (13:51)", "latitude": 55.94300, "longitude": -3.16386 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Below the summit (14:03)", "latitude": 55.94268, "longitude": -3.16198 } },
+				{ "mode": "walk", "isStraight": true }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 4,
+			"_comment": "Off the summit to the east, then north down the Dry Dam path to St Anthony's Chapel.",
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "East of the summit (14:36)", "latitude": 55.94487, "longitude": -3.15909 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 5,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Towards Holyrood (15:27)", "latitude": 55.95264, "longitude": -3.16826 } },
 				{ "mode": "walk" }
 			]
 		},

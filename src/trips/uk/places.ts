@@ -84,7 +84,7 @@ const placeEntries: Record<string, IPlaceEntry> =
 	edinburghCastle: { name: "Edinburgh Castle", category: "landmark", latitude: 55.9487, longitude: -3.2004 },
 	nationalMuseumOfScotland: { name: "National Museum of Scotland", category: "museum", latitude: 55.9471, longitude: -3.1893 },
 	arthursSeat: { name: "Arthur's Seat", category: "nature", latitude: 55.9441, longitude: -3.1616 },
-	dryDam: { name: "Dry Dam, Holyrood Park", category: "nature", latitude: 55.9510, longitude: -3.1613 },
+	stAnthonysChapel: { name: "St Anthony's Chapel ruins", category: "landmark", latitude: 55.95095, longitude: -3.16143 },
 	scottishNationalGallery: { name: "Scottish National Gallery", category: "museum", latitude: 55.9509, longitude: -3.1956 },
 	edinburghWaverley: { name: "Edinburgh Waverley", category: "station", latitude: 55.9519, longitude: -3.1904 },
 	edinburghAirport: { name: "Edinburgh Airport", category: "airport", latitude: 55.9503, longitude: -3.3594 },
