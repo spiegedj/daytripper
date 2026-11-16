@@ -17,7 +17,7 @@ const placeEntries: Record<string, IPlaceEntry> =
 	heathrowAirport: { name: "Heathrow Airport", category: "airport", latitude: 51.4677, longitude: -0.4588 },
 	marlinWaterloo: { name: "Marlin Waterloo", category: "hotel", latitude: 51.4991, longitude: -0.1136 },
 	bigBen: { name: "Big Ben", category: "landmark", latitude: 51.5007, longitude: -0.1246, landmarkIconScale: 1.3 },
-	westminsterAbbey: { name: "Westminster Abbey", category: "temple", latitude: 51.4994, longitude: -0.1274 },
+	westminsterAbbey: { name: "Westminster Abbey", category: "cathedral", latitude: 51.4994, longitude: -0.1274 },
 	trafalgarSquare: { name: "Trafalgar Square", category: "landmark", latitude: 51.5080, longitude: -0.1281, landmarkIconScale: 1.2 },
 	nationalGallery: { name: "National Gallery", category: "museum", latitude: 51.5089, longitude: -0.1283 },
 	nationalPortraitGallery: { name: "National Portrait Gallery", category: "museum", latitude: 51.5093, longitude: -0.1283 },
@@ -53,17 +53,17 @@ const placeEntries: Record<string, IPlaceEntry> =
 	peartreeApartments: { name: "Peartree Serviced Apartments", category: "hotel", latitude: 51.0699, longitude: -1.8050 },
 	stonehenge: { name: "Stonehenge", category: "landmark", latitude: 51.1788, longitude: -1.8262 },
 	oldSarum: { name: "Old Sarum", category: "landmark", latitude: 51.0936, longitude: -1.8050 },
-	salisburyCathedral: { name: "Salisbury Cathedral", category: "temple", latitude: 51.0650, longitude: -1.7973, landmarkIconScale: 1.25 },
+	salisburyCathedral: { name: "Salisbury Cathedral", category: "cathedral", latitude: 51.0650, longitude: -1.7973, landmarkIconScale: 1.25 },
 	salisburyMuseum: { name: "The Salisbury Museum", category: "museum", latitude: 51.0645, longitude: -1.8001 },
 
 	// Bath
 	pulteneyBridge: { name: "Pulteney Bridge", category: "landmark", latitude: 51.3830, longitude: -2.3579 },
-	bathAbbey: { name: "Bath Abbey", category: "temple", latitude: 51.3815, longitude: -2.3589 },
+	bathAbbey: { name: "Bath Abbey", category: "cathedral", latitude: 51.3815, longitude: -2.3589 },
 	romanBaths: { name: "Roman Baths", category: "landmark", latitude: 51.3810, longitude: -2.3597 },
 	theCircus: { name: "The Circus", category: "landmark", latitude: 51.3857, longitude: -2.3639 },
 
 	// York
-	yorkMinster: { name: "York Minster", category: "temple", latitude: 53.9624, longitude: -1.0821 },
+	yorkMinster: { name: "York Minster", category: "cathedral", latitude: 53.9624, longitude: -1.0821 },
 	shambles: { name: "The Shambles", category: "shopping", latitude: 53.9593, longitude: -1.0800 },
 	// Placed at Bootham Bar, where the walk round the walls started and finished.
 	yorkCityWalls: { name: "York City Walls", category: "landmark", latitude: 53.9621, longitude: -1.0855 },

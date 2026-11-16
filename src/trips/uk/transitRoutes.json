@@ -237,10 +237,11 @@
 		},
 		{
 			"dayNumber": 12, "arrivalStopIndex": 4,
-			"_comment": "Off the summit to the east, then north down the Dry Dam path to St Anthony's Chapel.",
+			"_comment": "Off the summit past the 14:36 photo spot (drawn straight: the foot router only knows the long way round by Queen's Drive), then routed down the Dry Dam path to St Anthony's Chapel.",
 			"segments":
 			[
-				{ "mode": "walk", "to": { "name": "East of the summit (14:36)", "latitude": 55.94487, "longitude": -3.15909 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "East of the summit (14:36)", "latitude": 55.94487, "longitude": -3.15909 } },
+				{ "mode": "walk", "isStraight": true, "to": { "name": "Top of the Dry Dam path", "latitude": 55.9464, "longitude": -3.1607 } },
 				{ "mode": "walk" }
 			]
 		},

@@ -1,5 +1,6 @@
 export type PlaceCategory =
 	| "temple"
+	| "cathedral"
 	| "landmark"
 	| "museum"
 	| "food"
