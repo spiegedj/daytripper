@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow"><stop offset="0" stop-color="#1D2433" stop-opacity=".32"/><stop offset="1" stop-color="#1D2433" stop-opacity="0"/></radialGradient>
+		<linearGradient id="stone" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#E2DFD5"/><stop offset="0.50" stop-color="#C3BEB1"/><stop offset="1.00" stop-color="#97917F"/></linearGradient>
+		<linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#8CC63F"/><stop offset="1.00" stop-color="#4E8F2F"/></linearGradient>
+		<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#7FB8DA"/><stop offset="1.00" stop-color="#3F7FAE"/></linearGradient>
+		<linearGradient id="slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#7D8894"/><stop offset="1.00" stop-color="#55606C"/></linearGradient>
+	</defs>
+	<ellipse cx="64" cy="119" rx="50" ry="5.5" fill="url(#groundShadow)"/>
+
+	<path d="M10 119H118L116 115H12Z" fill="#7FAE4A"/>
+	<rect x="30" y="60" width="68" height="55" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="30.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="38.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="46.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="54.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="62.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="70.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="78.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="86.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="94.0" y="56.5" width="4" height="3.5" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<path d="M36 77V71.5A1.6 1.6 0 0 1 39.2 71.5V77Z" fill="#3E4652"/><path d="M36 95V89.5A1.6 1.6 0 0 1 39.2 89.5V95Z" fill="#3E4652"/><path d="M46 77V71.5A1.6 1.6 0 0 1 49.2 71.5V77Z" fill="#3E4652"/><path d="M46 95V89.5A1.6 1.6 0 0 1 49.2 89.5V95Z" fill="#3E4652"/><path d="M56 77V71.5A1.6 1.6 0 0 1 59.2 71.5V77Z" fill="#3E4652"/><path d="M56 95V89.5A1.6 1.6 0 0 1 59.2 89.5V95Z" fill="#3E4652"/><path d="M66 77V71.5A1.6 1.6 0 0 1 69.2 71.5V77Z" fill="#3E4652"/><path d="M66 95V89.5A1.6 1.6 0 0 1 69.2 89.5V95Z" fill="#3E4652"/><path d="M76 77V71.5A1.6 1.6 0 0 1 79.2 71.5V77Z" fill="#3E4652"/><path d="M76 95V89.5A1.6 1.6 0 0 1 79.2 89.5V95Z" fill="#3E4652"/><path d="M86 77V71.5A1.6 1.6 0 0 1 89.2 71.5V77Z" fill="#3E4652"/><path d="M86 95V89.5A1.6 1.6 0 0 1 89.2 89.5V95Z" fill="#3E4652"/>
+	<path d="M58 115V104A6 6 0 0 1 70 104V115Z" fill="#4A3A2C"/>
+	<rect x="12" y="44" width="22" height="71" rx="2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="12.0" y="40.0" width="3.6" height="4" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="19.2" y="40.0" width="3.6" height="4" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="26.4" y="40.0" width="3.6" height="4" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<path d="M20 61V55.5A1.6 1.6 0 0 1 23.2 55.5V61Z" fill="#3E4652"/><path d="M20 79V73.5A1.6 1.6 0 0 1 23.2 73.5V79Z" fill="#3E4652"/><path d="M20 97V91.5A1.6 1.6 0 0 1 23.2 91.5V97Z" fill="#3E4652"/>
+	<rect x="94" y="44" width="22" height="71" rx="2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="94.0" y="40.0" width="3.6" height="4" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="101.2" y="40.0" width="3.6" height="4" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="108.4" y="40.0" width="3.6" height="4" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<path d="M102 61V55.5A1.6 1.6 0 0 1 105.2 55.5V61Z" fill="#3E4652"/><path d="M102 79V73.5A1.6 1.6 0 0 1 105.2 73.5V79Z" fill="#3E4652"/><path d="M102 97V91.5A1.6 1.6 0 0 1 105.2 91.5V97Z" fill="#3E4652"/>
+	<path d="M12 50H34M94 50H116" stroke="#97917F" stroke-width=".8"/>
+</svg>

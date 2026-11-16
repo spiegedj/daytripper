@@ -45,6 +45,20 @@ const travelModeGlyphs: Record<TravelMode, ReactElement> =
 		</>
 	),
 	flight: <path {...strokeProps} d="M12 3v7l8 4v2l-8-2v4l3 2v1l-3-1-3 1v-1l3-2v-4l-8 2v-2l8-4V3" />,
+	bike: (
+		<>
+			<circle {...strokeProps} cx="5.5" cy="16" r="3.5" />
+			<circle {...strokeProps} cx="18.5" cy="16" r="3.5" />
+			<path {...strokeProps} d="M5.5 16 9 9h7l2.5 7M9 9l3.5 7h-7M14 6h3l-1 3" />
+		</>
+	),
+	car: (
+		<>
+			<path {...strokeProps} d="M3 16v-3l2.5-5h9.5l4 5h2v3zM3 13h18M10 8v5" />
+			<circle {...strokeProps} cx="7.5" cy="17" r="1.8" />
+			<circle {...strokeProps} cx="16.5" cy="17" r="1.8" />
+		</>
+	),
 	taxi: (
 		<>
 			<path {...strokeProps} d="M4 16v-4l2-5h12l2 5v4zM4 16v3M20 16v3M9 4h6v3" />

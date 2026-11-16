@@ -21,7 +21,9 @@ export type TravelMode =
 	| "boat"
 	| "ropeway"
 	| "flight"
-	| "taxi";
+	| "taxi"
+	| "car"
+	| "bike";
 
 /** A point on the map in WGS84 degrees. */
 export interface ICoordinates

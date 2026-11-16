@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow"><stop offset="0" stop-color="#1D2433" stop-opacity=".32"/><stop offset="1" stop-color="#1D2433" stop-opacity="0"/></radialGradient>
+		<linearGradient id="stone" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#E2DFD5"/><stop offset="0.50" stop-color="#C3BEB1"/><stop offset="1.00" stop-color="#97917F"/></linearGradient>
+		<linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#8CC63F"/><stop offset="1.00" stop-color="#4E8F2F"/></linearGradient>
+		<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#7FB8DA"/><stop offset="1.00" stop-color="#3F7FAE"/></linearGradient>
+		<linearGradient id="slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#7D8894"/><stop offset="1.00" stop-color="#55606C"/></linearGradient>
+	</defs>
+	<ellipse cx="64" cy="119" rx="50" ry="5.5" fill="url(#groundShadow)"/>
+
+	<path d="M4 104C20 70 40 62 60 80C76 60 104 58 124 104Z" fill="#6F9A52"/>
+	<path d="M6 119C12 108 30 102 64 102S116 108 122 119Z" fill="url(#grass)"/>
+	<rect x="72" y="28" width="14" height="78" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<path d="M70.5 28 79 8 87.5 28Z" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9" stroke-linejoin="round"/>
+	<path d="M77.5 40V35.5A1.5 1.5 0 0 1 80.5 35.5V40Z" fill="#3E4652"/><path d="M77.5 66V61.5A1.5 1.5 0 0 1 80.5 61.5V66Z" fill="#3E4652"/>
+	<path d="M76.5 106V96A2.5 2.5 0 0 1 81.5 96V106Z" fill="#4A3A2C"/>
+	<rect x="26" y="78" width="36" height="28" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<path d="M24 78 44 54 64 78Z" fill="#9A9585" stroke="#6E6A60" stroke-width=".9" stroke-linejoin="round"/>
+	<rect x="40" y="58" width="7" height="12" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<path d="M39.5 58 43.5 52 47.5 58Z" fill="#9A9585"/>
+	<path d="M38 106V96A4 4 0 0 1 46 96V106Z" fill="#4A3A2C"/>
+</svg>

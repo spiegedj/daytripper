@@ -1,0 +1,101 @@
+{
+	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Walk, drive and bike legs are routed automatically; waypoints below come from photo positions. Run: node scripts/fetchTransitRoutes.mjs ireland",
+	"legs":
+	[
+		{
+			"dayNumber": 4, "arrivalStopIndex": 5,
+			"_comment": "Back down from the Upper Lake to the car park (16:07 photo) before driving to Dublin.",
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Glendalough car park", "latitude": 53.00961, "longitude": -6.32421 } },
+				{ "mode": "car" }
+			]
+		},
+		{
+			"dayNumber": 11, "arrivalStopIndex": 2,
+			"_comment": "South along the cliff path; waypoints are the photo positions.",
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Cliff path (09:51)", "latitude": 52.9687, "longitude": -9.43066 } },
+				{ "mode": "walk", "to": { "name": "Cliff path (10:01)", "latitude": 52.96446, "longitude": -9.43674 } },
+				{ "mode": "walk", "to": { "name": "Cliff path (10:12)", "latitude": 52.96114, "longitude": -9.44067 } },
+				{ "mode": "walk", "to": { "name": "Cliff path (10:27)", "latitude": 52.95758, "longitude": -9.44896 } },
+				{ "mode": "walk", "to": { "name": "Cliff path (10:38)", "latitude": 52.95407, "longitude": -9.45169 } },
+				{ "mode": "walk", "to": { "name": "Cliff path (10:49)", "latitude": 52.95043, "longitude": -9.46081 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 11, "arrivalStopIndex": 3,
+			"_comment": "Back the same way.",
+			"segments":
+			[
+				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 6 }, "to": { "name": "Cliff path (10:49)", "latitude": 52.95043, "longitude": -9.46081 } },
+				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 5 }, "to": { "name": "Cliff path (10:38)", "latitude": 52.95407, "longitude": -9.45169 } },
+				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 4 }, "to": { "name": "Cliff path (10:27)", "latitude": 52.95758, "longitude": -9.44896 } },
+				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 3 }, "to": { "name": "Cliff path (10:12)", "latitude": 52.96114, "longitude": -9.44067 } },
+				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 2 }, "to": { "name": "Cliff path (10:01)", "latitude": 52.96446, "longitude": -9.43674 } },
+				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 1 }, "to": { "name": "Cliff path (09:51)", "latitude": 52.9687, "longitude": -9.43066 } },
+				{ "mode": "walk", "reverseOf": { "leg": "11:2", "segment": 0 } }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 1,
+			"_comment": "The tour coach went west along the coast road (photo near Furbo at 10:08).",
+			"segments":
+			[
+				{ "mode": "bus", "to": { "name": "Furbo", "latitude": 53.21216, "longitude": -9.22075 } },
+				{ "mode": "bus" }
+			]
+		},
+		{ "dayNumber": 12, "arrivalStopIndex": 2, "segments": [{ "mode": "ferry" }] },
+		{
+			"dayNumber": 12, "arrivalStopIndex": 3,
+			"_comment": "West along the low road past Kilmurvey (photos at 12:11, 12:26 and 12:56).",
+			"segments":
+			[
+				{ "mode": "bike", "to": { "name": "Low road (12:11)", "latitude": 53.13269, "longitude": -9.68373 } },
+				{ "mode": "bike", "to": { "name": "Low road (12:26)", "latitude": 53.13772, "longitude": -9.71177 } },
+				{ "mode": "bike", "to": { "name": "Kilmurvey (12:56)", "latitude": 53.13125, "longitude": -9.74882 } },
+				{ "mode": "bike" }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 4,
+			"segments":
+			[
+				{ "mode": "bike", "to": { "name": "Kilmurvey visitor centre", "latitude": 53.12871, "longitude": -9.76098 } },
+				{ "mode": "walk" }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 5,
+			"segments":
+			[
+				{ "mode": "walk", "to": { "name": "Kilmurvey visitor centre", "latitude": 53.12871, "longitude": -9.76098 } },
+				{ "mode": "bike" }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 6,
+			"_comment": "The ferry's track from the photo positions: out of Kilronan, past Inis Oírr, south along the cliffs.",
+			"segments":
+			[
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Off Inis Mór (15:51)", "latitude": 53.11254, "longitude": -9.59334 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Inis Oírr (16:03)", "latitude": 53.07263, "longitude": -9.51839 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "East of Inis Oírr (16:08)", "latitude": 53.05827, "longitude": -9.4916 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Under Hag's Head (16:30)", "latitude": 52.96691, "longitude": -9.47081 } },
+				{ "mode": "ferry", "isStraight": true }
+			]
+		},
+		{
+			"dayNumber": 12, "arrivalStopIndex": 7,
+			"segments":
+			[
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Under the cliffs (16:40)", "latitude": 52.99179, "longitude": -9.43606 } },
+				{ "mode": "ferry", "isStraight": true }
+			]
+		},
+		{ "dayNumber": 12, "arrivalStopIndex": 8, "segments": [{ "mode": "bus" }] }
+	]
+}

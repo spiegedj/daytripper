@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow"><stop offset="0" stop-color="#1D2433" stop-opacity=".32"/><stop offset="1" stop-color="#1D2433" stop-opacity="0"/></radialGradient>
+		<linearGradient id="stone" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#E2DFD5"/><stop offset="0.50" stop-color="#C3BEB1"/><stop offset="1.00" stop-color="#97917F"/></linearGradient>
+		<linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#8CC63F"/><stop offset="1.00" stop-color="#4E8F2F"/></linearGradient>
+		<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#7FB8DA"/><stop offset="1.00" stop-color="#3F7FAE"/></linearGradient>
+		<linearGradient id="slate" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#7D8894"/><stop offset="1.00" stop-color="#55606C"/></linearGradient>
+	</defs>
+	<ellipse cx="64" cy="119" rx="50" ry="5.5" fill="url(#groundShadow)"/>
+
+	<rect x="6" y="104" width="116" height="15" rx="2" fill="url(#water)"/>
+	<path d="M12 110H40M58 114H96" stroke="#CFE6F3" stroke-width="1.2" stroke-linecap="round"/>
+	<rect x="26" y="62" width="76" height="44" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="26.0" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="32.8" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="39.6" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="46.4" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="53.2" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="60.0" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="66.8" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="73.6" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="80.4" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="87.2" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="94.0" y="58.8" width="3.4" height="3.2" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="12" y="46" width="24" height="60" rx="3" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="12.0" y="42.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="18.8" y="42.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="25.6" y="42.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="32.4" y="42.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="92" y="46" width="24" height="60" rx="3" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="92.0" y="42.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="98.8" y="42.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="105.6" y="42.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="112.4" y="42.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="50" y="40" width="28" height="66" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="50.0" y="36.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="56.8" y="36.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="63.6" y="36.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/><rect x="70.4" y="36.4" width="3.4" height="3.6" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<path d="M21 64V57.5A1.6 1.6 0 0 1 24.2 57.5V64Z" fill="#3E4652"/><path d="M21 84V77.5A1.6 1.6 0 0 1 24.2 77.5V84Z" fill="#3E4652"/><path d="M101 64V57.5A1.6 1.6 0 0 1 104.2 57.5V64Z" fill="#3E4652"/><path d="M101 84V77.5A1.6 1.6 0 0 1 104.2 77.5V84Z" fill="#3E4652"/>
+	<path d="M57 58V51.5A1.6 1.6 0 0 1 60.2 51.5V58Z" fill="#3E4652"/><path d="M67 58V51.5A1.6 1.6 0 0 1 70.2 51.5V58Z" fill="#3E4652"/>
+	<path d="M57 106V84A7 7 0 0 1 71 84V106Z" fill="#4A3A2C"/>
+</svg>

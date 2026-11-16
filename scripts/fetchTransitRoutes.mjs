@@ -1,6 +1,6 @@
 // Builds real-world paths for every travel leg of a trip.
-// Walks follow streets and trails, buses follow roads, rail follows OpenStreetMap track geometry, boats follow the river,
-// and ferries, ropeways and flights are drawn as arcs. Legs whose arrival mode is "walk" need no configuration.
+// Walks follow streets and trails, buses and cars follow roads, rail follows OpenStreetMap track geometry, boats follow the river,
+// and ferries, ropeways and flights are drawn as arcs. Legs whose arrival mode is "walk", "car" or "bike" need no configuration.
 // Run by hand when legs change: node scripts/fetchTransitRoutes.mjs japan [--only=6:1]
 // The output is committed, so the public site never calls these services at runtime.
 import { readFileSync, writeFileSync } from "node:fs";
@@ -16,6 +16,7 @@ const requestHeaders = { "User-Agent": "daytripper-build-script/0.1" };
 const overpassUrl = "https://overpass-api.de/api/interpreter";
 const footRouterUrl = "https://routing.openstreetmap.de/routed-foot/route/v1/driving";
 const carRouterUrl = "https://routing.openstreetmap.de/routed-car/route/v1/driving";
+const bikeRouterUrl = "https://routing.openstreetmap.de/routed-bike/route/v1/driving";
 const searchMarginDegrees = 0.05;
 const simplifyToleranceDegrees = 0.00006;
 const maximumGapKilometers = 0.25;
@@ -348,7 +349,11 @@ async function buildSegmentPath(segment, from, to)
 	{
 		return fetchRoadPath(footRouterUrl, from, to);
 	}
-	if (segment.mode === "bus")
+	if (segment.mode === "bike")
+	{
+		return fetchRoadPath(bikeRouterUrl, from, to);
+	}
+	if (segment.mode === "bus" || segment.mode === "car" || segment.mode === "taxi")
 	{
 		return fetchRoadPath(carRouterUrl, from, to);
 	}
@@ -407,7 +412,8 @@ async function main()
 			}
 			const fromPlaceId = day.stops[arrivalStopIndex - 1].placeId;
 			const toPlaceId = day.stops[arrivalStopIndex].placeId;
-			const segmentPlan = configuredLegs.get(legKey) ?? (day.stops[arrivalStopIndex].arrivalMode === "walk" ? [{ mode: "walk" }] : undefined);
+			const arrivalMode = day.stops[arrivalStopIndex].arrivalMode;
+			const segmentPlan = configuredLegs.get(legKey) ?? (["walk", "car", "bike"].includes(arrivalMode) ? [{ mode: arrivalMode }] : undefined);
 			if (!segmentPlan)
 			{
 				problems.push(`${legKey} (${fromPlaceId} → ${toPlaceId}): no route configured, drawn as an arc`);
