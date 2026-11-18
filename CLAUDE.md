@@ -14,7 +14,7 @@ The original brief and the coding style are in [TravelMapPlan.md](TravelMapPlan.
 - `npm run build`: runs the privacy check (`scripts/checkSensitiveData.mjs`), then type-checks and builds to `dist/`.
 - `npm run preview`: serves the built site on port 4173.
 - `node scripts/fetchTransitRoutes.mjs <trip> [--only=day:stop]`: rebuilds route paths from OpenStreetMap (Overpass plus the OSRM foot and car routers). A full Japan run takes about 30 minutes.
-- `node scripts/fetchPlaceDetails.mjs <trip> [--refresh]`: fetches Wikipedia summaries and photos.
+- `node scripts/fetchPlaceDetails.mjs <trip> [--refresh | --summaries]`: fetches Wikipedia introductions and photos. `--summaries` re-fetches only the text and keeps the chosen photos.
 
 Both fetch scripts write committed `*.generated.json` files, so the site never calls those services at runtime. The public Overpass server sometimes returns 502 or 504 errors; retry later.
 

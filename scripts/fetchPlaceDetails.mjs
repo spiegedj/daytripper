@@ -1,5 +1,5 @@
-// Downloads a short Wikipedia summary and freely licensed photos (with credits) for every place in a trip.
-// Run by hand when places change: node scripts/fetchPlaceDetails.mjs japan
+// Downloads the Wikipedia introduction and freely licensed photos (with credits) for every place in a trip.
+// Run by hand when places change: node scripts/fetchPlaceDetails.mjs japan [--refresh | --summaries]
 // The output is committed, so the public site never calls these APIs at runtime.
 import { readFileSync, writeFileSync } from "node:fs";
 
@@ -11,7 +11,8 @@ const outputPath = `${tripFolder}/placeDetails.generated.json`;
 const apiUrl = "https://en.wikipedia.org/w/api.php";
 const requestHeaders = { "User-Agent": "daytripper-build-script/0.1" };
 const maximumPhotos = 6;
-const maximumSummaryCharacters = 1100;
+// Whole introductions are kept (the app folds long ones behind "Show more"); this only stops the rare very long one.
+const maximumSummaryCharacters = 3000;
 const photoWidth = 960;
 const unwantedFilePattern = /map|logo|icon|flag|seal|emblem|diagram|plan|symbol|locator|coat[_ ]of[_ ]arms|sign|chart|route/i;
 
@@ -179,6 +180,46 @@ try
 catch
 {
 	placeDetails = {};
+}
+
+// --summaries fetches the summary text again for every place already in the output, 20 articles per request, and keeps
+// the chosen photos as they are. Use it after changing how summaries are cut.
+if (process.argv.includes("--summaries"))
+{
+	const entries = Object.entries(placeDetails);
+	for (let start = 0; start < entries.length; start += 20)
+	{
+		const batch = entries.slice(start, start + 20);
+		const result = await queryWikipedia(
+		{
+			action: "query",
+			titles: batch.map(([, details]) => details.wikipediaTitle).join("|"),
+			prop: "extracts",
+			exintro: "1",
+			explaintext: "1",
+			exlimit: "20",
+			redirects: "1",
+		});
+		const extractsByTitle = new Map((result.query?.pages ?? []).map((page) => [page.title, page.extract ?? ""]));
+		// A stored title that is now a redirect comes back under its new name.
+		for (const redirect of result.query?.redirects ?? [])
+		{
+			extractsByTitle.set(redirect.from, extractsByTitle.get(redirect.to) ?? "");
+		}
+		for (const [placeId, details] of batch)
+		{
+			const extract = extractsByTitle.get(details.wikipediaTitle);
+			if (extract)
+			{
+				details.summary = trimToSentence(extract, maximumSummaryCharacters);
+			}
+			else
+			{
+				console.warn(`No summary returned for ${placeId} ("${details.wikipediaTitle}"), keeping the old one`);
+			}
+		}
+		console.log(`Summaries ${start + 1}–${start + batch.length} of ${entries.length}`);
+	}
 }
 
 // Wikipedia openings carry pronunciation and romanization; the app already shows the Japanese name separately.
