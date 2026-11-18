@@ -102,7 +102,6 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 									</span>
 								)}
 							</span>
-							<span className={styles.number}>{stopIndex + 1}</span>
 						</button>
 						{isCurrent && (
 							<button type="button" className={styles.detailsButton} onClick={onOpenDetails}>

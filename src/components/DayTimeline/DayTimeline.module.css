@@ -74,7 +74,7 @@
 	--tag-left-radius: var(--tag-pill-radius);
 	position: relative;
 	display: grid;
-	grid-template-columns: 40px 1fr auto;
+	grid-template-columns: 40px 1fr;
 	align-items: center;
 	gap: 10px;
 	width: 100%;
@@ -212,21 +212,6 @@
 .localName
 {
 	font-family: "M PLUS Rounded 1c", system-ui, sans-serif;
-}
-
-.number
-{
-	grid-column: 3;
-	position: relative;
-	z-index: 1;
-	font: 700 12px/1 "Inter", system-ui, sans-serif;
-	font-variant-numeric: tabular-nums;
-	color: #adb5bd;
-}
-
-.current .number
-{
-	color: var(--day-color);
 }
 
 .visited
