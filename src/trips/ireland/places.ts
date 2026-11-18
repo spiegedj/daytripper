@@ -20,10 +20,15 @@ const placeEntries: Record<string, IPlaceEntry> =
 	dublinCastle: { name: "Dublin Castle", category: "landmark", latitude: 53.34266, longitude: -6.26700 },
 	twoPups: { name: "Two Pups Coffee", category: "food", latitude: 53.33939, longitude: -6.27349 },
 	stPatricksCathedral: { name: "St Patrick's Cathedral", category: "cathedral", latitude: 53.33956, longitude: -6.27148, landmarkIconScale: 1.2 },
+	// The old Roe's Distillery windmill on Thomas Street, passed on the walk to Guinness (15:02 photo, taken from Watling Street).
+	stPatricksTower: { name: "St Patrick's Tower", category: "landmark", latitude: 53.34405, longitude: -6.28407 },
 	guinnessStorehouse: { name: "Guinness Storehouse", category: "landmark", latitude: 53.34193, longitude: -6.28673 },
 	kilkennyCafe: { name: "Kilkenny Café, Nassau Street", category: "food", latitude: 53.34222, longitude: -6.25543 },
 	cityQuay: { name: "City Quay & the Liffey", category: "landmark", latitude: 53.34688, longitude: -6.24769 },
+	// The 16:18 photo is inside the Museum Building, at the photo's position on the campus.
+	trinityCollege: { name: "Trinity College", category: "landmark", latitude: 53.3438, longitude: -6.25521 },
 	bookOfKells: { name: "Book of Kells, Trinity College", category: "museum", latitude: 53.34379, longitude: -6.25640 },
+	longRoom: { name: "The Long Room, Old Library", category: "museum", latitude: 53.3439, longitude: -6.25682 },
 	theQuays: { name: "The Quays", category: "food", latitude: 53.34566, longitude: -6.26332 },
 	theOval: { name: "The Oval", category: "food", latitude: 53.34845, longitude: -6.26034 },
 	claytonDublinAirport: { name: "Clayton Hotel Dublin Airport", category: "hotel", latitude: 53.41142, longitude: -6.21788 },

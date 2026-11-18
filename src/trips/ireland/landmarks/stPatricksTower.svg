@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+	<defs>
+		<radialGradient id="groundShadow"><stop offset="0" stop-color="#1D2433" stop-opacity=".32"/><stop offset="1" stop-color="#1D2433" stop-opacity="0"/></radialGradient>
+		<linearGradient id="brick" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#8A5A44"/><stop offset="0.45" stop-color="#6E4434"/><stop offset="1.00" stop-color="#4A2D24"/></linearGradient>
+		<linearGradient id="copper" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#8FD1B8"/><stop offset="0.50" stop-color="#4FA588"/><stop offset="1.00" stop-color="#2F7660"/></linearGradient>
+		<linearGradient id="stone" x1="0" y1="0" x2="1" y2="0"><stop offset="0.00" stop-color="#E2DFD5"/><stop offset="0.50" stop-color="#C3BEB1"/><stop offset="1.00" stop-color="#97917F"/></linearGradient>
+		<linearGradient id="pavement" x1="0" y1="0" x2="0" y2="1"><stop offset="0.00" stop-color="#C9CCC4"/><stop offset="1.00" stop-color="#A3A79C"/></linearGradient>
+	</defs>
+	<ellipse cx="64" cy="119" rx="44" ry="5.5" fill="url(#groundShadow)"/>
+	<path d="M16 119C20 111 30 107 42 106H86C98 107 108 111 112 119Z" fill="url(#pavement)"/>
+
+	<!-- The distillery building at the tower's foot. -->
+	<rect x="30" y="94" width="68" height="16" fill="url(#stone)" stroke="#6E6A60" stroke-width=".9"/>
+	<rect x="36" y="99" width="5" height="7" fill="#3E4652"/><rect x="87" y="99" width="5" height="7" fill="#3E4652"/>
+
+	<!-- The tapering brick windmill tower. -->
+	<path d="M44 96 52 30H76L84 96Z" fill="url(#brick)" stroke="#3A231C" stroke-width=".9" stroke-linejoin="round"/>
+	<path d="M48.5 70H79.5M50.6 52H77.4M52.4 38H75.6" stroke="#5A372B" stroke-width=".8" opacity=".7"/>
+	<path d="M62.6 89V83.5A1.4 1.4 0 0 1 65.4 83.5V89Z" fill="#2A2F38"/>
+	<path d="M62.8 76V71.5A1.2 1.2 0 0 1 65.2 71.5V76Z" fill="#2A2F38"/>
+	<path d="M62.9 63V59A1.1 1.1 0 0 1 65.1 59V63Z" fill="#2A2F38"/>
+	<path d="M63 48V44.5A1 1 0 0 1 65 44.5V48Z" fill="#2A2F38"/>
+
+	<!-- Copper cupola with St Patrick on top. -->
+	<rect x="50.5" y="27" width="27" height="4" rx="1" fill="#3A231C"/>
+	<path d="M52 27C52 17 57 12 64 12C71 12 76 17 76 27Z" fill="url(#copper)" stroke="#245C4A" stroke-width=".9"/>
+	<path d="M58 26C58 19 60.5 15 64 14" stroke="#B7E6D3" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".8"/>
+	<path d="M62.5 12V7.5H65.5V12Z" fill="#2F7660"/>
+	<circle cx="64" cy="5.8" r="1.8" fill="#2F7660"/>
+	<path d="M66.5 4V12" stroke="#245C4A" stroke-width=".9" stroke-linecap="round"/>
+</svg>

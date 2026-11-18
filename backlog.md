@@ -42,6 +42,7 @@ Built from the photos and the hotel and spending sheets (there was no Wanderlog 
 
 - **Meals without photos:** their place in each day's order follows the sheet (lunch before dinner), but the exact order around sights is a guess. Examples: the Kilkenny Café lunch before the Liffey walk on Apr 1; Grogan's after Hore Abbey on Apr 4.
 - **Apr 5:** drove back to the hotel after Kinsale, then walked to St Fin Barre's for the evening.
+- **Apr 1 at Trinity:** the Book of Kells (no photos) is placed between the Museum Building photo (16:18, shown as "Trinity College") and the Long Room (17:01–17:09), following the usual exhibition route.
 - **Apr 10:** the bike route on Inis Mór follows the photos, but the exact roads are routed.
 
 ## Maintenance
