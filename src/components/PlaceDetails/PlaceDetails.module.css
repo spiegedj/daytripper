@@ -1,0 +1,318 @@
+/* The current stop's details, hanging off the timeline under the stop they belong to. */
+.card
+{
+	display: grid;
+	margin: 8px 0 4px;
+	border-radius: 16px;
+	background: #ffffff;
+	box-shadow: 0 0 0 1px #e6e9ee, 0 6px 18px rgba(29, 36, 51, 0.08);
+	overflow: hidden;
+}
+
+/* Whole photos in a 3:2 frame, with the photo's own blurred colours filling the bars beside upright shots. */
+.carousel
+{
+	/* The carousel is a grid item, which would otherwise grow to fit its row of photos. */
+	min-width: 0;
+	background: #1d2433;
+}
+
+.frame
+{
+	position: relative;
+}
+
+.track
+{
+	display: flex;
+	aspect-ratio: 3 / 2;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar
+{
+	display: none;
+}
+
+.slide
+{
+	position: relative;
+	flex: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	scroll-snap-align: start;
+	cursor: zoom-in;
+}
+
+.slideBackdrop
+{
+	position: absolute;
+	inset: -24px;
+	width: calc(100% + 48px);
+	height: calc(100% + 48px);
+	object-fit: cover;
+	filter: blur(22px) brightness(0.62) saturate(1.2);
+}
+
+.photo
+{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.tripPhotoBadge
+{
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 4px 9px 4px 7px;
+	border-radius: 999px;
+	background: rgba(29, 36, 51, 0.72);
+	color: #ffffff;
+	font: 600 11.5px/1.2 "Inter", system-ui, sans-serif;
+	backdrop-filter: blur(4px);
+	pointer-events: none;
+}
+
+.expandButton
+{
+	position: absolute;
+	right: 12px;
+	bottom: 12px;
+	display: grid;
+	place-items: center;
+	width: 32px;
+	height: 32px;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(29, 36, 51, 0.62);
+	color: #ffffff;
+	cursor: zoom-in;
+	backdrop-filter: blur(4px);
+}
+
+.carouselArrow
+{
+	position: absolute;
+	top: calc(50% - 17px);
+	display: grid;
+	place-items: center;
+	width: 34px;
+	height: 34px;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.9);
+	color: #1d2433;
+	box-shadow: 0 2px 8px rgba(29, 36, 51, 0.2);
+	cursor: pointer;
+	transition: opacity 150ms ease;
+}
+
+.carouselArrow:disabled
+{
+	opacity: 0;
+	pointer-events: none;
+}
+
+.arrowLeft
+{
+	left: 10px;
+}
+
+.arrowRight
+{
+	right: 10px;
+}
+
+.expandButton:focus-visible,
+.carouselArrow:focus-visible,
+.thumbnail:focus-visible
+{
+	outline: 3px solid var(--day-color);
+	outline-offset: 2px;
+}
+
+.thumbnailStrip
+{
+	display: flex;
+	gap: 6px;
+	padding: 8px 10px 2px;
+	overflow-x: auto;
+	scrollbar-width: thin;
+	background: #f4f6f3;
+}
+
+.thumbnail
+{
+	flex: none;
+	width: 60px;
+	height: 45px;
+	padding: 0;
+	border: 2px solid transparent;
+	border-radius: 7px;
+	background: #dfe3dc;
+	overflow: hidden;
+	opacity: 0.7;
+	cursor: pointer;
+	transition: opacity 150ms ease, border-color 150ms ease;
+}
+
+.thumbnail img
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.thumbnail:hover
+{
+	opacity: 1;
+}
+
+.thumbnailActive
+{
+	border-color: #1d2433;
+	opacity: 1;
+}
+
+/* The traveler's own photos come first in the strip; the day colour marks which one is showing. */
+.tripThumbnail.thumbnailActive
+{
+	border-color: var(--day-color);
+}
+
+.credit
+{
+	display: block;
+	padding: 6px 12px 7px;
+	background: #f4f6f3;
+	color: #6b7280;
+	font: 400 11px/1.4 "Inter", system-ui, sans-serif;
+	text-decoration: none;
+}
+
+a.credit:hover
+{
+	text-decoration: underline;
+}
+
+.content
+{
+	display: grid;
+	gap: 14px;
+	padding: 14px 16px 16px;
+}
+
+.section
+{
+	display: grid;
+	gap: 8px;
+}
+
+.sectionTitle
+{
+	margin: 0;
+	color: #5b6577;
+	font: 700 11px/1.3 "Inter", system-ui, sans-serif;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.tips
+{
+	display: grid;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.tips li
+{
+	position: relative;
+	padding: 10px 12px 10px 34px;
+	border-radius: 12px;
+	background: color-mix(in srgb, var(--day-color) 7%, #ffffff);
+	color: #2b3240;
+	font: 400 14px/1.5 "Inter", system-ui, sans-serif;
+}
+
+.tips li::before
+{
+	content: "";
+	position: absolute;
+	left: 13px;
+	top: 17px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--day-color);
+}
+
+/* A long summary folds to a few lines that fade out above "Show more". */
+.summaryText
+{
+	display: grid;
+	gap: 8px;
+	overflow: hidden;
+	transition: max-height 260ms ease;
+}
+
+.summaryFolded
+{
+	mask-image: linear-gradient(to bottom, #000000 55%, transparent);
+}
+
+.paragraph
+{
+	margin: 0;
+	color: #2b3240;
+	font: 400 14px/1.6 "Inter", system-ui, sans-serif;
+}
+
+.showMore
+{
+	justify-self: start;
+	margin-top: -2px;
+	padding: 2px 0;
+	border: 0;
+	background: none;
+	color: var(--day-color);
+	font: 700 13px/1.4 "Inter", system-ui, sans-serif;
+	cursor: pointer;
+}
+
+.showMore:hover
+{
+	text-decoration: underline;
+}
+
+.showMore:focus-visible
+{
+	outline: 3px solid var(--day-color);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+.source
+{
+	margin: 0;
+	color: #868e96;
+	font: 400 12px/1.4 "Inter", system-ui, sans-serif;
+}
+
+.source a,
+.credit
+{
+	color: inherit;
+}

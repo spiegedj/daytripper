@@ -209,9 +209,112 @@
 	font-variant-numeric: tabular-nums;
 }
 
+.photoCount
+{
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	margin-left: 6px;
+}
+
 .localName
 {
 	font-family: "M PLUS Rounded 1c", system-ui, sans-serif;
+}
+
+/* The current stop's card and the controls laid over its right end. */
+.stopRow
+{
+	position: relative;
+}
+
+.withActions,
+.withMapLink,
+.withLinks
+{
+	transition: padding-right 160ms ease;
+}
+
+.withActions
+{
+	padding-right: 50px;
+}
+
+.withMapLink
+{
+	padding-right: 88px;
+}
+
+.withLinks
+{
+	padding-right: 126px;
+}
+
+.stopActions
+{
+	position: absolute;
+	z-index: 3;
+	top: 50%;
+	right: 10px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	transform: translateY(-50%);
+}
+
+.stopLinks
+{
+	display: flex;
+	gap: 6px;
+}
+
+.stopAction
+{
+	display: grid;
+	place-items: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: #ffffff;
+	color: var(--day-color);
+	box-shadow: 0 1px 4px rgba(29, 36, 51, 0.18);
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 150ms ease, transform 150ms ease;
+}
+
+.stopAction:hover
+{
+	transform: scale(1.08);
+}
+
+.stopAction:focus-visible
+{
+	outline: 3px solid var(--day-color);
+	outline-offset: 2px;
+}
+
+.chevron
+{
+	background: var(--day-color);
+	color: #ffffff;
+}
+
+.chevron svg
+{
+	transition: transform 200ms ease;
+}
+
+.chevron .chevronOpen
+{
+	transform: rotate(180deg);
+}
+
+.wikipediaMark
+{
+	font: 700 16px/1 Georgia, "Times New Roman", serif;
 }
 
 .visited
@@ -239,24 +342,12 @@
 	text-transform: uppercase;
 }
 
-.detailsButton
+/* The current stop's details hang off the rail, under the stop they belong to. */
+.inlineDetails
 {
 	position: relative;
-	display: inline-flex;
-	align-items: center;
-	gap: 4px;
-	margin: 6px 0 4px 50px;
-	padding: 7px 10px 7px 12px;
-	border: 0;
-	border-radius: 999px;
-	background: var(--day-color);
-	color: #ffffff;
-	font: 600 12px/1.2 "Inter", system-ui, sans-serif;
-	cursor: pointer;
-}
-
-.detailsButton:focus-visible
-{
-	outline: 3px solid var(--day-color);
-	outline-offset: 2px;
+	margin-left: 46px;
+	/* Clips the details while they unfold, but leaves room for the card's shadow. */
+	overflow: clip;
+	overflow-clip-margin: 24px;
 }

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { getDayLabel } from "../../itinerary/dayLabels";
 import type { ITrip } from "../../itinerary/types";
 import { DayRail } from "../DayRail/DayRail";
@@ -23,16 +23,23 @@ export interface IItineraryPanelProps
 	onOpenDetails: () => void;
 	onShowOverview: () => void;
 	onHighlightDay: (dayNumber: number | undefined) => void;
+	/** Width of the panel while details are switched on, so photos have room; unset keeps the usual width. */
+	widePanelWidth?: number;
+	/** The current stop's photos and details, shown inside the timeline; see DayTimeline. */
+	currentStopDetails?: ReactNode;
+	isCurrentStopDetailsOpen?: boolean;
+	onCloseDetails?: () => void;
 }
 
 /** The side panel (a bottom sheet on phones): trip title, Day/Trip switch, day rail, and either one day's timeline or the trip summary. */
 export function ItineraryPanel(props: IItineraryPanelProps)
 {
 	const { trip, trips, onSelectTrip, dayIndex, stopIndex, isOverview, highlightedDayNumber, onSelectDay, onSelectStop, onOpenDetails, onShowOverview, onHighlightDay } = props;
+	const { widePanelWidth, currentStopDetails, isCurrentStopDetailsOpen = false, onCloseDetails } = props;
 	const day = trip.days[dayIndex];
 
 	return (
-		<aside className={styles.panel} style={{ "--day-color": day.color } as CSSProperties}>
+		<aside className={styles.panel} style={{ "--day-color": day.color, width: widePanelWidth } as CSSProperties}>
 			<header className={styles.header}>
 				<img className={styles.logo} src={`${import.meta.env.BASE_URL}icon.svg`} alt="" />
 				<span className={styles.brand}>Daytripper</span>
@@ -62,7 +69,13 @@ export function ItineraryPanel(props: IItineraryPanelProps)
 											<h1 className={styles.dayTitle}>{day.title}</h1>
 											<span className={styles.daySummary}>{day.stops.length} stops</span>
 										</div>
-										<DayTimeline day={day} places={trip.places} currentStopIndex={stopIndex} onSelectStop={onSelectStop} onOpenDetails={onOpenDetails} />
+										<DayTimeline day={day} places={trip.places} currentStopIndex={stopIndex} onSelectStop={onSelectStop} onOpenDetails={onOpenDetails}
+												tripPhotos={trip.tripPhotos}
+												placeDetails={trip.placeDetails}
+												currentStopDetails={currentStopDetails}
+												isCurrentStopDetailsOpen={isCurrentStopDetailsOpen}
+												onCloseDetails={onCloseDetails}
+											/>
 									</>
 								)}
 						</motion.div>

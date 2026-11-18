@@ -7,16 +7,12 @@ Open work for the travel map, grouped by kind. Finished items are in the git his
 - **Trip overview badges overlap.** The label-spreading pass leaves some badges covered:
   - England & Scotland: the Windsor day-trip badge sits partly behind the London city card.
   - Ireland: the Kilkenny city card hides behind the Powerscourt & Glendalough day-trip label, and the Killarney card is partly covered.
+- **Wikipedia summaries keep stray punctuation where pronunciations were removed,** for example "The Cliffs of Moher (; Irish: …".
 - **Zoomed-out landmark pins can overlap.** Landmarks shrink to pins when they would cover another stop, but the pins can still overlap each other at low zoom.
 
 ## Enhancements
 
-- **Show the traveler's own photos at each stop.** Photos live in `Input/` (never committed) and carry the time and GPS in their metadata. Before anything is published: the traveler picks which photos to use, the copies are resized, and the GPS and time metadata are stripped.
-- **Make place photos more prominent in the details pane.** Two attempts were reverted:
-  - A tall hero image grew the pane too much vertically and always showed a scrollbar.
-  - A wider responsive pane was too wide on smaller windows.
-
-  Photos inside the timeline (too small) and a full-screen gallery were also ruled out. Ideas still open: widen the pane only on large screens, or show the photo as a postcard on the map.
+- **Publish the traveler's own photos.** The display (in the timeline, with a full-screen viewer) and `scripts/processTripPhotos.mjs` are committed; the photos themselves are not. Ireland has a first-pass selection awaiting the traveler's review (including photos that show people). England & Scotland is next. Commit `public/photos/<trip>/`, `photoSelection.json`, `tripPhotos.generated.json` and the trip's `tripPhotos` import together once approved.
 - **Redraw the weakest landmark illustrations.** The Kelpies (England & Scotland); the Cliffs of Moher and Dún Aonghasa (Ireland).
 - **More Ireland landmark illustrations.** Guinness Storehouse, the Book of Kells (Long Room), Dublin Castle, Ross Castle, Muckross House, Charles Fort and St Fin Barre's have none yet.
 
