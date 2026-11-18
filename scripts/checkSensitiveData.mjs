@@ -27,9 +27,11 @@ for (const file of listFiles(tripsFolder).filter(isHandWritten))
 {
 	readFileSync(file, "utf8").split("\n").forEach((line, index) =>
 	{
+		// Pixel photo file names (PXL_20230409_100040102.jpg) are capture timestamps, not booking numbers.
+		const checkedLine = line.replace(/PXL_\d{8}_\d{6,9}(?:\.[A-Z]+|-[A-Z]+|~\d+)*\.jpe?g/gi, "");
 		for (const { description, pattern } of forbiddenPatterns)
 		{
-			if (pattern.test(line))
+			if (pattern.test(checkedLine))
 			{
 				problems.push(`${file}:${index + 1} ${description}`);
 			}
