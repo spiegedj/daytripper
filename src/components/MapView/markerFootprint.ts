@@ -78,7 +78,8 @@ function doBoxesOverlap(first: IPlacedBox, second: IPlacedBox): boolean
 }
 
 /**
- * Decides which landmarks shrink to plain pins so markers don't cover each other.
+ * Decides which landmarks shrink to their small illustration so landmarks don't cover each other.
+ * Only landmarks count: an ordinary pin (a café, a hotel) may sit under the edge of an illustration rather than shrink it.
  * The current stop is placed first and always stays full size; other landmarks keep their illustration only if it fits.
  */
 export function findCompactStops(
@@ -89,10 +90,11 @@ export function findCompactStops(
 {
 	const placementOrder = places
 		.map((place, stopIndex) => ({ place, stopIndex }))
+		.filter(({ place }) => isLandmark(place))
 		.sort((first, second) =>
 		{
-			const firstPriority = first.stopIndex === currentStopIndex ? 0 : isLandmark(first.place) ? 2 : 1;
-			const secondPriority = second.stopIndex === currentStopIndex ? 0 : isLandmark(second.place) ? 2 : 1;
+			const firstPriority = first.stopIndex === currentStopIndex ? 0 : 1;
+			const secondPriority = second.stopIndex === currentStopIndex ? 0 : 1;
 			if (firstPriority !== secondPriority)
 			{
 				return firstPriority - secondPriority;
@@ -107,7 +109,7 @@ export function findCompactStops(
 		const point = projectToScreen(place);
 		const fullBox = toScreenBox(point, getMarkerFootprint(place, false));
 		const isCurrent = stopIndex === currentStopIndex;
-		const doesFullSizeFit = isCurrent || !isLandmark(place) || !placedBoxes.some((box) => doBoxesOverlap(box, fullBox));
+		const doesFullSizeFit = isCurrent || !placedBoxes.some((box) => doBoxesOverlap(box, fullBox));
 		if (doesFullSizeFit)
 		{
 			placedBoxes.push(fullBox);

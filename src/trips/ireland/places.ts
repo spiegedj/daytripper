@@ -19,9 +19,9 @@ const placeEntries: Record<string, IPlaceEntry> =
 	theOldMill: { name: "The Old Mill", category: "food", latitude: 53.34566, longitude: -6.26302 },
 	dublinCastle: { name: "Dublin Castle", category: "landmark", latitude: 53.34266, longitude: -6.26700 },
 	twoPups: { name: "Two Pups Coffee", category: "food", latitude: 53.33939, longitude: -6.27349 },
-	stPatricksCathedral: { name: "St Patrick's Cathedral", category: "cathedral", latitude: 53.33956, longitude: -6.27148, landmarkIconScale: 1.2 },
+	stPatricksCathedral: { name: "St Patrick's Cathedral", category: "cathedral", latitude: 53.33956, longitude: -6.27148, landmarkIconScale: 1.65 },
 	// The old Roe's Distillery windmill on Thomas Street, passed on the walk to Guinness (15:02 photo, taken from Watling Street).
-	stPatricksTower: { name: "St Patrick's Tower", category: "landmark", latitude: 53.34405, longitude: -6.28407 },
+	stPatricksTower: { name: "St Patrick's Tower", category: "landmark", latitude: 53.34405, longitude: -6.28407, landmarkIconScale: 1.3 },
 	guinnessStorehouse: { name: "Guinness Storehouse", category: "landmark", latitude: 53.34193, longitude: -6.28673 },
 	kilkennyCafe: { name: "Kilkenny Café, Nassau Street", category: "food", latitude: 53.34222, longitude: -6.25543 },
 	cityQuay: { name: "City Quay & the Liffey", category: "landmark", latitude: 53.34688, longitude: -6.24769 },
@@ -36,28 +36,28 @@ const placeEntries: Record<string, IPlaceEntry> =
 	// Wicklow
 	powerscourt: { name: "Powerscourt Estate & Gardens", category: "nature", latitude: 53.18300, longitude: -6.18570 },
 	avocaPowerscourt: { name: "Avoca café, Powerscourt House", category: "food", latitude: 53.18438, longitude: -6.18754 },
-	glendalough: { name: "Glendalough", category: "landmark", latitude: 53.01082, longitude: -6.32634 },
+	glendalough: { name: "Glendalough", category: "landmark", latitude: 53.01082, longitude: -6.32634, landmarkIconScale: 1.4 },
 	glendaloughUpperLake: { name: "Upper Lake, Glendalough", category: "nature", latitude: 53.00498, longitude: -6.34641 },
 
 	// Kilkenny
 	kilkennyOrmonde: { name: "Kilkenny Ormonde Hotel", category: "hotel", latitude: 52.64961, longitude: -7.25317 },
 	blackAbbey: { name: "Black Abbey", category: "cathedral", latitude: 52.65402, longitude: -7.25778 },
-	kilkennyCastle: { name: "Kilkenny Castle", category: "landmark", latitude: 52.65029, longitude: -7.24953, landmarkIconScale: 1.2 },
+	kilkennyCastle: { name: "Kilkenny Castle", category: "landmark", latitude: 52.65029, longitude: -7.24953, landmarkIconScale: 1.45 },
 	// In St Mary's, the medieval church off High Street; visited after the castle.
 	medievalMileMuseum: { name: "St Mary's Medieval Mile Museum", category: "museum", latitude: 52.65180, longitude: -7.25218 },
 	stCanicesCathedral: { name: "St Canice's Cathedral", category: "cathedral", latitude: 52.65667, longitude: -7.25743 },
 	leftBank: { name: "Left Bank", category: "food", latitude: 52.65047, longitude: -7.25158 },
 
 	// Tipperary
-	rockOfCashel: { name: "Rock of Cashel", category: "landmark", latitude: 52.52018, longitude: -7.89064, landmarkIconScale: 1.25 },
+	rockOfCashel: { name: "Rock of Cashel", category: "landmark", latitude: 52.52018, longitude: -7.89064, landmarkIconScale: 1.5 },
 	horeAbbey: { name: "Hore Abbey", category: "landmark", latitude: 52.51870, longitude: -7.89790 },
 	grogans: { name: "Grogan's, Cashel", category: "food", latitude: 52.51615, longitude: -7.89113 },
-	cahirCastle: { name: "Cahir Castle", category: "landmark", latitude: 52.37439, longitude: -7.92713 },
+	cahirCastle: { name: "Cahir Castle", category: "landmark", latitude: 52.37439, longitude: -7.92713, landmarkIconScale: 1.5 },
 
 	// Cork
 	claytonCork: { name: "Clayton Hotel Cork City", category: "hotel", latitude: 51.89876, longitude: -8.46512 },
 	corkAndFork: { name: "Cork & Fork", category: "food", latitude: 51.89880, longitude: -8.46841 },
-	blarneyCastle: { name: "Blarney Castle", category: "landmark", latitude: 51.92910, longitude: -8.57089 },
+	blarneyCastle: { name: "Blarney Castle", category: "landmark", latitude: 51.92910, longitude: -8.57089, landmarkIconScale: 1.25 },
 	charlesFort: { name: "Charles Fort, Kinsale", category: "landmark", latitude: 51.69636, longitude: -8.49891 },
 	stFinBarres: { name: "St Fin Barre's Cathedral", category: "cathedral", latitude: 51.89436, longitude: -8.48050 },
 	thomondBar: { name: "Thomond Bar", category: "food", latitude: 51.89790, longitude: -8.47271 },
@@ -82,21 +82,21 @@ const placeEntries: Record<string, IPlaceEntry> =
 	// Limerick
 	// The city-centre McDonald's, for lunch before the castle (from the spending sheet; the traveler named the branch).
 	mcDonaldsLimerick: { name: "McDonald's, Limerick", category: "food", latitude: 52.66423, longitude: -8.62603 },
-	kingJohnsCastle: { name: "King John's Castle", category: "landmark", latitude: 52.66969, longitude: -8.62507 },
+	kingJohnsCastle: { name: "King John's Castle", category: "landmark", latitude: 52.66969, longitude: -8.62507, landmarkIconScale: 1.6 },
 
 	// Galway, Clare and the Aran Islands
 	eyreSquareHotel: { name: "Eyre Square Hotel", category: "hotel", latitude: 53.27428, longitude: -9.04745 },
 	anPucan: { name: "An Púcán", category: "food", latitude: 53.27451, longitude: -9.04745 },
 	mcGettigans: { name: "McGettigan's", category: "food", latitude: 53.27564, longitude: -9.04911 },
-	cliffsOfMoher: { name: "Cliffs of Moher", category: "nature", latitude: 52.97192, longitude: -9.42582, landmarkIconScale: 1.2 },
+	cliffsOfMoher: { name: "Cliffs of Moher", category: "nature", latitude: 52.97192, longitude: -9.42582, landmarkIconScale: 1.5 },
 	hagsHeadTrail: { name: "Cliff path towards Hag's Head", category: "nature", latitude: 52.94816, longitude: -9.46774 },
 	// Aran Island Ferries' Galway City day tour sails from here to Inis Mór and back past the Cliffs of Moher.
 	galwayDocks: { name: "Galway Docks", category: "station", latitude: 53.26956, longitude: -9.04689 },
 	kilronan: { name: "Kilronan, Inis Mór", category: "station", latitude: 53.12060, longitude: -9.66530 },
 	sevenChurches: { name: "Na Seacht dTeampaill (Seven Churches)", category: "landmark", latitude: 53.14590, longitude: -9.77765 },
-	dunAonghasa: { name: "Dún Aonghasa", category: "landmark", latitude: 53.12546, longitude: -9.76658 },
+	dunAonghasa: { name: "Dún Aonghasa", category: "landmark", latitude: 53.12546, longitude: -9.76658, landmarkIconScale: 1.5 },
 	cliffsFromTheSea: { name: "Cliffs of Moher from the sea", category: "nature", latitude: 52.97450, longitude: -9.45599 },
-	kylemoreAbbey: { name: "Kylemore Abbey", category: "landmark", latitude: 53.56174, longitude: -9.88941, landmarkIconScale: 1.2 },
+	kylemoreAbbey: { name: "Kylemore Abbey", category: "landmark", latitude: 53.56174, longitude: -9.88941, landmarkIconScale: 1.55 },
 };
 
 export const irelandPlaces: Record<string, IPlace> = Object.fromEntries(
