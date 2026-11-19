@@ -55,12 +55,22 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 	useEffect(() =>
 	{
 		previousStopIndexRef.current = currentStopIndex;
-		// With details open, the scroll waits for them to reach their final height; see revealCurrentStop.
-		if (!isUnfolded)
+		const row = currentRowRef.current;
+		if (!row)
 		{
-			currentRowRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+			return;
 		}
-	}, [currentStopIndex, isUnfolded]);
+		if (isDayOverview)
+		{
+			// The day's title and description sit above the timeline, so the overview scrolls all the way up to show them.
+			findScrollingAncestor(row)?.scrollTo({ top: 0, behavior: "smooth" });
+		}
+		// With details open, the scroll waits for them to reach their final height; see revealCurrentStop.
+		else if (!isUnfolded)
+		{
+			row.scrollIntoView({ behavior: "smooth", block: "nearest" });
+		}
+	}, [day.dayNumber, currentStopIndex, isDayOverview, isUnfolded]);
 
 	const revealCurrentStop = (definition: unknown) =>
 	{
@@ -291,10 +301,14 @@ function revealExpandedStop(row: HTMLElement, stopCard: HTMLElement)
 	const area = scroller.getBoundingClientRect();
 	const top = stopCard.getBoundingClientRect().top;
 	const bottom = row.getBoundingClientRect().bottom;
+	// Whatever sits right above the card (its travel line, or the previous stop) is scrolled fully out of view, so no
+	// sliver of it peeks in above the top-aligned card.
+	const elementAbove = stopCard.parentElement?.previousElementSibling ?? row.previousElementSibling;
+	const aboveBottom = elementAbove ? elementAbove.getBoundingClientRect().bottom : top - revealMargin;
 	let distance = 0;
 	if (bottom - top + 2 * revealMargin > area.height || top < area.top + revealMargin)
 	{
-		distance = top - area.top - revealMargin;
+		distance = Math.max(top - revealMargin, aboveBottom) - area.top;
 	}
 	else if (bottom > area.bottom - revealMargin)
 	{
