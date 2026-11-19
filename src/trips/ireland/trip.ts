@@ -4,6 +4,7 @@ import { irelandDays } from "./days";
 import placeDetails from "./placeDetails.generated.json";
 import { irelandPlaces } from "./places";
 import legPaths from "./transitRoutes.generated.json";
+import tripPhotos from "./tripPhotos.generated.json";
 
 export const irelandTrip: ITrip =
 {
@@ -16,4 +17,5 @@ export const irelandTrip: ITrip =
 	// JSON imports widen tuples to number[][], so the generated file is trusted to match ILegSegment.
 	legPaths: legPaths as unknown as Record<string, ILegSegment[]>,
 	days: irelandDays,
+	tripPhotos,
 };
