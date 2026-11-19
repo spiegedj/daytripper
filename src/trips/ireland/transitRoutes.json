@@ -59,15 +59,15 @@
 			]
 		},
 		{
-			"dayNumber": 12, "arrivalStopIndex": 1,
-			"_comment": "The tour coach went west along the coast road (photo near Furbo at 10:08).",
+			"dayNumber": 12, "arrivalStopIndex": 2,
+			"_comment": "Out of Galway harbour and west down Galway Bay (photo off Furbo at 10:08) to Kilronan.",
 			"segments":
 			[
-				{ "mode": "bus", "to": { "name": "Furbo", "latitude": 53.21216, "longitude": -9.22075 } },
-				{ "mode": "bus" }
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Galway harbour mouth", "latitude": 53.25, "longitude": -9.06 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Off Furbo (10:08)", "latitude": 53.21216, "longitude": -9.22075 } },
+				{ "mode": "ferry", "isStraight": true }
 			]
 		},
-		{ "dayNumber": 12, "arrivalStopIndex": 2, "segments": [{ "mode": "ferry" }] },
 		{
 			"dayNumber": 12, "arrivalStopIndex": 3,
 			"_comment": "West along the low road past Kilmurvey (photos at 12:11, 12:26 and 12:56).",
@@ -109,12 +109,17 @@
 		},
 		{
 			"dayNumber": 12, "arrivalStopIndex": 7,
+			"_comment": "North under the cliffs and past Doolin (16:40 and 16:45 photos), then offshore round Black Head and up Galway Bay; the points after Doolin are only there to keep the line at sea.",
 			"segments":
 			[
 				{ "mode": "ferry", "isStraight": true, "to": { "name": "Under the cliffs (16:40)", "latitude": 52.99179, "longitude": -9.43606 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Off Doolin (16:45)", "latitude": 53.01415, "longitude": -9.4247 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Off the Burren coast", "latitude": 53.08, "longitude": -9.42 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Off Black Head", "latitude": 53.16, "longitude": -9.33 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Galway Bay", "latitude": 53.215, "longitude": -9.15 } },
+				{ "mode": "ferry", "isStraight": true, "to": { "name": "Galway harbour mouth", "latitude": 53.25, "longitude": -9.06 } },
 				{ "mode": "ferry", "isStraight": true }
 			]
-		},
-		{ "dayNumber": 12, "arrivalStopIndex": 8, "segments": [{ "mode": "bus" }] }
+		}
 	]
 }

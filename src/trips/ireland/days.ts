@@ -94,8 +94,12 @@ export const irelandDays: IDay[] =
 		stops:
 		[
 			{ placeId: "templeBarHotel" },
-			{ placeId: "blackAbbey", arrival: traveled("car", drive), visit: at("13:26", "13:37") },
+			// Bags dropped at the hotel first; everything else in Kilkenny was on foot.
+			{ placeId: "kilkennyOrmonde", arrival: traveled("car", drive) },
+			{ placeId: "blackAbbey", arrival: traveled("walk"), visit: at("13:26", "13:37") },
 			{ placeId: "kilkennyCastle", arrival: traveled("walk"), visit: at("15:32", "17:17") },
+			// No photos at the museum; the traveler remembers it after the castle.
+			{ placeId: "medievalMileMuseum", arrival: traveled("walk") },
 			{ placeId: "stCanicesCathedral", arrival: traveled("walk"), visit: at("18:53", "19:03") },
 			{ placeId: "leftBank", arrival: traveled("walk"), visit: at("21:06") },
 			{ placeId: "kilkennyOrmonde", arrival: traveled("walk") },
@@ -185,7 +189,8 @@ export const irelandDays: IDay[] =
 		stops:
 		[
 			{ placeId: "internationalKillarney" },
-			{ placeId: "kingJohnsCastle", arrival: traveled("car", drive), visit: at("12:25", "12:31") },
+			{ placeId: "mcDonaldsLimerick", arrival: traveled("car", drive) },
+			{ placeId: "kingJohnsCastle", arrival: traveled("walk"), visit: at("12:25", "12:31") },
 			{ placeId: "eyreSquareHotel", arrival: traveled("car", drive) },
 			{ placeId: "anPucan", arrival: traveled("walk") },
 			{ placeId: "eyreSquareHotel", arrival: traveled("walk") },
@@ -217,14 +222,16 @@ export const irelandDays: IDay[] =
 		stops:
 		[
 			{ placeId: "eyreSquareHotel" },
-			{ placeId: "rossaveal", arrival: traveled("bus", "Tour coach") },
-			{ placeId: "kilronan", arrival: traveled("ferry", "Ferry to Inis Mór") },
+			// Aran Island Ferries' "Aran Islands and Cliffs of Moher Day Tour" from Galway City (10:08 photo out in Galway Bay).
+			{ placeId: "galwayDocks", arrival: traveled("walk") },
+			{ placeId: "kilronan", arrival: traveled("ferry", "Ferry from Galway") },
 			{ placeId: "sevenChurches", arrival: traveled("bike", "Rented bikes"), visit: at("13:24", "13:44") },
 			{ placeId: "dunAonghasa", arrival: traveled("bike", "Bike, then the path up"), visit: at("14:04", "14:22") },
 			{ placeId: "kilronan", arrival: traveled("bike"), visit: at("15:39") },
-			{ placeId: "cliffsFromTheSea", arrival: traveled("ferry", "Past Inis Oírr to the cliffs"), visit: at("16:30", "16:41") },
-			{ placeId: "doolinPier", arrival: traveled("ferry"), visit: at("16:45") },
-			{ placeId: "eyreSquareHotel", arrival: traveled("bus", "Tour coach") },
+			// The 16:45 photo is Doolin's coast and Doonagore Castle from the boat, heading north.
+			{ placeId: "cliffsFromTheSea", arrival: traveled("ferry", "Past Inis Oírr to the cliffs"), visit: at("16:30", "16:45") },
+			{ placeId: "galwayDocks", arrival: traveled("ferry", "Back to Galway") },
+			{ placeId: "eyreSquareHotel", arrival: traveled("walk") },
 		],
 	},
 	{

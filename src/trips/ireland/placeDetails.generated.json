@@ -1377,29 +1377,6 @@
 			}
 		]
 	},
-	"rossaveal": {
-		"summary": "Rossaveal or Rossaveel (Irish: Ros an Mhíl or Ros a' Mhíl) is a Gaeltacht village and townland in the Connemara district of County Galway in the west of Ireland. It is the main ferry port for the Aran Islands in Galway Bay. It is about 37 kilometres (23 mi) from Galway city. The village is located in the Barony of Moycullen.\n\nThe Irish name Ros an Mhíl means \"peninsula (or wood) of the whale (or sea monster)\". It may also mean \"the wooded hill\". The village is the home of the Ros a' Mhíl centre under Coláiste Chamuis, an Irish language immersion summer camp for teenagers. It is served by Bus Éireann route 424 from Galway. A ferry service to the Aran Islands runs from the harbour.",
-		"wikipediaTitle": "Rossaveal",
-		"wikipediaUrl": "https://en.wikipedia.org/wiki/Rossaveal",
-		"photos": [
-			{
-				"url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Ros_an_Mh%C3%ADl_-_geograph.org.uk_-_13536.jpg",
-				"width": 960,
-				"height": 651,
-				"author": "Anne Burgess",
-				"license": "CC BY-SA 2.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Ros_an_Mh%C3%ADl_-_geograph.org.uk_-_13536.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Rossaveel.jpg/960px-Rossaveel.jpg",
-				"width": 960,
-				"height": 289,
-				"author": "Jim from Lexington, KY, USA",
-				"license": "CC BY-SA 2.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Rossaveel.jpg"
-			}
-		]
-	},
 	"kilronan": {
 		"summary": "Cill Rónáin (Irish: meaning \"Church of Ronan\"), unofficially anglicized as Kilronan, is the main settlement on Inishmore, one of the Aran Islands off the coast of County Galway in Ireland. The ferries serving the island call at Doolin, County Clare and also Rossaveal, County Galway. The main industries are fishing and tourism. The village is situated in the Gaeltacht (Irish speaking district), and thus only the Irish version of the name has any legal or official status. Schoolchildren visit the village to improve their Irish at summer schools. As of 2016, 247 people live in the village and 43.3% of the population speak Irish on a daily basis outside the education system.",
 		"wikipediaTitle": "Kilronan",
@@ -1577,61 +1554,6 @@
 				"author": "Sbuckley",
 				"license": "CC BY-SA 3.0",
 				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Cliffs_of_moher_33mp.jpg"
-			}
-		]
-	},
-	"doolinPier": {
-		"summary": "Doolin (Irish: Dúlainn) is a coastal village in County Clare, Ireland, on the Atlantic coast. It is southwest of the spa town of Lisdoonvarna and 4 miles from the Cliffs of Moher. It is a noted centre of traditional Irish music, which is played nightly in its pubs, making it a popular tourist destination. There are numerous nearby archaeological sites, many dating to the Iron Age and earlier. Doonagore Castle and Ballinalacken Castle are also in the area. The area was officially classified as part of the West Clare Gaeltacht (an Irish-speaking community) prior to the 1950s, and maintains a connection with Irish-speaking areas - including via its maritime connection with the Aran Islands.",
-		"wikipediaTitle": "Doolin",
-		"wikipediaUrl": "https://en.wikipedia.org/wiki/Doolin",
-		"photos": [
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/095_Fisher_Street_in_Doolin.jpg/960px-095_Fisher_Street_in_Doolin.jpg",
-				"width": 960,
-				"height": 640,
-				"author": "Ekki3",
-				"license": "CC BY 4.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:095_Fisher_Street_in_Doolin.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Doolin-Gus-OConnors-Pub-2012.JPG/960px-Doolin-Gus-OConnors-Pub-2012.JPG",
-				"width": 960,
-				"height": 879,
-				"author": "Bjørn Christian Tørrissen",
-				"license": "CC BY-SA 3.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Doolin-Gus-OConnors-Pub-2012.JPG"
-			},
-			{
-				"url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Doolin_harbour%2C_County_Clare%2C_evening.jpg",
-				"width": 960,
-				"height": 720,
-				"author": "en:User:Zoney",
-				"license": "CC BY-SA 3.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Doolin_harbour,_County_Clare,_evening.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Doolin_pub_McDermott%27s.jpg/960px-Doolin_pub_McDermott%27s.jpg",
-				"width": 960,
-				"height": 720,
-				"author": "Jim Harper (uploaded to en-Wikipedia by en:User:Pixel23",
-				"license": "CC BY-SA 3.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Doolin_pub_McDermott%27s.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Doolin_pub_McGann%27s.jpg/960px-Doolin_pub_McGann%27s.jpg",
-				"width": 960,
-				"height": 720,
-				"author": "Jim Harper (uploaded to en-Wikipedia by en:User:Pixel23",
-				"license": "CC BY-SA 3.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Doolin_pub_McGann%27s.jpg"
-			},
-			{
-				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Doolin_smaller.jpg/960px-Doolin_smaller.jpg",
-				"width": 960,
-				"height": 127,
-				"author": "Sbuckley",
-				"license": "CC BY-SA 3.0",
-				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Doolin_smaller.jpg"
 			}
 		]
 	},
@@ -1914,6 +1836,52 @@
 				"author": "Patrick Theiner",
 				"license": "CC BY-SA 3.0",
 				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Trinity_college_library.jpg"
+			}
+		]
+	},
+	"medievalMileMuseum": {
+		"summary": "St. Mary's Church was a church in Kilkenny, Ireland, first built in 1202 at the time of the Norman settlement of the town. The church building was deconsecrated in 1957 and has been used as the Medieval Mile Museum since 2017.",
+		"wikipediaTitle": "St. Mary's Church, Kilkenny",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/St._Mary%27s_Church,_Kilkenny",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/County_Kilkenny_-_St_Mary%27s_Hall_%28St_Mary%27s_Church%29_-_20180902112256.png/960px-County_Kilkenny_-_St_Mary%27s_Hall_%28St_Mary%27s_Church%29_-_20180902112256.png",
+				"width": 960,
+				"height": 720,
+				"author": "A.-K. D.",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:County_Kilkenny_-_St_Mary%27s_Hall_(St_Mary%27s_Church)_-_20180902112256.png"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Kilkenny_St._Mary%27s_Church_Crossing_Ceiling_2017_09_11.jpg/960px-Kilkenny_St._Mary%27s_Church_Crossing_Ceiling_2017_09_11.jpg",
+				"width": 960,
+				"height": 621,
+				"author": "Andreas F. Borchert",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Kilkenny_St._Mary%27s_Church_Crossing_Ceiling_2017_09_11.jpg"
+			}
+		]
+	},
+	"galwayDocks": {
+		"summary": "The Port of Galway (Irish: Calafort na Gaillimhe) is a seaport situated in Galway, Ireland. Located on the west coast of Ireland, the port is operated by the Galway Harbour Company.",
+		"wikipediaTitle": "Port of Galway",
+		"wikipediaUrl": "https://en.wikipedia.org/wiki/Port_of_Galway",
+		"photos": [
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Galway_Docks_-_geograph.org.uk_-_6675603.jpg/960px-Galway_Docks_-_geograph.org.uk_-_6675603.jpg",
+				"width": 960,
+				"height": 641,
+				"author": "N Chadwick",
+				"license": "CC BY-SA 2.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:Galway_Docks_-_geograph.org.uk_-_6675603.jpg"
+			},
+			{
+				"url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/MS_Celtic_Explorer_and_MS_Galway_Fisher_at_Galway_harbour_%282014%29.jpg/960px-MS_Celtic_Explorer_and_MS_Galway_Fisher_at_Galway_harbour_%282014%29.jpg",
+				"width": 960,
+				"height": 540,
+				"author": "JoachimKohler-HB",
+				"license": "CC BY-SA 4.0",
+				"sourceUrl": "https://commons.wikimedia.org/wiki/File:MS_Celtic_Explorer_and_MS_Galway_Fisher_at_Galway_harbour_(2014).jpg"
 			}
 		]
 	}

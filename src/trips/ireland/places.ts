@@ -43,6 +43,8 @@ const placeEntries: Record<string, IPlaceEntry> =
 	kilkennyOrmonde: { name: "Kilkenny Ormonde Hotel", category: "hotel", latitude: 52.64961, longitude: -7.25317 },
 	blackAbbey: { name: "Black Abbey", category: "cathedral", latitude: 52.65402, longitude: -7.25778 },
 	kilkennyCastle: { name: "Kilkenny Castle", category: "landmark", latitude: 52.65029, longitude: -7.24953, landmarkIconScale: 1.2 },
+	// In St Mary's, the medieval church off High Street; visited after the castle.
+	medievalMileMuseum: { name: "St Mary's Medieval Mile Museum", category: "museum", latitude: 52.65180, longitude: -7.25218 },
 	stCanicesCathedral: { name: "St Canice's Cathedral", category: "cathedral", latitude: 52.65667, longitude: -7.25743 },
 	leftBank: { name: "Left Bank", category: "food", latitude: 52.65047, longitude: -7.25158 },
 
@@ -78,6 +80,8 @@ const placeEntries: Record<string, IPlaceEntry> =
 	kerryCliffs: { name: "Kerry Cliffs", category: "nature", latitude: 51.86836, longitude: -10.38696 },
 
 	// Limerick
+	// The city-centre McDonald's, for lunch before the castle (from the spending sheet; the traveler named the branch).
+	mcDonaldsLimerick: { name: "McDonald's, Limerick", category: "food", latitude: 52.66423, longitude: -8.62603 },
 	kingJohnsCastle: { name: "King John's Castle", category: "landmark", latitude: 52.66969, longitude: -8.62507 },
 
 	// Galway, Clare and the Aran Islands
@@ -86,12 +90,12 @@ const placeEntries: Record<string, IPlaceEntry> =
 	mcGettigans: { name: "McGettigan's", category: "food", latitude: 53.27564, longitude: -9.04911 },
 	cliffsOfMoher: { name: "Cliffs of Moher", category: "nature", latitude: 52.97192, longitude: -9.42582, landmarkIconScale: 1.2 },
 	hagsHeadTrail: { name: "Cliff path towards Hag's Head", category: "nature", latitude: 52.94816, longitude: -9.46774 },
-	rossaveal: { name: "Rossaveal ferry port", category: "station", latitude: 53.26690, longitude: -9.56110 },
+	// Aran Island Ferries' Galway City day tour sails from here to Inis Mór and back past the Cliffs of Moher.
+	galwayDocks: { name: "Galway Docks", category: "station", latitude: 53.26956, longitude: -9.04689 },
 	kilronan: { name: "Kilronan, Inis Mór", category: "station", latitude: 53.12060, longitude: -9.66530 },
 	sevenChurches: { name: "Na Seacht dTeampaill (Seven Churches)", category: "landmark", latitude: 53.14590, longitude: -9.77765 },
 	dunAonghasa: { name: "Dún Aonghasa", category: "landmark", latitude: 53.12546, longitude: -9.76658 },
 	cliffsFromTheSea: { name: "Cliffs of Moher from the sea", category: "nature", latitude: 52.97450, longitude: -9.45599 },
-	doolinPier: { name: "Doolin Pier", category: "station", latitude: 53.01541, longitude: -9.40485 },
 	kylemoreAbbey: { name: "Kylemore Abbey", category: "landmark", latitude: 53.56174, longitude: -9.88941, landmarkIconScale: 1.2 },
 };
 
