@@ -12,7 +12,7 @@ Open work for the travel map, grouped by kind. Finished items are in the git his
 
 ## Enhancements
 
-- **Publish the traveler's own photos.** The display (in the timeline, with a full-screen viewer) and `scripts/processTripPhotos.mjs` are committed; the photos themselves are not. Ireland has a first-pass selection awaiting the traveler's review (including photos that show people). England & Scotland is next. Commit `public/photos/<trip>/`, `photoSelection.json`, `tripPhotos.generated.json` and the trip's `tripPhotos` import together once approved.
+- **Publish the traveler's own photos for England & Scotland.** Ireland's are published. Run `scripts/processTripPhotos.mjs`, have the traveler review the selection (flag photos that show people), then commit `public/photos/<trip>/`, `photoSelection.json`, `tripPhotos.generated.json` and the trip's `tripPhotos` import together.
 - **Redraw the weakest landmark illustrations.** The Kelpies (England & Scotland); the Cliffs of Moher and Dún Aonghasa (Ireland).
 - **More Ireland landmark illustrations.** Guinness Storehouse, the Book of Kells (Long Room), Dublin Castle, Ross Castle, Muckross House, Charles Fort and St Fin Barre's have none yet.
 
