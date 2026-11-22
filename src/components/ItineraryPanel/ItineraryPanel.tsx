@@ -14,6 +14,8 @@ export interface IItineraryPanelProps
 	/** Every trip on the site, for the trip picker. */
 	trips: ITrip[];
 	onSelectTrip: (tripId: string) => void;
+	/** The settings button, shown at the end of the panel's header. */
+	settingsMenu: ReactNode;
 	dayIndex: number;
 	stopIndex: number;
 	isOverview: boolean;
@@ -35,7 +37,7 @@ export interface IItineraryPanelProps
 export function ItineraryPanel(props: IItineraryPanelProps)
 {
 	const { trip, trips, onSelectTrip, dayIndex, stopIndex, isOverview, highlightedDayNumber, onSelectDay, onSelectStop, onOpenDetails, onShowOverview, onHighlightDay } = props;
-	const { widePanelWidth, currentStopDetails, isCurrentStopDetailsOpen = false, onCloseDetails } = props;
+	const { settingsMenu, widePanelWidth, currentStopDetails, isCurrentStopDetailsOpen = false, onCloseDetails } = props;
 	const day = trip.days[dayIndex];
 
 	return (
@@ -48,6 +50,7 @@ export function ItineraryPanel(props: IItineraryPanelProps)
 					<button type="button" className={`${styles.viewOption} ${isOverview ? "" : styles.viewOptionActive}`} onClick={() => onSelectDay(dayIndex)} aria-pressed={!isOverview}>Day</button>
 					<button type="button" className={`${styles.viewOption} ${isOverview ? styles.viewOptionActive : ""}`} onClick={onShowOverview} aria-pressed={isOverview}>Trip</button>
 				</div>
+				<div className={styles.settings}>{settingsMenu}</div>
 			</header>
 			<div className={styles.body}>
 				<DayRail days={trip.days} selectedDayIndex={isOverview ? -1 : dayIndex} onSelectDay={onSelectDay} />

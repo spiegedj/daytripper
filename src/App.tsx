@@ -4,9 +4,10 @@ import { ItineraryPanel } from "./components/ItineraryPanel/ItineraryPanel";
 import { MapView, type ICameraPadding } from "./components/MapView/MapView";
 import { PhotoViewer, type IViewerPhoto } from "./components/PhotoViewer/PhotoViewer";
 import { hasPlaceDetails, PlaceDetails, type OpenPhotoHandler } from "./components/PlaceDetails/PlaceDetails";
-import { RouteStyleSwitch, useRouteStyle } from "./components/RouteStyleSwitch/RouteStyleSwitch";
+import { useRouteStyle } from "./components/RouteStyleSwitch/RouteStyleSwitch";
+import { SettingsMenu } from "./components/SettingsMenu/SettingsMenu";
 import { StepPlayer } from "./components/StepPlayer/StepPlayer";
-import { TravelSpeedSwitch, useTravelSpeed } from "./components/TravelSpeedSwitch/TravelSpeedSwitch";
+import { useTravelSpeed } from "./components/TravelSpeedSwitch/TravelSpeedSwitch";
 import type { ILegSegment, ITrip } from "./itinerary/types";
 import { TripOverviewLayer } from "./components/TripOverviewLayer/TripOverviewLayer";
 import { dayOverviewStopIndex, useItineraryNavigation } from "./itinerary/useItineraryNavigation";
@@ -188,14 +189,19 @@ function TripView({ trip, onSelectTrip, isDetailOpen, onDetailOpenChange: setIsD
 					onHighlightDay={setHighlightedDayNumber}
 				/>
 			</MapView>
-			<div className={styles.routeStyleDock}>
-				<RouteStyleSwitch routeStyle={routeStyle} onChange={setRouteStyle} />
-				{!isOverview && <TravelSpeedSwitch travelSpeed={travelSpeed} onChange={setTravelSpeed} />}
-			</div>
 			<ItineraryPanel
 				trip={trip}
 				trips={trips}
 				onSelectTrip={onSelectTrip}
+				settingsMenu={(
+					<SettingsMenu
+						routeStyle={routeStyle}
+						onRouteStyleChange={setRouteStyle}
+						travelSpeed={travelSpeed}
+						onTravelSpeedChange={setTravelSpeed}
+						isTravelSpeedShown={!isOverview}
+					/>
+				)}
 				dayIndex={dayIndex}
 				stopIndex={stopIndex}
 				onSelectDay={navigation.goToDay}

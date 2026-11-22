@@ -54,7 +54,7 @@ export function TripPicker({ trips, currentTripId, onSelectTrip }: ITripPickerPr
 				aria-haspopup="true"
 				aria-expanded={isOpen}
 			>
-				{currentTrip.name} · {currentTrip.days.length} days
+				<span className={styles.currentName}>{currentTrip.name} · {currentTrip.days.length} days</span>
 				<svg className={styles.chevron} width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
 			</button>
 			{isOpen && (

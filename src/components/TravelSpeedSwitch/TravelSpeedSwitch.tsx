@@ -62,14 +62,8 @@ export interface ITravelSpeedSwitchProps
 	onChange: (travelSpeed: TravelSpeed) => void;
 }
 
-/** Small floating switch for how quickly the camera travels between stops. */
+/** Switch for how quickly the camera travels between stops. */
 export function TravelSpeedSwitch({ travelSpeed, onChange }: ITravelSpeedSwitchProps)
 {
-	const caption = (
-		<svg width="16" height="16" viewBox="0 0 24 24">
-			<title>Travel speed</title>
-			<path d="M4 17a8 8 0 1 1 16 0M12 17l4-5" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-		</svg>
-	);
-	return <SegmentedSwitch label="Travel speed" caption={caption} options={travelSpeedOptions} value={travelSpeed} onChange={onChange} />;
+	return <SegmentedSwitch label="Travel speed" options={travelSpeedOptions} value={travelSpeed} onChange={onChange} />;
 }
