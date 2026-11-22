@@ -1,0 +1,11 @@
+/*
+ * A border that traces each illustration's exact shape, like a die-cut sticker. Each drop-shadow copies
+ * everything drawn so far one step in its direction, so the four together grow the shape evenly on all sides.
+ * The selector includes the element so it outranks the illustration's own filter, whichever stylesheet loads first.
+ */
+img.outline {
+	--outline-width: 2px;
+	--outline-color: #ffffff;
+	filter:
+		drop-shadow(var(--outline-width) 0 0 var(--outline-color)) drop-shadow(calc(var(--outline-width) * -1) 0 0 var(--outline-color)) drop-shadow(0 var(--outline-width) 0 var(--outline-color)) drop-shadow(0 calc(var(--outline-width) * -1) 0 var(--outline-color)) drop-shadow(0 2px 3px rgba(29, 36, 51, 0.28));
+}

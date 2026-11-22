@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { IPlace } from "../../itinerary/types";
 import { CategoryIcon, categoryColors } from "./CategoryIcon";
+import outlineStyles from "./landmarkOutline.module.css";
 import styles from "./Markers.module.css";
 
 export type StopProgress = "visited" | "current" | "upcoming";
@@ -43,7 +44,7 @@ function LandmarkMarker({ place, stopNumber, progress, dayColor, onSelect }: ISt
 	return (
 		<button type="button" className={classNames.join(" ")} style={buildMarkerStyle(place, dayColor)} onClick={onSelect} aria-label={place.name}>
 			{isCurrent && <span className={styles.groundRing} />}
-			<img className={styles.landmarkArt} src={place.landmarkIconUrl} alt="" draggable={false} />
+			<img className={`${styles.landmarkArt} ${outlineStyles.outline}`} src={place.landmarkIconUrl} alt="" draggable={false} />
 			<span className={styles.badge}>{stopNumber}</span>
 			<span className={styles.label}>
 				<span className={styles.labelName}>{place.name}</span>
@@ -59,7 +60,7 @@ function MiniLandmarkMarker({ place, stopNumber, progress, dayColor, onSelect }:
 
 	return (
 		<button type="button" className={classNames.join(" ")} style={buildMarkerStyle(place, dayColor)} onClick={onSelect} aria-label={place.name} title={place.name}>
-			<img className={styles.miniLandmarkArt} src={place.landmarkIconUrl} alt="" draggable={false} />
+			<img className={`${styles.miniLandmarkArt} ${outlineStyles.outline}`} src={place.landmarkIconUrl} alt="" draggable={false} />
 			<span className={styles.badge}>{stopNumber}</span>
 		</button>
 	);
