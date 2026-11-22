@@ -21,6 +21,36 @@ const labelHeight = 36;
 // Room for the hover/current "lift" (translate and 1.12x scale) plus a little breathing space.
 const landmarkMargin = 8;
 
+// Landmarks are drawn at full size from this zoom in (a single stop's view) and halve for every
+// zoomLevelsPerHalving levels further out, so they don't cover a zoomed-out map. They never shrink below the
+// floor, so they stay recognizable on a day's overview.
+const fullSizeZoom = 15;
+const zoomLevelsPerHalving = 2;
+const minimumZoomFactor = 0.4;
+// Below this zoom factor only the current stop's and a hovered landmark's names show; the rest would crowd the map.
+const labelZoomFactor = 0.9;
+// Small maps (phones) draw landmarks smaller, scaled by the map's shorter side against a desktop-sized map.
+const referenceMapSide = 720;
+const minimumScreenFactor = 0.6;
+
+/** How big landmarks are drawn at the map's current zoom and size, and whether their names show. */
+export interface ILandmarkSizing
+{
+	/** Multiplies every landmark's drawn size; 1 at a single stop's zoom on a desktop-sized map. */
+	sizeFactor: number;
+	areLabelsShown: boolean;
+}
+
+export const fullLandmarkSizing: ILandmarkSizing = { sizeFactor: 1, areLabelsShown: true };
+
+/** Works out the landmark sizing for a zoom level and a map of the given size in pixels. */
+export function getLandmarkSizing(zoom: number, mapWidth: number, mapHeight: number): ILandmarkSizing
+{
+	const zoomFactor = Math.min(1, Math.max(minimumZoomFactor, 2 ** ((zoom - fullSizeZoom) / zoomLevelsPerHalving)));
+	const screenFactor = Math.min(1, Math.max(minimumScreenFactor, Math.min(mapWidth, mapHeight) / referenceMapSide));
+	return { sizeFactor: zoomFactor * screenFactor, areLabelsShown: zoomFactor >= labelZoomFactor };
+}
+
 function estimateLabelWidth(place: IPlace): number
 {
 	const englishWidth = place.name.length * 8.4 + 12;
@@ -34,23 +64,26 @@ export function isLandmark(place: IPlace): boolean
 	return place.landmarkIconUrl !== undefined;
 }
 
-/** The box a stop's marker covers: the illustration plus its two-line label, the small illustration when compact, or a pin. */
-export function getMarkerFootprint(place: IPlace, isCompact: boolean): IMarkerFootprint
+/**
+ * The box a stop's marker covers: the illustration plus its two-line label (when names show), the small illustration
+ * when compact, or a pin. Landmarks follow the sizing; pins and labels keep their size at every zoom.
+ */
+export function getMarkerFootprint(place: IPlace, isCompact: boolean, sizing: ILandmarkSizing = fullLandmarkSizing): IMarkerFootprint
 {
 	if (!isLandmark(place))
 	{
 		return { left: -pinSize / 2, top: -pinSize / 2, width: pinSize, height: pinSize };
 	}
+	const scale = (place.landmarkIconScale ?? 1) * sizing.sizeFactor;
 	if (isCompact)
 	{
-		const size = miniLandmarkSize * (place.landmarkIconScale ?? 1);
-		return { left: -size / 2, top: -size + miniLandmarkGroundOffset, width: size, height: size };
+		const size = miniLandmarkSize * scale;
+		return { left: -size / 2, top: -size + miniLandmarkGroundOffset * scale, width: size, height: size };
 	}
-	const scale = place.landmarkIconScale ?? 1;
 	const artWidth = landmarkArtSize * scale;
-	const width = Math.max(artWidth, estimateLabelWidth(place)) + landmarkMargin * 2;
+	const width = Math.max(artWidth, sizing.areLabelsShown ? estimateLabelWidth(place) : 0) + landmarkMargin * 2;
 	const top = -landmarkGroundOffset * scale - landmarkMargin;
-	const bottom = (landmarkArtSize - landmarkGroundOffset) * scale + labelHeight + landmarkMargin / 2;
+	const bottom = (landmarkArtSize - landmarkGroundOffset) * scale + (sizing.areLabelsShown ? labelHeight : 0) + landmarkMargin / 2;
 	return { left: -width / 2, top, width, height: bottom - top };
 }
 
@@ -86,6 +119,7 @@ export function findCompactStops(
 	places: IPlace[],
 	currentStopIndex: number,
 	projectToScreen: (place: IPlace) => { x: number; y: number },
+	sizing: ILandmarkSizing,
 ): Set<number>
 {
 	const placementOrder = places
@@ -102,12 +136,14 @@ export function findCompactStops(
 			return Math.abs(first.stopIndex - currentStopIndex) - Math.abs(second.stopIndex - currentStopIndex);
 		});
 
+	const isCurrentStop = (stopIndex: number) => stopIndex === currentStopIndex;
 	const placedBoxes: IPlacedBox[] = [];
 	const compactStops = new Set<number>();
 	for (const { place, stopIndex } of placementOrder)
 	{
 		const point = projectToScreen(place);
-		const fullBox = toScreenBox(point, getMarkerFootprint(place, false));
+		// The current stop's name always shows, so its box keeps the label.
+		const fullBox = toScreenBox(point, getMarkerFootprint(place, false, isCurrentStop(stopIndex) ? { ...sizing, areLabelsShown: true } : sizing));
 		const isCurrent = stopIndex === currentStopIndex;
 		const doesFullSizeFit = isCurrent || !placedBoxes.some((box) => doBoxesOverlap(box, fullBox));
 		if (doesFullSizeFit)
@@ -117,7 +153,7 @@ export function findCompactStops(
 		else
 		{
 			compactStops.add(stopIndex);
-			placedBoxes.push(toScreenBox(point, getMarkerFootprint(place, true)));
+			placedBoxes.push(toScreenBox(point, getMarkerFootprint(place, true, sizing)));
 		}
 	}
 	return compactStops;

@@ -2,12 +2,15 @@ import type { Feature, FeatureCollection, Point } from "geojson";
 import { useMemo } from "react";
 import { Layer, Source } from "react-map-gl/maplibre";
 import type { IPlace } from "../../itinerary/types";
-import { getMarkerFootprint } from "./markerFootprint";
+import { getMarkerFootprint, type ILandmarkSizing } from "./markerFootprint";
 
 export interface ILabelBlockerLayerProps
 {
 	places: IPlace[];
 	compactStopIndexes: Set<number>;
+	currentStopIndex: number;
+	/** The landmark sizing when the camera last settled; the blockers follow it rather than every frame. */
+	landmarkSizing: ILandmarkSizing;
 }
 
 const blockerImagePrefix = "label-blocker-";
@@ -27,7 +30,7 @@ export function createBlockerImage(imageId: string): { width: number; height: nu
  * Invisible, marker-sized symbols that take part in MapLibre's label collision.
  * Because they sit above the base map's label layers, any map label that would end up under a stop marker is hidden.
  */
-export function LabelBlockerLayer({ places, compactStopIndexes }: ILabelBlockerLayerProps)
+export function LabelBlockerLayer({ places, compactStopIndexes, currentStopIndex, landmarkSizing }: ILabelBlockerLayerProps)
 {
 	const blockers = useMemo<FeatureCollection<Point>>(() =>
 	{
@@ -35,7 +38,9 @@ export function LabelBlockerLayer({ places, compactStopIndexes }: ILabelBlockerL
 		const features: Feature<Point>[] = [];
 		places.forEach((place, stopIndex) =>
 		{
-			const footprint = getMarkerFootprint(place, compactStopIndexes.has(stopIndex));
+			// The current stop's name always shows.
+			const sizing = stopIndex === currentStopIndex ? { ...landmarkSizing, areLabelsShown: true } : landmarkSizing;
+			const footprint = getMarkerFootprint(place, compactStopIndexes.has(stopIndex), sizing);
 			const coordinates = [place.coordinates.longitude, place.coordinates.latitude];
 			const width = Math.max(1, Math.ceil(footprint.width));
 			const heightAbove = Math.max(1, Math.ceil(-footprint.top));
@@ -44,7 +49,7 @@ export function LabelBlockerLayer({ places, compactStopIndexes }: ILabelBlockerL
 			features.push({ type: "Feature", geometry: { type: "Point", coordinates }, properties: { imageId: `${blockerImagePrefix}${width}x${heightBelow}`, anchor: "top" } });
 		});
 		return { type: "FeatureCollection", features };
-	}, [places, compactStopIndexes]);
+	}, [places, compactStopIndexes, currentStopIndex, landmarkSizing]);
 
 	return (
 		<Source id="label-blockers" type="geojson" data={blockers}>

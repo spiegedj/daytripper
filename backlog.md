@@ -13,7 +13,8 @@ Open work for the travel map, grouped by kind. Finished items are in the git his
 ## Enhancements
 
 - **Publish the traveler's own photos for England & Scotland.** Ireland's are published. Run `scripts/processTripPhotos.mjs`, have the traveler review the selection (flag photos that show people), then commit `public/photos/<trip>/`, `photoSelection.json`, `tripPhotos.generated.json` and the trip's `tripPhotos` import together.
-- **Redraw the weakest landmark illustrations.** The Kelpies (England & Scotland); the Cliffs of Moher and Dún Aonghasa (Ireland).
+- **Size landmark illustrations by their visible drawing.** Ireland's and England & Scotland's PNGs are 320 px squares whose drawings fill roughly 50–88% of the height (Stonehenge and Windsor are short), so each place needs a hand-set `landmarkIconScale`. The overlap box also counts the empty sky above short drawings, and the stop number floats there. Measuring each image's drawn bounds (or trimming the files) would let one size rule fit them all.
+- **Redraw the weakest landmark illustrations.** The Cliffs of Moher and Dún Aonghasa (Ireland).
 - **More Ireland landmark illustrations.** Guinness Storehouse, the Book of Kells (Long Room), Dublin Castle, Ross Castle, Muckross House, Charles Fort and St Fin Barre's have none yet.
 
 ## New content

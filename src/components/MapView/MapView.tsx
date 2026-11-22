@@ -16,7 +16,7 @@ import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import { getLegSegments } from "../../itinerary/routeGeometry";
 import { getFitPadding } from "./fitPadding";
 import { createLegRideChannel, followLegWithCamera, ridePaces, type TravelSpeed } from "./followLegWithCamera";
-import { findCompactStops, landmarkGroundOffset, miniLandmarkGroundOffset } from "./markerFootprint";
+import { findCompactStops, fullLandmarkSizing, getLandmarkSizing, type ILandmarkSizing } from "./markerFootprint";
 
 /** Screen space, in pixels, the camera keeps clear for floating panels. */
 export interface ICameraPadding
@@ -114,6 +114,23 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 	const tripBounds = useMemo(() => getBounds(tripCoordinates), [tripCoordinates]);
 	const previousIsOverviewRef = useRef(isOverview);
 	const [compactStopIndexes, setCompactStopIndexes] = useState<Set<number>>(() => new Set());
+	const [settledLandmarkSizing, setSettledLandmarkSizing] = useState<ILandmarkSizing>(fullLandmarkSizing);
+
+	// Landmark size follows the zoom on every frame, through a CSS variable on the map so nothing re-renders; this keeps
+	// them from ballooning while a flight zooms out between stops.
+	const applyLandmarkSizing = useCallback(() =>
+	{
+		const map = mapRef.current?.getMap();
+		if (!map)
+		{
+			return;
+		}
+		const container = map.getContainer();
+		const sizing = getLandmarkSizing(map.getZoom(), container.clientWidth, container.clientHeight);
+		container.style.setProperty("--map-landmark-size", sizing.sizeFactor.toFixed(3));
+		container.dataset.landmarkLabels = sizing.areLabelsShown ? "shown" : "hidden";
+		return sizing;
+	}, []);
 
 	// Recomputed whenever the camera settles, because overlap depends on zoom and on which stop is current.
 	const updateCompactStops = useCallback(() =>
@@ -124,13 +141,15 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		{
 			return;
 		}
-		const nextCompactStops = findCompactStops(dayPlaces, currentStopIndex, (place) => map.project([place.coordinates.longitude, place.coordinates.latitude]));
+		const sizing = applyLandmarkSizing() ?? fullLandmarkSizing;
+		setSettledLandmarkSizing((previous) => previous.sizeFactor === sizing.sizeFactor && previous.areLabelsShown === sizing.areLabelsShown ? previous : sizing);
+		const nextCompactStops = findCompactStops(dayPlaces, currentStopIndex, (place) => map.project([place.coordinates.longitude, place.coordinates.latitude]), sizing);
 		setCompactStopIndexes((previous) =>
 		{
 			const isUnchanged = previous.size === nextCompactStops.size && [...nextCompactStops].every((stopIndex) => previous.has(stopIndex));
 			return isUnchanged ? previous : nextCompactStops;
 		});
-	}, [dayPlaces, currentStopIndex]);
+	}, [dayPlaces, currentStopIndex, applyLandmarkSizing]);
 
 	useEffect(() =>
 	{
@@ -299,6 +318,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			mapStyle={mapStyle}
 			initialViewState={initialViewState}
 			onLoad={handleLoad}
+			onMove={applyLandmarkSizing}
 			onMoveEnd={updateCompactStops}
 			style={{ position: "absolute", inset: 0, isolation: "isolate" }}
 			attributionControl={{ compact: true }}
@@ -307,11 +327,10 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			{isOverview && children}
 			{!isOverview && <ExploredAreaLayer id="day" areas={dayAreas} isVisible={currentStopIndex === dayOverviewStopIndex} />}
 			{!isOverview && <RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} legPaths={legPaths} rideChannel={rideChannel} />}
-			{!isOverview && <LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} />}
+			{!isOverview && <LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} currentStopIndex={currentStopIndex} landmarkSizing={settledLandmarkSizing} />}
 			{!isOverview && dayPlaces.map((place, stopIndex) =>
 			{
 				const progress = getStopProgress(stopIndex, currentStopIndex);
-				const landmarkScale = place.landmarkIconScale ?? 1;
 				const isCompact = compactStopIndexes.has(stopIndex);
 				const isLandmark = place.landmarkIconUrl !== undefined;
 				const isDrawnAsLandmark = isLandmark && !isCompact;
@@ -320,12 +339,12 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				return (
 					<Marker
 						// The map library applies a marker's anchor only when it is created, so switching between the full and
-						// small illustration rebuilds the marker; otherwise it keeps the old anchor with the new offset and drifts.
+						// small illustration rebuilds the marker; otherwise it keeps the old anchor and drifts. The shift that puts the
+						// illustration's ground line on the point is in the marker's CSS, so it follows the zoom.
 						key={`${day.dayNumber}-${place.id}-${stopIndex}-${anchor}`}
 						longitude={place.coordinates.longitude}
 						latitude={place.coordinates.latitude}
 						anchor={anchor}
-						offset={isDrawnAsLandmark ? [0, -landmarkGroundOffset * landmarkScale] : isDrawnAsMiniLandmark ? [0, miniLandmarkGroundOffset * landmarkScale] : [0, 0]}
 						style={{ zIndex: progress === "current" ? 3 : isLandmark ? 2 : 1 }}
 					>
 						<StopMarker
