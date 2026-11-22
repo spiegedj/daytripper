@@ -26,7 +26,7 @@ const landmarkMargin = 8;
 // floor, so they stay recognizable on a day's overview.
 const fullSizeZoom = 15;
 const zoomLevelsPerHalving = 2;
-const minimumZoomFactor = 0.4;
+const minimumZoomFactor = 0.8;
 // Below this zoom factor only the current stop's and a hovered landmark's names show; the rest would crowd the map.
 const labelZoomFactor = 0.9;
 // Small maps (phones) draw landmarks smaller, scaled by the map's shorter side against a desktop-sized map.
@@ -95,7 +95,7 @@ interface IPlacedBox
 	bottom: number;
 }
 
-function toScreenBox(point: { x: number; y: number }, footprint: IMarkerFootprint): IPlacedBox
+function toScreenBox(point: { x: number; y: number; }, footprint: IMarkerFootprint): IPlacedBox
 {
 	return {
 		left: point.x + footprint.left,
@@ -118,7 +118,7 @@ function doBoxesOverlap(first: IPlacedBox, second: IPlacedBox): boolean
 export function findCompactStops(
 	places: IPlace[],
 	currentStopIndex: number,
-	projectToScreen: (place: IPlace) => { x: number; y: number },
+	projectToScreen: (place: IPlace) => { x: number; y: number; },
 	sizing: ILandmarkSizing,
 ): Set<number>
 {

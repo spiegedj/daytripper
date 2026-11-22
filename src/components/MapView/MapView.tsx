@@ -7,7 +7,7 @@ import type { ICoordinates, IDay, ILegSegment, IPlace } from "../../itinerary/ty
 import { createMapStyle } from "../../mapStyle/createMapStyle";
 import { pastelPalette } from "../../mapStyle/palette";
 import { createWavePatternImage, wavePatternImageId } from "../../mapStyle/wavePattern";
-import { StopMarker, type StopProgress } from "../Markers/StopMarker";
+import { LandmarkLeader, StopMarker, type StopProgress } from "../Markers/StopMarker";
 import { RouteLayer } from "../RouteLayer/RouteLayer";
 import { LabelBlockerLayer, createBlockerImage } from "./LabelBlockerLayer";
 import { findDayExploredAreas } from "../../itinerary/tripOverview";
@@ -16,6 +16,7 @@ import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import { getLegSegments } from "../../itinerary/routeGeometry";
 import { getFitPadding } from "./fitPadding";
 import { createLegRideChannel, followLegWithCamera, ridePaces, type TravelSpeed } from "./followLegWithCamera";
+import { isLandmarkDetachEnabled, useLandmarkDetachment } from "./landmarkDetachment";
 import { findCompactStops, fullLandmarkSizing, getLandmarkSizing, type ILandmarkSizing } from "./markerFootprint";
 
 /** Screen space, in pixels, the camera keeps clear for floating panels. */
@@ -67,6 +68,27 @@ function addPadding(padding: ICameraPadding, extra: ICameraPadding): ICameraPadd
 
 type Bounds = [[number, number], [number, number]];
 
+// Stacking order on the map: pins, the current pin, leader lines, landmarks, the current landmark.
+const pinLayer = 1;
+const currentPinLayer = 2;
+const leaderLayer = 3;
+const landmarkLayer = 4;
+const currentLandmarkLayer = 5;
+
+function getMarkerLayer(isLandmark: boolean, isCurrent: boolean): number
+{
+	if (isLandmark)
+	{
+		return isCurrent ? currentLandmarkLayer : landmarkLayer;
+	}
+	if (!isCurrent)
+	{
+		return pinLayer;
+	}
+	// Detached landmarks steer clear of pins, so the current pin can sit under the lines. Without detaching it must top everything.
+	return isLandmarkDetachEnabled ? currentPinLayer : currentLandmarkLayer;
+}
+
 function getStopProgress(stopIndex: number, currentStopIndex: number): StopProgress
 {
 	if (stopIndex === currentStopIndex)
@@ -115,6 +137,9 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 	const previousIsOverviewRef = useRef(isOverview);
 	const [compactStopIndexes, setCompactStopIndexes] = useState<Set<number>>(() => new Set());
 	const [settledLandmarkSizing, setSettledLandmarkSizing] = useState<ILandmarkSizing>(fullLandmarkSizing);
+	const isCameraRiding = useCallback(() => isFollowingLegRef.current, []);
+	const detachment = useLandmarkDetachment(mapRef, dayPlaces, currentStopIndex, cameraPadding, isCameraRiding);
+	const { updateLayout: updateLandmarkLayout, planLayout: planLandmarkLayout, releaseHeldLayout } = detachment;
 
 	// Landmark size follows the zoom on every frame, through a CSS variable on the map so nothing re-renders; this keeps
 	// them from ballooning while a flight zooms out between stops.
@@ -129,8 +154,19 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		const sizing = getLandmarkSizing(map.getZoom(), container.clientWidth, container.clientHeight);
 		container.style.setProperty("--map-landmark-size", sizing.sizeFactor.toFixed(3));
 		container.dataset.landmarkLabels = sizing.areLabelsShown ? "shown" : "hidden";
+		updateLandmarkLayout();
 		return sizing;
-	}, []);
+	}, [updateLandmarkLayout]);
+
+	// Moves the traveler makes themselves (dragging, scrolling, the zoom buttons) carry the input event; the app's own flights don't.
+	const handleMove = useCallback((event: { originalEvent?: unknown }) =>
+	{
+		if (event.originalEvent)
+		{
+			releaseHeldLayout();
+		}
+		applyLandmarkSizing();
+	}, [applyLandmarkSizing, releaseHeldLayout]);
 
 	// Recomputed whenever the camera settles, because overlap depends on zoom and on which stop is current.
 	const updateCompactStops = useCallback(() =>
@@ -143,7 +179,9 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		}
 		const sizing = applyLandmarkSizing() ?? fullLandmarkSizing;
 		setSettledLandmarkSizing((previous) => previous.sizeFactor === sizing.sizeFactor && previous.areLabelsShown === sizing.areLabelsShown ? previous : sizing);
-		const nextCompactStops = findCompactStops(dayPlaces, currentStopIndex, (place) => map.project([place.coordinates.longitude, place.coordinates.latitude]), sizing);
+		const nextCompactStops = isLandmarkDetachEnabled
+			? new Set<number>()
+			: findCompactStops(dayPlaces, currentStopIndex, (place) => map.project([place.coordinates.longitude, place.coordinates.latitude]), sizing);
 		setCompactStopIndexes((previous) =>
 		{
 			const isUnchanged = previous.size === nextCompactStops.size && [...nextCompactStops].every((stopIndex) => previous.has(stopIndex));
@@ -176,6 +214,16 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 		{
 			map.fitBounds(tripBounds, { padding: getFitPadding(map.getMap(), getOverviewPadding(cameraPadding)), duration: dayFlightMilliseconds });
 			return;
+		}
+		// Landmarks take their final spots for this destination now, so they don't rearrange as the camera travels.
+		if (currentStopIndex === dayOverviewStopIndex)
+		{
+			const dayCamera = map.getMap().cameraForBounds(dayBounds, { padding: getFitPadding(map.getMap(), cameraPadding), maxZoom: maximumDayZoom });
+			planLandmarkLayout(getBoundsCenter(dayBounds), dayCamera?.zoom ?? map.getZoom());
+		}
+		else
+		{
+			planLandmarkLayout(dayPlaces[currentStopIndex].coordinates, stopZoom);
 		}
 		const showTarget = (duration: number) =>
 		{
@@ -249,7 +297,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 				showTarget(dayFlightMilliseconds);
 			}
 		});
-	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths, updateCompactStops, rideChannel, travelSpeed]);
+	}, [day, currentStopIndex, dayPlaces, dayBounds, tripBounds, cameraPadding, isOverview, legPaths, updateCompactStops, rideChannel, travelSpeed, planLandmarkLayout]);
 
 	useEffect(() =>
 	{
@@ -318,7 +366,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			mapStyle={mapStyle}
 			initialViewState={initialViewState}
 			onLoad={handleLoad}
-			onMove={applyLandmarkSizing}
+			onMove={handleMove}
 			onMoveEnd={updateCompactStops}
 			style={{ position: "absolute", inset: 0, isolation: "isolate" }}
 			attributionControl={{ compact: true }}
@@ -327,12 +375,31 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 			{isOverview && children}
 			{!isOverview && <ExploredAreaLayer id="day" areas={dayAreas} isVisible={currentStopIndex === dayOverviewStopIndex} />}
 			{!isOverview && <RouteLayer day={day} places={places} currentStopIndex={currentStopIndex} legPaths={legPaths} rideChannel={rideChannel} />}
-			{!isOverview && <LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} currentStopIndex={currentStopIndex} landmarkSizing={settledLandmarkSizing} />}
+			{!isOverview && <LabelBlockerLayer places={dayPlaces} compactStopIndexes={compactStopIndexes} currentStopIndex={currentStopIndex} landmarkSizing={settledLandmarkSizing} movedCoordinates={detachment.settledCoordinates} />}
+			{!isOverview && isLandmarkDetachEnabled && [...detachment.repeatedLandmarks.keys()].map((stopIndex) =>
+			{
+				const place = dayPlaces[stopIndex];
+				return (
+					// Its own marker, layered above ordinary stops but below every illustration, so a line stays visible across pins.
+					<Marker key={`leader-${day.dayNumber}-${place.id}`} longitude={place.coordinates.longitude} latitude={place.coordinates.latitude} anchor="center" style={{ zIndex: leaderLayer, pointerEvents: "none" }}>
+						<LandmarkLeader dayColor={day.color} elementRef={(element) => detachment.registerLeader(stopIndex, element)} />
+					</Marker>
+				);
+			})}
 			{!isOverview && dayPlaces.map((place, stopIndex) =>
 			{
 				const progress = getStopProgress(stopIndex, currentStopIndex);
 				const isCompact = compactStopIndexes.has(stopIndex);
 				const isLandmark = place.landmarkIconUrl !== undefined;
+				const repeatedStops = detachment.repeatedLandmarks.get(stopIndex);
+				// A landmark visited twice is one illustration; the visit that isn't drawn is folded into its badge.
+				if (isLandmarkDetachEnabled && isLandmark && !repeatedStops)
+				{
+					return null;
+				}
+				const badgeText = isLandmarkDetachEnabled && repeatedStops && repeatedStops.length > 1
+					? repeatedStops.map((repeatedStop) => repeatedStop + 1).join(", ")
+					: undefined;
 				const isDrawnAsLandmark = isLandmark && !isCompact;
 				const isDrawnAsMiniLandmark = isLandmark && isCompact;
 				const anchor = isDrawnAsLandmark ? "top" : isDrawnAsMiniLandmark ? "bottom" : "center";
@@ -345,16 +412,19 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 						longitude={place.coordinates.longitude}
 						latitude={place.coordinates.latitude}
 						anchor={anchor}
-						style={{ zIndex: progress === "current" ? 3 : isLandmark ? 2 : 1 }}
+						style={{ zIndex: getMarkerLayer(isLandmark, progress === "current") }}
 					>
-						<StopMarker
-							place={place}
-							stopNumber={stopIndex + 1}
-							progress={progress}
-							dayColor={day.color}
-							isCompact={isCompact}
-							onSelect={() => onSelectStop(stopIndex)}
-						/>
+						<div ref={isLandmark && isLandmarkDetachEnabled ? (element) => detachment.registerArt(stopIndex, element) : undefined}>
+							<StopMarker
+								place={place}
+								stopNumber={stopIndex + 1}
+								badgeText={badgeText}
+								progress={progress}
+								dayColor={day.color}
+								isCompact={isCompact}
+								onSelect={() => onSelectStop(stopIndex)}
+							/>
+						</div>
 					</Marker>
 				);
 			})}

@@ -203,6 +203,45 @@
 	color: #5b6577;
 }
 
+/* Ties a landmark that moved out of the way back to its true location. Its length, angle and opacity are set every frame. */
+.leader
+{
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.leaderLine
+{
+	position: absolute;
+	top: -1px;
+	left: 0;
+	width: var(--leader-length, 0);
+	height: 2px;
+	border-radius: 1px;
+	background: var(--day-color);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85);
+	transform: rotate(var(--leader-angle, 0rad));
+	transform-origin: 0 50%;
+}
+
+.leaderTarget
+{
+	position: absolute;
+	top: -7px;
+	left: -7px;
+	width: 14px;
+	height: 14px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	border: 2px solid var(--day-color);
+	background: radial-gradient(circle, var(--day-color) 0 2.5px, #ffffff 3px);
+	box-shadow: 0 1px 3px rgba(29, 36, 51, 0.35);
+}
+
 @media (prefers-reduced-motion: reduce)
 {
 	.pin,

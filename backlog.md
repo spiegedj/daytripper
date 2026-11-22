@@ -9,10 +9,12 @@ Open work for the travel map, grouped by kind. Finished items are in the git his
   - Ireland: the Kilkenny city card hides behind the Powerscourt & Glendalough day-trip label, and the Killarney card is partly covered.
 - **Wikipedia summaries keep stray punctuation where pronunciations were removed,** for example "The Cliffs of Moher (; Irish: …".
 - **Zoomed-out landmark pins can overlap.** Landmarks shrink to pins when they would cover another stop, but the pins can still overlap each other at low zoom.
+- **Repeated stops without an illustration stack their pins.** Bath Abbey (stops 3 and 6 on Oct 15) draws two pins on the same spot. Repeated landmarks with art already share one marker with a "3, 6" badge.
 
 ## Enhancements
 
 - **Publish the traveler's own photos for England & Scotland.** Ireland's are published. Run `scripts/processTripPhotos.mjs`, have the traveler review the selection (flag photos that show people), then commit `public/photos/<trip>/`, `photoSelection.json`, `tripPhotos.generated.json` and the trip's `tripPhotos` import together.
+- **Decide on the experimental detached landmarks.** Overlapping landmarks now slide apart with a line and target (`landmarkDetachment.ts`); `?landmarks=shrink` shows the old behavior. Keep it and delete the shrink path, or revert.
 - **Size landmark illustrations by their visible drawing.** Ireland's and England & Scotland's PNGs are 320 px squares whose drawings fill roughly 50–88% of the height (Stonehenge and Windsor are short), so each place needs a hand-set `landmarkIconScale`. The overlap box also counts the empty sky above short drawings, and the stop number floats there. Measuring each image's drawn bounds (or trimming the files) would let one size rule fit them all.
 - **Redraw the weakest landmark illustrations.** The Cliffs of Moher and Dún Aonghasa (Ireland).
 - **More Ireland landmark illustrations.** Guinness Storehouse, the Book of Kells (Long Room), Dublin Castle, Ross Castle, Muckross House, Charles Fort and St Fin Barre's have none yet.
