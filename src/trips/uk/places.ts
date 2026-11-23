@@ -74,7 +74,7 @@ const placeEntries: Record<string, IPlaceEntry> =
 	// Newcastle and Hadrian's Wall
 	maldronNewcastle: { name: "Maldron Hotel Newcastle", category: "hotel", latitude: 54.9716, longitude: -1.6163 },
 	hexhamStation: { name: "Hexham Station", category: "station", latitude: 54.9733, longitude: -2.0946 },
-	housesteadsFort: { name: "Housesteads Roman Fort", category: "landmark", latitude: 55.0132, longitude: -2.3302, landmarkIconScale: 1.45 },
+	housesteadsFort: { name: "Housesteads Roman Fort", category: "landmark", latitude: 55.0132, longitude: -2.3302, landmarkIconScale: 1.2 },
 	sycamoreGap: { name: "Sycamore Gap", category: "nature", latitude: 55.0037, longitude: -2.3740 },
 	steelRigg: { name: "Steel Rigg", category: "nature", latitude: 55.0018, longitude: -2.3864 },
 	theSill: { name: "The Sill", category: "museum", latitude: 54.9956, longitude: -2.3884 },
