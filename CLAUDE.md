@@ -17,6 +17,7 @@ The original brief and the coding style are in [TravelMapPlan.md](TravelMapPlan.
 - `node scripts/fetchPlaceDetails.mjs <trip> [--refresh | --summaries]`: fetches Wikipedia introductions and photos. `--summaries` re-fetches only the text and keeps the chosen photos.
 
 - `node scripts/processTripPhotos.mjs <trip> <photoFolder> [--utc-offset=1] [--per-stop=4] [--reselect] [--review=<file.html>]`: picks the traveler's own photos per stop (by visit time and GPS), writes 1600 px and 480 px WebP copies with all metadata removed to `public/photos/<trip>/`. The choice lives in `src/trips/<trip>/photoSelection.json`; edit it to add or drop photos, then re-run. Hotel photos are never published.
+- `node scripts/prepareLandmarkImage.mjs <input.png> src/trips/<trip>/landmarks/<placeId>.png`: turns an illustration on a plain white background into a landmark image (transparent background, soft edges kept, 320 px). The map sizes each drawing automatically from its transparency, so no scale needs setting.
 
 The fetch scripts write committed `*.generated.json` files, so the site never calls those services at runtime. The public Overpass server sometimes returns 502 or 504 errors; retry later.
 

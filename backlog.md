@@ -16,7 +16,7 @@ Open work for the travel map, grouped by kind. Finished items are in the git his
 - **Publish the traveler's own photos for England & Scotland.** Ireland's are published. Run `scripts/processTripPhotos.mjs`, have the traveler review the selection (flag photos that show people), then commit `public/photos/<trip>/`, `photoSelection.json`, `tripPhotos.generated.json` and the trip's `tripPhotos` import together.
 - **Shrink the 640 px landmark PNGs.** Japan's 22 now total about 17 MB, and the UK's revised ones are 0.7–0.9 MB each. Convert them to WebP (about a third of the size) and let each trip's `landmarks/index.ts` load `.webp`.
 - **Regenerate landmarks whose art runs off the image.** Tōdai-ji is the most visible (cherry trees and lawn), then Tokyo National Museum, Sensō-ji and Shinkyō Bridge: each ends in a straight edge. Shibuya Crossing fills its frame, so it is a rounded tile rather than a cutout, and shows real brand signs.
-- **More Ireland landmark illustrations.** Guinness Storehouse, the Book of Kells (Long Room), Dublin Castle, Ross Castle, Muckross House, Charles Fort and St Fin Barre's have none yet.
+- **More Ireland landmark illustrations.** Guinness Storehouse, the Book of Kells (Long Room), Dublin Castle and Muckross House have none yet.
 
 ## New content
 
