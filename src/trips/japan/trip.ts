@@ -11,6 +11,7 @@ export const japanTrip: ITrip =
 	name: "Japan",
 	tagline: "Upcoming",
 	cities: japanCities,
+	localMapLanguage: "ja",
 	places: japanPlaces,
 	placeDetails: placeDetails as Record<string, IPlaceDetails>,
 	// JSON imports widen tuples to number[][], so the generated file is trusted to match ILegSegment.

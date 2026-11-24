@@ -42,6 +42,8 @@ export interface IMapViewProps
 	onSelectStop: (stopIndex: number) => void;
 	/** How quickly the camera rides along a leg when stepping to the next stop. */
 	travelSpeed: TravelSpeed;
+	/** Also labels towns and cities in this language; see ITrip.localMapLanguage. */
+	localMapLanguage?: string;
 	/** Map content for the trip overview. */
 	children?: ReactNode;
 }
@@ -119,7 +121,7 @@ function getBoundsCenter(bounds: Bounds): ICoordinates
 }
 
 /** The stylized, pannable map showing one day's stops and route. The camera follows the current stop and glides between days. */
-export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding, isOverview, tripCoordinates, onSelectStop, travelSpeed, children }: IMapViewProps)
+export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding, isOverview, tripCoordinates, onSelectStop, travelSpeed, localMapLanguage, children }: IMapViewProps)
 {
 	const mapRef = useRef<MapRef | null>(null);
 	const previousPositionRef = useRef<{ dayNumber: number; stopIndex: number } | null>(null);
@@ -128,7 +130,7 @@ export function MapView({ day, places, legPaths, currentStopIndex, cameraPadding
 	const isFollowingLegRef = useRef(false);
 	const rideChannel = useMemo(() => createLegRideChannel(), []);
 	const previousPaddingRef = useRef(cameraPadding);
-	const mapStyle = useMemo(() => createMapStyle(pastelPalette), []);
+	const mapStyle = useMemo(() => createMapStyle(pastelPalette, localMapLanguage), [localMapLanguage]);
 	const dayPlaces = useMemo(() => day.stops.map((stop) => places[stop.placeId]), [day, places]);
 	// The day's position in the trip doesn't matter here; the areas are only drawn, never used to navigate.
 	const dayAreas = useMemo(() => findDayExploredAreas(day, 0, places), [day, places]);

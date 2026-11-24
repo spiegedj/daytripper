@@ -179,6 +179,7 @@ function TripView({ trip, onSelectTrip, isDetailOpen, onDetailOpenChange: setIsD
 				tripCoordinates={tripCoordinates}
 				onSelectStop={selectStopOnMap}
 				travelSpeed={travelSpeed}
+				localMapLanguage={trip.localMapLanguage}
 			>
 				<TripOverviewLayer
 					trip={trip}

@@ -8,7 +8,6 @@ const boldFont = ["Noto Sans Bold"];
 const italicFont = ["Noto Sans Italic"];
 
 const englishName: ExpressionSpecification = ["coalesce", ["get", "name:en"], ["get", "name_en"], ["get", "name"]];
-const japaneseName: ExpressionSpecification = ["coalesce", ["get", "name:ja"], ""];
 const notTunnel: ExpressionSpecification = ["!=", ["get", "brunnel"], "tunnel"];
 
 function roadClassFilter(classes: string[]): ExpressionSpecification
@@ -21,9 +20,15 @@ function zoomWidth(stops: [number, number][]): ExpressionSpecification
 	return ["interpolate", ["exponential", 1.5], ["zoom"], ...stops.flat()] as ExpressionSpecification;
 }
 
-/** Builds the stylized pastel MapLibre style on top of the free OpenFreeMap vector tiles. */
-export function createMapStyle(palette: IMapPalette): StyleSpecification
+/**
+ * Builds the stylized pastel MapLibre style on top of the free OpenFreeMap vector tiles. Town and city names are in
+ * English; with a local language (an OpenStreetMap code such as "ja") they also show the local name underneath.
+ */
+export function createMapStyle(palette: IMapPalette, localLanguage?: string): StyleSpecification
 {
+	const cityName: ExpressionSpecification = localLanguage
+		? ["format", englishName, {}, "\n", {}, ["coalesce", ["get", `name:${localLanguage}`], ""], { "font-scale": 0.8 }]
+		: englishName;
 	return {
 		version: 8,
 		glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
@@ -148,7 +153,7 @@ export function createMapStyle(palette: IMapPalette): StyleSpecification
 				filter: ["in", ["get", "class"], ["literal", ["city", "town"]]],
 				layout:
 				{
-					"text-field": ["format", englishName, {}, "\n", {}, japaneseName, { "font-scale": 0.8 }],
+					"text-field": cityName,
 					"text-font": boldFont,
 					"text-size": ["interpolate", ["linear"], ["zoom"], 5, 12, 10, 18],
 				},
