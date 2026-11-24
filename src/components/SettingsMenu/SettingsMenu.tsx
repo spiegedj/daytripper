@@ -10,12 +10,10 @@ export interface ISettingsMenuProps
 	onRouteStyleChange: (routeStyle: RouteStyle) => void;
 	travelSpeed: TravelSpeed;
 	onTravelSpeedChange: (travelSpeed: TravelSpeed) => void;
-	/** The camera only rides between stops within a day, so the trip overview leaves this setting out. */
-	isTravelSpeedShown: boolean;
 }
 
 /** A cog button that opens the map's display settings. */
-export function SettingsMenu({ routeStyle, onRouteStyleChange, travelSpeed, onTravelSpeedChange, isTravelSpeedShown }: ISettingsMenuProps)
+export function SettingsMenu({ routeStyle, onRouteStyleChange, travelSpeed, onTravelSpeedChange }: ISettingsMenuProps)
 {
 	const [isOpen, setIsOpen] = useState(false);
 	const menuRef = useRef<HTMLDivElement>(null);
@@ -73,12 +71,10 @@ export function SettingsMenu({ routeStyle, onRouteStyleChange, travelSpeed, onTr
 						<span className={styles.settingName}>Route style</span>
 						<RouteStyleSwitch routeStyle={routeStyle} onChange={onRouteStyleChange} />
 					</div>
-					{isTravelSpeedShown && (
-						<div className={styles.setting}>
-							<span className={styles.settingName}>Travel speed</span>
-							<TravelSpeedSwitch travelSpeed={travelSpeed} onChange={onTravelSpeedChange} />
-						</div>
-					)}
+					<div className={styles.setting}>
+						<span className={styles.settingName}>Travel speed</span>
+						<TravelSpeedSwitch travelSpeed={travelSpeed} onChange={onTravelSpeedChange} />
+					</div>
 				</div>
 			)}
 		</div>

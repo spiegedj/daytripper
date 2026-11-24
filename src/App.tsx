@@ -199,7 +199,6 @@ function TripView({ trip, onSelectTrip, isDetailOpen, onDetailOpenChange: setIsD
 						onRouteStyleChange={setRouteStyle}
 						travelSpeed={travelSpeed}
 						onTravelSpeedChange={setTravelSpeed}
-						isTravelSpeedShown={!isOverview}
 					/>
 				)}
 				dayIndex={dayIndex}
