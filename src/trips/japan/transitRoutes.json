@@ -259,23 +259,16 @@
 			"segments":
 			[
 				{ "mode": "shinkansen", "lineMatch": "山陽新幹線", "to": { "name": "Shin-Osaka Station", "latitude": 34.7334, "longitude": 135.5002 } },
-				{ "mode": "train", "lineMatch": "東海道本線|京都線", "to": { "name": "Osaka Station", "latitude": 34.7025, "longitude": 135.4959 } },
-				{ "mode": "train", "lineMatch": "大阪環状線", "to": { "name": "Osakajōkōen Station", "latitude": 34.6877, "longitude": 135.5343 } },
-				{ "mode": "walk" }
-			]
-		},
-		{
-			"dayNumber": 14, "arrivalStopIndex": 3,
-			"segments":
-			[
-				{ "mode": "bus" }
+				{ "mode": "shinkansen", "lineMatch": "東海道新幹線" }
 			]
 		},
 		{
 			"dayNumber": 15, "arrivalStopIndex": 1,
 			"segments":
 			[
-				{ "mode": "flight" }
+				{ "mode": "train", "lineMatch": "山手線", "to": { "name": "Shinagawa Station", "latitude": 35.6285, "longitude": 139.7387 } },
+				{ "mode": "train", "lineMatch": "京急", "to": { "name": "Haneda Airport Terminal 1·2 Station", "latitude": 35.5490, "longitude": 139.7845 } },
+				{ "mode": "walk" }
 			]
 		}
 	]

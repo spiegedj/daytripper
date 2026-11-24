@@ -107,9 +107,4 @@ export const japanPlaceTips: Record<string, string[]> =
 	[
 		"The ropeway saves most of the climb, but the last part to the summit is a 20–30 minute walk.",
 	],
-	osakaCastle:
-	[
-		"The current keep is a 1931 reconstruction with a museum inside and an elevator most of the way up.",
-		"The surrounding park is one of Osaka's best cherry blossom spots.",
-	],
 };

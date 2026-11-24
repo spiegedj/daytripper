@@ -101,9 +101,6 @@ const placeEntries: Record<string, IPlaceEntry> =
 	miyajimaGrandHotel: { name: "Miyajima Grand Hotel Arimoto", localName: "宮島グランドホテル有もと", category: "hotel", latitude: 34.2960, longitude: 132.3218 },
 	hiroshimaStation: { name: "Hiroshima Station", localName: "広島駅", category: "station", latitude: 34.3978, longitude: 132.4756 },
 
-	// Osaka
-	osakaCastle: { name: "Osaka Castle", localName: "大阪城", category: "landmark", latitude: 34.6873, longitude: 135.5262, landmarkIconScale: 1.5 },
-	itamiAirport: { name: "Osaka Itami Airport", localName: "大阪国際空港", category: "airport", latitude: 34.7855, longitude: 135.4382 },
 };
 
 export const japanPlaces: Record<string, IPlace> = Object.fromEntries(

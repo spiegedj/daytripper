@@ -27,6 +27,14 @@ Open work for the travel map, grouped by kind. Finished items are in the git his
   - Japan: Shinkyō Bridge, Kanmangafuchi, Sōsha shrine, Nintendo Tokyo, the hotels.
   - England & Scotland: The Sill. St Anthony's Chapel ruins currently borrow the Holyrood Park article.
 
+## To plan (Japan)
+
+Osaka was dropped: day 14 now rides the shinkansen from Hiroshima back to Tokyo, and the trip flies home from Tokyo.
+
+- **Tokyo hotel for the last night:** day 14 ends and day 15 starts at Tokyo Station until it is booked.
+- **Plans for the last two days in Tokyo.**
+- **Departure airport:** Haneda is assumed; switch day 15 to Narita if that is where the flight leaves.
+
 ## To confirm with the traveler (England & Scotland)
 
 These are best guesses in the data; correct them if memory or photos say otherwise.

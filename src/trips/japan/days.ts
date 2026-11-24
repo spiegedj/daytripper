@@ -216,27 +216,29 @@ export const japanDays: IDay[] =
 	},
 	{
 		dayNumber: 14,
-		title: "Osaka",
-		baseCity: "Osaka",
+		title: "Back to Tokyo",
+		baseCity: "Tokyo",
 		color: dayColors[13],
+		// The day ends at Tokyo Station until the Tokyo hotel is booked.
 		stops:
 		[
 			{ placeId: "miyajimaGrandHotel" },
 			{ placeId: "hiroshimaStation", arrival: guessed("ferry", 50, "JR Ferry + JR Sanyō Line") },
-			{ placeId: "osakaCastle", arrival: guessed("shinkansen", 100, "Sanyō Shinkansen") },
-			{ placeId: "itamiAirport", arrival: guessed("bus", 50, "Airport Limousine Bus") },
+			{ placeId: "tokyoStation", arrival: guessed("shinkansen", 240, "Nozomi (Sanyō + Tōkaidō Shinkansen)") },
 		],
-		openQuestions: ["No hotel booked for tonight yet."],
+		openQuestions: ["No hotel booked in Tokyo yet.", "No plans in Tokyo yet."],
 	},
 	{
 		dayNumber: 15,
 		title: "Departure",
 		baseCity: "Tokyo",
 		color: dayColors[14],
+		// Starts from Tokyo Station until the hotel is known.
 		stops:
 		[
-			{ placeId: "itamiAirport" },
-			{ placeId: "hanedaAirport", arrival: guessed("flight", 70, "Domestic flight") },
+			{ placeId: "tokyoStation" },
+			{ placeId: "hanedaAirport", arrival: guessed("train", 35, "JR Yamanote Line + Keikyū Airport Line") },
 		],
+		openQuestions: ["Flying out of Haneda is assumed; it could be Narita."],
 	},
 ];
