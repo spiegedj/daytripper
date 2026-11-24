@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { IPlace } from "../../itinerary/types";
 import { CategoryIcon, categoryColors } from "./CategoryIcon";
+import { getLandmarkArtVariables } from "./landmarkArt";
 import outlineStyles from "./landmarkOutline.module.css";
 import styles from "./Markers.module.css";
 
@@ -34,7 +35,7 @@ function buildMarkerStyle(place: IPlace, dayColor: string): CSSProperties
 	return {
 		"--category-color": categoryColors[place.category],
 		"--day-color": dayColor,
-		"--landmark-scale": place.landmarkIconScale ?? 1,
+		...getLandmarkArtVariables(place),
 	} as CSSProperties;
 }
 

@@ -8,6 +8,7 @@ import { findDayTrips, findExploredAreas, formatDayRanges } from "../../itinerar
 import type { ICity, ILegSegment, IPlace, ITrip } from "../../itinerary/types";
 import { ExploredAreaLayer } from "../ExploredAreaLayer/ExploredAreaLayer";
 import { getFitPadding } from "../MapView/fitPadding";
+import { getLandmarkArtScale } from "../Markers/landmarkArt";
 import type { ICameraPadding } from "../MapView/MapView";
 import { spreadLabels } from "./spreadLabels";
 import styles from "./TripOverviewLayer.module.css";
@@ -56,7 +57,7 @@ function findUncoveredLandmarkIds(map: MapLibreMap, landmarks: IAreaLandmark[]):
 	landmarks.forEach(({ place }) =>
 	{
 		const point = map.project([place.coordinates.longitude, place.coordinates.latitude]);
-		const size = areaLandmarkSize * (place.landmarkIconScale ?? 1);
+		const size = areaLandmarkSize * getLandmarkArtScale(place);
 		const box = { left: point.x - size / 2, top: point.y - size, right: point.x + size / 2, bottom: point.y };
 		const isCovering = keptBoxes.some((kept) =>
 			box.left < kept.right + areaLandmarkSpacing && box.right + areaLandmarkSpacing > kept.left
@@ -414,7 +415,7 @@ export function TripOverviewLayer({ trip, legPaths, cameraPadding, highlightedDa
 						<button
 							type="button"
 							className={styles.areaLandmark}
-							style={{ "--day-color": day.color, "--landmark-scale": place.landmarkIconScale ?? 1 } as CSSProperties}
+							style={{ "--day-color": day.color, "--landmark-scale": getLandmarkArtScale(place) } as CSSProperties}
 							onClick={() => onSelectDay(dayIndex)}
 							onMouseEnter={() => onHighlightDay(day.dayNumber)}
 							onMouseLeave={() => onHighlightDay(undefined)}

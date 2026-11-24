@@ -33,6 +33,15 @@ export interface ICoordinates
 }
 
 /** A place that can appear in any day's itinerary. Defined once per trip and referenced by id. */
+/** Where an illustration is drawn inside its image, as shares (0–1) of the image's width and height. */
+export interface ILandmarkBounds
+{
+	left: number;
+	top: number;
+	right: number;
+	bottom: number;
+}
+
 export interface IPlace
 {
 	id: string;
@@ -42,7 +51,9 @@ export interface IPlace
 	coordinates: ICoordinates;
 	/** URL of a custom illustration. When present the place renders as a freestanding landmark instead of a pin. */
 	landmarkIconUrl?: string;
-	/** Enlarges slender landmark illustrations so they carry the same visual weight as wide ones. Defaults to 1. */
+	/** Where the illustration is drawn inside its image, measured at build time. */
+	landmarkBounds?: ILandmarkBounds;
+	/** Nudges one illustration's size when the automatic size doesn't suit it. Defaults to 1. */
 	landmarkIconScale?: number;
 	/** Short, practical travel tips written for this trip. */
 	tips?: string[];

@@ -1,4 +1,5 @@
 import type { IPlace } from "../../itinerary/types";
+import { getLandmarkArtScale, getLandmarkBounds, landmarkArtSize } from "../Markers/landmarkArt";
 
 /** Screen-space box a marker occupies, relative to its map coordinate, in pixels. */
 export interface IMarkerFootprint
@@ -9,13 +10,8 @@ export interface IMarkerFootprint
 	height: number;
 }
 
-export const landmarkArtSize = 88;
-// The illustration's ground line sits this far above the bottom of its 88px box.
-export const landmarkGroundOffset = 82;
 // Landmarks that don't fit at full size shrink to this smaller illustration, so they stay recognizable.
-export const miniLandmarkSize = 46;
-// Space below the mini illustration's ground line, from the same 82-of-88 proportion as the full art.
-export const miniLandmarkGroundOffset = Math.round(miniLandmarkSize * (landmarkArtSize - landmarkGroundOffset) / landmarkArtSize);
+const miniLandmarkSize = 46;
 const pinSize = 34;
 const labelHeight = 36;
 // Room for the hover/current "lift" (translate and 1.12x scale) plus a little breathing space.
@@ -65,8 +61,9 @@ export function isLandmark(place: IPlace): boolean
 }
 
 /**
- * The box a stop's marker covers: the illustration plus its two-line label (when names show), the small illustration
- * when compact, or a pin. Landmarks follow the sizing; pins and labels keep their size at every zoom.
+ * The box a stop's marker covers: the drawn part of the illustration plus its two-line label (when names show), the
+ * small illustration when compact, or a pin. The empty canvas around a drawing doesn't count. Landmarks follow the
+ * sizing; pins and labels keep their size at every zoom.
  */
 export function getMarkerFootprint(place: IPlace, isCompact: boolean, sizing: ILandmarkSizing = fullLandmarkSizing): IMarkerFootprint
 {
@@ -74,17 +71,23 @@ export function getMarkerFootprint(place: IPlace, isCompact: boolean, sizing: IL
 	{
 		return { left: -pinSize / 2, top: -pinSize / 2, width: pinSize, height: pinSize };
 	}
-	const scale = (place.landmarkIconScale ?? 1) * sizing.sizeFactor;
+	const bounds = getLandmarkBounds(place);
+	// The image is a square of this many pixels, standing with its drawing's base on the place.
+	const imageSize = (isCompact ? miniLandmarkSize : landmarkArtSize) * getLandmarkArtScale(place) * sizing.sizeFactor;
+	const drawingLeft = (bounds.left - 0.5) * imageSize;
+	const drawingRight = (bounds.right - 0.5) * imageSize;
+	const drawingTop = (bounds.top - bounds.bottom) * imageSize;
+	const belowGround = (1 - bounds.bottom) * imageSize;
 	if (isCompact)
 	{
-		const size = miniLandmarkSize * scale;
-		return { left: -size / 2, top: -size + miniLandmarkGroundOffset * scale, width: size, height: size };
+		return { left: drawingLeft, top: drawingTop, width: drawingRight - drawingLeft, height: belowGround - drawingTop };
 	}
-	const artWidth = landmarkArtSize * scale;
-	const width = Math.max(artWidth, sizing.areLabelsShown ? estimateLabelWidth(place) : 0) + landmarkMargin * 2;
-	const top = -landmarkGroundOffset * scale - landmarkMargin;
-	const bottom = (landmarkArtSize - landmarkGroundOffset) * scale + (sizing.areLabelsShown ? labelHeight : 0) + landmarkMargin / 2;
-	return { left: -width / 2, top, width, height: bottom - top };
+	const halfLabelWidth = sizing.areLabelsShown ? estimateLabelWidth(place) / 2 : 0;
+	const left = Math.min(drawingLeft, -halfLabelWidth) - landmarkMargin;
+	const right = Math.max(drawingRight, halfLabelWidth) + landmarkMargin;
+	const top = drawingTop - landmarkMargin;
+	const bottom = belowGround + (sizing.areLabelsShown ? labelHeight : 0) + landmarkMargin / 2;
+	return { left, top, width: right - left, height: bottom - top };
 }
 
 interface IPlacedBox
