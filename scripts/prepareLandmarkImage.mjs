@@ -1,5 +1,5 @@
 // Turns an illustration drawn on a plain white background into a landmark image: the white around the drawing becomes
-// transparent (keeping soft watercolor edges), and the result is scaled to the 320 px square the map uses.
+// transparent (keeping soft watercolor edges), and the result is scaled to a 640 px square, sharp on high-density screens.
 // Run: node scripts/prepareLandmarkImage.mjs <input.png> <src/trips/<trip>/landmarks/<placeId>.png>
 import sharp from "sharp";
 
@@ -10,7 +10,7 @@ if (!inputPath || !outputPath)
 	process.exit(1);
 }
 
-const outputSize = 320;
+const outputSize = 640;
 // Near-white, nearly grey pixels connected to the image's edge are background.
 const backgroundLightness = 232;
 const backgroundGreyness = 16;
