@@ -1,0 +1,16 @@
+{
+	"_comment": "Real paths for travel legs, keyed by day number and the stop the leg arrives at. Walk and drive legs are routed automatically; waypoints below come from the Google Maps Timeline path. Run: node scripts/fetchTransitRoutes.mjs arizona",
+	"legs":
+	[
+		{
+			"dayNumber": 2, "arrivalStopIndex": 5,
+			"_comment": "Douglas back west through Bisbee and Sierra Vista to I-10, as the timeline path shows.",
+			"segments":
+			[
+				{ "mode": "car", "to": { "name": "Lavender Pit, Bisbee", "latitude": 31.4278, "longitude": -109.8931 } },
+				{ "mode": "car", "to": { "name": "Sierra Vista", "latitude": 31.4323, "longitude": -110.2419 } },
+				{ "mode": "car" }
+			]
+		}
+	]
+}
