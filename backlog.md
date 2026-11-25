@@ -22,6 +22,7 @@ Open work for the travel map, grouped by kind. Finished items are in the git his
 
 - **Hand-written summaries for places without a Wikipedia article.**
   - Japan: Shinkyō Bridge, Kanmangafuchi, Sōsha shrine, Nintendo Tokyo, the hotels.
+  - Arizona: Pima Point (Wikipedia has no article for it or Hermit Road).
   - England & Scotland: The Sill. St Anthony's Chapel ruins currently borrow the Holyrood Park article.
 
 ## To plan (Japan)
@@ -54,6 +55,11 @@ Built from the photos and the hotel and spending sheets (there was no Wanderlog 
 - **Apr 5:** drove back to the hotel after Kinsale, then walked to St Fin Barre's for the evening.
 - **Apr 1 at Trinity:** the Book of Kells (no photos) is placed between the Museum Building photo (16:18, shown as "Trinity College") and the Long Room (17:01–17:09), following the usual exhibition route.
 - **Apr 10:** the bike route on Inis Mór follows the photos, but the exact roads are routed. The ferry home has no photos after Doolin (16:45), so its path round Black Head and up Galway Bay is drawn through offshore points.
+
+## To confirm with the traveler (Arizona)
+
+- **May 23 at the Grand Canyon:** the timeline has no points between Pima Point (14:10) and the South Kaibab Trailhead (16:24); both legs are drawn as drives. Its Rim Trail walk and order (Visitor Center, Mather Point, Yavapai Point, Bright Angel) come from the path points.
+- **Red Rock Loop Road and Broken Arrow Trailhead (May 24)** were 4–5 minute stops, likely viewpoints; rename them if they were something specific.
 
 ## Maintenance
 

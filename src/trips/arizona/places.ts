@@ -26,8 +26,8 @@ const placeEntries: Record<string, IPlaceEntry> =
 	cactusForestLoop: { name: "Cactus Forest Loop Drive", category: "nature", latitude: 32.17412, longitude: -110.71817 },
 	guadalajaraFiesta: { name: "Guadalajara Fiesta Mexican Grill", category: "food", latitude: 32.23056, longitude: -110.84044 },
 	mcDonaldsOracleRoad: { name: "McDonald's, Oracle Road", category: "food", latitude: 32.28789, longitude: -110.97876 },
-	// The traveler's name for it. Pinned at the neighborhood, rounded to about a kilometer, not at the exact lot.
-	tucsonLot: { name: "Tucson Lot", category: "nature", latitude: 31.94, longitude: -110.79 },
+	// The traveler's name for it. Where the timeline's 25-minute walk (09:04–09:29) started, off South Azure Sky Trail.
+	tucsonLot: { name: "Tucson Lot", category: "nature", latitude: 31.93756, longitude: -110.79011 },
 
 	// Cochise County
 	// A short stop at the Circle K on Bruce Street, on the way through town.
@@ -39,8 +39,9 @@ const placeEntries: Record<string, IPlaceEntry> =
 
 	// Kingman and Mohave County
 	clarionKingman: { name: "Clarion Kingman", category: "hotel", latitude: 35.21558, longitude: -114.01310 },
-	// The traveler's name for it. Pinned at the area, rounded to about a kilometer, not at the exact lots.
-	yuccaLots: { name: "Yucca Lots", category: "nature", latitude: 34.80, longitude: -114.08 },
+	// The traveler's name for them. The two places the timeline path paused: 10:13–10:49 and 11:26–11:56.
+	yuccaLotsNorth: { name: "Yucca Lots (north)", category: "nature", latitude: 34.81225, longitude: -114.07824 },
+	yuccaLotsSouth: { name: "Yucca Lots (south)", category: "nature", latitude: 34.78054, longitude: -114.09768 },
 	wendysKingman: { name: "Wendy's, Kingman", category: "food", latitude: 35.19088, longitude: -114.06885 },
 	// Where the drive towards Grand Canyon West turned back, at the foot of the Grand Wash Cliffs (the timeline's furthest point).
 	diamondBarRoad: { name: "Diamond Bar Road, below the Grand Wash Cliffs", category: "nature", latitude: 35.95080, longitude: -113.84900 },

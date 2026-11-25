@@ -45,7 +45,7 @@ export const arizonaDays: IDay[] =
 		[
 			{ placeId: "comfortSuitesTucson" },
 			{ placeId: "mcDonaldsOracleRoad", arrival: traveled("car", drive), visit: at("07:57", "08:05") },
-			{ placeId: "tucsonLot", arrival: traveled("car", drive), visit: at("08:43", "10:00") },
+			{ placeId: "tucsonLot", arrival: traveled("car", drive), visit: at("09:04", "09:29") },
 			{ placeId: "tombstone", arrival: traveled("car", drive), visit: at("11:06", "11:18") },
 			{ placeId: "carlsJrDouglas", arrival: traveled("car", drive), visit: at("12:20", "12:54") },
 			// Back west through Bisbee (past the Lavender Pit) and Sierra Vista to I-10, without stopping.
@@ -62,7 +62,8 @@ export const arizonaDays: IDay[] =
 		stops:
 		[
 			{ placeId: "clarionKingman" },
-			{ placeId: "yuccaLots", arrival: traveled("car", drive), visit: at("10:00", "12:25") },
+			{ placeId: "yuccaLotsNorth", arrival: traveled("car", drive), visit: at("10:13", "10:49") },
+			{ placeId: "yuccaLotsSouth", arrival: traveled("car", drive), visit: at("11:26", "11:56") },
 			{ placeId: "wendysKingman", arrival: traveled("car", drive), visit: at("12:45", "13:22") },
 			// Towards Grand Canyon West, turning back before the climb up the cliffs.
 			{ placeId: "diamondBarRoad", arrival: traveled("car", drive), visit: at("14:47", "14:55") },
