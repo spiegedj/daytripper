@@ -1,6 +1,7 @@
 import { AnimatePresence } from "motion/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ItineraryPanel } from "./components/ItineraryPanel/ItineraryPanel";
+import { ItineraryPanel, type IResizeLimits } from "./components/ItineraryPanel/ItineraryPanel";
+import { useDetailsPanelWidth } from "./components/ItineraryPanel/useDetailsPanelWidth";
 import { MapView, type ICameraPadding } from "./components/MapView/MapView";
 import { PhotoViewer, type IViewerPhoto } from "./components/PhotoViewer/PhotoViewer";
 import { hasPlaceDetails, PlaceDetails, type OpenPhotoHandler } from "./components/PlaceDetails/PlaceDetails";
@@ -20,7 +21,8 @@ const wideScreenPadding: ICameraPadding = { top: 90, bottom: 140, left: 480, rig
 const panelEdge = 16;
 const panelGap = 12;
 const itineraryWidth = 420;
-// While details are open the itinerary widens to this, leaving the map at least minimumMapWidth pixels.
+// While details are open the itinerary widens to this by default, leaving the map at least minimumMapWidth pixels.
+// The viewer can drag it anywhere between itineraryWidth and that limit; see useDetailsPanelWidth.
 const detailsItineraryWidth = 720;
 const minimumMapWidth = 300;
 // Room left of the photos inside the widened itinerary: the day rail, the timeline's rail and the card's margins.
@@ -124,8 +126,30 @@ function TripView({ trip, onSelectTrip, isDetailOpen, onDetailOpenChange: setIsD
 	// While details are switched on, the day's itinerary stays at its widest, even on the day overview and at stops with
 	// nothing to unfold, so it doesn't change width as you step through the day.
 	const isItineraryWidened = isDetailOpen && !isOverview && !isNarrowScreen;
-	const widenedItineraryWidth = Math.min(detailsItineraryWidth, windowWidth - panelEdge - minimumMapWidth);
+	const [savedWidenedWidth, setSavedWidenedWidth] = useDetailsPanelWidth(detailsItineraryWidth);
+	// The width under the pointer while the viewer drags the itinerary's edge; saved once they let go.
+	const [draggedWidenedWidth, setDraggedWidenedWidth] = useState<number | undefined>();
+	const resizeLimits = useMemo<IResizeLimits>(() => ({
+		minimum: itineraryWidth,
+		maximum: Math.max(itineraryWidth, windowWidth - panelEdge - minimumMapWidth),
+	}), [windowWidth]);
+	const clampWidenedWidth = (width: number) => Math.min(Math.max(width, resizeLimits.minimum), resizeLimits.maximum);
+	const widenedItineraryWidth = clampWidenedWidth(draggedWidenedWidth ?? savedWidenedWidth);
+	const resizeItinerary = useCallback((width: number, isFinal: boolean) =>
+	{
+		if (isFinal)
+		{
+			setSavedWidenedWidth(width);
+			setDraggedWidenedWidth(undefined);
+		}
+		else
+		{
+			setDraggedWidenedWidth(width);
+		}
+	}, [setSavedWidenedWidth]);
 	const mapLeftEdge = panelEdge + (isItineraryWidened ? widenedItineraryWidth : itineraryWidth) + panelGap;
+	// The camera refits once the drag ends rather than chasing every pointer move.
+	const cameraMapLeftEdge = panelEdge + (isItineraryWidened ? clampWidenedWidth(savedWidenedWidth) : itineraryWidth) + panelGap;
 	const currentStopPhotos = trip.tripPhotos?.[`${day.dayNumber}:${detailStopIndex}`];
 	const currentDetails = trip.placeDetails[currentPlace.id];
 	// Null when the stop has nothing to unfold, so the timeline shows no empty box for it; its card still has the links.
@@ -165,7 +189,7 @@ function TripView({ trip, onSelectTrip, isDetailOpen, onDetailOpenChange: setIsD
 	// On phones the bottom sheet covers the lower part of the map, so the camera keeps stops above it.
 	const cameraPadding = isNarrowScreen
 		? { ...narrowScreenPadding, top: isOverview ? 40 : narrowScreenPadding.top, bottom: Math.round(window.innerHeight * 0.46) + (isOverview ? 16 : 90) }
-		: { ...wideScreenPadding, left: Math.max(wideScreenPadding.left, mapLeftEdge + 40) };
+		: { ...wideScreenPadding, left: Math.max(wideScreenPadding.left, cameraMapLeftEdge + 40) };
 
 	return (
 		<div className={styles.app}>
@@ -212,6 +236,8 @@ function TripView({ trip, onSelectTrip, isDetailOpen, onDetailOpenChange: setIsD
 				onShowOverview={showOverview}
 				onHighlightDay={setHighlightedDayNumber}
 				widePanelWidth={isItineraryWidened ? widenedItineraryWidth : undefined}
+				resizeLimits={resizeLimits}
+				onResize={resizeItinerary}
 				currentStopDetails={isDayOverview ? undefined : currentStopDetails}
 				isCurrentStopDetailsOpen={isShowingStopDetails}
 				onCloseDetails={closeDetails}

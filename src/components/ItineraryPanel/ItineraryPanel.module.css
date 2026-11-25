@@ -15,6 +15,69 @@
 	transition: width 260ms ease;
 }
 
+/* The panel follows the pointer while it is dragged wider or narrower. */
+.panel.resizing
+{
+	transition: none;
+}
+
+/* Fills the 12 px gap right of the wide panel; the grip in its middle lights up on hover. */
+.resizeHandle
+{
+	position: absolute;
+	z-index: 2;
+	top: 16px;
+	bottom: 16px;
+	left: calc(16px + var(--panel-width));
+	width: 12px;
+	display: grid;
+	place-items: center;
+	cursor: col-resize;
+	touch-action: none;
+	transition: left 260ms ease;
+}
+
+.resizeHandle::before
+{
+	content: "";
+	width: 5px;
+	height: 44px;
+	border-radius: 3px;
+	background: #adb5bd;
+	box-shadow: 0 0 0 1.5px #ffffff, 0 1px 4px rgba(29, 36, 51, 0.2);
+	transition: background 150ms ease, height 150ms ease;
+}
+
+.resizeHandle:hover::before,
+.resizeHandle.resizing::before
+{
+	height: 64px;
+	background: #868e96;
+}
+
+.resizeHandle:focus-visible
+{
+	outline: none;
+}
+
+.resizeHandle:focus-visible::before
+{
+	background: #1d2433;
+	box-shadow: 0 0 0 1.5px #ffffff, 0 0 0 4px #1d2433;
+}
+
+.resizeHandle.resizing
+{
+	transition: none;
+}
+
+/* No text gets selected while dragging. */
+.resizing,
+.resizing *
+{
+	user-select: none;
+}
+
 .header
 {
 	display: grid;
