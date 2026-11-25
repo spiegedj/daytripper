@@ -137,7 +137,7 @@ export function DayTimeline({ day, places, currentStopIndex, onSelectStop, onOpe
 				const actionsClass = !hasActions ? "" : !isShowingDetails ? styles.withActions : wikipediaUrl ? styles.withLinks : styles.withMapLink;
 
 				return (
-					<li key={`${stop.placeId}-${stopIndex}`} ref={isCurrent ? currentRowRef : undefined} className={styles.item}>
+					<li key={`${stop.placeId}-${stopIndex}`} ref={isCurrent ? currentRowRef : undefined} className={`${styles.item} ${stopIndex === day.stops.length - 1 ? styles.lastStop : ""}`}>
 						{stop.arrival && (
 							<div className={`${styles.leg} ${stopIndex <= currentStopIndex ? styles.legTraveled : ""}`}>
 								<span className={styles.legIcon}><TravelModeIcon mode={stop.arrival.mode} size={14} /></span>

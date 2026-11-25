@@ -11,17 +11,31 @@
 	position: relative;
 }
 
-/* The vertical rail joining the stop markers. */
-.item:not(:last-child)::before
+/* The vertical rail joining the stop markers, centered on the 40px marker column. On the last stop it runs
+   through the leg and stops at the marker's center. */
+.item:not(.lastStop)::before,
+.lastStop .leg::before,
+.lastStop .stopRow::before
 {
+	--rail-width: 3px;
 	content: "";
 	position: absolute;
-	left: 31px;
+	left: calc(20px - var(--rail-width) / 2);
 	top: 0;
 	bottom: 0;
-	width: 3px;
-	border-radius: 2px;
+	width: var(--rail-width);
 	background: #e6ebea;
+}
+
+.lastStop .stopRow::before
+{
+	bottom: 50%;
+}
+
+/* The day overview row is just its button, so the rail starts at its marker's center. */
+.item:first-child::before
+{
+	top: 50%;
 }
 
 .leg
